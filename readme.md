@@ -51,19 +51,17 @@ python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_t
 
 | 模型名         | 难度 | 论文                                                         | 开源代码                                                     |
 | -------------- | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| STRNN          | 中   | [Predicting the Next Location: A Recurrent Model with Spatial and Temporal Contexts](https://www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/viewPDFInterstitial/11900/11583) | https://github.com/yongqyu/STRNN                             |
-| LSTPM          | 中   | [Where to Go Next: Modeling Long- and Short-Term User Preferences for Point-of-Interest Recommendation](https://ojs.aaai.org//index.php/AAAI/article/view/5353) | https://github.com/NLPWM-WHU/LSTPM                           |
-| GeoSAN         | 难   | [Geography-Aware Sequential Location Recommendation](https://dl.acm.org/doi/pdf/10.1145/3394486.3403252) | https://github.com/libertyeagle/GeoSAN                       |
-| Flashback(RNN) | 中   | [Location Prediction over Sparse User Mobility Traces Using RNNs: Flashback in Hidden States](https://www.ijcai.org/Proceedings/2020/0302.pdf) | https://github.com/eXascaleInfolab/Flashback_code            |
-| ATST-LSTM      | 难   | [An Attention-based Spatiotemporal LSTM Network for Next POI Recommendation](https://ieeexplore.ieee.org/abstract/document/8723186) | https://github.com/drhuangliwei/An-Attention-based-Spatiotemporal-LSTM-Network-for-Next-POI-Recommendation |
-| STAN           | 中   | [STAN: Spatio-Temporal Attention Network for Next Location Recommendation](https://arxiv.org/pdf/2102.04095v1.pdf) | https://github.com/yingtaoluo/Spatial-Temporal-Attention-Network-for-POI-Recommendation |
-| STF-RNN        | 易   | [STF-RNN: Space Time Features-based Recurrent Neural Network for Predicting People Next Location](http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/IEEE_SSCI_2016/pdf/SSCI16_paper_377.pdf) | https://github.com/mhjabreel/STF-RNN                         |
-| CARA           | 难   | [A Contextual Attention Recurrent Architecture for Context-Aware Venue Recommendation](https://dl.acm.org/doi/10.1145/3209978.3210042) | https://github.com/feay1234/CARA                             |
-| Geo-Teaser     | 难   | [Geo-Teaser: Geo-Temporal Sequential Embedding Rank for Point-of-interest Recommendation](https://dl.acm.org/doi/10.1145/3041021.3054138) | https://github.com/henryslzhao/geo_teaser                    |
+| STRNN          | 中   | [Predicting the Next Location: A Recurrent Model with Spatial and Temporal Contexts](https://www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/viewPDFInterstitial/11900/11583) | [pytorch](https://github.com/yongqyu/STRNN)                  |
+| LSTPM          | 中   | [Where to Go Next: Modeling Long- and Short-Term User Preferences for Point-of-Interest Recommendation](https://ojs.aaai.org//index.php/AAAI/article/view/5353) | [pytorch](https://github.com/NLPWM-WHU/LSTPM)                |
+| GeoSAN         | 难   | [Geography-Aware Sequential Location Recommendation](https://dl.acm.org/doi/pdf/10.1145/3394486.3403252) | [pytorch](https://github.com/libertyeagle/GeoSAN)            |
+| Flashback(RNN) | 中   | [Location Prediction over Sparse User Mobility Traces Using RNNs: Flashback in Hidden States](https://www.ijcai.org/Proceedings/2020/0302.pdf) | [pytorch](https://github.com/eXascaleInfolab/Flashback_code) |
+| ATST-LSTM      | 难   | [An Attention-based Spatiotemporal LSTM Network for Next POI Recommendation](https://ieeexplore.ieee.org/abstract/document/8723186) | [tensorflow](https://github.com/drhuangliwei/An-Attention-based-Spatiotemporal-LSTM-Network-for-Next-POI-Recommendation) |
+| STAN           | 中   | [STAN: Spatio-Temporal Attention Network for Next Location Recommendation](https://arxiv.org/pdf/2102.04095v1.pdf) | [pytorch](https://github.com/yingtaoluo/Spatial-Temporal-Attention-Network-for-POI-Recommendation) |
+| STF-RNN        | 易   | [STF-RNN: Space Time Features-based Recurrent Neural Network for Predicting People Next Location](http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/IEEE_SSCI_2016/pdf/SSCI16_paper_377.pdf) | [keras](https://github.com/mhjabreel/STF-RNN)                |
+| CARA           | 难   | [A Contextual Attention Recurrent Architecture for Context-Aware Venue Recommendation](https://dl.acm.org/doi/10.1145/3209978.3210042) | [keras](https://github.com/feay1234/CARA)                    |
 
 ## 数据集
 
-POI 轨迹下一跳预测使用 foursqaure-tky 数据集[下载链接](https://bhpan.buaa.edu.cn:443/link/55CCED27725C7FDD6EEEE8BCEEDCF63F
-有效期限：2021-04-12 23:59)。
+POI 轨迹下一跳预测使用 foursqaure-tky 数据集[下载链接](https://bhpan.buaa.edu.cn:443/link/55CCED27725C7FDD6EEEE8BCEEDCF63F)。
 
 请将下载好的数据集存放于 `code/raw_data` 文件夹下。

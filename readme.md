@@ -4,6 +4,15 @@
 
 具体来说，课程组预先选定一批交通开源模型——涉及交通流量/速度/需求量预测、轨迹下一跳预测。并且，课程组前期已经为前述任务准备好了数据集并搭建了数据预处理、评估模块。因此，各小组的主要工作是将模型开源代码改写为符合框架抽象接口约束的模型类，虽然课程组已经实现了大部分通用的数据接口，但是**部分模型可能需要对数据接口进行一定的修改**。
 
+#### 作业分数构成
+
+中作业占总成绩的 10%（10分），由以下四部分组成：
+
+* 复现模型完成度（4分）：要求复现的模型能够在框架中运行。
+* 技术报告（4分）：具体要求参见技术报告模板。
+* 复现性能（2分）：考量复现模型的性能。
+* 难易度加分（附加分）：考虑到部分难度较高的模型，复现难度较高，因此完成中等难度模型复现工作（即能在框架中运行）的小组可获得 1 分额外加分，完成困难模型复现工作的小组获得 2 分额外加分。（注：若加分后总分超过 10 分，则按 10 分计算）。
+
 ## 框架介绍
 
 ![](https://aptx1231.github.io/Bigscity-TrafficDL-Docs/_images/pipeline.png)
@@ -61,10 +70,6 @@ python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_t
 | 6    | STAN           | 中   | [STAN: Spatio-Temporal Attention Network for Next Location Recommendation](https://arxiv.org/pdf/2102.04095v1.pdf) | [pytorch](https://github.com/yingtaoluo/Spatial-Temporal-Attention-Network-for-POI-Recommendation) |
 | 7    | STF-RNN        | 易   | [STF-RNN: Space Time Features-based Recurrent Neural Network for Predicting People Next Location](http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/IEEE_SSCI_2016/pdf/SSCI16_paper_377.pdf) | [keras](https://github.com/mhjabreel/STF-RNN)                |
 | 8    | CARA           | 难   | [A Contextual Attention Recurrent Architecture for Context-Aware Venue Recommendation](https://dl.acm.org/doi/10.1145/3209978.3210042) | [keras](https://github.com/feay1234/CARA)                    |
-
-补充说明：
-
-* STRNN 与 LSTPM 两个模型已复现在框架中但复现性能极差，选择这两个模型的小组的主要工作任务将是优化模型的性能。
 
 #### 交通状态预测（流量、速度、需求量）
 

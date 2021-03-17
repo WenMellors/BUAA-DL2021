@@ -1,0 +1,4 @@
+{
+  "metrics": ["Recall"],
+  "topk": 1
+}

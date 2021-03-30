@@ -1,43 +1,42 @@
 import os
 import numpy as np
-
 from trafficdl.data.dataset import TrafficStateCPTDataset, TrafficStateGridDataset
-from trafficdl.utils.dataset import timestamp2array, timestamp2vec_origin
+from trafficdl.utils.dataset import timestamp2vec_origin
 
 
-class ACFMDataset(TrafficStateGridDataset, TrafficStateCPTDataset):
+class STResNetDataset(TrafficStateGridDataset, TrafficStateCPTDataset):
+    """
+    STResNet外部数据源代码只用了ext_y, 没有用到ext_x!
+    """
 
     def __init__(self, config):
         super().__init__(config)
-        self.external_time = self.config.get('external_time', True)
         self.parameters_str = \
             self.parameters_str + '_' + str(self.len_closeness) \
             + '_' + str(self.len_period) + '_' + str(self.len_trend) \
-            + '_' + str(self.pad_forward_period) + '_' + str(self.pad_back_period) \
-            + '_' + str(self.pad_forward_trend) + '_' + str(self.pad_back_trend) \
             + '_' + str(self.interval_period) + '_' + str(self.interval_trend)
         self.cache_file_name = os.path.join('./trafficdl/cache/dataset_cache/',
                                             'grid_based_{}.npz'.format(self.parameters_str))
+        self.pad_forward_period = 0
+        self.pad_back_period = 0
+        self.pad_forward_trend = 0
+        self.pad_back_trend = 0
 
-    def _get_external_array(self, timestamp_list, ext_data=None, previous_ext=False, ext_time=True):
+    def _get_external_array(self, timestamp_list, ext_data=None, previous_ext=False):
         """
         根据时间戳数组，获取对应时间的外部特征
 
         Args:
-            timestamp_list(list): 时间戳序列
+            timestamp_list: 时间戳序列
             ext_data: 外部数据
             previous_ext: 是否是用过去时间段的外部数据，因为对于预测的时间段Y，
                             一般没有真实的外部数据，所以用前一个时刻的数据，**多步预测则用提前多步的数据**
-            ext_time: 是否加载时间数据，False则只考虑星期，True则加上小时的信息
 
         Returns:
-            numpy.ndarray: External data shape is (len(timestamp_list), ext_dim)
+            np.ndarray: External data shape is (len(timestamp_list), ext_dim)
         """
         data = []
-        if ext_time:
-            vecs_timestamp = timestamp2array(timestamp_list, self.points_per_hour * 24)  # len(timestamp_list) * dim
-        else:
-            vecs_timestamp = timestamp2vec_origin(timestamp_list)  # len(timestamp_list) * dim
+        vecs_timestamp = timestamp2vec_origin(timestamp_list)  # len(timestamp_list) * dim
         data.append(vecs_timestamp)
         # 外部数据集
         if ext_data is not None:
@@ -63,8 +62,8 @@ class ACFMDataset(TrafficStateGridDataset, TrafficStateCPTDataset):
 
         Returns:
             tuple: tuple contains:
-                ext_x(numpy.ndarray): 对应时间的外部数据, shape: (num_samples, T_c+T_p+T_t, ext_dim),
-                ext_y(numpy.ndarray): 对应时间的外部数据, shape: (num_samples, ext_dim)
+                ext_x(np.ndarray): 对应时间的外部数据, shape: (num_samples, T_c+T_p+T_t, ext_dim),
+                ext_y(np.ndarray): 对应时间的外部数据, shape: (num_samples, ext_dim)
         """
         # 加载外部数据
         if self.load_external and os.path.exists(self.data_path + self.ext_file + '.ext'):  # 外部数据集
@@ -73,10 +72,10 @@ class ACFMDataset(TrafficStateGridDataset, TrafficStateCPTDataset):
             ext_data = None
         ext_x = []
         for ts in ts_x:
-            ext_x.append(self._get_external_array(ts, ext_data, ext_time=self.external_time))
+            ext_x.append(self._get_external_array(ts, ext_data))
         ext_x = np.asarray(ext_x)
         # ext_x: (num_samples_plus, T_c+T_p+T_t, ext_dim)
-        ext_y = self._get_external_array(ts_y, ext_data, previous_ext=True, ext_time=self.external_time)
+        ext_y = self._get_external_array(ts_y, ext_data, previous_ext=True)
         # ext_y: (num_samples_plus, ext_dim)
         return ext_x, ext_y
 

@@ -7,7 +7,7 @@ class ConfigParser(object):
     """
     use to parse the user defined parameters and use these to modify the
     pipeline's parameter setting.
-    值得注意的是，目前各阶段的参数是放置于同一个 dict 中的，因此需要编程时保证命名空间不冲突
+    值得注意的是，目前各阶段的参数是放置于同一个 dict 中的，因此需要编程时保证命名空间不冲突。
     config 优先级：命令行 > config file > default config
     """
 
@@ -71,8 +71,9 @@ class ConfigParser(object):
             model = self.config['model']
             # 加载 dataset、executor、evaluator 的模块
             if 'dataset_class' not in self.config:
-                self.config['dataset_class'] = \
-                    task_config[model]['dataset_class']
+                self.config['dataset_class'] = task_config[model]['dataset_class']
+            if self.config['task'] == 'traj_loc_pred' and 'traj_encoder' not in self.config:
+                self.config['traj_encoder'] = task_config[model]['traj_encoder']
             if 'executor' not in self.config:
                 self.config['executor'] = task_config[model]['executor']
             if 'evaluator' not in self.config:
@@ -88,6 +89,8 @@ class ConfigParser(object):
         default_file_list = []
         # model
         default_file_list.append('model/{}.json'.format(self.config['model']))
+        # dataset
+        default_file_list.append('../../raw_data/{}/config.json'.format(self.config['dataset']))
         default_file_list.append('data/{}.json'.format(self.config['dataset_class']))
         # executor
         default_file_list.append('executor/{}.json'.format(self.config['executor']))
@@ -105,7 +108,7 @@ class ConfigParser(object):
         use_gpu = self.config.get('gpu', True)
         gpu_id = self.config.get('gpu_id', 0)
         if use_gpu:
-            os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu_id)
+            torch.cuda.set_device(gpu_id)
         self.config['device'] = torch.device(
             "cuda" if torch.cuda.is_available() and use_gpu else "cpu")
 

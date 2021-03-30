@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import numpy as np
 import datetime
-import json
 from logging import getLogger
 
 from trafficdl.data.dataset import AbstractDataset
@@ -12,7 +11,7 @@ from trafficdl.utils import StandardScaler, NormalScaler, NoneScaler, MinMax01Sc
 
 class TrafficStateDataset(AbstractDataset):
     """
-    交通状态预测数据集的基类
+    交通状态预测数据集的基类。
     默认使用`input_window`的数据预测`output_window`对应的数据，即一个X，一个y。
     一般将外部数据融合到X中共同进行预测，因此数据为[X, y]。
     默认使用`train_rate`和`eval_rate`在样本数量(num_samples)维度上直接切分训练集、测试集、验证集。
@@ -30,13 +29,10 @@ class TrafficStateDataset(AbstractDataset):
         self.scaler_type = self.config.get('scaler', 'none')
         self.load_external = self.config.get('load_external', False)
         self.normal_external = self.config.get('normal_external', False)
-        self.input_window = self.config.get('input_window', 12)
-        self.output_window = self.config.get('output_window', 12)
-        self.output_dim = self.config.get('output_dim', 0)
         self.add_time_in_day = self.config.get('add_time_in_day', False)
         self.add_day_in_week = self.config.get('add_day_in_week', False)
-        self.calculate_weight = self.config.get('calculate_weight', False)
-        self.adj_epsilon = self.config.get('adj_epsilon', 0.1)
+        self.input_window = self.config.get('input_window', 12)
+        self.output_window = self.config.get('output_window', 12)
         self.parameters_str = \
             str(self.dataset) + '_' + str(self.input_window) + '_' + str(self.output_window) + '_' \
             + str(self.train_rate) + '_' + str(self.eval_rate) + '_' + str(self.scaler_type) + '_' \
@@ -51,14 +47,18 @@ class TrafficStateDataset(AbstractDataset):
             raise ValueError("Dataset {} not exist! Please ensure the path "
                              "'./raw_data/{}/' exist!".format(self.dataset, self.dataset))
         # 加载数据集的config.json文件
-        self.data_config = json.load(open(self.data_path + 'config.json', 'r'))
-        self.weight_col = self.data_config.get('info', {}).get('weight_col', '')
-        self.data_col = self.data_config.get('info', {}).get('data_col', '')
-        self.ext_col = self.data_config.get('info', {}).get('ext_col', '')
-        self.geo_file = self.data_config.get('info', {}).get('geo_file', self.dataset)
-        self.rel_file = self.data_config.get('info', {}).get('rel_file', self.dataset)
-        self.data_files = self.data_config.get('info', {}).get('data_files', self.dataset)
-        self.ext_file = self.data_config.get('info', {}).get('ext_file', self.dataset)
+        self.weight_col = self.config.get('info', {}).get('weight_col', '')
+        self.data_col = self.config.get('info', {}).get('data_col', '')
+        self.ext_col = self.config.get('info', {}).get('ext_col', '')
+        self.geo_file = self.config.get('info', {}).get('geo_file', self.dataset)
+        self.rel_file = self.config.get('info', {}).get('rel_file', self.dataset)
+        self.data_files = self.config.get('info', {}).get('data_files', self.dataset)
+        self.ext_file = self.config.get('info', {}).get('ext_file', self.dataset)
+        self.output_dim = self.config.get('info', {}).get('output_dim', 1)
+        self.init_weight_inf_or_zero = self.config.get('info', {}).get('init_weight_inf_or_zero', 'inf')
+        self.set_weight_link_or_dist = self.config.get('info', {}).get('set_weight_link_or_dist', 'dist')
+        self.calculate_weight_adj = self.config.get('info', {}).get('calculate_weight_adj', False)
+        self.weight_adj_epsilon = self.config.get('info', {}).get('weight_adj_epsilon', 0.1)
         # 初始化
         self.data = None
         self.feature_name = {'X': 'float', 'y': 'float'}  # 此类的输入只有X和y
@@ -79,7 +79,6 @@ class TrafficStateDataset(AbstractDataset):
     def _load_geo(self):
         """
         加载.geo文件，格式[geo_id, type, coordinates, properties(若干列)]
-        :return:
         """
         geofile = pd.read_csv(self.data_path + self.geo_file + '.geo')
         self.geo_ids = list(geofile['geo_id'])
@@ -92,7 +91,6 @@ class TrafficStateDataset(AbstractDataset):
     def _load_grid_geo(self):
         """
         加载.geo文件，格式[geo_id, type, coordinates, row_id, column_id, properties(若干列)]
-        :return:
         """
         geofile = pd.read_csv(self.data_path + self.geo_file + '.geo')
         self.geo_ids = list(geofile['geo_id'])
@@ -110,12 +108,14 @@ class TrafficStateDataset(AbstractDataset):
 
     def _load_rel(self):
         """
-        加载.rel文件，格式[rel_id, type, origin_id, destination_id, properties(若干列)]
-        生成N*N的矩阵，其中权重所在的列名用全局参数`weight_col`来指定
-        .rel文件中缺少的位置的权重填充为np.inf
-        全局参数`calculate_weight`表示是否需要对加载的.rel的默认权重进行进一步计算，
-        如果需要，则调用函数_calculate_adjacency_matrix()进行计算
-        :return: N*N的邻接矩阵 self.adj_mx
+        加载.rel文件，格式[rel_id, type, origin_id, destination_id, properties(若干列)],
+        生成N*N的矩阵，其中权重所在的列名用全局参数`weight_col`来指定,
+        .rel文件中缺少的位置的权重填充为np.inf,
+        全局参数`calculate_weight_adj`表示是否需要对加载的.rel的默认权重进行进一步计算,
+        如果需要，则调用函数self._calculate_adjacency_matrix()进行计算
+
+        Returns:
+            np.ndarray: self.adj_mx, N*N的邻接矩阵
         """
         relfile = pd.read_csv(self.data_path + self.rel_file + '.rel')
         if self.weight_col != '':  # 根据weight_col确认权重列
@@ -134,20 +134,26 @@ class TrafficStateDataset(AbstractDataset):
                     'origin_id', 'destination_id', self.weight_col]]
         # 把数据转换成矩阵的形式
         self.adj_mx = np.zeros((len(self.geo_ids), len(self.geo_ids)), dtype=np.float32)
-        self.adj_mx[:] = np.inf
+        if self.init_weight_inf_or_zero.lower() == 'inf':
+            self.adj_mx[:] = np.inf
         for row in self.distance_df.values:
             if row[0] not in self.geo_to_ind or row[1] not in self.geo_to_ind:
                 continue
-            self.adj_mx[self.geo_to_ind[row[0]], self.geo_to_ind[row[1]]] = row[2]
+            if self.set_weight_link_or_dist.lower() == 'dist':  # 保留原始的距离数值
+                self.adj_mx[self.geo_to_ind[row[0]], self.geo_to_ind[row[1]]] = row[2]
+            else:  # self.set_weight_link_or_dist.lower()=='link' 只保留01的邻接性
+                self.adj_mx[self.geo_to_ind[row[0]], self.geo_to_ind[row[1]]] = 1
         self._logger.info("Loaded file " + self.rel_file + '.rel, shape=' + str(self.adj_mx.shape))
         # 计算权重
-        if self.calculate_weight:
+        if self.calculate_weight_adj:
             self._calculate_adjacency_matrix()
 
     def _load_grid_rel(self):
         """
         根据网格结构构建邻接矩阵，一个格子跟他周围的8个格子邻接
-        :return: N*N的邻接矩阵 self.adj_mx
+
+        Returns:
+            np.ndarray: self.adj_mx, N*N的邻接矩阵
         """
         self.adj_mx = np.zeros((len(self.geo_ids), len(self.geo_ids)), dtype=np.float32)
         dirs = [[0, 1], [1, 0], [-1, 0], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]]
@@ -165,33 +171,44 @@ class TrafficStateDataset(AbstractDataset):
 
     def _calculate_adjacency_matrix(self):
         """
-        使用带有阈值的高斯核计算邻接矩阵的权重，如果有其他的计算方法，可以覆盖这个函数
-        公式为：$ w_{ij} = \exp \left(- \frac{d_{ij}^{2}}{\sigma^{2}}\right) $, $\sigma$ 是方差
-        小于阈值`adj_epsilon`的值设为0：$  w_{ij}[w_{ij}<\epsilon]=0 $
-        :return:
+        使用带有阈值的高斯核计算邻接矩阵的权重，如果有其他的计算方法，可以覆盖这个函数,
+        公式为：$ w_{ij} = \exp \left(- \\frac{d_{ij}^{2}}{\sigma^{2}} \\right) $, $\sigma$ 是方差,
+        小于阈值`weight_adj_epsilon`的值设为0：$  w_{ij}[w_{ij}<\epsilon]=0 $
+
+        Returns:
+            np.ndarray: self.adj_mx, N*N的邻接矩阵
         """
         self._logger.info("Start Calculate the weight by Gauss kernel!")
         distances = self.adj_mx[~np.isinf(self.adj_mx)].flatten()
         std = distances.std()
         self.adj_mx = np.exp(-np.square(self.adj_mx / std))
-        self.adj_mx[self.adj_mx < self.adj_epsilon] = 0
+        self.adj_mx[self.adj_mx < self.weight_adj_epsilon] = 0
 
     def _load_dyna(self, filename):
         """
-        加载数据文件(.dyna/.grid/.od/.gridod)，子类必须实现这个方法来指定如何加载数据文件，返回对应的多维数据
-        提供5个实现好的方法加载上述几类文件，并转换成不同形状的数组
+        加载数据文件(.dyna/.grid/.od/.gridod)，子类必须实现这个方法来指定如何加载数据文件，返回对应的多维数据,
+        提供5个实现好的方法加载上述几类文件，并转换成不同形状的数组:
         `_load_dyna_3d`/`_load_grid_3d`/`_load_grid_4d`/`_load_grid_od_4d`/`_load_grid_od_6d`
-        :param filename: 数据文件名，不包含后缀
-        :return:
+
+        Args:
+            filename(str): 数据文件名，不包含后缀
+
+        Returns:
+            np.ndarray: 数据数组
         """
         raise NotImplementedError('Please implement the function `_load_dyna()`.')
 
     def _load_dyna_3d(self, filename):
         """
-        加载.dyna文件，格式[dyna_id, type, time, entity_id, properties(若干列)]
-        .geo文件中的id顺序应该跟.dyna中一致
+        加载.dyna文件，格式[dyna_id, type, time, entity_id, properties(若干列)],
+        .geo文件中的id顺序应该跟.dyna中一致,
         其中全局参数`data_col`用于指定需要加载的数据的列，不设置则默认全部加载
-        :return: 3d-array (len_time, num_nodes, feature_dim)
+
+        Args:
+            filename(str): 数据文件名，不包含后缀
+
+        Returns:
+            np.ndarray: 数据数组, 3d-array: (len_time, num_nodes, feature_dim)
         """
         # 加载数据集
         dynafile = pd.read_csv(self.data_path + filename + '.dyna')
@@ -227,10 +244,15 @@ class TrafficStateDataset(AbstractDataset):
 
     def _load_grid_3d(self, filename):
         """
-        加载.grid文件，格式[dyna_id, type, time, row_id, column_id, properties(若干列)]
-        .geo文件中的id顺序应该跟.dyna中一致
-        其中全局参数`data_col`用于指定需要加载的数据的列，不设置则默认全部加载
-        :return: 3d-array (len_time, num_grids, feature_dim)
+        加载.grid文件，格式[dyna_id, type, time, row_id, column_id, properties(若干列)],
+        .geo文件中的id顺序应该跟.dyna中一致,
+        其中全局参数`data_col`用于指定需要加载的数据的列，不设置则默认全部加载,
+
+        Args:
+            filename(str): 数据文件名，不包含后缀
+
+        Returns:
+            np.ndarray: 数据数组, 3d-array: (len_time, num_grids, feature_dim)
         """
         # 加载数据集
         gridfile = pd.read_csv(self.data_path + filename + '.grid')
@@ -267,10 +289,15 @@ class TrafficStateDataset(AbstractDataset):
 
     def _load_grid_4d(self, filename):
         """
-        加载.grid文件，格式[dyna_id, type, time, row_id, column_id, properties(若干列)]
-        .geo文件中的id顺序应该跟.dyna中一致
+        加载.grid文件，格式[dyna_id, type, time, row_id, column_id, properties(若干列)],
+        .geo文件中的id顺序应该跟.dyna中一致,
         其中全局参数`data_col`用于指定需要加载的数据的列，不设置则默认全部加载
-        :return: 4d-array (len_time, len_row, len_column, feature_dim)
+
+        Args:
+            filename(str): 数据文件名，不包含后缀
+
+        Returns:
+            np.ndarray: 数据数组, 4d-array: (len_time, len_row, len_column, feature_dim)
         """
         # 加载数据集
         gridfile = pd.read_csv(self.data_path + filename + '.grid')
@@ -312,10 +339,15 @@ class TrafficStateDataset(AbstractDataset):
     def _load_grid_od_4d(self, filename):
         """
         加载.gridod文件，格式[dyna_id, type, time, origin_row_id, origin_column_id,
-                            destination_row_id, destination_column_id, properties(若干列)]
-        .geo文件中的id顺序应该跟.dyna中一致
+        destination_row_id, destination_column_id, properties(若干列)],
+        .geo文件中的id顺序应该跟.dyna中一致,
         其中全局参数`data_col`用于指定需要加载的数据的列，不设置则默认全部加载
-        :return: 4d-array (len_time, num_grids, num_grids, feature_dim)
+
+        Args:
+            filename(str): 数据文件名，不包含后缀
+
+        Returns:
+            np.ndarray: 数据数组, 4d-array: (len_time, num_grids, num_grids, feature_dim)
         """
         # 加载数据集
         gridodfile = pd.read_csv(self.data_path + filename + '.gridod')
@@ -363,10 +395,15 @@ class TrafficStateDataset(AbstractDataset):
     def _load_grid_od_6d(self, filename):
         """
         加载.gridod文件，格式[dyna_id, type, time, origin_row_id, origin_column_id,
-                            destination_row_id, destination_column_id, properties(若干列)]
-        .geo文件中的id顺序应该跟.dyna中一致
+        destination_row_id, destination_column_id, properties(若干列)],
+        .geo文件中的id顺序应该跟.dyna中一致,
         其中全局参数`data_col`用于指定需要加载的数据的列，不设置则默认全部加载
-        :return: 6d-array (len_time, len_row, len_column, len_row, len_column, feature_dim)
+
+        Args:
+            filename(str): 数据文件名，不包含后缀
+
+        Returns:
+            np.ndarray: 数据数组, 6d-array: (len_time, len_row, len_column, len_row, len_column, feature_dim)
         """
         # 加载数据集
         gridodfile = pd.read_csv(self.data_path + filename + '.gridod')
@@ -411,9 +448,11 @@ class TrafficStateDataset(AbstractDataset):
 
     def _load_ext(self):
         """
-        加载.ext文件，格式[ext_id, time, properties(若干列)]
+        加载.ext文件，格式[ext_id, time, properties(若干列)],
         其中全局参数`ext_col`用于指定需要加载的数据的列，不设置则默认全部加载
-        :return: (timeslots, ext_dim)
+
+        Returns:
+            np.ndarray: 外部数据数组，shape: (timeslots, ext_dim)
         """
         # 加载数据集
         extfile = pd.read_csv(self.data_path + self.ext_file + '.ext')
@@ -442,21 +481,30 @@ class TrafficStateDataset(AbstractDataset):
 
     def _add_external_information(self, df, ext_data=None):
         """
-        将外部数据和原始交通状态数据结合到高维数组中，子类必须实现这个方法来指定如何融合外部数据和交通状态数据
-        如果不想加外部数据，可以把交通状态数据`df`直接返回。
-        提供3个实现好的方法适用于不同形状的交通状态数据跟外部数据结合。
+        将外部数据和原始交通状态数据结合到高维数组中，子类必须实现这个方法来指定如何融合外部数据和交通状态数据,
+        如果不想加外部数据，可以把交通状态数据`df`直接返回,
+        提供3个实现好的方法适用于不同形状的交通状态数据跟外部数据结合:
         `_add_external_information_3d`/`_add_external_information_4d`/`_add_external_information_6d`
-        :param df: 交通状态数据多维数组
-        :param ext_data: 外部数据
-        :return: 融合后的外部数据和交通状态数据
+
+        Args:
+            df(np.ndarray): 交通状态数据多维数组
+            ext_data(np.ndarray): 外部数据
+
+        Returns:
+            np.ndarray: 融合后的外部数据和交通状态数据
         """
         raise NotImplementedError('Please implement the function `_add_external_information()`.')
 
     def _add_external_information_3d(self, df, ext_data=None):
         """
         增加外部信息（一周中的星期几/day of week，一天中的某个时刻/time of day，外部数据）
-        :param df: ndarray (len_time, num_nodes, feature_dim)
-        :return: data: ndarray (len_time, num_nodes, feature_dim_plus)
+
+        Args:
+            df(np.ndarray): 交通状态数据多维数组, (len_time, num_nodes, feature_dim)
+            ext_data(np.ndarray): 外部数据
+
+        Returns:
+            np.ndarray: 融合后的外部数据和交通状态数据, (len_time, num_nodes, feature_dim_plus)
         """
         num_samples, num_nodes, feature_dim = df.shape
         is_time_nan = np.isnan(self.timesolts).any()
@@ -497,8 +545,13 @@ class TrafficStateDataset(AbstractDataset):
     def _add_external_information_4d(self, df, ext_data=None):
         """
         增加外部信息（一周中的星期几/day of week，一天中的某个时刻/time of day，外部数据）
-        :param df: ndarray (len_time, len_row, len_column, feature_dim)
-        :return: data: ndarray (len_time, len_row, len_column, feature_dim_plus)
+
+        Args:
+            df(np.ndarray): 交通状态数据多维数组, (len_time, len_row, len_column, feature_dim)
+            ext_data(np.ndarray): 外部数据
+
+        Returns:
+            np.ndarray: 融合后的外部数据和交通状态数据, (len_time, len_row, len_column, feature_dim_plus)
         """
         num_samples, len_row, len_column, feature_dim = df.shape
         is_time_nan = np.isnan(self.timesolts).any()
@@ -539,8 +592,15 @@ class TrafficStateDataset(AbstractDataset):
     def _add_external_information_6d(self, df, ext_data=None):
         """
         增加外部信息（一周中的星期几/day of week，一天中的某个时刻/time of day，外部数据）
-        :param df: ndarray (len_time, len_row, len_column, len_row, len_column, feature_dim)
-        :return: data: ndarray (len_time, len_row, len_column, len_row, len_column, feature_dim_plus)
+
+        Args:
+            df(np.ndarray): 交通状态数据多维数组,
+                (len_time, len_row, len_column, len_row, len_column, feature_dim)
+            ext_data(np.ndarray): 外部数据
+
+        Returns:
+            np.ndarray: 融合后的外部数据和交通状态数据,
+            (len_time, len_row, len_column, len_row, len_column, feature_dim)
         """
         num_samples, len_row, len_column, _, _, feature_dim = df.shape
         is_time_nan = np.isnan(self.timesolts).any()
@@ -583,12 +643,16 @@ class TrafficStateDataset(AbstractDataset):
 
     def _generate_input_data(self, df):
         """
-        根据全局参数`input_window`和`output_window`切分输入，产生模型需要的张量输入
+        根据全局参数`input_window`和`output_window`切分输入，产生模型需要的张量输入，
         即使用过去`input_window`长度的时间序列去预测未来`output_window`长度的时间序列
-        :param df: ndarray (len_time, ..., feature_dim)
-        :return:
-        # x: (epoch_size, input_length, ..., feature_dim)
-        # y: (epoch_size, output_length, ..., feature_dim)
+
+        Args:
+            df(np.ndarray): 数据数组，shape: (len_time, ..., feature_dim)
+
+        Returns:
+            tuple: tuple contains:
+                x(np.ndarray): 模型输入数据，(epoch_size, input_length, ..., feature_dim) \n
+                y(np.ndarray): 模型输出数据，(epoch_size, output_length, ..., feature_dim)
         """
         num_samples = df.shape[0]
         # 预测用的过去时间窗口长度 取决于self.input_window
@@ -611,9 +675,11 @@ class TrafficStateDataset(AbstractDataset):
     def _generate_data(self):
         """
         加载数据文件(.dyna/.grid/.od/.gridod)和外部数据(.ext)，且将二者融合，以X，y的形式返回
-        :return:
-        x: (num_samples, input_length, ..., feature_dim)
-        y: (num_samples, input_length, ..., feature_dim)
+
+        Returns:
+            tuple: tuple contains:
+                x(np.ndarray): 模型输入数据，(num_samples, input_length, ..., feature_dim) \n
+                y(np.ndarray): 模型输出数据，(num_samples, output_length, ..., feature_dim)
         """
         # 处理多数据文件问题
         if isinstance(self.data_files, list):
@@ -644,10 +710,19 @@ class TrafficStateDataset(AbstractDataset):
     def _split_train_val_test(self, x, y):
         """
         划分训练集、测试集、验证集，并缓存数据集
-        :param x: 输入数据 (num_samples, input_length, ..., feature_dim)
-        :param y: 输出数据 (num_samples, input_length, ..., feature_dim)
-        :return: x_train, y_train, x_val, y_val, x_test, y_test:
-                    (num_samples, input_length, ..., feature_dim)
+
+        Args:
+            x(np.ndarray): 输入数据 (num_samples, input_length, ..., feature_dim)
+            y(np.ndarray): 输出数据 (num_samples, input_length, ..., feature_dim)
+
+        Returns:
+            tuple: tuple contains:
+                x_train: (num_samples, input_length, ..., feature_dim) \n
+                y_train: (num_samples, input_length, ..., feature_dim) \n
+                x_val: (num_samples, input_length, ..., feature_dim) \n
+                y_val: (num_samples, input_length, ..., feature_dim) \n
+                x_test: (num_samples, input_length, ..., feature_dim) \n
+                y_test: (num_samples, input_length, ..., feature_dim)
         """
         test_rate = 1 - self.train_rate - self.eval_rate
         num_samples = x.shape[0]
@@ -682,8 +757,15 @@ class TrafficStateDataset(AbstractDataset):
     def _generate_train_val_test(self):
         """
         加载数据集，并划分训练集、测试集、验证集，并缓存数据集
-        :return: x_train, y_train, x_val, y_val, x_test, y_test:
-                    (num_samples, input_length, ..., feature_dim)
+
+        Returns:
+            tuple: tuple contains:
+                x_train: (num_samples, input_length, ..., feature_dim) \n
+                y_train: (num_samples, input_length, ..., feature_dim) \n
+                x_val: (num_samples, input_length, ..., feature_dim) \n
+                y_val: (num_samples, input_length, ..., feature_dim) \n
+                x_test: (num_samples, input_length, ..., feature_dim) \n
+                y_test: (num_samples, input_length, ..., feature_dim)
         """
         x, y = self._generate_data()
         return self._split_train_val_test(x, y)
@@ -691,7 +773,15 @@ class TrafficStateDataset(AbstractDataset):
     def _load_cache_train_val_test(self):
         """
         加载之前缓存好的训练集、测试集、验证集
-        :return: x_train, y_train, x_val, y_val, x_test, y_test: (num_samples, input_length, ..., feature_dim)
+
+        Returns:
+            tuple: tuple contains:
+                x_train: (num_samples, input_length, ..., feature_dim) \n
+                y_train: (num_samples, input_length, ..., feature_dim) \n
+                x_val: (num_samples, input_length, ..., feature_dim) \n
+                y_val: (num_samples, input_length, ..., feature_dim) \n
+                x_test: (num_samples, input_length, ..., feature_dim) \n
+                y_test: (num_samples, input_length, ..., feature_dim)
         """
         self._logger.info('Loading ' + self.cache_file_name)
         cat_data = np.load(self.cache_file_name)
@@ -709,9 +799,13 @@ class TrafficStateDataset(AbstractDataset):
     def _get_scalar(self, x_train, y_train):
         """
         根据全局参数`scaler_type`选择数据归一化方法
-        :param x_train:
-        :param y_train:
-        :return: scaler
+
+        Args:
+            x_train: 训练数据X
+            y_train: 训练数据y
+
+        Returns:
+            Scaler: 归一化对象
         """
         if self.scaler_type == "normal":
             scaler = NormalScaler(
@@ -740,12 +834,13 @@ class TrafficStateDataset(AbstractDataset):
 
     def get_data(self):
         """
-        获取数据，数据归一化，之后返回训练集、测试集、验证集对应的DataLoader
-        :return:
-            train_dataloader (pytorch.DataLoader)
-            eval_dataloader (pytorch.DataLoader)
-            test_dataloader (pytorch.DataLoader)
-            all the dataloaders are composed of Batch (class)
+        返回数据的DataLoader，包括训练数据、测试数据、验证数据
+
+        Returns:
+            tuple: tuple contains:
+                train_dataloader: Dataloader composed of Batch (class) \n
+                eval_dataloader: Dataloader composed of Batch (class) \n
+                test_dataloader: Dataloader composed of Batch (class)
         """
         # 加载数据集
         x_train, y_train, x_val, y_val, x_test, y_test = [], [], [], [], [], []
@@ -786,6 +881,8 @@ class TrafficStateDataset(AbstractDataset):
     def get_data_feature(self):
         """
         返回数据集特征，子类必须实现这个函数，返回必要的特征
-        :return: data_feature (dict)
+
+        Returns:
+            dict: 包含数据集的相关特征的字典
         """
         raise NotImplementedError('Please implement the function `get_data_feature()`.')

@@ -121,11 +121,11 @@ python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_t
 
 ## 数据集
 
-1. POI 轨迹下一跳预测使用 foursqaure-tky 数据集[下载链接](https://bhpan.buaa.edu.cn:443/link/55CCED27725C7FDD6EEEE8BCEEDCF63F)。
+1. POI 轨迹下一跳预测使用 foursqaure-tky 数据集[下载链接](https://bhpan.buaa.edu.cn:443/link/55CCED27725C7FDD6EEEE8BCEEDCF63F)，Gowalla 数据集[下载链接](https://bhpan.buaa.edu.cn:443/link/BFF7CE07D48D03EF1985BC632F18E742)。
 
-请将下载好的数据集存放于 `code/raw_data` 文件夹下。
+请将下载好的数据集存放于 `Bigscity-TrafficDL/raw_data` 文件夹下。
 
-2. 交通状态预测数据集[下载链接](https://bhpan.buaa.edu.cn:443/link/E3DB96256D8E99FB2B29B864E92F123A)
+2. 交通状态预测数据集[下载链接](https://bhpan.buaa.edu.cn:443/link/E3DB96256D8E99FB2B29B864E92F123A)。
 
 **数据集和模型的对应关系查看文件`交通状态数据集和模型对应关系.xlsx`**
 

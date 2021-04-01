@@ -8,7 +8,7 @@
 
 中作业占总成绩的 10%（10分），由以下四部分组成：
 
-* 复现模型完成度（4分）：要求复现的模型能够在框架中运行、代码风格良好、注释充分。**代码风格规范要求见[文档](https://aptx1231.github.io/Bigscity-TrafficDL-Docs/developer_guide/code_style.html)，要求使用第三方库`flake8`进行检查！**
+* 复现模型完成度（4分）：要求复现的模型能够在框架中运行、代码风格良好、注释充分。**代码风格规范要求见[文档](https://bigscity-trafficdl-docs.readthedocs.io/en/latest/developer_guide/code_style.html)，要求使用第三方库`flake8`进行检查！**
 * 技术报告（4分）：具体要求参见技术报告模板。
 * 复现性能（2分）：考量复现模型的性能。
 * 难易度加分（附加分）：考虑到部分难度较高的模型，复现难度较高，因此完成中等难度模型复现工作（即能在框架中运行）的小组可获得 1 分额外加分，完成困难模型复现工作的小组获得 2 分额外加分。（注：若加分后总分超过 10 分，则按 10 分计算）。
@@ -27,7 +27,7 @@
 
 各组的工作主要涉及 Model 模块，通过使用课程组预先构建的 Data 模块提供的输入数据进行任务预测，并输出符合课程组预先构建 Evaluator 模块的评估输入接口格式。对于 POI 轨迹下一跳预测任务与交通流量\速度预测任务具体接口格式的说明，可参见对应任务的说明 md 文件。
 
-关于框架的具体介绍可以参考[文档](https://aptx1231.github.io/Bigscity-TrafficDL-Docs/index.html)。
+关于框架的具体介绍可以参考[文档](https://bigscity-trafficdl-docs.readthedocs.io/en/latest/index.html)。
 
 ## 框架使用
 

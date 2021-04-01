@@ -11,7 +11,7 @@
 * `.usr` 文件：用于存储用户的属性信息（如 Foursquare 包含用户性别）。
 * `.rel` 文件：只有 Gowalla 有，存储的是用户之间的朋友关系网络。
 
-关于数据集存储文件详细格式说明，同学们可以进一步查看[Atomic Files 文档](https://aptx1231.github.io/Bigscity-TrafficDL-Docs/user_guide/data/atomic_files.html)。
+关于数据集存储文件详细格式说明，同学们可以进一步查看[Atomic Files 文档](https://bigscity-trafficdl-docs.readthedocs.io/en/latest/user_guide/data/atomic_files.html)。
 
 #### 轨迹数据预处理流程
 
@@ -59,7 +59,7 @@
   * target_loc：要预测的下一跳位置信息
   * target_tim：要预测的下一跳时间信息
 
-具体各值对应的数据格式，各组可以参见 test_model.py 脚本，实际在命令行运行进行观察验证。此外对于数据处理部分有想要详细了解的组，可以查看 `/trafficdl/data/dataset/trajectory_dataset.py` 和框架[文档](https://aptx1231.github.io/Bigscity-TrafficDL-Docs/index.html)，以及咨询助教。对于部分困难模型，可能需要组自行参考开源代码的数据处理方式，实现一个 dataset 类。
+具体各值对应的数据格式，各组可以参见 test_model.py 脚本，实际在命令行运行进行观察验证。此外对于数据处理部分有想要详细了解的组，可以查看 `/trafficdl/data/dataset/trajectory_dataset.py` 和框架[文档](https://bigscity-trafficdl-docs.readthedocs.io/en/latest/index.html)，以及咨询助教。对于部分困难模型，可能需要组自行参考开源代码的数据处理方式，实现一个 dataset 类。
 
 关于补全，是出于提升模型训练效率、实现批量数据投入（即 batch 输入），才需要将不定长的轨迹数据补齐到一样的长度，做成 tensor 投入模型中。补齐操作是在 `trafficdl.data.batch` 类的 `padding` 方法实现的，此外还提供 `get_origin_len` 方法能够获取到补全之前各轨迹的长度。 
 
@@ -234,6 +234,6 @@ class TemplateTLP(AbstractModel):
 
 评估部分（配置文件存放于`/trafficdl/config/evaluator/TrajLocPredEvaluator.json`）：
 
-* metrics: 评估使用的评估指标，值为一个数组。具体支持的指标参见[文档](https://aptx1231.github.io/Bigscity-TrafficDL-Docs/user_guide/evaluator/traj_loc_pred.html)
+* metrics: 评估使用的评估指标，值为一个数组。具体支持的指标参见[文档](https://bigscity-trafficdl-docs.readthedocs.io/en/latest/user_guide/evaluator/traj_loc_pred.html)
 * topk: 评估时具体时 top 几。
 

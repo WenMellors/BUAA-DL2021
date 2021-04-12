@@ -5,7 +5,7 @@ from trafficdl.model.trajectory_loc_prediction.LSTPM import LSTPM
 from trafficdl.model.trajectory_loc_prediction.STRNN import STRNN
 from trafficdl.model.trajectory_loc_prediction.TemplateTLP import TemplateTLP
 from trafficdl.model.trajectory_loc_prediction.SERM import SERM
-
+from trafficdl.model.trajectory_loc_prediction.GeoSAN import GeoSAN
 __all__ = [
     "DeepMove",
     "RNN",
@@ -13,5 +13,6 @@ __all__ = [
     "LSTPM",
     "STRNN",
     "TemplateTLP",
-    "SERM"
+    "SERM",
+    "GeoSAN"
 ]

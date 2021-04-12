@@ -12,12 +12,12 @@ from trafficdl.utils import get_evaluator
 class GeoSANExecutor(AbstractExecutor):
 
     def __init__(self, config, model):
-        super().__init__(config, model)
         self.config = config
         self.device = self.config.get('device', torch.device('cpu'))
         self.model = model.to(self.device)
         self.evaluator = get_evaluator(config)
         self.evaluate_res_dir = './trafficdl/cache/evaluate_cache'
+        self.cache_dir = './trafficdl/cache/model_cache'
 
     def train(self, train_dataloader, eval_dataloader):
         """
@@ -90,6 +90,8 @@ class GeoSANExecutor(AbstractExecutor):
         Args:
             cache_name(str): 保存的文件名
         """
+        if not os.path.exists(self.cache_dir):
+            os.makedirs(self.cache_dir)
         self.model.save(cache_name)
         
     def reset_random_seed(seed):

@@ -9,7 +9,6 @@ from trafficdl.evaluator.abstract_evaluator import AbstractEvaluator
 class GeoSANEvaluator(AbstractEvaluator):
 
     def __init__(self, config):
-        super().__init__(config)
         self.metrics = config['evaluator_config']['metrics']  # 评估指标, only contains hr and ndcg
         self.topk = config['evaluator_config']['topk']
         self.num_neg = config['executor_config']['test']['num_negative_samples']
@@ -66,7 +65,7 @@ class GeoSANEvaluator(AbstractEvaluator):
         """
         self.evaluate()
         if not os.path.exists(save_path):
-            os.mkdir(save_path)
+            os.makedirs(save_path, exist_ok=True)
         if filename is None:
             # 使用时间戳
             filename = time.strftime(

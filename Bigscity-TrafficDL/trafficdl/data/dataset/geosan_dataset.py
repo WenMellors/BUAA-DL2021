@@ -20,7 +20,6 @@ from sklearn.neighbors import BallTree
 
 class GeoSANDataset(AbstractDataset):
     def __init__(self, config):
-        super().__init__(config)
         self.LOD = 17
         dataset_name = config['dataset']
         self.config = config
@@ -50,12 +49,13 @@ class GeoSANDataset(AbstractDataset):
         user_visited_locs = self.get_visited_locs()
 
         train_dataset, test_dataset = self.split()
-        batch_size = self.config['executor_config']['train']['batch_size']
-        num_workers = self.config['executor_config']['train']['num_workers']
-        num_neg = self.config['executor_config']['train']['num_negative_samples']
+        batch_size = int(self.config['executor_config']['train']['batch_size'])
+        num_workers = int(self.config['executor_config']['train']['num_workers'])
+        num_neg = int(self.config['executor_config']['train']['num_negative_samples'])
+        print(f"num_neg: {num_neg}")
         print("build LocQuerySystem...")
         loc_query_sys = LocQuerySystem()
-        loc_query_sys.build_tree()
+        loc_query_sys.build_tree(self)
         # wrap with Dataloader here
         print("get train_loader...")
         sampler = KNNSampler(
@@ -65,7 +65,7 @@ class GeoSANDataset(AbstractDataset):
         )
         train_loader = DataLoader(train_dataset, sampler=LadderSampler(train_dataset, batch_size), 
                                     num_workers=num_workers, batch_size=batch_size, 
-                                 collate_fn=lambda e: self.collect_fn_quadkey(e, train_dataset, 
+                                 collate_fn=lambda e: GeoSANDataset.collect_fn_quadkey(e, train_dataset, \
                                     sampler, self.QUADKEY, self.loc2quadkey, k=num_neg))
         
         test_sampler = KNNSampler(
@@ -74,21 +74,23 @@ class GeoSANDataset(AbstractDataset):
             **self.config['executor_config']["test"]["negative_sampler_config"]
         )
         print("get test_loader...")
-        num_neg_test = self.config['executor_config']['test']['num_negative_samples']
+        num_neg_test = int(self.config['executor_config']['test']['num_negative_samples'])
         test_loader = DataLoader(test_dataset, batch_size=batch_size, 
-                                 collate_fn=lambda e: self.collect_fn_quadkey(e, test_dataset, 
+                                 collate_fn=lambda e: GeoSANDataset.collect_fn_quadkey(e, test_dataset, \
                                     test_sampler, self.QUADKEY, self.loc2quadkey, k=num_neg_test))
 
         return train_loader, None, test_loader
 
     def get_data_feature(self):
-        return {
+        tmp = {
             'nuser': self.n_user,
             'nloc': self.n_loc,
             'ntime': self.n_time,
             'nquadkey': len(self.QUADKEY.vocab.itos)
         }
+        return tmp
     
+    @staticmethod
     def collect_fn_quadkey(batch, data_source, sampler, region_processer, loc2quadkey=None, k=5, with_trg_quadkey=True):
         src, trg = zip(*batch)
         user, loc, time, region = [], [], [], []

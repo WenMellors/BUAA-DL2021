@@ -27,17 +27,17 @@ class GeoSAN(AbstractModel):
         nquadkey = data_feature['nquadkey']
 
         # from config
-        user_dim=int(config['model_config']['user_embedding_dim']),
-        loc_dim=int(config['model_config']['location_embedding_dim']),
-        time_dim=int(config['model_config']['time_embedding_dim']),
-        reg_dim=int(config['model_config']['region_embedding_dim']),
-        nhid=int(config['model_config']['hidden_dim_encoder']),
-        nhead_enc=int(config['model_config']['num_heads_encoder']),
-        nhead_dec=int(config['model_config']['num_heads_decoder']),
-        nlayers=int(config['model_config']['num_layers_encoder']),
-        dropout=float(config['model_config']['dropout']),
+        user_dim=int(config['model_config']['user_embedding_dim'])
+        loc_dim=int(config['model_config']['location_embedding_dim'])
+        time_dim=int(config['model_config']['time_embedding_dim'])
+        reg_dim=int(config['model_config']['region_embedding_dim'])
+        nhid=int(config['model_config']['hidden_dim_encoder'])
+        nhead_enc=int(config['model_config']['num_heads_encoder'])
+        nhead_dec=int(config['model_config']['num_heads_decoder'])
+        nlayers=int(config['model_config']['num_layers_encoder'])
+        dropout=float(config['model_config']['dropout'])
         extra_config = config['model_config']['extra_config']
-
+        #print(f"nloc: {nloc} \t loc_dim: {loc_dim}")
         # essential
         self.emb_loc = embedding(nloc, loc_dim, zeros_pad=True, scale=True)
         self.emb_reg = embedding(nquadkey, reg_dim, zeros_pad=True, scale=True)
@@ -93,7 +93,7 @@ class GeoSAN(AbstractModel):
         sample_probs = sample_probs.to(self.device)
         src_mask = pad_sequence([torch.zeros(e, dtype=torch.bool).to(self.device) for e in ds], 
                                         batch_first=True, padding_value=True)
-        att_mask = self._generate_square_mask_(max(ds), self.device)
+        att_mask = GeoSAN._generate_square_mask_(max(ds), self.device)
 
         if self.training:
             output = self.forward(user, loc, region, time, att_mask, src_mask, 
@@ -103,6 +103,7 @@ class GeoSAN(AbstractModel):
                                 trg, trg_reg, None, ds=ds)
         return output
 
+    @staticmethod
     def _generate_square_mask_(sz, device):
         mask = (torch.triu(torch.ones(sz, sz).to(device)) == 1).transpose(0, 1)
         mask = mask.float().masked_fill(mask == 0, float('-inf')).masked_fill(mask == 1, float(0.0))

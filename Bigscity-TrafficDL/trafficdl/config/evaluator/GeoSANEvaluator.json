@@ -1,4 +1,6 @@
 {
-    "metrics": ["HR", "NDCG"],
-    "topk": 10
+    "evaluator_config": {
+        "metrics": ["HR", "NDCG"],
+        "topk": 10
+    }
 }

@@ -51,9 +51,9 @@ class GeoSANEvaluator(AbstractEvaluator):
         ndcg = ndcg.cumsum() / hr.max()
         hr = hr / hr.max()
         if 'NDCG' in self.metrics:
-            self.result[f'NDCG@{self.topk}'] = ndcg[:self.topk-1]
+            self.result[f'NDCG@{self.topk}'] = float(ndcg[self.topk-1])
         if 'HR' in self.metrics:
-            self.result[f'HR@{self.topk}'] = hr[:self.topk-1]
+            self.result[f'HR@{self.topk}'] = float(hr[self.topk-1])
 
     def save_result(self, save_path, filename=None):
         """

@@ -63,7 +63,7 @@ class GeoSANExecutor(AbstractExecutor):
         """
         self.evaluator.clear()
         self.model.eval()
-        self.reset_random_seed(42)
+        GeoSANExecutor.reset_random_seed(42)
         with torch.no_grad():
             for _, batch in enumerate(test_dataloader):
                 output = self.model.predict(batch)
@@ -93,7 +93,8 @@ class GeoSANExecutor(AbstractExecutor):
         if not os.path.exists(self.cache_dir):
             os.makedirs(self.cache_dir)
         self.model.save(cache_name)
-        
+    
+    @staticmethod
     def reset_random_seed(seed):
         random.seed(seed)
         np.random.seed(seed)

@@ -18,6 +18,7 @@ class GeoSANExecutor(AbstractExecutor):
         self.evaluator = get_evaluator(config)
         self.evaluate_res_dir = './trafficdl/cache/evaluate_cache'
         self.cache_dir = './trafficdl/cache/model_cache'
+        self.tmp_path = './trafficdl/tmp/checkpoint/'
 
     def train(self, train_dataloader, eval_dataloader):
         """
@@ -27,6 +28,8 @@ class GeoSANExecutor(AbstractExecutor):
             train_dataloader(torch.Dataloader): Dataloader
             eval_dataloader(torch.Dataloader): None
         """
+        if not os.path.exists(self.tmp_path):
+            os.makedirs(self.tmp_path)
         num_epochs = self.config['executor_config']['train']['num_epochs']
         optimizer = optim.Adam(self.model.parameters(), 
                 lr=float(self.config['executor_config']['optimizer']['learning_rate']), 
@@ -46,11 +49,18 @@ class GeoSANExecutor(AbstractExecutor):
                 running_loss += loss.item()
                 processed_batch += 1
                 batch_iterator.set_postfix_str(f"loss={loss.item():.4f}")
+            save_name_tmp = 'ep_' + str(epoch_idx) + '.m'
+            torch.save(self.model.state_dict(), self.tmp_path + save_name_tmp)
             epoch_time = Time.time() - start_time
             print("epoch {:>2d} completed.".format(epoch_idx + 1))
             print("time taken: {:.2f} sec".format(epoch_time))
             print("avg. loss: {:.4f}".format(running_loss / processed_batch))
             print("epoch={:d}, loss={:.4f}".format(epoch_idx + 1, running_loss / processed_batch))
+        for rt, dirs, files in os.walk(self.tmp_path):
+            for name in files:
+                remove_path = os.path.join(rt, name)
+                os.remove(remove_path)
+        os.rmdir(self.tmp_path)
         print("training completed!")
 
 

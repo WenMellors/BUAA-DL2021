@@ -6,6 +6,7 @@ import numpy as np
 
 from trafficdl.evaluator.abstract_evaluator import AbstractEvaluator
 
+
 class GeoSANEvaluator(AbstractEvaluator):
 
     def __init__(self, config):
@@ -24,7 +25,7 @@ class GeoSANEvaluator(AbstractEvaluator):
             if i.lower() not in self.allowed_metrics:
                 raise ValueError('the metric is not allowed in \
                     TrajLocPredEvaluator')
-        
+
     def collect(self, batch):
         """
         收集一 batch 的评估输入
@@ -74,7 +75,6 @@ class GeoSANEvaluator(AbstractEvaluator):
         with open(os.path.join(save_path, '{}.json'.format(filename)), 'w') \
                 as f:
             json.dump(self.result, f)
-        
 
     def clear(self):
         """
@@ -82,4 +82,3 @@ class GeoSANEvaluator(AbstractEvaluator):
         """
         self.cnter.clear()
         self.result = {}
-        

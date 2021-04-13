@@ -10,6 +10,7 @@ from torch.nn import TransformerEncoderLayer, TransformerEncoder
 from trafficdl.model.abstract_model import AbstractModel
 import math
 
+
 class GeoSAN(AbstractModel):
 
     def __init__(self, config, data_feature):
@@ -27,17 +28,17 @@ class GeoSAN(AbstractModel):
         nquadkey = data_feature['nquadkey']
 
         # from config
-        user_dim=int(config['model_config']['user_embedding_dim'])
-        loc_dim=int(config['model_config']['location_embedding_dim'])
-        time_dim=int(config['model_config']['time_embedding_dim'])
-        reg_dim=int(config['model_config']['region_embedding_dim'])
-        nhid=int(config['model_config']['hidden_dim_encoder'])
-        nhead_enc=int(config['model_config']['num_heads_encoder'])
-        nhead_dec=int(config['model_config']['num_heads_decoder'])
-        nlayers=int(config['model_config']['num_layers_encoder'])
-        dropout=float(config['model_config']['dropout'])
+        user_dim = int(config['model_config']['user_embedding_dim'])
+        loc_dim = int(config['model_config']['location_embedding_dim'])
+        time_dim = int(config['model_config']['time_embedding_dim'])
+        reg_dim = int(config['model_config']['region_embedding_dim'])
+        # nhid = int(config['model_config']['hidden_dim_encoder'])
+        nhead_enc = int(config['model_config']['num_heads_encoder'])
+        # nhead_dec = int(config['model_config']['num_heads_decoder'])
+        nlayers = int(config['model_config']['num_layers_encoder'])
+        dropout = float(config['model_config']['dropout'])
         extra_config = config['model_config']['extra_config']
-        #print(f"nloc: {nloc} \t loc_dim: {loc_dim}")
+        # print(f"nloc: {nloc} \t loc_dim: {loc_dim}")
         # essential
         self.emb_loc = embedding(nloc, loc_dim, zeros_pad=True, scale=True)
         self.emb_reg = embedding(nquadkey, reg_dim, zeros_pad=True, scale=True)
@@ -53,11 +54,11 @@ class GeoSAN(AbstractModel):
             self.pos_encoder = PositionalEncoding(loc_dim + reg_dim, dropout)
         self.enc_layer = TransformerEncoderLayer(loc_dim + reg_dim, nhead_enc, loc_dim + reg_dim, dropout)
         self.encoder = TransformerEncoder(self.enc_layer, nlayers)
-        
+
         self.region_pos_encoder = PositionalEmbedding(reg_dim, dropout, max_len=20)
         self.region_enc_layer = TransformerEncoderLayer(reg_dim, 1, reg_dim, dropout=dropout)
         self.region_encoder = TransformerEncoder(self.region_enc_layer, 2)
-        
+
         if not extra_config.get("use_location_only", False):
             if extra_config.get("embedding_fusion", "multiply") == "concat":
                 if extra_config.get("user_embedding", False):
@@ -72,7 +73,6 @@ class GeoSAN(AbstractModel):
         self.extra_config = extra_config
         self.dropout = dropout
 
-
     def predict(self, batch):
         """
         Args:
@@ -82,7 +82,7 @@ class GeoSAN(AbstractModel):
             torch.tensor: predict result of this batch
         """
         user, loc, time, region, trg, trg_reg, trg_nov, sample_probs, ds = batch
-        
+
         # TODO 换到dataset侧执行该操作
         user = user.to(self.device)
         loc = loc.to(self.device)
@@ -91,16 +91,16 @@ class GeoSAN(AbstractModel):
         trg = trg.to(self.device)
         trg_reg = trg_reg.to(self.device)
         sample_probs = sample_probs.to(self.device)
-        src_mask = pad_sequence([torch.zeros(e, dtype=torch.bool).to(self.device) for e in ds], 
-                                        batch_first=True, padding_value=True)
+        src_mask = pad_sequence([torch.zeros(e, dtype=torch.bool).to(self.device) for e in ds],
+                                batch_first=True, padding_value=True)
         att_mask = GeoSAN._generate_square_mask_(max(ds), self.device)
 
         if self.training:
-            output = self.forward(user, loc, region, time, att_mask, src_mask, 
-                                trg, trg_reg, att_mask.repeat(self.num_neg + 1, 1))
+            output = self.forward(user, loc, region, time, att_mask, src_mask,
+                                  trg, trg_reg, att_mask.repeat(self.num_neg + 1, 1))
         else:
-            output = self.forward(user, loc, region, time, att_mask, src_mask, 
-                                trg, trg_reg, None, ds=ds)
+            output = self.forward(user, loc, region, time, att_mask, src_mask,
+                                  trg, trg_reg, None, ds=ds)
         return output
 
     @staticmethod
@@ -119,7 +119,7 @@ class GeoSAN(AbstractModel):
         """
         # only support "WeightedProbBinaryCELoss"
         user, loc, time, region, trg, trg_reg, trg_nov, sample_probs, ds = batch
-        
+
         # TODO 换到dataset侧执行该操作
         user = user.to(self.device)
         loc = loc.to(self.device)
@@ -128,17 +128,17 @@ class GeoSAN(AbstractModel):
         trg = trg.to(self.device)
         trg_reg = trg_reg.to(self.device)
         sample_probs = sample_probs.to(self.device)
-        src_mask = pad_sequence([torch.zeros(e, dtype=torch.bool).to(self.device) for e in ds], 
-                                        batch_first=True, padding_value=True)
+        src_mask = pad_sequence([torch.zeros(e, dtype=torch.bool).to(self.device) for e in ds],
+                                batch_first=True, padding_value=True)
         att_mask = self._generate_square_mask_(max(ds), self.device)
 
         if self.training:
-            output = self.forward(user, loc, region, time, att_mask, src_mask, 
-                                trg, trg_reg, att_mask.repeat(self.num_neg + 1, 1))
+            output = self.forward(user, loc, region, time, att_mask, src_mask,
+                                  trg, trg_reg, att_mask.repeat(self.num_neg + 1, 1))
         else:
-            output = self.forward(user, loc, region, time, att_mask, src_mask, 
-                                trg, trg_reg, None, ds=ds)
-        
+            output = self.forward(user, loc, region, time, att_mask, src_mask,
+                                  trg, trg_reg, None, ds=ds)
+
         # shape: [(1+K)*L, N]
         output = output.view(-1, loc.size(0), loc.size(1)).permute(2, 1, 0)
         # shape: [N, L, 1+K]
@@ -150,7 +150,8 @@ class GeoSAN(AbstractModel):
 
         return loss
 
-    def forward(self, src_user, src_loc, src_reg, src_time, src_square_mask, src_binary_mask, trg_loc, trg_reg, mem_mask, ds=None):
+    def forward(self, src_user, src_loc, src_reg, src_time,
+                src_square_mask, src_binary_mask, trg_loc, trg_reg, mem_mask, ds=None):
         loc_emb_src = self.emb_loc(src_loc)
         if self.extra_config.get("user_location_only", False):
             src = loc_emb_src
@@ -158,21 +159,21 @@ class GeoSAN(AbstractModel):
             user_emb_src = self.emb_user(src_user)
             # (L, N, LEN_QUADKEY, REG_DIM)
             reg_emb = self.emb_reg(src_reg)
-            reg_emb = reg_emb.view(reg_emb.size(0) * reg_emb.size(1), 
-                                    reg_emb.size(2), reg_emb.size(3)).permute(1, 0, 2)
+            reg_emb = reg_emb.view(reg_emb.size(0) * reg_emb.size(1),
+                                   reg_emb.size(2), reg_emb.size(3)).permute(1, 0, 2)
             # (LEN_QUADKEY, L * N, REG_DIM)
-            
+
             reg_emb = self.region_pos_encoder(reg_emb)
             reg_emb = self.region_encoder(reg_emb)
-            #avg pooling 
+            # avg pooling
             reg_emb = torch.mean(reg_emb, dim=0)
-            
-            #reg_emb, _ = self.region_gru_encoder(reg_emb, self.h_0.expand(4, reg_emb.size(1), -1).contiguous())
-            #reg_emb = reg_emb[-1, :, :]
+
+            # reg_emb, _ = self.region_gru_encoder(reg_emb, self.h_0.expand(4, reg_emb.size(1), -1).contiguous())
+            # reg_emb = reg_emb[-1, :, :]
 
             # (L, N, REG_DIM)
             reg_emb = reg_emb.view(loc_emb_src.size(0), loc_emb_src.size(1), reg_emb.size(1))
-            
+
             time_emb = self.emb_time(src_time)
             if self.extra_config.get("embedding_fusion", "multiply") == "multiply":
                 if self.extra_config.get("user_embedding", False):
@@ -184,27 +185,27 @@ class GeoSAN(AbstractModel):
                     src = torch.cat([user_emb_src, loc_emb_src, reg_emb, time_emb], dim=-1)
                 else:
                     src = torch.cat([loc_emb_src, reg_emb], dim=-1)
- 
+
         if self.extra_config.get("size_sqrt_regularize", True):
             src = src * math.sqrt(src.size(-1))
 
         src = self.pos_encoder(src)
         # shape: [L, N, ninp]
         src = self.encoder(src, mask=src_square_mask)
- 
+
         # shape: [(1+K)*L, N, loc_dim]
         loc_emb_trg = self.emb_loc(trg_loc)
 
-        reg_emb_trg = self.emb_reg(trg_reg) # [(1+K)*L, N, LEN_QUADKEY, REG_DIM]
+        reg_emb_trg = self.emb_reg(trg_reg)  # [(1+K)*L, N, LEN_QUADKEY, REG_DIM]
         # (LEN_QUADKEY, (1+K)*L * N, REG_DIM)
-        reg_emb_trg = reg_emb_trg.view(reg_emb_trg.size(0) * reg_emb_trg.size(1), 
-                                    reg_emb_trg.size(2), reg_emb_trg.size(3)).permute(1, 0, 2)
+        reg_emb_trg = reg_emb_trg.view(reg_emb_trg.size(0) * reg_emb_trg.size(1),
+                                       reg_emb_trg.size(2), reg_emb_trg.size(3)).permute(1, 0, 2)
         reg_emb_trg = self.region_pos_encoder(reg_emb_trg)
         reg_emb_trg = self.region_encoder(reg_emb_trg)
         reg_emb_trg = torch.mean(reg_emb_trg, dim=0)
         # [(1+K)*L, N, REG_DIM]
-        reg_emb_trg = reg_emb_trg.view(loc_emb_trg.size(0), 
-                                            loc_emb_trg.size(1), reg_emb_trg.size(1))
+        reg_emb_trg = reg_emb_trg.view(loc_emb_trg.size(0),
+                                       loc_emb_trg.size(1), reg_emb_trg.size(1))
 
         loc_emb_trg = torch.cat([loc_emb_trg, reg_emb_trg], dim=-1)
         if self.extra_config.get("use_attention_as_decoder", False):
@@ -232,12 +233,12 @@ class GeoSAN(AbstractModel):
                 k_proj_weight=self.ident_mat,
                 v_proj_weight=self.ident_mat
             )
-            
+
             if self.training:
                 src = src.repeat(loc_emb_trg.size(0) // src.size(0), 1, 1)
             else:
                 src = src[torch.tensor(ds) - 1, torch.arange(len(ds)), :]
-                src = src.unsqueeze(0).repeat(loc_emb_trg.size(0), 1, 1) 
+                src = src.unsqueeze(0).repeat(loc_emb_trg.size(0), 1, 1)
 
             output += src
             output = self.layer_norm(output)
@@ -255,9 +256,10 @@ class GeoSAN(AbstractModel):
 
     def save(self, path):
         torch.save(self.state_dict(), path)
-    
+
     def load(self, path):
         self.load_state_dict(torch.load(path))
+
 
 class embedding(nn.Module):
     def __init__(self, vocab_size, num_units, zeros_pad=True, scale=True):
@@ -285,12 +287,14 @@ class embedding(nn.Module):
         else:
             self.padding_idx = -1
         outputs = F.embedding(
-            inputs, self.lookup_table, self.padding_idx, None, 2, False, False)  # copied from torch.nn.modules.sparse.py
+            inputs, self.lookup_table,
+            self.padding_idx, None, 2, False, False)  # copied from torch.nn.modules.sparse.py
 
         if self.scale:
             outputs = outputs * (self.num_units ** 0.5)
 
         return outputs
+
 
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, dropout=0.1, max_len=5000):
@@ -307,6 +311,7 @@ class PositionalEncoding(nn.Module):
     def forward(self, x):
         x = x + self.pe[:x.size(0), :]
         return self.dropout(x)
+
 
 class PositionalEmbedding(nn.Module):
     def __init__(self, d_model, dropout=0.1, max_len=120):

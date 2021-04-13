@@ -102,6 +102,12 @@ class GeoSANExecutor(AbstractExecutor):
 
     @staticmethod
     def reset_random_seed(seed):
+        """
+        重置随机数种子
+
+        Args:
+            seed(int): 种子数
+        """
         random.seed(seed)
         np.random.seed(seed)
         torch.manual_seed(seed)

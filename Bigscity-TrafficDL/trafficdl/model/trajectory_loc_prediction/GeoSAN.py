@@ -16,7 +16,7 @@ class GeoSAN(AbstractModel):
     def __init__(self, config, data_feature):
         super().__init__(config, data_feature)
         self.device = config['device']
-        # TODO depend on dataset
+        # depend on dataset
         self.num_neg = config['executor_config']['train']['num_negative_samples']
         self.temperature = config['executor_config']['train']['temperature']
 
@@ -83,7 +83,6 @@ class GeoSAN(AbstractModel):
         """
         user, loc, time, region, trg, trg_reg, trg_nov, sample_probs, ds = batch
 
-        # TODO 换到dataset侧执行该操作
         user = user.to(self.device)
         loc = loc.to(self.device)
         time = time.to(self.device)
@@ -120,7 +119,6 @@ class GeoSAN(AbstractModel):
         # only support "WeightedProbBinaryCELoss"
         user, loc, time, region, trg, trg_reg, trg_nov, sample_probs, ds = batch
 
-        # TODO 换到dataset侧执行该操作
         user = user.to(self.device)
         loc = loc.to(self.device)
         time = time.to(self.device)

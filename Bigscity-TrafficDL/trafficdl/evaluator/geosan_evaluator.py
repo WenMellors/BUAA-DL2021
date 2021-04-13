@@ -31,7 +31,7 @@ class GeoSANEvaluator(AbstractEvaluator):
         收集一 batch 的评估输入
 
         Args:
-            batch(dict): 输入数据
+            batch(torch.Tensor): 模型输出结果([(1+K)*L, N])
         """
         idx = batch.sort(descending=True, dim=0)[1]
         order = idx.topk(1, dim=0, largest=False)[1]

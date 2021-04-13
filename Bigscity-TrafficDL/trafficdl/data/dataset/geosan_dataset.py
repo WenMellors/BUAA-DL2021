@@ -43,6 +43,15 @@ class GeoSANDataset(AbstractDataset):
         print(f'{len(self.region2idx)} regions')
 
     def get_data(self):
+        """
+        返回数据的DataLoader，包括训练数据、测试数据(事实上不提供)、验证数据
+
+        Returns:
+            tuple: tuple contains:
+                train_dataloader: Dataloader composed of Batch (class) \n
+                eval_dataloader: None(no valid step) \n
+                test_dataloader: Dataloader composed of Batch (class)
+        """
         assert self.config['executor_config']["train"]["negative_sampler"] == "KNNSampler"
         assert self.config['executor_config']["test"]["negative_sampler"] == "KNNSampler"
         user_visited_locs = self.get_visited_locs()
@@ -84,6 +93,12 @@ class GeoSANDataset(AbstractDataset):
         return train_loader, None, test_loader
 
     def get_data_feature(self):
+        """
+        返回一个 dict，包含数据集的相关特征
+
+        Returns:
+            dict: 包含数据集的相关特征的字典
+        """
         tmp = {
             'nuser': self.n_user,
             'nloc': self.n_loc,
@@ -153,6 +168,9 @@ class GeoSANDataset(AbstractDataset):
             return user_.t(), loc_.t(), time_.t(), region_, trg_, trg_nov_, trg_probs_, data_size
 
     def region_stats(self):
+        """
+        统计并打印数据集的一些基本信息
+        """
         num_reg_locs = []
         for reg in self.region2loc:
             num_reg_locs.append(len(self.region2loc[reg]))
@@ -360,6 +378,9 @@ class LocQuerySystem:
         self.radius_results = None
 
     def build_tree(self, dataset):
+        """
+        构建KNN(基于BallTree实现)，用于sampler中的采样操作
+        """
         self.coordinates = np.zeros((len(dataset.idx2gps) - 1, 2), dtype=np.float64)
         for idx, (lat, lon) in dataset.idx2gps.items():
             if idx != 0:
@@ -433,6 +454,9 @@ class KNNSampler(nn.Module):
         self.exclude_visited = exclude_visited
 
     def forward(self, trg_seq, k, user, **kwargs):
+        """
+            基于query_sys从候选集中随机采样k个作为负样例
+        """
         neg_samples = []
         for check_in in trg_seq:
             trg_loc = check_in[1]
@@ -502,6 +526,9 @@ def pxy2txy(pixelX, pixelY):
 
 
 def latlon2quadkey(lat, lon, level):
+    """
+    经纬度 to quadkey 转换函数
+    """
     pixelX, pixelY = latlon2pxy(lat, lon, level)
     tileX, tileY = pxy2txy(pixelX, pixelY)
     return txy2quadkey(tileX, tileY, level)

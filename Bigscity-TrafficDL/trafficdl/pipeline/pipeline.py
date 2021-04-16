@@ -30,6 +30,23 @@ def run_model(task=None, model_name=None, dataset_name=None, config_file=None,
     # 转换数据，并划分数据集
     train_data, valid_data, test_data = dataset.get_data()
     data_feature = dataset.get_data_feature()
+    '''
+    #add by 18231216
+    import torch
+    towr = open("oup.txt",'w')
+    for i,ement in enumerate(train_data):
+        for key in ement.data:
+            print("key:{},body:{}".format(key,torch.Tensor(ement.data[key])),file = towr)
+            print("#####################################",file = towr)
+    towr.close()
+    #'''
+    '''
+    #add by 18231216
+    towr = open("oup.txt",'w')
+    for key in enumerate(dataset.data):
+        print("key:{},shape:{}".format(key,torch.Tensor(dataset.data.data[key]).shape),file = towr)
+    towr.close()
+    '''
     # 加载执行器
     model_cache_file = './trafficdl/cache/model_cache/{}_{}.m'.format(
         model_name, dataset_name)

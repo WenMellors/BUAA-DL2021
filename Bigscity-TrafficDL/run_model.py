@@ -6,7 +6,7 @@ import argparse
 
 from trafficdl.pipeline import run_model
 from trafficdl.utils import general_arguments, str2bool, str2float
-
+import torch
 
 def add_other_args(parser):
     for arg in general_arguments:
@@ -24,13 +24,13 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     # 增加指定的参数
     parser.add_argument('--task', type=str,
-                        default='traj_loc_pred', help='the name of task')
+                        default='traffic_state_pred', help='the name of task')
     parser.add_argument('--model', type=str,
-                        default='DeepMove', help='the name of model')
+                        default='ATDM', help='the name of model')
     parser.add_argument('--dataset', type=str,
-                        default='foursquare_tky', help='the name of dataset')
+                        default='METR_LA', help='the name of dataset')
     parser.add_argument('--config_file', type=str,
-                        default=None, help='the file name of config file')
+                        default='trafficdl/config/model/ATDM', help='the file name of config file')
     parser.add_argument('--saved_model', type=str2bool,
                         default=True, help='whether save the trained model')
     parser.add_argument('--train', type=str2bool, default=True,

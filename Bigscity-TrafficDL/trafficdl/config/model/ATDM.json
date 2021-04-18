@@ -1,10 +1,11 @@
 {
   "max_epoch": 100,
   "learner": "adam",
-  "learning_rate": 0.01,
+  "learning_rate": 0.001,
   "hidden_size": 64,
   "past_t": 3,
   "dropout": 0.2,
   "output_window": 3,
-  "scaler": "standard"
+  "scaler": "standard",
+  "batch_size": 256
 }

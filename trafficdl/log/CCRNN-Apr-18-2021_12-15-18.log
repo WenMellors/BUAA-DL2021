@@ -1,0 +1,19 @@
+2021-04-18 12:15:18,502 - INFO - Log directory: ./trafficdl/log
+2021-04-18 12:15:18,502 - INFO - Begin pipeline, task=traffic_state_pred, model_name=CCRNN, dataset_name=METR_LA
+2021-04-18 12:15:21,272 - INFO - Loaded file METR_LA.geo, num_nodes=207
+2021-04-18 12:15:21,502 - INFO - Loaded file METR_LA.rel, shape=(207, 207)
+2021-04-18 12:15:21,502 - INFO - Start Calculate the weight by Gauss kernel!
+2021-04-18 12:15:35,522 - INFO - Loaded file METR_LA.dyna, shape=(34272, 207, 1)
+2021-04-18 12:16:30,782 - INFO - Dataset created
+2021-04-18 12:16:31,042 - INFO - x shape: (34249, 12, 207, 2), y shape: (34249, 12, 207, 2)
+2021-04-18 12:16:31,642 - INFO - train	x: (23974, 12, 207, 2)y: (23974, 12, 207, 2)
+2021-04-18 12:16:31,642 - INFO - eval	x: (3425, 12, 207, 2)y: (3425, 12, 207, 2)
+2021-04-18 12:16:31,642 - INFO - test	x: (6850, 12, 207, 2)y: (6850, 12, 207, 2)
+2021-04-18 12:18:30,026 - INFO - Saved at ./trafficdl/cache/dataset_cache/point_based_METR_LA_12_12_0.7_0.1_standard_64_True_False_True.npz
+2021-04-18 12:18:30,836 - INFO - StandardScaler mean: 54.40592829587626, std: 19.493739270573094
+2021-04-18 12:24:17,672 - INFO - decoder_model.projection_layer.weight	torch.Size([1, 64])	cpu	True
+2021-04-18 12:24:17,672 - INFO - decoder_model.projection_layer.bias	torch.Size([1])	cpu	True
+2021-04-18 12:24:17,682 - INFO - Total parameter numbers: 372353
+2021-04-18 12:24:17,692 - INFO - Start training ...
+2021-04-18 12:24:17,692 - INFO - num_batches:375
+2021-04-18 12:24:50,222 - INFO - Total trainable parameters 372353

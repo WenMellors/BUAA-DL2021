@@ -8,6 +8,7 @@
 /Bigscity-TrafficDL/.idea
 /Bigscity-TrafficDL/trafficdl/log/*
 /Bigscity-TrafficDL/trafficdl/model/*/__pycache__
-
+/Bigscity-TrafficDL/test/trafficdl/cache/*
+/Bigscity-TrafficDL/test/trafficdl/log/*
 /.vscode
 /.idea

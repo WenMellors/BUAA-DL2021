@@ -13,7 +13,7 @@ class TrafficStateEvaluator(AbstractEvaluator):
     def __init__(self, config):
         self.metrics = config.get('metrics', ['MAE'])  # 评估指标, 是一个 list
         self.allowed_metrics = ['MAE', 'MSE', 'RMSE', 'MAPE', 'masked_MAE',
-                                'masked_MSE', 'masked_RMSE', 'masked_MAPE', 'R2', 'EVAR']
+                                'masked_MSE', 'masked_RMSE', 'masked_MAPE', 'R2', 'EVAR', 'BIAS']
         self.mode = config.get('evaluator_mode', 'average')  # or single
         self.config = config
         self.len_timeslots = 0
@@ -67,6 +67,9 @@ class TrafficStateEvaluator(AbstractEvaluator):
                     elif metric == 'MAE':
                         self.intermediate_result[metric + '@' + str(i)].append(
                             loss.masked_mae_torch(y_pred[:, :i], y_true[:, :i]).item())
+                    elif metric == 'BIAS':
+                        self.intermediate_result[metric + '@' + str(i)].append(
+                            loss.masked_bias_torch(y_pred[:, :i], y_true[:, :i]).item())
                     elif metric == 'MSE':
                         self.intermediate_result[metric + '@' + str(i)].append(
                             loss.masked_mse_torch(y_pred[:, :i], y_true[:, :i]).item())
@@ -100,6 +103,9 @@ class TrafficStateEvaluator(AbstractEvaluator):
                     elif metric == 'MAE':
                         self.intermediate_result[metric + '@' + str(i)].append(
                             loss.masked_mae_torch(y_pred[:, i-1], y_true[:, i-1]).item())
+                    elif metric == 'BIAS':
+                        self.intermediate_result[metric + '@' + str(i)].append(
+                            loss.masked_bias_torch(y_pred[:, i-1], y_true[:, i-1]).item())
                     elif metric == 'MSE':
                         self.intermediate_result[metric + '@' + str(i)].append(
                             loss.masked_mse_torch(y_pred[:, i-1], y_true[:, i-1]).item())

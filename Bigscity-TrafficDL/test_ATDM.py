@@ -28,7 +28,7 @@ if __name__ == '__main__':
         'clip_grad_norm': True,
 
         'metrics': ['RMSE', 'BIAS'],
-        'gpu': True,
+        'gpu': False,
         'dataset': 'METR_LA',
         'weight_col': 'cost',
         'data_col': ['traffic_speed'],

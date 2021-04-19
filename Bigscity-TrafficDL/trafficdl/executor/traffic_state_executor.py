@@ -217,7 +217,7 @@ class TrafficStateExecutor(AbstractExecutor):
             self._writer.add_scalar('training loss', np.mean(losses), epoch_idx)
             self._logger.info("epoch complete!")
             if self.lr_scheduler is not None:
-                self.lr_scheduler.step()
+                self.lr_scheduler.step(losses)
             self._logger.info("evaluating now!")
             val_loss = self._valid_epoch(eval_dataloader, epoch_idx)
             end_time = time.time()

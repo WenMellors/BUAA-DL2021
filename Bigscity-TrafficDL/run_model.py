@@ -6,7 +6,7 @@ import argparse
 
 from trafficdl.pipeline import run_model
 from trafficdl.utils import general_arguments, str2bool, str2float
-import torch
+
 
 def add_other_args(parser):
     for arg in general_arguments:
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     dict_args = vars(args)
     other_args = {key: val for key, val in dict_args.items() if key not in [
         'task', 'model', 'dataset', 'config_file', 'saved_model', 'train'] and
-        val is not None}
+                  val is not None}
     run_model(task=args.task, model_name=args.model, dataset_name=args.dataset,
               config_file=args.config_file, save_model=args.saved_model,
               train=args.train, other_args=other_args)

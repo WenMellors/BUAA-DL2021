@@ -18,7 +18,7 @@ if __name__ == '__main__':
         'model': 'ATDM',
 
         'learning_rate': 0.001,
-        'learner': 'rmsprop',
+        'learner': 'adam',
         'lr_decay': True,
         'weight_decay': 0.001,
         'dropout': 0.1,

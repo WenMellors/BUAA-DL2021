@@ -125,7 +125,8 @@ class TrafficStateExecutor(AbstractExecutor):
         elif self.learner.lower() == 'adagrad':
             optimizer = torch.optim.Adagrad(self.model.parameters(), lr=self.learning_rate)
         elif self.learner.lower() == 'rmsprop':
-            optimizer = torch.optim.RMSprop(self.model.parameters(), lr=self.learning_rate,eps=self.lr_epsilon, weight_decay=self.weight_decay,momentum=self.momentum)
+            optimizer = torch.optim.RMSprop(self.model.parameters(), lr=self.learning_rate, eps=self.lr_epsilon,
+                                            weight_decay=self.weight_decay, momentum=self.momentum)
         elif self.learner.lower() == 'sparse_adam':
             optimizer = torch.optim.SparseAdam(self.model.parameters(), lr=self.learning_rate)
         else:

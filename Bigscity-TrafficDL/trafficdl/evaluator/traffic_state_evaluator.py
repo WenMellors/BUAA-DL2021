@@ -67,6 +67,9 @@ class TrafficStateEvaluator(AbstractEvaluator):
                     elif metric == 'MAE':
                         self.intermediate_result[metric + '@' + str(i)].append(
                             loss.masked_mae_torch(y_pred[:, :i], y_true[:, :i]).item())
+                    elif metric == 'BIAS':
+                        self.intermediate_result[metric + '@' + str(i)].append(
+                            loss.masked_bias_torch(y_pred[:, :i], y_true[:, :i]).item())
                     elif metric == 'MSE':
                         self.intermediate_result[metric + '@' + str(i)].append(
                             loss.masked_mse_torch(y_pred[:, :i], y_true[:, :i]).item())
@@ -100,6 +103,9 @@ class TrafficStateEvaluator(AbstractEvaluator):
                     elif metric == 'MAE':
                         self.intermediate_result[metric + '@' + str(i)].append(
                             loss.masked_mae_torch(y_pred[:, i-1], y_true[:, i-1]).item())
+                    elif metric == 'BIAS':
+                        self.intermediate_result[metric + '@' + str(i)].append(
+                            loss.masked_bias_torch(y_pred[:, i-1], y_true[:, i-1]).item())
                     elif metric == 'MSE':
                         self.intermediate_result[metric + '@' + str(i)].append(
                             loss.masked_mse_torch(y_pred[:, i-1], y_true[:, i-1]).item())

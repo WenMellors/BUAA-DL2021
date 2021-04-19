@@ -35,10 +35,13 @@ class TrafficStateExecutor(AbstractExecutor):
         self.learner = self.config.get('learner', 'adam')
         self.learning_rate = self.config.get('learning_rate', 0.01)
         self.weight_decay = self.config.get('weight_decay', 0)
+        self.momentum = self.config.get('momentum', 0.9)
         self.lr_epsilon = self.config.get('lr_epsilon', 1e-8)
         self.lr_decay = self.config.get('lr_decay', False)
         self.lr_scheduler_type = self.config.get('lr_scheduler', 'multisteplr')
         self.lr_decay_ratio = self.config.get('lr_decay_ratio', 0.1)
+        self.lr_patience = self.config.get('lr_patience', 0.1)
+        self.lr_min = self.config.get('lr_min', 0.00001)
         self.milestones = self.config.get('steps', [])
         self.step_size = self.config.get('step_size', 10)
         self.lr_lambda = self.config.get('lr_lambda', lambda x: x)
@@ -122,7 +125,7 @@ class TrafficStateExecutor(AbstractExecutor):
         elif self.learner.lower() == 'adagrad':
             optimizer = torch.optim.Adagrad(self.model.parameters(), lr=self.learning_rate)
         elif self.learner.lower() == 'rmsprop':
-            optimizer = torch.optim.RMSprop(self.model.parameters(), lr=self.learning_rate)
+            optimizer = torch.optim.RMSprop(self.model.parameters(), lr=self.learning_rate,eps=self.lr_epsilon, weight_decay=self.weight_decay,momentum=self.momentum)
         elif self.learner.lower() == 'sparse_adam':
             optimizer = torch.optim.SparseAdam(self.model.parameters(), lr=self.learning_rate)
         else:
@@ -151,6 +154,8 @@ class TrafficStateExecutor(AbstractExecutor):
             elif self.lr_scheduler_type.lower() == 'lambdalr':
                 lr_scheduler = torch.optim.lr_scheduler.LambdaLR(
                     self.optimizer, lr_lambda=self.lr_lambda)
+            elif self.lr_scheduler_type.lower() == 'plateau':
+                lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer, patience=self.lr_patience)
             else:
                 lr_scheduler = None
         else:
@@ -239,6 +244,9 @@ class TrafficStateExecutor(AbstractExecutor):
                 if wait == self.patience and self.use_early_stop:
                     self._logger.warning('Early stopping at epoch: %d' % epoch_idx)
                     break
+
+            if self.optimizer.param_groups[0]['lr'] < self.lr_min:
+                break
         self.load_model_with_epoch(best_epoch)
 
     def _train_epoch(self, train_dataloader, epoch_idx, loss_func=None):

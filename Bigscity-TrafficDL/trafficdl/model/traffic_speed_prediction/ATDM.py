@@ -37,7 +37,7 @@ class SANN(nn.Module):
         # 2D dropout
         out = self.drop(out)
         # NxHxTxS ---> NxC'xT'xS
-        out = self.regressor(out.view(N, -1, S))
+        out = self.regressor(out.reshape(N, -1, S))
         return out.view(N, self.n_out, self.t_out, self.n_points)
 
 

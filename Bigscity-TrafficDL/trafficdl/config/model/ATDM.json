@@ -1,11 +1,17 @@
 {
   "max_epoch": 100,
-  "learner": "adam",
+  "learner": "rmsprop",
   "learning_rate": 0.001,
   "hidden_size": 64,
   "past_t": 3,
   "dropout": 0.2,
   "output_window": 3,
   "scaler": "standard",
-  "batch_size": 256
+  "batch_size": 256,
+  "lr_dacay": true,
+  "lr_scheduler_type": "plateau",
+  "lr_patience": 10,
+  "lr_min": 0.00001
+  "momentum": 0.9
+
 }

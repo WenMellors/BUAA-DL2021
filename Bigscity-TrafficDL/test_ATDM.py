@@ -18,8 +18,8 @@ if __name__ == '__main__':
         'model': 'ATDM',
 
         'learning_rate': 0.001,
-        'learner': 'adam',
-        'lr_decay': False,
+        'learner': 'rmsprop',
+        'lr_decay': True,
         'weight_decay': 0.001,
         'dropout': 0.1,
         'max_epoch': 100,
@@ -27,17 +27,16 @@ if __name__ == '__main__':
         'max_grad_norm': 5,
         'clip_grad_norm': True,
 
-        'metrics': ['MAE', 'MSE', 'RMSE', 'MAPE', 'masked_MAE', 'masked_MSE', 'masked_RMSE', 'masked_MAPE', 'R2',
-                    'EVAR'],
-        'gpu': False,
-        'dataset': 'PEMS_BAY',
+        'metrics': ['RMSE', 'BIAS'],
+        'gpu': True,
+        'dataset': 'METR_LA',
         'weight_col': 'cost',
         'data_col': ['traffic_speed'],
         'calculate_weight': True,
         'add_time_in_day': False,
         'add_day_in_week': False,
         'scaler': "standard",
-        'use_early_stop': False,
+        'use_early_stop': True,
     }
     import torch
 

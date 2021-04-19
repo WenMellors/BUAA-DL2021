@@ -1,0 +1,221 @@
+2021-04-19 08:00:41,392 - INFO - Log directory: ./trafficdl/log
+2021-04-19 08:00:41,643 - INFO - Loaded file PEMS_BAY.geo, num_nodes=325
+2021-04-19 08:00:41,678 - INFO - Loaded file PEMS_BAY.rel, shape=(325, 325)
+2021-04-19 08:00:41,679 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_PEMS_BAY_12_3_0.7_0.1_standard_256_False_False_True.npz
+2021-04-19 08:00:47,898 - INFO - train	x: (36471, 12, 325, 1)y: (36471, 3, 325, 1)
+2021-04-19 08:00:47,898 - INFO - eval	x: (5211, 12, 325, 1)y: (5211, 3, 325, 1)
+2021-04-19 08:00:47,899 - INFO - test	x: (10420, 12, 325, 1)y: (10420, 3, 325, 1)
+2021-04-19 08:00:48,858 - INFO - StandardScaler mean: 62.73590042949512, std: 9.437665732769402
+2021-04-19 08:00:53,747 - INFO - sann.conv_block.op.0.weight	torch.Size([64, 1, 3, 325])	cuda:0	True
+2021-04-19 08:00:53,747 - INFO - sann.conv_block.op.0.bias	torch.Size([64])	cuda:0	True
+2021-04-19 08:00:53,747 - INFO - sann.conv_block.op.1.weight	torch.Size([64])	cuda:0	True
+2021-04-19 08:00:53,748 - INFO - sann.conv_block.op.1.bias	torch.Size([64])	cuda:0	True
+2021-04-19 08:00:53,748 - INFO - sann.convT.weight	torch.Size([64, 64, 1, 325])	cuda:0	True
+2021-04-19 08:00:53,748 - INFO - sann.convT.bias	torch.Size([64])	cuda:0	True
+2021-04-19 08:00:53,748 - INFO - sann.regressor.op.0.weight	torch.Size([3, 768, 1])	cuda:0	True
+2021-04-19 08:00:53,749 - INFO - sann.regressor.op.0.bias	torch.Size([3])	cuda:0	True
+2021-04-19 08:00:53,749 - INFO - sann.regressor.op.1.weight	torch.Size([3])	cuda:0	True
+2021-04-19 08:00:53,749 - INFO - sann.regressor.op.1.bias	torch.Size([3])	cuda:0	True
+2021-04-19 08:00:53,750 - INFO - Total parameter numbers: 1396169
+2021-04-19 08:00:53,750 - INFO - Start training ...
+2021-04-19 08:00:53,750 - INFO - num_batches:143
+2021-04-19 08:06:30,706 - INFO - epoch complete!
+2021-04-19 08:06:30,707 - INFO - evaluating now!
+2021-04-19 08:07:19,271 - INFO - Epoch [0/50] train_loss: 0.2439, val_loss: 0.2350, lr: 0.001000, 385.5s
+2021-04-19 08:07:19,304 - INFO - Saved model at 0
+2021-04-19 08:07:19,307 - INFO - Val loss decrease from inf to 0.2350, saving to ./trafficdl/cache/model_cache/ATDM_PEMS_BAY_epoch0.tar
+2021-04-19 08:07:19,307 - INFO - Start evaluating ...
+2021-04-19 08:08:57,059 - INFO - Evaluate result is {"RMSE@1": 4.489982604980469, "BIAS@1": 0.37586528062820435, "RMSE@2": 4.490645885467529, "BIAS@2": 0.35797181725502014, "RMSE@3": 4.5125813484191895, "BIAS@3": 0.3385753929615021}
+2021-04-19 08:08:57,063 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_08_57_ATDM_PEMS_BAY.json
+2021-04-19 08:08:57,073 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_08_57_ATDM_PEMS_BAY.csv
+2021-04-19 08:08:57,083 - INFO - 
+       RMSE      BIAS
+0  4.489983  0.375865
+1  4.490646  0.357972
+2  4.512581  0.338575
+2021-04-19 08:14:34,931 - INFO - epoch complete!
+2021-04-19 08:14:34,932 - INFO - evaluating now!
+2021-04-19 08:15:23,619 - INFO - Epoch [1/50] train_loss: 0.1516, val_loss: 0.1972, lr: 0.001000, 386.5s
+2021-04-19 08:15:23,651 - INFO - Saved model at 1
+2021-04-19 08:15:23,654 - INFO - Val loss decrease from 0.2350 to 0.1972, saving to ./trafficdl/cache/model_cache/ATDM_PEMS_BAY_epoch1.tar
+2021-04-19 08:15:23,654 - INFO - Start evaluating ...
+2021-04-19 08:17:01,287 - INFO - Evaluate result is {"RMSE@1": 4.045669078826904, "BIAS@1": 0.07411659508943558, "RMSE@2": 4.098747730255127, "BIAS@2": 0.08338946849107742, "RMSE@3": 4.158313274383545, "BIAS@3": 0.09803243726491928}
+2021-04-19 08:17:01,292 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_17_01_ATDM_PEMS_BAY.json
+2021-04-19 08:17:01,300 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_17_01_ATDM_PEMS_BAY.csv
+2021-04-19 08:17:01,307 - INFO - 
+       RMSE      BIAS
+0  4.045669  0.074117
+1  4.098748  0.083389
+2  4.158313  0.098032
+2021-04-19 08:22:38,744 - INFO - epoch complete!
+2021-04-19 08:22:38,745 - INFO - evaluating now!
+2021-04-19 08:23:27,276 - INFO - Epoch [2/50] train_loss: 0.1334, val_loss: 0.1843, lr: 0.001000, 386.0s
+2021-04-19 08:23:28,149 - INFO - Saved model at 2
+2021-04-19 08:23:28,151 - INFO - Val loss decrease from 0.1972 to 0.1843, saving to ./trafficdl/cache/model_cache/ATDM_PEMS_BAY_epoch2.tar
+2021-04-19 08:23:28,152 - INFO - Start evaluating ...
+2021-04-19 08:25:06,098 - INFO - Evaluate result is {"RMSE@1": 3.916461944580078, "BIAS@1": -0.013724194839596748, "RMSE@2": 3.96871018409729, "BIAS@2": -0.02674584835767746, "RMSE@3": 4.03438663482666, "BIAS@3": -0.03822171688079834}
+2021-04-19 08:25:06,103 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_25_06_ATDM_PEMS_BAY.json
+2021-04-19 08:25:06,110 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_25_06_ATDM_PEMS_BAY.csv
+2021-04-19 08:25:06,118 - INFO - 
+       RMSE      BIAS
+0  3.916462 -0.013724
+1  3.968710 -0.026746
+2  4.034387 -0.038222
+2021-04-19 08:30:44,142 - INFO - epoch complete!
+2021-04-19 08:30:44,143 - INFO - evaluating now!
+2021-04-19 08:31:32,879 - INFO - Epoch [3/50] train_loss: 0.1268, val_loss: 0.1809, lr: 0.001000, 386.8s
+2021-04-19 08:31:34,078 - INFO - Saved model at 3
+2021-04-19 08:31:34,081 - INFO - Val loss decrease from 0.1843 to 0.1809, saving to ./trafficdl/cache/model_cache/ATDM_PEMS_BAY_epoch3.tar
+2021-04-19 08:31:34,082 - INFO - Start evaluating ...
+2021-04-19 08:33:12,021 - INFO - Evaluate result is {"RMSE@1": 3.8743624687194824, "BIAS@1": 0.11238006502389908, "RMSE@2": 3.9393794536590576, "BIAS@2": 0.110036700963974, "RMSE@3": 4.015782833099365, "BIAS@3": 0.11891085654497147}
+2021-04-19 08:33:12,026 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_33_12_ATDM_PEMS_BAY.json
+2021-04-19 08:33:12,033 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_33_12_ATDM_PEMS_BAY.csv
+2021-04-19 08:33:12,041 - INFO - 
+       RMSE      BIAS
+0  3.874362  0.112380
+1  3.939379  0.110037
+2  4.015783  0.118911
+2021-04-19 08:38:50,200 - INFO - epoch complete!
+2021-04-19 08:38:50,201 - INFO - evaluating now!
+2021-04-19 08:39:38,837 - INFO - Epoch [4/50] train_loss: 0.1242, val_loss: 0.1839, lr: 0.001000, 386.8s
+2021-04-19 08:39:38,838 - INFO - Start evaluating ...
+2021-04-19 08:41:16,742 - INFO - Evaluate result is {"RMSE@1": 3.893583297729492, "BIAS@1": 0.0441812202334404, "RMSE@2": 3.9664254188537598, "BIAS@2": 0.040327753871679306, "RMSE@3": 4.04701566696167, "BIAS@3": 0.04493759945034981}
+2021-04-19 08:41:16,747 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_41_16_ATDM_PEMS_BAY.json
+2021-04-19 08:41:16,754 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_41_16_ATDM_PEMS_BAY.csv
+2021-04-19 08:41:16,762 - INFO - 
+       RMSE      BIAS
+0  3.893583  0.044181
+1  3.966425  0.040328
+2  4.047016  0.044938
+2021-04-19 08:46:54,323 - INFO - epoch complete!
+2021-04-19 08:46:54,324 - INFO - evaluating now!
+2021-04-19 08:47:43,033 - INFO - Epoch [5/50] train_loss: 0.1209, val_loss: 0.1798, lr: 0.001000, 386.3s
+2021-04-19 08:47:43,841 - INFO - Saved model at 5
+2021-04-19 08:47:43,841 - INFO - Val loss decrease from 0.1809 to 0.1798, saving to ./trafficdl/cache/model_cache/ATDM_PEMS_BAY_epoch5.tar
+2021-04-19 08:47:43,842 - INFO - Start evaluating ...
+2021-04-19 08:49:21,887 - INFO - Evaluate result is {"RMSE@1": 3.818516731262207, "BIAS@1": 0.033343490213155746, "RMSE@2": 3.9015088081359863, "BIAS@2": 0.017039919272065163, "RMSE@3": 3.9808766841888428, "BIAS@3": 0.002951903035864234}
+2021-04-19 08:49:21,891 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_49_21_ATDM_PEMS_BAY.json
+2021-04-19 08:49:21,912 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_49_21_ATDM_PEMS_BAY.csv
+2021-04-19 08:49:21,919 - INFO - 
+       RMSE      BIAS
+0  3.818517  0.033343
+1  3.901509  0.017040
+2  3.980877  0.002952
+2021-04-19 08:55:00,361 - INFO - epoch complete!
+2021-04-19 08:55:00,362 - INFO - evaluating now!
+2021-04-19 08:55:49,058 - INFO - Epoch [6/50] train_loss: 0.1174, val_loss: 0.1838, lr: 0.001000, 387.1s
+2021-04-19 08:55:49,059 - INFO - Start evaluating ...
+2021-04-19 08:57:26,973 - INFO - Evaluate result is {"RMSE@1": 3.8617279529571533, "BIAS@1": -0.07114242017269135, "RMSE@2": 3.935523271560669, "BIAS@2": -0.09044428169727325, "RMSE@3": 4.016972541809082, "BIAS@3": -0.09642820060253143}
+2021-04-19 08:57:26,977 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_57_26_ATDM_PEMS_BAY.json
+2021-04-19 08:57:26,984 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_08_57_26_ATDM_PEMS_BAY.csv
+2021-04-19 08:57:26,991 - INFO - 
+       RMSE      BIAS
+0  3.861728 -0.071142
+1  3.935523 -0.090444
+2  4.016973 -0.096428
+2021-04-19 09:03:04,883 - INFO - epoch complete!
+2021-04-19 09:03:04,884 - INFO - evaluating now!
+2021-04-19 09:03:53,663 - INFO - Epoch [7/50] train_loss: 0.1177, val_loss: 0.1782, lr: 0.001000, 386.7s
+2021-04-19 09:03:54,564 - INFO - Saved model at 7
+2021-04-19 09:03:54,566 - INFO - Val loss decrease from 0.1798 to 0.1782, saving to ./trafficdl/cache/model_cache/ATDM_PEMS_BAY_epoch7.tar
+2021-04-19 09:03:54,567 - INFO - Start evaluating ...
+2021-04-19 09:05:32,545 - INFO - Evaluate result is {"RMSE@1": 3.822058916091919, "BIAS@1": 0.11619772762060165, "RMSE@2": 3.9074230194091797, "BIAS@2": 0.12144661694765091, "RMSE@3": 3.9942071437835693, "BIAS@3": 0.13269957900047302}
+2021-04-19 09:05:32,549 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_05_32_ATDM_PEMS_BAY.json
+2021-04-19 09:05:32,556 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_05_32_ATDM_PEMS_BAY.csv
+2021-04-19 09:05:32,564 - INFO - 
+       RMSE      BIAS
+0  3.822059  0.116198
+1  3.907423  0.121447
+2  3.994207  0.132700
+2021-04-19 09:11:10,980 - INFO - epoch complete!
+2021-04-19 09:11:10,981 - INFO - evaluating now!
+2021-04-19 09:11:59,811 - INFO - Epoch [8/50] train_loss: 0.1165, val_loss: 0.1796, lr: 0.001000, 387.2s
+2021-04-19 09:11:59,812 - INFO - Start evaluating ...
+2021-04-19 09:13:37,792 - INFO - Evaluate result is {"RMSE@1": 3.875800609588623, "BIAS@1": 0.0867064893245697, "RMSE@2": 3.9442288875579834, "BIAS@2": 0.08640868961811066, "RMSE@3": 4.022630214691162, "BIAS@3": 0.0988345593214035}
+2021-04-19 09:13:37,810 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_13_37_ATDM_PEMS_BAY.json
+2021-04-19 09:13:37,822 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_13_37_ATDM_PEMS_BAY.csv
+2021-04-19 09:13:37,834 - INFO - 
+       RMSE      BIAS
+0  3.875801  0.086706
+1  3.944229  0.086409
+2  4.022630  0.098835
+2021-04-19 09:19:16,394 - INFO - epoch complete!
+2021-04-19 09:19:16,394 - INFO - evaluating now!
+2021-04-19 09:20:05,172 - INFO - Epoch [9/50] train_loss: 0.1148, val_loss: 0.1783, lr: 0.001000, 387.3s
+2021-04-19 09:20:05,173 - INFO - Start evaluating ...
+2021-04-19 09:21:43,194 - INFO - Evaluate result is {"RMSE@1": 3.8062312602996826, "BIAS@1": -0.017667226493358612, "RMSE@2": 3.898709774017334, "BIAS@2": -0.014303956180810928, "RMSE@3": 3.9894943237304688, "BIAS@3": -0.022157801315188408}
+2021-04-19 09:21:43,199 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_21_43_ATDM_PEMS_BAY.json
+2021-04-19 09:21:43,206 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_21_43_ATDM_PEMS_BAY.csv
+2021-04-19 09:21:43,214 - INFO - 
+       RMSE      BIAS
+0  3.806231 -0.017667
+1  3.898710 -0.014304
+2  3.989494 -0.022158
+2021-04-19 09:27:23,130 - INFO - epoch complete!
+2021-04-19 09:27:23,131 - INFO - evaluating now!
+2021-04-19 09:28:12,625 - INFO - Epoch [10/50] train_loss: 0.1146, val_loss: 0.1737, lr: 0.001000, 389.4s
+2021-04-19 09:28:13,823 - INFO - Saved model at 10
+2021-04-19 09:28:13,824 - INFO - Val loss decrease from 0.1782 to 0.1737, saving to ./trafficdl/cache/model_cache/ATDM_PEMS_BAY_epoch10.tar
+2021-04-19 09:28:13,826 - INFO - Start evaluating ...
+2021-04-19 09:29:52,079 - INFO - Evaluate result is {"RMSE@1": 3.766390562057495, "BIAS@1": -0.006088199559599161, "RMSE@2": 3.8490679264068604, "BIAS@2": -0.009576105512678623, "RMSE@3": 3.9408605098724365, "BIAS@3": -0.03701017051935196}
+2021-04-19 09:29:52,084 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_29_52_ATDM_PEMS_BAY.json
+2021-04-19 09:29:52,091 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_29_52_ATDM_PEMS_BAY.csv
+2021-04-19 09:29:52,099 - INFO - 
+       RMSE      BIAS
+0  3.766391 -0.006088
+1  3.849068 -0.009576
+2  3.940861 -0.037010
+2021-04-19 09:35:33,057 - INFO - epoch complete!
+2021-04-19 09:35:33,057 - INFO - evaluating now!
+2021-04-19 09:36:22,503 - INFO - Epoch [11/50] train_loss: 0.1135, val_loss: 0.1720, lr: 0.001000, 390.4s
+2021-04-19 09:36:23,212 - INFO - Saved model at 11
+2021-04-19 09:36:23,215 - INFO - Val loss decrease from 0.1737 to 0.1720, saving to ./trafficdl/cache/model_cache/ATDM_PEMS_BAY_epoch11.tar
+2021-04-19 09:36:23,215 - INFO - Start evaluating ...
+2021-04-19 09:38:01,464 - INFO - Evaluate result is {"RMSE@1": 3.768655300140381, "BIAS@1": 0.18660764396190643, "RMSE@2": 3.849931240081787, "BIAS@2": 0.18940605223178864, "RMSE@3": 3.938275098800659, "BIAS@3": 0.20087149739265442}
+2021-04-19 09:38:01,485 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_38_01_ATDM_PEMS_BAY.json
+2021-04-19 09:38:01,493 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_38_01_ATDM_PEMS_BAY.csv
+2021-04-19 09:38:01,501 - INFO - 
+       RMSE      BIAS
+0  3.768655  0.186608
+1  3.849931  0.189406
+2  3.938275  0.200871
+2021-04-19 09:43:41,158 - INFO - epoch complete!
+2021-04-19 09:43:41,159 - INFO - evaluating now!
+2021-04-19 09:44:29,634 - INFO - Epoch [12/50] train_loss: 0.1124, val_loss: 0.1695, lr: 0.001000, 388.1s
+2021-04-19 09:44:30,499 - INFO - Saved model at 12
+2021-04-19 09:44:30,502 - INFO - Val loss decrease from 0.1720 to 0.1695, saving to ./trafficdl/cache/model_cache/ATDM_PEMS_BAY_epoch12.tar
+2021-04-19 09:44:30,502 - INFO - Start evaluating ...
+2021-04-19 09:46:08,858 - INFO - Evaluate result is {"RMSE@1": 3.7244112491607666, "BIAS@1": -0.04393407329916954, "RMSE@2": 3.807462215423584, "BIAS@2": -0.07610493898391724, "RMSE@3": 3.902107000350952, "BIAS@3": -0.110858254134655}
+2021-04-19 09:46:08,863 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_46_08_ATDM_PEMS_BAY.json
+2021-04-19 09:46:08,870 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_46_08_ATDM_PEMS_BAY.csv
+2021-04-19 09:46:08,877 - INFO - 
+       RMSE      BIAS
+0  3.724411 -0.043934
+1  3.807462 -0.076105
+2  3.902107 -0.110858
+2021-04-19 09:51:49,863 - INFO - epoch complete!
+2021-04-19 09:51:49,864 - INFO - evaluating now!
+2021-04-19 09:52:39,504 - INFO - Epoch [13/50] train_loss: 0.1119, val_loss: 0.1675, lr: 0.001000, 390.6s
+2021-04-19 09:52:40,326 - INFO - Saved model at 13
+2021-04-19 09:52:40,329 - INFO - Val loss decrease from 0.1695 to 0.1675, saving to ./trafficdl/cache/model_cache/ATDM_PEMS_BAY_epoch13.tar
+2021-04-19 09:52:40,329 - INFO - Start evaluating ...
+2021-04-19 09:54:18,700 - INFO - Evaluate result is {"RMSE@1": 3.714923620223999, "BIAS@1": -0.013465366326272488, "RMSE@2": 3.796487331390381, "BIAS@2": -0.005134068429470062, "RMSE@3": 3.8893513679504395, "BIAS@3": 0.030335955321788788}
+2021-04-19 09:54:18,705 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_54_18_ATDM_PEMS_BAY.json
+2021-04-19 09:54:18,712 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_09_54_18_ATDM_PEMS_BAY.csv
+2021-04-19 09:54:18,720 - INFO - 
+       RMSE      BIAS
+0  3.714924 -0.013465
+1  3.796487 -0.005134
+2  3.889351  0.030336
+2021-04-19 09:59:59,638 - INFO - epoch complete!
+2021-04-19 09:59:59,639 - INFO - evaluating now!
+2021-04-19 10:00:48,374 - INFO - Epoch [14/50] train_loss: 0.1122, val_loss: 0.1690, lr: 0.001000, 389.7s
+2021-04-19 10:00:48,375 - INFO - Start evaluating ...
+2021-04-19 10:02:26,513 - INFO - Evaluate result is {"RMSE@1": 3.7302603721618652, "BIAS@1": -0.030853215605020523, "RMSE@2": 3.8199610710144043, "BIAS@2": -0.05666861683130264, "RMSE@3": 3.915354013442993, "BIAS@3": -0.07284095138311386}
+2021-04-19 10:02:26,518 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_10_02_26_ATDM_PEMS_BAY.json
+2021-04-19 10:02:26,525 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_19_10_02_26_ATDM_PEMS_BAY.csv
+2021-04-19 10:02:26,533 - INFO - 
+       RMSE      BIAS
+0  3.730260 -0.030853
+1  3.819961 -0.056669
+2  3.915354 -0.072841

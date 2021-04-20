@@ -1,0 +1,254 @@
+2021-04-20 18:19:27,629 - INFO - Log directory: ./trafficdl/log
+2021-04-20 18:19:27,631 - INFO - Begin pipeline, task=traffic_state_pred, model_name=mymodel, dataset_name=METR_LA
+2021-04-20 18:19:35,614 - INFO - Loaded file METR_LA.geo, num_nodes=207
+2021-04-20 18:19:35,707 - INFO - Loaded file METR_LA.rel, shape=(207, 207)
+2021-04-20 18:19:35,707 - INFO - Start Calculate the weight by Gauss kernel!
+2021-04-20 18:19:35,722 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_METR_LA_12_12_0.7_0.1_none_64_False_False_True.npz
+2021-04-20 18:19:38,487 - INFO - train	x: (23974, 12, 207, 1)y: (23974, 12, 207, 1)
+2021-04-20 18:19:38,488 - INFO - eval	x: (3425, 12, 207, 1)y: (3425, 12, 207, 1)
+2021-04-20 18:19:38,489 - INFO - test	x: (6850, 12, 207, 1)y: (6850, 12, 207, 1)
+2021-04-20 18:19:38,489 - INFO - NoneScaler
+2021-04-20 18:20:11,754 - INFO - factors	torch.Size([12, 207, 1])	cuda:0	True
+2021-04-20 18:20:11,755 - INFO - rel_weights	torch.Size([1722])	cuda:0	True
+2021-04-20 18:20:11,756 - INFO - ffunc.weight	torch.Size([4968, 2484])	cuda:0	True
+2021-04-20 18:20:11,756 - INFO - ffunc.bias	torch.Size([4968])	cuda:0	True
+2021-04-20 18:20:11,757 - INFO - dynamic.module.weight	torch.Size([1, 2])	cuda:0	True
+2021-04-20 18:20:11,757 - INFO - dynamic.module.bias	torch.Size([1])	cuda:0	True
+2021-04-20 18:20:11,758 - INFO - decoder.weight	torch.Size([1, 1])	cuda:0	True
+2021-04-20 18:20:11,758 - INFO - Total parameter numbers: 12349690
+2021-04-20 18:20:11,760 - INFO - Start training ...
+2021-04-20 18:20:11,760 - INFO - num_batches:375
+2021-04-20 18:21:47,508 - INFO - epoch complete!
+2021-04-20 18:21:47,509 - INFO - evaluating now!
+2021-04-20 18:21:49,029 - INFO - Epoch [0/50] train_loss: 3121.7492, val_loss: 2974.3746, lr: 0.010000, 97.3s
+2021-04-20 18:21:49,388 - INFO - Saved model at 0
+2021-04-20 18:21:49,389 - INFO - Val loss decrease from inf to 2974.3746, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch0.tar
+2021-04-20 18:23:29,249 - INFO - epoch complete!
+2021-04-20 18:23:29,250 - INFO - evaluating now!
+2021-04-20 18:23:30,865 - INFO - Epoch [1/50] train_loss: 2747.3052, val_loss: 2620.7200, lr: 0.010000, 101.5s
+2021-04-20 18:23:31,188 - INFO - Saved model at 1
+2021-04-20 18:23:31,188 - INFO - Val loss decrease from 2974.3746 to 2620.7200, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch1.tar
+2021-04-20 18:25:13,936 - INFO - epoch complete!
+2021-04-20 18:25:13,937 - INFO - evaluating now!
+2021-04-20 18:25:15,633 - INFO - Epoch [2/50] train_loss: 2415.2781, val_loss: 2303.7509, lr: 0.010000, 104.4s
+2021-04-20 18:25:16,422 - INFO - Saved model at 2
+2021-04-20 18:25:16,422 - INFO - Val loss decrease from 2620.7200 to 2303.7509, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch2.tar
+2021-04-20 18:27:00,785 - INFO - epoch complete!
+2021-04-20 18:27:00,787 - INFO - evaluating now!
+2021-04-20 18:27:02,388 - INFO - Epoch [3/50] train_loss: 2115.9552, val_loss: 2017.1356, lr: 0.010000, 106.0s
+2021-04-20 18:27:02,751 - INFO - Saved model at 3
+2021-04-20 18:27:02,753 - INFO - Val loss decrease from 2303.7509 to 2017.1356, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch3.tar
+2021-04-20 18:28:47,803 - INFO - epoch complete!
+2021-04-20 18:28:47,804 - INFO - evaluating now!
+2021-04-20 18:28:49,459 - INFO - Epoch [4/50] train_loss: 1846.5533, val_loss: 1760.0434, lr: 0.010000, 106.7s
+2021-04-20 18:28:49,793 - INFO - Saved model at 4
+2021-04-20 18:28:49,795 - INFO - Val loss decrease from 2017.1356 to 1760.0434, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch4.tar
+2021-04-20 18:30:35,703 - INFO - epoch complete!
+2021-04-20 18:30:35,704 - INFO - evaluating now!
+2021-04-20 18:30:37,319 - INFO - Epoch [5/50] train_loss: 1605.0821, val_loss: 1529.4884, lr: 0.010000, 107.5s
+2021-04-20 18:30:37,667 - INFO - Saved model at 5
+2021-04-20 18:30:37,668 - INFO - Val loss decrease from 1760.0434 to 1529.4884, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch5.tar
+2021-04-20 18:32:23,674 - INFO - epoch complete!
+2021-04-20 18:32:23,675 - INFO - evaluating now!
+2021-04-20 18:32:25,302 - INFO - Epoch [6/50] train_loss: 1389.4657, val_loss: 1324.2235, lr: 0.010000, 107.6s
+2021-04-20 18:32:25,636 - INFO - Saved model at 6
+2021-04-20 18:32:25,637 - INFO - Val loss decrease from 1529.4884 to 1324.2235, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch6.tar
+2021-04-20 18:34:11,543 - INFO - epoch complete!
+2021-04-20 18:34:11,544 - INFO - evaluating now!
+2021-04-20 18:34:13,183 - INFO - Epoch [7/50] train_loss: 1198.0515, val_loss: 1142.7400, lr: 0.010000, 107.5s
+2021-04-20 18:34:13,874 - INFO - Saved model at 7
+2021-04-20 18:34:13,877 - INFO - Val loss decrease from 1324.2235 to 1142.7400, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch7.tar
+2021-04-20 18:35:59,258 - INFO - epoch complete!
+2021-04-20 18:35:59,259 - INFO - evaluating now!
+2021-04-20 18:36:00,854 - INFO - Epoch [8/50] train_loss: 1029.1888, val_loss: 982.5940, lr: 0.010000, 107.0s
+2021-04-20 18:36:01,193 - INFO - Saved model at 8
+2021-04-20 18:36:01,195 - INFO - Val loss decrease from 1142.7400 to 982.5940, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch8.tar
+2021-04-20 18:37:47,278 - INFO - epoch complete!
+2021-04-20 18:37:47,279 - INFO - evaluating now!
+2021-04-20 18:37:48,883 - INFO - Epoch [9/50] train_loss: 881.9653, val_loss: 843.7601, lr: 0.010000, 107.7s
+2021-04-20 18:37:49,218 - INFO - Saved model at 9
+2021-04-20 18:37:49,219 - INFO - Val loss decrease from 982.5940 to 843.7601, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch9.tar
+2021-04-20 18:39:35,691 - INFO - epoch complete!
+2021-04-20 18:39:35,692 - INFO - evaluating now!
+2021-04-20 18:39:37,409 - INFO - Epoch [10/50] train_loss: 754.2543, val_loss: 724.1038, lr: 0.010000, 108.2s
+2021-04-20 18:39:38,146 - INFO - Saved model at 10
+2021-04-20 18:39:38,146 - INFO - Val loss decrease from 843.7601 to 724.1038, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch10.tar
+2021-04-20 18:41:24,725 - INFO - epoch complete!
+2021-04-20 18:41:24,726 - INFO - evaluating now!
+2021-04-20 18:41:26,333 - INFO - Epoch [11/50] train_loss: 645.5971, val_loss: 622.7663, lr: 0.010000, 108.2s
+2021-04-20 18:41:26,657 - INFO - Saved model at 11
+2021-04-20 18:41:26,658 - INFO - Val loss decrease from 724.1038 to 622.7663, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch11.tar
+2021-04-20 18:43:13,423 - INFO - epoch complete!
+2021-04-20 18:43:13,424 - INFO - evaluating now!
+2021-04-20 18:43:15,232 - INFO - Epoch [12/50] train_loss: 554.4260, val_loss: 538.4083, lr: 0.010000, 108.6s
+2021-04-20 18:43:15,703 - INFO - Saved model at 12
+2021-04-20 18:43:15,704 - INFO - Val loss decrease from 622.7663 to 538.4083, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch12.tar
+2021-04-20 18:45:02,603 - INFO - epoch complete!
+2021-04-20 18:45:02,604 - INFO - evaluating now!
+2021-04-20 18:45:04,236 - INFO - Epoch [13/50] train_loss: 479.4835, val_loss: 471.6067, lr: 0.010000, 108.5s
+2021-04-20 18:45:04,599 - INFO - Saved model at 13
+2021-04-20 18:45:04,600 - INFO - Val loss decrease from 538.4083 to 471.6067, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch13.tar
+2021-04-20 18:46:51,428 - INFO - epoch complete!
+2021-04-20 18:46:51,429 - INFO - evaluating now!
+2021-04-20 18:46:53,096 - INFO - Epoch [14/50] train_loss: 419.5915, val_loss: 415.5063, lr: 0.010000, 108.5s
+2021-04-20 18:46:53,797 - INFO - Saved model at 14
+2021-04-20 18:46:53,798 - INFO - Val loss decrease from 471.6067 to 415.5063, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch14.tar
+2021-04-20 18:48:40,726 - INFO - epoch complete!
+2021-04-20 18:48:40,727 - INFO - evaluating now!
+2021-04-20 18:48:42,335 - INFO - Epoch [15/50] train_loss: 373.0456, val_loss: 374.0242, lr: 0.010000, 108.5s
+2021-04-20 18:48:42,575 - INFO - Saved model at 15
+2021-04-20 18:48:42,576 - INFO - Val loss decrease from 415.5063 to 374.0242, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch15.tar
+2021-04-20 18:50:29,642 - INFO - epoch complete!
+2021-04-20 18:50:29,643 - INFO - evaluating now!
+2021-04-20 18:50:31,309 - INFO - Epoch [16/50] train_loss: 338.0567, val_loss: 343.7889, lr: 0.010000, 108.7s
+2021-04-20 18:50:31,658 - INFO - Saved model at 16
+2021-04-20 18:50:31,659 - INFO - Val loss decrease from 374.0242 to 343.7889, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch16.tar
+2021-04-20 18:52:19,293 - INFO - epoch complete!
+2021-04-20 18:52:19,294 - INFO - evaluating now!
+2021-04-20 18:52:20,994 - INFO - Epoch [17/50] train_loss: 313.4905, val_loss: 323.0786, lr: 0.010000, 109.3s
+2021-04-20 18:52:21,212 - INFO - Saved model at 17
+2021-04-20 18:52:21,213 - INFO - Val loss decrease from 343.7889 to 323.0786, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch17.tar
+2021-04-20 18:54:09,236 - INFO - epoch complete!
+2021-04-20 18:54:09,238 - INFO - evaluating now!
+2021-04-20 18:54:10,982 - INFO - Epoch [18/50] train_loss: 297.0171, val_loss: 309.2275, lr: 0.010000, 109.8s
+2021-04-20 18:54:11,618 - INFO - Saved model at 18
+2021-04-20 18:54:11,619 - INFO - Val loss decrease from 323.0786 to 309.2275, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch18.tar
+2021-04-20 18:55:59,709 - INFO - epoch complete!
+2021-04-20 18:55:59,711 - INFO - evaluating now!
+2021-04-20 18:56:01,420 - INFO - Epoch [19/50] train_loss: 287.1070, val_loss: 301.2074, lr: 0.010000, 109.8s
+2021-04-20 18:56:02,118 - INFO - Saved model at 19
+2021-04-20 18:56:02,119 - INFO - Val loss decrease from 309.2275 to 301.2074, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch19.tar
+2021-04-20 18:57:49,784 - INFO - epoch complete!
+2021-04-20 18:57:49,785 - INFO - evaluating now!
+2021-04-20 18:57:51,480 - INFO - Epoch [20/50] train_loss: 281.4637, val_loss: 298.0849, lr: 0.010000, 109.4s
+2021-04-20 18:57:51,832 - INFO - Saved model at 20
+2021-04-20 18:57:51,833 - INFO - Val loss decrease from 301.2074 to 298.0849, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch20.tar
+2021-04-20 18:59:39,991 - INFO - epoch complete!
+2021-04-20 18:59:39,992 - INFO - evaluating now!
+2021-04-20 18:59:41,652 - INFO - Epoch [21/50] train_loss: 278.7306, val_loss: 294.9590, lr: 0.010000, 109.8s
+2021-04-20 18:59:42,137 - INFO - Saved model at 21
+2021-04-20 18:59:42,138 - INFO - Val loss decrease from 298.0849 to 294.9590, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch21.tar
+2021-04-20 19:01:29,647 - INFO - epoch complete!
+2021-04-20 19:01:29,648 - INFO - evaluating now!
+2021-04-20 19:01:31,297 - INFO - Epoch [22/50] train_loss: 277.5983, val_loss: 295.1880, lr: 0.010000, 109.2s
+2021-04-20 19:03:18,786 - INFO - epoch complete!
+2021-04-20 19:03:18,787 - INFO - evaluating now!
+2021-04-20 19:03:20,436 - INFO - Epoch [23/50] train_loss: 277.3251, val_loss: 293.7777, lr: 0.010000, 109.1s
+2021-04-20 19:03:20,764 - INFO - Saved model at 23
+2021-04-20 19:03:20,765 - INFO - Val loss decrease from 294.9590 to 293.7777, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch23.tar
+2021-04-20 19:05:07,935 - INFO - epoch complete!
+2021-04-20 19:05:07,936 - INFO - evaluating now!
+2021-04-20 19:05:09,567 - INFO - Epoch [24/50] train_loss: 277.3240, val_loss: 294.2301, lr: 0.010000, 108.8s
+2021-04-20 19:06:56,664 - INFO - epoch complete!
+2021-04-20 19:06:56,665 - INFO - evaluating now!
+2021-04-20 19:06:58,265 - INFO - Epoch [25/50] train_loss: 277.2759, val_loss: 293.5580, lr: 0.010000, 108.7s
+2021-04-20 19:06:58,909 - INFO - Saved model at 25
+2021-04-20 19:06:58,910 - INFO - Val loss decrease from 293.7777 to 293.5580, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch25.tar
+2021-04-20 19:08:46,039 - INFO - epoch complete!
+2021-04-20 19:08:46,040 - INFO - evaluating now!
+2021-04-20 19:08:47,749 - INFO - Epoch [26/50] train_loss: 277.1624, val_loss: 293.7822, lr: 0.010000, 108.8s
+2021-04-20 19:10:34,642 - INFO - epoch complete!
+2021-04-20 19:10:34,644 - INFO - evaluating now!
+2021-04-20 19:10:36,348 - INFO - Epoch [27/50] train_loss: 277.4526, val_loss: 294.0141, lr: 0.010000, 108.6s
+2021-04-20 19:12:23,610 - INFO - epoch complete!
+2021-04-20 19:12:23,611 - INFO - evaluating now!
+2021-04-20 19:12:25,345 - INFO - Epoch [28/50] train_loss: 277.2227, val_loss: 293.5598, lr: 0.010000, 109.0s
+2021-04-20 19:14:12,971 - INFO - epoch complete!
+2021-04-20 19:14:12,972 - INFO - evaluating now!
+2021-04-20 19:14:14,670 - INFO - Epoch [29/50] train_loss: 277.2760, val_loss: 293.5597, lr: 0.010000, 109.3s
+2021-04-20 19:16:02,465 - INFO - epoch complete!
+2021-04-20 19:16:02,466 - INFO - evaluating now!
+2021-04-20 19:16:04,163 - INFO - Epoch [30/50] train_loss: 277.0842, val_loss: 293.7107, lr: 0.010000, 109.5s
+2021-04-20 19:17:51,234 - INFO - epoch complete!
+2021-04-20 19:17:51,235 - INFO - evaluating now!
+2021-04-20 19:17:52,844 - INFO - Epoch [31/50] train_loss: 277.1733, val_loss: 293.7496, lr: 0.010000, 108.7s
+2021-04-20 19:19:39,665 - INFO - epoch complete!
+2021-04-20 19:19:39,666 - INFO - evaluating now!
+2021-04-20 19:19:41,317 - INFO - Epoch [32/50] train_loss: 277.1357, val_loss: 295.1071, lr: 0.010000, 108.5s
+2021-04-20 19:21:27,954 - INFO - epoch complete!
+2021-04-20 19:21:27,955 - INFO - evaluating now!
+2021-04-20 19:21:29,551 - INFO - Epoch [33/50] train_loss: 277.1966, val_loss: 293.9519, lr: 0.010000, 108.2s
+2021-04-20 19:23:16,415 - INFO - epoch complete!
+2021-04-20 19:23:16,416 - INFO - evaluating now!
+2021-04-20 19:23:18,056 - INFO - Epoch [34/50] train_loss: 277.1544, val_loss: 293.6365, lr: 0.010000, 108.5s
+2021-04-20 19:25:04,678 - INFO - epoch complete!
+2021-04-20 19:25:04,679 - INFO - evaluating now!
+2021-04-20 19:25:06,348 - INFO - Epoch [35/50] train_loss: 277.0678, val_loss: 294.2987, lr: 0.010000, 108.3s
+2021-04-20 19:26:53,445 - INFO - epoch complete!
+2021-04-20 19:26:53,446 - INFO - evaluating now!
+2021-04-20 19:26:55,070 - INFO - Epoch [36/50] train_loss: 277.2735, val_loss: 293.5841, lr: 0.010000, 108.7s
+2021-04-20 19:28:41,801 - INFO - epoch complete!
+2021-04-20 19:28:41,802 - INFO - evaluating now!
+2021-04-20 19:28:43,502 - INFO - Epoch [37/50] train_loss: 277.0655, val_loss: 297.1584, lr: 0.010000, 108.4s
+2021-04-20 19:30:30,109 - INFO - epoch complete!
+2021-04-20 19:30:30,110 - INFO - evaluating now!
+2021-04-20 19:30:31,700 - INFO - Epoch [38/50] train_loss: 277.2489, val_loss: 293.5316, lr: 0.010000, 108.2s
+2021-04-20 19:30:33,451 - INFO - Saved model at 38
+2021-04-20 19:30:33,452 - INFO - Val loss decrease from 293.5580 to 293.5316, saving to ./trafficdl/cache/model_cache/mymodel_METR_LA_epoch38.tar
+2021-04-20 19:32:20,347 - INFO - epoch complete!
+2021-04-20 19:32:20,349 - INFO - evaluating now!
+2021-04-20 19:32:22,059 - INFO - Epoch [39/50] train_loss: 277.0730, val_loss: 294.6847, lr: 0.010000, 108.6s
+2021-04-20 19:34:09,538 - INFO - epoch complete!
+2021-04-20 19:34:09,539 - INFO - evaluating now!
+2021-04-20 19:34:11,266 - INFO - Epoch [40/50] train_loss: 277.0071, val_loss: 294.7560, lr: 0.010000, 109.2s
+2021-04-20 19:35:58,343 - INFO - epoch complete!
+2021-04-20 19:35:58,344 - INFO - evaluating now!
+2021-04-20 19:35:59,985 - INFO - Epoch [41/50] train_loss: 277.3109, val_loss: 294.1157, lr: 0.010000, 108.7s
+2021-04-20 19:37:47,012 - INFO - epoch complete!
+2021-04-20 19:37:47,012 - INFO - evaluating now!
+2021-04-20 19:37:48,653 - INFO - Epoch [42/50] train_loss: 277.4990, val_loss: 293.6136, lr: 0.010000, 108.7s
+2021-04-20 19:39:35,668 - INFO - epoch complete!
+2021-04-20 19:39:35,669 - INFO - evaluating now!
+2021-04-20 19:39:37,379 - INFO - Epoch [43/50] train_loss: 277.1696, val_loss: 296.2023, lr: 0.010000, 108.7s
+2021-04-20 19:41:24,264 - INFO - epoch complete!
+2021-04-20 19:41:24,265 - INFO - evaluating now!
+2021-04-20 19:41:25,918 - INFO - Epoch [44/50] train_loss: 277.1586, val_loss: 293.7229, lr: 0.010000, 108.5s
+2021-04-20 19:43:12,588 - INFO - epoch complete!
+2021-04-20 19:43:12,590 - INFO - evaluating now!
+2021-04-20 19:43:14,264 - INFO - Epoch [45/50] train_loss: 277.4519, val_loss: 293.7678, lr: 0.010000, 108.3s
+2021-04-20 19:45:01,002 - INFO - epoch complete!
+2021-04-20 19:45:01,003 - INFO - evaluating now!
+2021-04-20 19:45:02,646 - INFO - Epoch [46/50] train_loss: 277.1780, val_loss: 293.5991, lr: 0.010000, 108.4s
+2021-04-20 19:46:49,154 - INFO - epoch complete!
+2021-04-20 19:46:49,155 - INFO - evaluating now!
+2021-04-20 19:46:50,791 - INFO - Epoch [47/50] train_loss: 277.1402, val_loss: 293.8094, lr: 0.010000, 108.1s
+2021-04-20 19:48:37,048 - INFO - epoch complete!
+2021-04-20 19:48:37,049 - INFO - evaluating now!
+2021-04-20 19:48:38,697 - INFO - Epoch [48/50] train_loss: 277.3170, val_loss: 294.2200, lr: 0.010000, 107.9s
+2021-04-20 19:50:25,287 - INFO - epoch complete!
+2021-04-20 19:50:25,288 - INFO - evaluating now!
+2021-04-20 19:50:26,945 - INFO - Epoch [49/50] train_loss: 277.3184, val_loss: 294.1345, lr: 0.010000, 108.2s
+2021-04-20 19:50:27,240 - INFO - Loaded model at 38
+2021-04-20 19:50:27,264 - INFO - Saved model at ./trafficdl/cache/model_cache/mymodel_METR_LA.m
+2021-04-20 19:50:27,893 - INFO - Start evaluating ...
+2021-04-20 19:50:41,697 - INFO - Evaluate result is {"MAE@1": 12.283920288085938, "MAPE@1": Infinity, "MSE@1": 315.31561279296875, "RMSE@1": 17.75712776184082, "masked_MAE@1": 10.362184524536133, "masked_MSE@1": 189.34315490722656, "masked_RMSE@1": 13.760201454162598, "masked_MAPE@1": 0.30360865592956543, "R2@1": 0.3892667334786071, "EVAR@1": 0.39728158712387085, "MAE@2": 12.32995891571045, "MAPE@2": Infinity, "MSE@2": 318.1936340332031, "RMSE@2": 17.837982177734375, "masked_MAE@2": 10.386675834655762, "masked_MSE@2": 190.84397888183594, "masked_RMSE@2": 13.814629554748535, "masked_MAPE@2": 0.30397674441337585, "R2@2": 0.38370082641593195, "EVAR@2": 0.39171767234802246, "MAE@3": 12.37416934967041, "MAPE@3": Infinity, "MSE@3": 321.0533447265625, "RMSE@3": 17.91796112060547, "masked_MAE@3": 10.410164833068848, "masked_MSE@3": 192.332763671875, "masked_RMSE@3": 13.868409156799316, "masked_MAPE@3": 0.30433109402656555, "R2@3": 0.3781539662645337, "EVAR@3": 0.38617032766342163, "MAE@4": 12.419071197509766, "MAPE@4": Infinity, "MSE@4": 323.9164123535156, "RMSE@4": 17.997678756713867, "masked_MAE@4": 10.434307098388672, "masked_MSE@4": 193.822998046875, "masked_RMSE@4": 13.922032356262207, "masked_MAPE@4": 0.3046940863132477, "R2@4": 0.37262582230917385, "EVAR@4": 0.3806326985359192, "MAE@5": 12.463724136352539, "MAPE@5": Infinity, "MSE@5": 326.7781982421875, "RMSE@5": 18.077007293701172, "masked_MAE@5": 10.4578218460083, "masked_MSE@5": 195.30589294433594, "masked_RMSE@5": 13.975188255310059, "masked_MAPE@5": 0.30505144596099854, "R2@5": 0.36707736543298286, "EVAR@5": 0.3750874400138855, "MAE@6": 12.50544261932373, "MAPE@6": Infinity, "MSE@6": 329.5010681152344, "RMSE@6": 18.152164459228516, "masked_MAE@6": 10.479083061218262, "masked_MSE@6": 196.7134246826172, "masked_RMSE@6": 14.025456428527832, "masked_MAPE@6": 0.30537310242652893, "R2@6": 0.36177058862624734, "EVAR@6": 0.3697989583015442, "MAE@7": 12.546379089355469, "MAPE@7": Infinity, "MSE@7": 332.1558837890625, "RMSE@7": 18.225143432617188, "masked_MAE@7": 10.500513076782227, "masked_MSE@7": 198.09423828125, "masked_RMSE@7": 14.07459545135498, "masked_MAPE@7": 0.3056916892528534, "R2@7": 0.3566311521679767, "EVAR@7": 0.3646591901779175, "MAE@8": 12.58675765991211, "MAPE@8": Infinity, "MSE@8": 334.7661437988281, "RMSE@8": 18.296615600585938, "masked_MAE@8": 10.521775245666504, "masked_MSE@8": 199.453857421875, "masked_RMSE@8": 14.12281322479248, "masked_MAPE@8": 0.3060087263584137, "R2@8": 0.3515752750814597, "EVAR@8": 0.3596044182777405, "MAE@9": 12.626912117004395, "MAPE@9": Infinity, "MSE@9": 337.34979248046875, "RMSE@9": 18.367084503173828, "masked_MAE@9": 10.542952537536621, "masked_MSE@9": 200.80088806152344, "masked_RMSE@9": 14.170422554016113, "masked_MAPE@9": 0.3063224256038666, "R2@9": 0.34657738455508214, "EVAR@9": 0.35460811853408813, "MAE@10": 12.666926383972168, "MAPE@10": Infinity, "MSE@10": 339.91290283203125, "RMSE@10": 18.43672752380371, "masked_MAE@10": 10.564072608947754, "masked_MSE@10": 202.1383819580078, "masked_RMSE@10": 14.217537879943848, "masked_MAPE@10": 0.3066351115703583, "R2@10": 0.3416258935028148, "EVAR@10": 0.34965676069259644, "MAE@11": 12.706504821777344, "MAPE@11": Infinity, "MSE@11": 342.4604797363281, "RMSE@11": 18.505687713623047, "masked_MAE@11": 10.585050582885742, "masked_MSE@11": 203.47084045410156, "masked_RMSE@11": 14.264320373535156, "masked_MAPE@11": 0.30694496631622314, "R2@11": 0.33670493078770813, "EVAR@11": 0.34473323822021484, "MAE@12": 12.745743751525879, "MAPE@12": Infinity, "MSE@12": 344.9920349121094, "RMSE@12": 18.57396125793457, "masked_MAE@12": 10.605790138244629, "masked_MSE@12": 204.79379272460938, "masked_RMSE@12": 14.31061840057373, "masked_MAPE@12": 0.3072514235973358, "R2@12": 0.3318136075711696, "EVAR@12": 0.3398434519767761}
+2021-04-20 19:50:41,701 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache\2021_04_20_19_50_41_mymodel_METR_LA.json
+2021-04-20 19:50:42,022 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache\2021_04_20_19_50_41_mymodel_METR_LA.csv
+2021-04-20 19:50:42,221 - INFO - 
+          MAE  MAPE         MSE       RMSE  masked_MAE  masked_MSE  \
+0   12.283920   inf  315.315613  17.757128   10.362185  189.343155   
+1   12.329959   inf  318.193634  17.837982   10.386676  190.843979   
+2   12.374169   inf  321.053345  17.917961   10.410165  192.332764   
+3   12.419071   inf  323.916412  17.997679   10.434307  193.822998   
+4   12.463724   inf  326.778198  18.077007   10.457822  195.305893   
+5   12.505443   inf  329.501068  18.152164   10.479083  196.713425   
+6   12.546379   inf  332.155884  18.225143   10.500513  198.094238   
+7   12.586758   inf  334.766144  18.296616   10.521775  199.453857   
+8   12.626912   inf  337.349792  18.367085   10.542953  200.800888   
+9   12.666926   inf  339.912903  18.436728   10.564073  202.138382   
+10  12.706505   inf  342.460480  18.505688   10.585051  203.470840   
+11  12.745744   inf  344.992035  18.573961   10.605790  204.793793   
+
+    masked_RMSE  masked_MAPE        R2      EVAR  
+0     13.760201     0.303609  0.389267  0.397282  
+1     13.814630     0.303977  0.383701  0.391718  
+2     13.868409     0.304331  0.378154  0.386170  
+3     13.922032     0.304694  0.372626  0.380633  
+4     13.975188     0.305051  0.367077  0.375087  
+5     14.025456     0.305373  0.361771  0.369799  
+6     14.074595     0.305692  0.356631  0.364659  
+7     14.122813     0.306009  0.351575  0.359604  
+8     14.170423     0.306322  0.346577  0.354608  
+9     14.217538     0.306635  0.341626  0.349657  
+10    14.264320     0.306945  0.336705  0.344733  
+11    14.310618     0.307251  0.331814  0.339843  

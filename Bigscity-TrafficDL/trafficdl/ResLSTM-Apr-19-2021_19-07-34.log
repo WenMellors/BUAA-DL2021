@@ -1,0 +1,142 @@
+2021-04-19 19:07:34,902 - INFO - Log directory: ./trafficdl/log
+2021-04-19 19:07:34,902 - INFO - Begin pipeline, task=traffic_state_pred, model_name=ResLSTM, dataset_name=BEIJING SUBWAY_10MIN
+2021-04-19 19:07:35,238 - INFO - Loaded file BEIJING SUBWAY_10MIN.geo, num_nodes=276
+2021-04-19 19:07:35,422 - INFO - Loaded file BEIJING SUBWAY_10MIN.rel, shape=(276, 276)
+2021-04-19 19:07:35,422 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_BEIJING SUBWAY_10MIN_5_1_0.7_0.1_standard_64_True_False_True.npz
+2021-04-19 19:07:36,359 - INFO - train	x: (1886, 5, 276, 14)y: (1886, 1, 276, 14)
+2021-04-19 19:07:36,359 - INFO - eval	x: (270, 5, 276, 14)y: (270, 1, 276, 14)
+2021-04-19 19:07:36,361 - INFO - test	x: (539, 5, 276, 14)y: (539, 1, 276, 14)
+2021-04-19 19:07:36,441 - INFO - StandardScaler mean: 172.41570189189605, std: 259.8030274590177
+2021-04-19 19:07:40,389 - INFO - conv1.weight	torch.Size([32, 3, 3, 3])	cuda:0	True
+2021-04-19 19:07:40,389 - INFO - conv1.bias	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,389 - INFO - conv1_1.weight	torch.Size([32, 1, 3, 3])	cuda:0	True
+2021-04-19 19:07:40,389 - INFO - conv1_1.bias	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,389 - INFO - unit1.conv1.weight	torch.Size([32, 32, 1, 1])	cuda:0	True
+2021-04-19 19:07:40,389 - INFO - unit1.conv1.bias	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,389 - INFO - unit1.bn1.weight	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,389 - INFO - unit1.bn1.bias	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,389 - INFO - unit1.conv2.weight	torch.Size([32, 32, 3, 3])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit1.conv2.bias	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit1.bn2.weight	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit1.bn2.bias	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit1.conv3.weight	torch.Size([32, 32, 3, 3])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit1.conv3.bias	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit2.conv1.weight	torch.Size([64, 32, 1, 1])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit2.conv1.bias	torch.Size([64])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit2.bn1.weight	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit2.bn1.bias	torch.Size([32])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit2.conv2.weight	torch.Size([64, 32, 3, 3])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit2.conv2.bias	torch.Size([64])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit2.bn2.weight	torch.Size([64])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit2.bn2.bias	torch.Size([64])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit2.conv3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - unit2.conv3.bias	torch.Size([64])	cuda:0	True
+2021-04-19 19:07:40,390 - INFO - fc1.weight	torch.Size([276, 26496])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - fc1.bias	torch.Size([276])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - fc2.weight	torch.Size([276, 55])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - fc2.bias	torch.Size([276])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm1.weight_ih_l0	torch.Size([512, 276])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm1.weight_hh_l0	torch.Size([512, 128])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm1.bias_ih_l0	torch.Size([512])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm1.bias_hh_l0	torch.Size([512])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm1.weight_ih_l1	torch.Size([512, 128])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm1.weight_hh_l1	torch.Size([512, 128])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm1.bias_ih_l1	torch.Size([512])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm1.bias_hh_l1	torch.Size([512])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm2.weight_ih_l0	torch.Size([1104, 128])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm2.weight_hh_l0	torch.Size([1104, 276])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm2.bias_ih_l0	torch.Size([1104])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm2.bias_hh_l0	torch.Size([1104])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm2.weight_ih_l1	torch.Size([1104, 276])	cuda:0	True
+2021-04-19 19:07:40,391 - INFO - lstm2.weight_hh_l1	torch.Size([1104, 276])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - lstm2.bias_ih_l1	torch.Size([1104])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - lstm2.bias_hh_l1	torch.Size([1104])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - fc3.weight	torch.Size([276, 276])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - fc3.bias	torch.Size([276])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - lstm3.weight_ih_l0	torch.Size([512, 276])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - lstm3.weight_hh_l0	torch.Size([512, 128])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - lstm3.bias_ih_l0	torch.Size([512])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - lstm3.bias_hh_l0	torch.Size([512])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - lstm3.weight_ih_l1	torch.Size([512, 128])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - lstm3.weight_hh_l1	torch.Size([512, 128])	cuda:0	True
+2021-04-19 19:07:40,392 - INFO - lstm3.bias_ih_l1	torch.Size([512])	cuda:0	True
+2021-04-19 19:07:40,393 - INFO - lstm3.bias_hh_l1	torch.Size([512])	cuda:0	True
+2021-04-19 19:07:40,393 - INFO - att.fc.weight	torch.Size([276, 1])	cuda:0	True
+2021-04-19 19:07:40,393 - INFO - att.fc.bias	torch.Size([276])	cuda:0	True
+2021-04-19 19:07:40,393 - INFO - fc_last.weight	torch.Size([276, 16384])	cuda:0	True
+2021-04-19 19:07:40,393 - INFO - fc_last.bias	torch.Size([276])	cuda:0	True
+2021-04-19 19:07:40,393 - INFO - Total parameter numbers: 13746292
+2021-04-19 19:07:40,393 - INFO - Start training ...
+2021-04-19 19:07:40,393 - INFO - num_batches:30
+2021-04-19 19:07:42,640 - INFO - epoch complete!
+2021-04-19 19:07:42,640 - INFO - evaluating now!
+2021-04-19 19:07:42,792 - INFO - Epoch [0/15] train_loss: 16480989473.6000, val_loss: 273377408.0000, lr: 0.001000, 2.4s
+2021-04-19 19:07:42,895 - INFO - Saved model at 0
+2021-04-19 19:07:42,895 - INFO - Val loss decrease from inf to 273377408.0000, saving to ./trafficdl/cache/model_cache/ResLSTM_BEIJING SUBWAY_10MIN_epoch0.tar
+2021-04-19 19:07:44,789 - INFO - epoch complete!
+2021-04-19 19:07:44,789 - INFO - evaluating now!
+2021-04-19 19:07:44,943 - INFO - Epoch [1/15] train_loss: 635661071.0667, val_loss: 172009177.6000, lr: 0.001000, 2.0s
+2021-04-19 19:07:45,046 - INFO - Saved model at 1
+2021-04-19 19:07:45,046 - INFO - Val loss decrease from 273377408.0000 to 172009177.6000, saving to ./trafficdl/cache/model_cache/ResLSTM_BEIJING SUBWAY_10MIN_epoch1.tar
+2021-04-19 19:07:46,949 - INFO - epoch complete!
+2021-04-19 19:07:46,949 - INFO - evaluating now!
+2021-04-19 19:07:47,102 - INFO - Epoch [2/15] train_loss: 35173147.8917, val_loss: 4939054.3000, lr: 0.001000, 2.1s
+2021-04-19 19:07:47,207 - INFO - Saved model at 2
+2021-04-19 19:07:47,207 - INFO - Val loss decrease from 172009177.6000 to 4939054.3000, saving to ./trafficdl/cache/model_cache/ResLSTM_BEIJING SUBWAY_10MIN_epoch2.tar
+2021-04-19 19:07:49,111 - INFO - epoch complete!
+2021-04-19 19:07:49,112 - INFO - evaluating now!
+2021-04-19 19:07:49,269 - INFO - Epoch [3/15] train_loss: 1599120.5016, val_loss: 344298.1375, lr: 0.001000, 2.1s
+2021-04-19 19:07:49,384 - INFO - Saved model at 3
+2021-04-19 19:07:49,384 - INFO - Val loss decrease from 4939054.3000 to 344298.1375, saving to ./trafficdl/cache/model_cache/ResLSTM_BEIJING SUBWAY_10MIN_epoch3.tar
+2021-04-19 19:07:51,289 - INFO - epoch complete!
+2021-04-19 19:07:51,289 - INFO - evaluating now!
+2021-04-19 19:07:51,443 - INFO - Epoch [4/15] train_loss: 126590.1108, val_loss: 55021.5406, lr: 0.001000, 2.1s
+2021-04-19 19:07:51,542 - INFO - Saved model at 4
+2021-04-19 19:07:51,542 - INFO - Val loss decrease from 344298.1375 to 55021.5406, saving to ./trafficdl/cache/model_cache/ResLSTM_BEIJING SUBWAY_10MIN_epoch4.tar
+2021-04-19 19:07:53,449 - INFO - epoch complete!
+2021-04-19 19:07:53,450 - INFO - evaluating now!
+2021-04-19 19:07:53,607 - INFO - Epoch [5/15] train_loss: 55447.0755, val_loss: 47136.1625, lr: 0.001000, 2.1s
+2021-04-19 19:07:53,710 - INFO - Saved model at 5
+2021-04-19 19:07:53,710 - INFO - Val loss decrease from 55021.5406 to 47136.1625, saving to ./trafficdl/cache/model_cache/ResLSTM_BEIJING SUBWAY_10MIN_epoch5.tar
+2021-04-19 19:07:55,627 - INFO - epoch complete!
+2021-04-19 19:07:55,627 - INFO - evaluating now!
+2021-04-19 19:07:55,777 - INFO - Epoch [6/15] train_loss: 54057.7775, val_loss: 46867.0305, lr: 0.001000, 2.1s
+2021-04-19 19:07:55,879 - INFO - Saved model at 6
+2021-04-19 19:07:55,879 - INFO - Val loss decrease from 47136.1625 to 46867.0305, saving to ./trafficdl/cache/model_cache/ResLSTM_BEIJING SUBWAY_10MIN_epoch6.tar
+2021-04-19 19:07:57,810 - INFO - epoch complete!
+2021-04-19 19:07:57,810 - INFO - evaluating now!
+2021-04-19 19:07:57,963 - INFO - Epoch [7/15] train_loss: 55285.7253, val_loss: 49924.3641, lr: 0.001000, 2.1s
+2021-04-19 19:07:59,899 - INFO - epoch complete!
+2021-04-19 19:07:59,899 - INFO - evaluating now!
+2021-04-19 19:08:00,052 - INFO - Epoch [8/15] train_loss: 53004.4018, val_loss: 46961.5922, lr: 0.001000, 2.1s
+2021-04-19 19:08:01,984 - INFO - epoch complete!
+2021-04-19 19:08:01,984 - INFO - evaluating now!
+2021-04-19 19:08:02,139 - INFO - Epoch [9/15] train_loss: 53532.0900, val_loss: 52213.5445, lr: 0.001000, 2.1s
+2021-04-19 19:08:04,070 - INFO - epoch complete!
+2021-04-19 19:08:04,070 - INFO - evaluating now!
+2021-04-19 19:08:04,228 - INFO - Epoch [10/15] train_loss: 52721.5197, val_loss: 52080.6266, lr: 0.001000, 2.1s
+2021-04-19 19:08:06,158 - INFO - epoch complete!
+2021-04-19 19:08:06,158 - INFO - evaluating now!
+2021-04-19 19:08:06,315 - INFO - Epoch [11/15] train_loss: 53438.0630, val_loss: 46950.9359, lr: 0.001000, 2.1s
+2021-04-19 19:08:08,257 - INFO - epoch complete!
+2021-04-19 19:08:08,257 - INFO - evaluating now!
+2021-04-19 19:08:08,419 - INFO - Epoch [12/15] train_loss: 52230.0859, val_loss: 46397.8594, lr: 0.001000, 2.1s
+2021-04-19 19:08:08,522 - INFO - Saved model at 12
+2021-04-19 19:08:08,522 - INFO - Val loss decrease from 46867.0305 to 46397.8594, saving to ./trafficdl/cache/model_cache/ResLSTM_BEIJING SUBWAY_10MIN_epoch12.tar
+2021-04-19 19:08:10,477 - INFO - epoch complete!
+2021-04-19 19:08:10,478 - INFO - evaluating now!
+2021-04-19 19:08:10,634 - INFO - Epoch [13/15] train_loss: 53945.9061, val_loss: 48769.2375, lr: 0.001000, 2.1s
+2021-04-19 19:08:12,581 - INFO - epoch complete!
+2021-04-19 19:08:12,581 - INFO - evaluating now!
+2021-04-19 19:08:12,733 - INFO - Epoch [14/15] train_loss: 53087.6151, val_loss: 46654.9805, lr: 0.001000, 2.1s
+2021-04-19 19:08:12,786 - INFO - Loaded model at 12
+2021-04-19 19:08:12,792 - INFO - Saved model at ./trafficdl/cache/model_cache/ResLSTM_BEIJING SUBWAY_10MIN.m
+2021-04-19 19:08:12,908 - INFO - Start evaluating ...
+2021-04-19 19:08:13,418 - INFO - Evaluate result is {"MAE@1": 168.1271209716797, "MAPE@1": Infinity, "MSE@1": 92245.703125, "RMSE@1": 303.71978759765625, "masked_MAE@1": 178.46340942382812, "masked_MSE@1": 98088.8984375, "masked_RMSE@1": 313.19146728515625, "masked_MAPE@1": 1.2119619846343994, "R2@1": -0.43778063951252544, "EVAR@1": -0.017106294631958008}
+2021-04-19 19:08:13,419 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache\2021_04_19_19_08_13_ResLSTM_BEIJING SUBWAY_10MIN.json
+2021-04-19 19:08:13,431 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache\2021_04_19_19_08_13_ResLSTM_BEIJING SUBWAY_10MIN.csv
+2021-04-19 19:08:13,447 - INFO - 
+          MAE  MAPE           MSE  ...  masked_MAPE        R2      EVAR
+0  168.127121   inf  92245.703125  ...     1.211962 -0.437781 -0.017106
+
+[1 rows x 10 columns]

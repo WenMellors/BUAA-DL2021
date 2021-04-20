@@ -216,7 +216,10 @@ class TrafficStateDataset(AbstractDataset):
             if isinstance(self.data_col, list):
                 data_col = self.data_col.copy()
             else:  # str
-                data_col = [self.data_col.copy()]
+                #modify by 18231216
+                import copy
+                data_col = [copy.copy(self.data_col)]
+                #data_col = [self.data_col.copy()]
             data_col.insert(0, 'time')
             data_col.insert(1, 'entity_id')
             dynafile = dynafile[data_col]

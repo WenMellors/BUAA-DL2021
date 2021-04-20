@@ -1,0 +1,409 @@
+2021-04-18 12:11:26,397 - INFO - Log directory: ./trafficdl/log
+2021-04-18 12:11:26,402 - INFO - Begin pipeline, task=traffic_state_pred, model_name=mymodel, dataset_name=HEAT
+2021-04-18 12:11:27,207 - INFO - Loaded file HEAT.geo, num_nodes=41
+2021-04-18 12:11:27,228 - INFO - Loaded file HEAT.rel, shape=(41, 41)
+2021-04-18 12:11:27,230 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_HEAT_12_12_0.7_0.1_none_64_False_False_True.npz
+2021-04-18 12:11:27,252 - INFO - train	x: (248, 12, 41, 1)y: (248, 12, 41, 1)
+2021-04-18 12:11:27,255 - INFO - eval	x: (35, 12, 41, 1)y: (35, 12, 41, 1)
+2021-04-18 12:11:27,259 - INFO - test	x: (71, 12, 41, 1)y: (71, 12, 41, 1)
+2021-04-18 12:11:27,265 - INFO - NoneScaler
+2021-04-18 12:11:35,292 - INFO - factors	torch.Size([12, 41, 1])	cuda:0	True
+2021-04-18 12:11:35,293 - INFO - rel_weights	torch.Size([80])	cuda:0	True
+2021-04-18 12:11:35,295 - INFO - ffunc.weight	torch.Size([984, 492])	cuda:0	True
+2021-04-18 12:11:35,298 - INFO - ffunc.bias	torch.Size([984])	cuda:0	True
+2021-04-18 12:11:35,299 - INFO - dynamic.module.weight	torch.Size([1, 2])	cuda:0	True
+2021-04-18 12:11:35,301 - INFO - dynamic.module.bias	torch.Size([1])	cuda:0	True
+2021-04-18 12:11:35,305 - INFO - decoder.weight	torch.Size([1, 1])	cuda:0	True
+2021-04-18 12:11:35,309 - INFO - Total parameter numbers: 485688
+2021-04-18 12:11:35,311 - INFO - Start training ...
+2021-04-18 12:11:35,315 - INFO - num_batches:4
+2021-04-18 12:11:38,112 - INFO - epoch complete!
+2021-04-18 12:11:38,114 - INFO - evaluating now!
+2021-04-18 12:11:38,233 - INFO - Epoch [0/100] train_loss: 0.0807, val_loss: 0.0183, lr: 0.010000, 2.9s
+2021-04-18 12:11:38,246 - INFO - Saved model at 0
+2021-04-18 12:11:38,250 - INFO - Val loss decrease from inf to 0.0183, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch0.tar
+2021-04-18 12:11:40,604 - INFO - epoch complete!
+2021-04-18 12:11:40,607 - INFO - evaluating now!
+2021-04-18 12:11:40,728 - INFO - Epoch [1/100] train_loss: 0.0783, val_loss: 0.0177, lr: 0.010000, 2.5s
+2021-04-18 12:11:40,742 - INFO - Saved model at 1
+2021-04-18 12:11:40,748 - INFO - Val loss decrease from 0.0183 to 0.0177, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch1.tar
+2021-04-18 12:11:43,104 - INFO - epoch complete!
+2021-04-18 12:11:43,107 - INFO - evaluating now!
+2021-04-18 12:11:43,231 - INFO - Epoch [2/100] train_loss: 0.0769, val_loss: 0.0168, lr: 0.010000, 2.5s
+2021-04-18 12:11:43,249 - INFO - Saved model at 2
+2021-04-18 12:11:43,252 - INFO - Val loss decrease from 0.0177 to 0.0168, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch2.tar
+2021-04-18 12:11:45,617 - INFO - epoch complete!
+2021-04-18 12:11:45,620 - INFO - evaluating now!
+2021-04-18 12:11:45,735 - INFO - Epoch [3/100] train_loss: 0.0742, val_loss: 0.0150, lr: 0.010000, 2.5s
+2021-04-18 12:11:45,750 - INFO - Saved model at 3
+2021-04-18 12:11:45,753 - INFO - Val loss decrease from 0.0168 to 0.0150, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch3.tar
+2021-04-18 12:11:48,110 - INFO - epoch complete!
+2021-04-18 12:11:48,112 - INFO - evaluating now!
+2021-04-18 12:11:48,240 - INFO - Epoch [4/100] train_loss: 0.0690, val_loss: 0.0124, lr: 0.010000, 2.5s
+2021-04-18 12:11:48,255 - INFO - Saved model at 4
+2021-04-18 12:11:48,257 - INFO - Val loss decrease from 0.0150 to 0.0124, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch4.tar
+2021-04-18 12:11:50,683 - INFO - epoch complete!
+2021-04-18 12:11:50,686 - INFO - evaluating now!
+2021-04-18 12:11:50,816 - INFO - Epoch [5/100] train_loss: 0.0609, val_loss: 0.0097, lr: 0.010000, 2.6s
+2021-04-18 12:11:50,833 - INFO - Saved model at 5
+2021-04-18 12:11:50,839 - INFO - Val loss decrease from 0.0124 to 0.0097, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch5.tar
+2021-04-18 12:11:53,314 - INFO - epoch complete!
+2021-04-18 12:11:53,317 - INFO - evaluating now!
+2021-04-18 12:11:53,446 - INFO - Epoch [6/100] train_loss: 0.0502, val_loss: 0.0095, lr: 0.010000, 2.6s
+2021-04-18 12:11:53,461 - INFO - Saved model at 6
+2021-04-18 12:11:53,463 - INFO - Val loss decrease from 0.0097 to 0.0095, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch6.tar
+2021-04-18 12:11:55,822 - INFO - epoch complete!
+2021-04-18 12:11:55,824 - INFO - evaluating now!
+2021-04-18 12:11:55,947 - INFO - Epoch [7/100] train_loss: 0.0397, val_loss: 0.0153, lr: 0.010000, 2.5s
+2021-04-18 12:11:58,311 - INFO - epoch complete!
+2021-04-18 12:11:58,314 - INFO - evaluating now!
+2021-04-18 12:11:58,425 - INFO - Epoch [8/100] train_loss: 0.0347, val_loss: 0.0246, lr: 0.010000, 2.5s
+2021-04-18 12:12:00,808 - INFO - epoch complete!
+2021-04-18 12:12:00,810 - INFO - evaluating now!
+2021-04-18 12:12:00,928 - INFO - Epoch [9/100] train_loss: 0.0342, val_loss: 0.0301, lr: 0.010000, 2.5s
+2021-04-18 12:12:03,327 - INFO - epoch complete!
+2021-04-18 12:12:03,329 - INFO - evaluating now!
+2021-04-18 12:12:03,463 - INFO - Epoch [10/100] train_loss: 0.0332, val_loss: 0.0282, lr: 0.010000, 2.5s
+2021-04-18 12:12:05,863 - INFO - epoch complete!
+2021-04-18 12:12:05,865 - INFO - evaluating now!
+2021-04-18 12:12:05,986 - INFO - Epoch [11/100] train_loss: 0.0301, val_loss: 0.0223, lr: 0.010000, 2.5s
+2021-04-18 12:12:08,379 - INFO - epoch complete!
+2021-04-18 12:12:08,382 - INFO - evaluating now!
+2021-04-18 12:12:08,515 - INFO - Epoch [12/100] train_loss: 0.0265, val_loss: 0.0160, lr: 0.010000, 2.5s
+2021-04-18 12:12:11,016 - INFO - epoch complete!
+2021-04-18 12:12:11,019 - INFO - evaluating now!
+2021-04-18 12:12:11,132 - INFO - Epoch [13/100] train_loss: 0.0235, val_loss: 0.0122, lr: 0.010000, 2.6s
+2021-04-18 12:12:13,629 - INFO - epoch complete!
+2021-04-18 12:12:13,631 - INFO - evaluating now!
+2021-04-18 12:12:13,749 - INFO - Epoch [14/100] train_loss: 0.0210, val_loss: 0.0105, lr: 0.010000, 2.6s
+2021-04-18 12:12:16,124 - INFO - epoch complete!
+2021-04-18 12:12:16,128 - INFO - evaluating now!
+2021-04-18 12:12:16,244 - INFO - Epoch [15/100] train_loss: 0.0183, val_loss: 0.0102, lr: 0.010000, 2.5s
+2021-04-18 12:12:18,659 - INFO - epoch complete!
+2021-04-18 12:12:18,662 - INFO - evaluating now!
+2021-04-18 12:12:18,786 - INFO - Epoch [16/100] train_loss: 0.0160, val_loss: 0.0111, lr: 0.010000, 2.5s
+2021-04-18 12:12:21,182 - INFO - epoch complete!
+2021-04-18 12:12:21,187 - INFO - evaluating now!
+2021-04-18 12:12:21,307 - INFO - Epoch [17/100] train_loss: 0.0140, val_loss: 0.0125, lr: 0.010000, 2.5s
+2021-04-18 12:12:23,661 - INFO - epoch complete!
+2021-04-18 12:12:23,665 - INFO - evaluating now!
+2021-04-18 12:12:23,785 - INFO - Epoch [18/100] train_loss: 0.0125, val_loss: 0.0139, lr: 0.010000, 2.5s
+2021-04-18 12:12:26,165 - INFO - epoch complete!
+2021-04-18 12:12:26,167 - INFO - evaluating now!
+2021-04-18 12:12:26,297 - INFO - Epoch [19/100] train_loss: 0.0114, val_loss: 0.0149, lr: 0.010000, 2.5s
+2021-04-18 12:12:28,644 - INFO - epoch complete!
+2021-04-18 12:12:28,647 - INFO - evaluating now!
+2021-04-18 12:12:28,761 - INFO - Epoch [20/100] train_loss: 0.0107, val_loss: 0.0151, lr: 0.010000, 2.5s
+2021-04-18 12:12:31,110 - INFO - epoch complete!
+2021-04-18 12:12:31,113 - INFO - evaluating now!
+2021-04-18 12:12:31,225 - INFO - Epoch [21/100] train_loss: 0.0100, val_loss: 0.0181, lr: 0.010000, 2.5s
+2021-04-18 12:12:33,617 - INFO - epoch complete!
+2021-04-18 12:12:33,619 - INFO - evaluating now!
+2021-04-18 12:12:33,751 - INFO - Epoch [22/100] train_loss: 0.0095, val_loss: 0.0205, lr: 0.010000, 2.5s
+2021-04-18 12:12:36,103 - INFO - epoch complete!
+2021-04-18 12:12:36,107 - INFO - evaluating now!
+2021-04-18 12:12:36,222 - INFO - Epoch [23/100] train_loss: 0.0092, val_loss: 0.0167, lr: 0.010000, 2.5s
+2021-04-18 12:12:38,573 - INFO - epoch complete!
+2021-04-18 12:12:38,576 - INFO - evaluating now!
+2021-04-18 12:12:38,703 - INFO - Epoch [24/100] train_loss: 0.0091, val_loss: 0.0151, lr: 0.010000, 2.5s
+2021-04-18 12:12:41,054 - INFO - epoch complete!
+2021-04-18 12:12:41,056 - INFO - evaluating now!
+2021-04-18 12:12:41,172 - INFO - Epoch [25/100] train_loss: 0.0093, val_loss: 0.0162, lr: 0.010000, 2.5s
+2021-04-18 12:12:43,516 - INFO - epoch complete!
+2021-04-18 12:12:43,517 - INFO - evaluating now!
+2021-04-18 12:12:43,656 - INFO - Epoch [26/100] train_loss: 0.0092, val_loss: 0.0143, lr: 0.010000, 2.5s
+2021-04-18 12:12:46,015 - INFO - epoch complete!
+2021-04-18 12:12:46,018 - INFO - evaluating now!
+2021-04-18 12:12:46,139 - INFO - Epoch [27/100] train_loss: 0.0090, val_loss: 0.0100, lr: 0.010000, 2.5s
+2021-04-18 12:12:48,536 - INFO - epoch complete!
+2021-04-18 12:12:48,538 - INFO - evaluating now!
+2021-04-18 12:12:48,665 - INFO - Epoch [28/100] train_loss: 0.0082, val_loss: 0.0096, lr: 0.010000, 2.5s
+2021-04-18 12:12:51,035 - INFO - epoch complete!
+2021-04-18 12:12:51,038 - INFO - evaluating now!
+2021-04-18 12:12:51,165 - INFO - Epoch [29/100] train_loss: 0.0084, val_loss: 0.0112, lr: 0.010000, 2.5s
+2021-04-18 12:12:53,515 - INFO - epoch complete!
+2021-04-18 12:12:53,517 - INFO - evaluating now!
+2021-04-18 12:12:53,633 - INFO - Epoch [30/100] train_loss: 0.0078, val_loss: 0.0075, lr: 0.010000, 2.5s
+2021-04-18 12:12:53,648 - INFO - Saved model at 30
+2021-04-18 12:12:53,651 - INFO - Val loss decrease from 0.0095 to 0.0075, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch30.tar
+2021-04-18 12:12:56,031 - INFO - epoch complete!
+2021-04-18 12:12:56,033 - INFO - evaluating now!
+2021-04-18 12:12:56,146 - INFO - Epoch [31/100] train_loss: 0.0078, val_loss: 0.0036, lr: 0.010000, 2.5s
+2021-04-18 12:12:56,160 - INFO - Saved model at 31
+2021-04-18 12:12:56,163 - INFO - Val loss decrease from 0.0075 to 0.0036, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch31.tar
+2021-04-18 12:12:58,521 - INFO - epoch complete!
+2021-04-18 12:12:58,523 - INFO - evaluating now!
+2021-04-18 12:12:58,637 - INFO - Epoch [32/100] train_loss: 0.0070, val_loss: 0.0042, lr: 0.010000, 2.5s
+2021-04-18 12:13:00,994 - INFO - epoch complete!
+2021-04-18 12:13:00,997 - INFO - evaluating now!
+2021-04-18 12:13:01,114 - INFO - Epoch [33/100] train_loss: 0.0070, val_loss: 0.0043, lr: 0.010000, 2.5s
+2021-04-18 12:13:03,504 - INFO - epoch complete!
+2021-04-18 12:13:03,509 - INFO - evaluating now!
+2021-04-18 12:13:03,629 - INFO - Epoch [34/100] train_loss: 0.0065, val_loss: 0.0042, lr: 0.010000, 2.5s
+2021-04-18 12:13:05,996 - INFO - epoch complete!
+2021-04-18 12:13:05,999 - INFO - evaluating now!
+2021-04-18 12:13:06,125 - INFO - Epoch [35/100] train_loss: 0.0068, val_loss: 0.0049, lr: 0.010000, 2.5s
+2021-04-18 12:13:08,498 - INFO - epoch complete!
+2021-04-18 12:13:08,501 - INFO - evaluating now!
+2021-04-18 12:13:08,619 - INFO - Epoch [36/100] train_loss: 0.0062, val_loss: 0.0059, lr: 0.010000, 2.5s
+2021-04-18 12:13:11,018 - INFO - epoch complete!
+2021-04-18 12:13:11,022 - INFO - evaluating now!
+2021-04-18 12:13:11,138 - INFO - Epoch [37/100] train_loss: 0.0055, val_loss: 0.0037, lr: 0.010000, 2.5s
+2021-04-18 12:13:13,503 - INFO - epoch complete!
+2021-04-18 12:13:13,506 - INFO - evaluating now!
+2021-04-18 12:13:13,620 - INFO - Epoch [38/100] train_loss: 0.0054, val_loss: 0.0115, lr: 0.010000, 2.5s
+2021-04-18 12:13:16,015 - INFO - epoch complete!
+2021-04-18 12:13:16,016 - INFO - evaluating now!
+2021-04-18 12:13:16,143 - INFO - Epoch [39/100] train_loss: 0.0050, val_loss: 0.0020, lr: 0.010000, 2.5s
+2021-04-18 12:13:16,157 - INFO - Saved model at 39
+2021-04-18 12:13:16,160 - INFO - Val loss decrease from 0.0036 to 0.0020, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch39.tar
+2021-04-18 12:13:18,520 - INFO - epoch complete!
+2021-04-18 12:13:18,522 - INFO - evaluating now!
+2021-04-18 12:13:18,638 - INFO - Epoch [40/100] train_loss: 0.0049, val_loss: 0.0047, lr: 0.010000, 2.5s
+2021-04-18 12:13:21,009 - INFO - epoch complete!
+2021-04-18 12:13:21,011 - INFO - evaluating now!
+2021-04-18 12:13:21,130 - INFO - Epoch [41/100] train_loss: 0.0046, val_loss: 0.0035, lr: 0.010000, 2.5s
+2021-04-18 12:13:23,514 - INFO - epoch complete!
+2021-04-18 12:13:23,516 - INFO - evaluating now!
+2021-04-18 12:13:23,630 - INFO - Epoch [42/100] train_loss: 0.0045, val_loss: 0.0055, lr: 0.010000, 2.5s
+2021-04-18 12:13:26,027 - INFO - epoch complete!
+2021-04-18 12:13:26,029 - INFO - evaluating now!
+2021-04-18 12:13:26,162 - INFO - Epoch [43/100] train_loss: 0.0044, val_loss: 0.0020, lr: 0.010000, 2.5s
+2021-04-18 12:13:28,531 - INFO - epoch complete!
+2021-04-18 12:13:28,534 - INFO - evaluating now!
+2021-04-18 12:13:28,666 - INFO - Epoch [44/100] train_loss: 0.0043, val_loss: 0.0038, lr: 0.010000, 2.5s
+2021-04-18 12:13:31,028 - INFO - epoch complete!
+2021-04-18 12:13:31,031 - INFO - evaluating now!
+2021-04-18 12:13:31,153 - INFO - Epoch [45/100] train_loss: 0.0043, val_loss: 0.0030, lr: 0.010000, 2.5s
+2021-04-18 12:13:33,510 - INFO - epoch complete!
+2021-04-18 12:13:33,512 - INFO - evaluating now!
+2021-04-18 12:13:33,638 - INFO - Epoch [46/100] train_loss: 0.0041, val_loss: 0.0022, lr: 0.010000, 2.5s
+2021-04-18 12:13:36,011 - INFO - epoch complete!
+2021-04-18 12:13:36,015 - INFO - evaluating now!
+2021-04-18 12:13:36,132 - INFO - Epoch [47/100] train_loss: 0.0041, val_loss: 0.0021, lr: 0.010000, 2.5s
+2021-04-18 12:13:38,522 - INFO - epoch complete!
+2021-04-18 12:13:38,525 - INFO - evaluating now!
+2021-04-18 12:13:38,636 - INFO - Epoch [48/100] train_loss: 0.0040, val_loss: 0.0027, lr: 0.010000, 2.5s
+2021-04-18 12:13:41,016 - INFO - epoch complete!
+2021-04-18 12:13:41,020 - INFO - evaluating now!
+2021-04-18 12:13:41,150 - INFO - Epoch [49/100] train_loss: 0.0040, val_loss: 0.0020, lr: 0.010000, 2.5s
+2021-04-18 12:13:41,165 - INFO - Saved model at 49
+2021-04-18 12:13:41,168 - INFO - Val loss decrease from 0.0020 to 0.0020, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch49.tar
+2021-04-18 12:13:43,510 - INFO - epoch complete!
+2021-04-18 12:13:43,513 - INFO - evaluating now!
+2021-04-18 12:13:43,627 - INFO - Epoch [50/100] train_loss: 0.0039, val_loss: 0.0021, lr: 0.010000, 2.5s
+2021-04-18 12:13:45,995 - INFO - epoch complete!
+2021-04-18 12:13:45,995 - INFO - evaluating now!
+2021-04-18 12:13:46,114 - INFO - Epoch [51/100] train_loss: 0.0039, val_loss: 0.0018, lr: 0.010000, 2.5s
+2021-04-18 12:13:46,129 - INFO - Saved model at 51
+2021-04-18 12:13:46,133 - INFO - Val loss decrease from 0.0020 to 0.0018, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch51.tar
+2021-04-18 12:13:48,500 - INFO - epoch complete!
+2021-04-18 12:13:48,502 - INFO - evaluating now!
+2021-04-18 12:13:48,620 - INFO - Epoch [52/100] train_loss: 0.0039, val_loss: 0.0019, lr: 0.010000, 2.5s
+2021-04-18 12:13:50,967 - INFO - epoch complete!
+2021-04-18 12:13:50,970 - INFO - evaluating now!
+2021-04-18 12:13:51,085 - INFO - Epoch [53/100] train_loss: 0.0038, val_loss: 0.0016, lr: 0.010000, 2.5s
+2021-04-18 12:13:51,102 - INFO - Saved model at 53
+2021-04-18 12:13:51,105 - INFO - Val loss decrease from 0.0018 to 0.0016, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch53.tar
+2021-04-18 12:13:53,453 - INFO - epoch complete!
+2021-04-18 12:13:53,455 - INFO - evaluating now!
+2021-04-18 12:13:53,571 - INFO - Epoch [54/100] train_loss: 0.0038, val_loss: 0.0016, lr: 0.010000, 2.5s
+2021-04-18 12:13:56,045 - INFO - epoch complete!
+2021-04-18 12:13:56,047 - INFO - evaluating now!
+2021-04-18 12:13:56,161 - INFO - Epoch [55/100] train_loss: 0.0037, val_loss: 0.0017, lr: 0.010000, 2.6s
+2021-04-18 12:13:58,513 - INFO - epoch complete!
+2021-04-18 12:13:58,515 - INFO - evaluating now!
+2021-04-18 12:13:58,628 - INFO - Epoch [56/100] train_loss: 0.0037, val_loss: 0.0014, lr: 0.010000, 2.5s
+2021-04-18 12:13:58,642 - INFO - Saved model at 56
+2021-04-18 12:13:58,647 - INFO - Val loss decrease from 0.0016 to 0.0014, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch56.tar
+2021-04-18 12:14:01,008 - INFO - epoch complete!
+2021-04-18 12:14:01,011 - INFO - evaluating now!
+2021-04-18 12:14:01,129 - INFO - Epoch [57/100] train_loss: 0.0037, val_loss: 0.0014, lr: 0.010000, 2.5s
+2021-04-18 12:14:01,144 - INFO - Saved model at 57
+2021-04-18 12:14:01,147 - INFO - Val loss decrease from 0.0014 to 0.0014, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch57.tar
+2021-04-18 12:14:03,502 - INFO - epoch complete!
+2021-04-18 12:14:03,504 - INFO - evaluating now!
+2021-04-18 12:14:03,632 - INFO - Epoch [58/100] train_loss: 0.0037, val_loss: 0.0017, lr: 0.010000, 2.5s
+2021-04-18 12:14:05,978 - INFO - epoch complete!
+2021-04-18 12:14:05,981 - INFO - evaluating now!
+2021-04-18 12:14:06,097 - INFO - Epoch [59/100] train_loss: 0.0036, val_loss: 0.0017, lr: 0.010000, 2.5s
+2021-04-18 12:14:08,447 - INFO - epoch complete!
+2021-04-18 12:14:08,449 - INFO - evaluating now!
+2021-04-18 12:14:08,564 - INFO - Epoch [60/100] train_loss: 0.0035, val_loss: 0.0013, lr: 0.010000, 2.5s
+2021-04-18 12:14:08,579 - INFO - Saved model at 60
+2021-04-18 12:14:08,585 - INFO - Val loss decrease from 0.0014 to 0.0013, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch60.tar
+2021-04-18 12:14:10,939 - INFO - epoch complete!
+2021-04-18 12:14:10,942 - INFO - evaluating now!
+2021-04-18 12:14:11,059 - INFO - Epoch [61/100] train_loss: 0.0035, val_loss: 0.0014, lr: 0.010000, 2.5s
+2021-04-18 12:14:13,411 - INFO - epoch complete!
+2021-04-18 12:14:13,414 - INFO - evaluating now!
+2021-04-18 12:14:13,531 - INFO - Epoch [62/100] train_loss: 0.0034, val_loss: 0.0016, lr: 0.010000, 2.5s
+2021-04-18 12:14:15,928 - INFO - epoch complete!
+2021-04-18 12:14:15,932 - INFO - evaluating now!
+2021-04-18 12:14:16,053 - INFO - Epoch [63/100] train_loss: 0.0034, val_loss: 0.0016, lr: 0.010000, 2.5s
+2021-04-18 12:14:18,420 - INFO - epoch complete!
+2021-04-18 12:14:18,423 - INFO - evaluating now!
+2021-04-18 12:14:18,537 - INFO - Epoch [64/100] train_loss: 0.0033, val_loss: 0.0014, lr: 0.010000, 2.5s
+2021-04-18 12:14:20,943 - INFO - epoch complete!
+2021-04-18 12:14:20,946 - INFO - evaluating now!
+2021-04-18 12:14:21,069 - INFO - Epoch [65/100] train_loss: 0.0032, val_loss: 0.0015, lr: 0.010000, 2.5s
+2021-04-18 12:14:23,452 - INFO - epoch complete!
+2021-04-18 12:14:23,454 - INFO - evaluating now!
+2021-04-18 12:14:23,570 - INFO - Epoch [66/100] train_loss: 0.0033, val_loss: 0.0014, lr: 0.010000, 2.5s
+2021-04-18 12:14:25,982 - INFO - epoch complete!
+2021-04-18 12:14:25,985 - INFO - evaluating now!
+2021-04-18 12:14:26,103 - INFO - Epoch [67/100] train_loss: 0.0032, val_loss: 0.0015, lr: 0.010000, 2.5s
+2021-04-18 12:14:28,445 - INFO - epoch complete!
+2021-04-18 12:14:28,447 - INFO - evaluating now!
+2021-04-18 12:14:28,563 - INFO - Epoch [68/100] train_loss: 0.0031, val_loss: 0.0014, lr: 0.010000, 2.5s
+2021-04-18 12:14:30,922 - INFO - epoch complete!
+2021-04-18 12:14:30,925 - INFO - evaluating now!
+2021-04-18 12:14:31,043 - INFO - Epoch [69/100] train_loss: 0.0031, val_loss: 0.0013, lr: 0.010000, 2.5s
+2021-04-18 12:14:31,058 - INFO - Saved model at 69
+2021-04-18 12:14:31,061 - INFO - Val loss decrease from 0.0013 to 0.0013, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch69.tar
+2021-04-18 12:14:33,414 - INFO - epoch complete!
+2021-04-18 12:14:33,416 - INFO - evaluating now!
+2021-04-18 12:14:33,535 - INFO - Epoch [70/100] train_loss: 0.0031, val_loss: 0.0013, lr: 0.010000, 2.5s
+2021-04-18 12:14:33,549 - INFO - Saved model at 70
+2021-04-18 12:14:33,551 - INFO - Val loss decrease from 0.0013 to 0.0013, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch70.tar
+2021-04-18 12:14:35,929 - INFO - epoch complete!
+2021-04-18 12:14:35,931 - INFO - evaluating now!
+2021-04-18 12:14:36,051 - INFO - Epoch [71/100] train_loss: 0.0030, val_loss: 0.0012, lr: 0.010000, 2.5s
+2021-04-18 12:14:36,069 - INFO - Saved model at 71
+2021-04-18 12:14:36,080 - INFO - Val loss decrease from 0.0013 to 0.0012, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch71.tar
+2021-04-18 12:14:38,475 - INFO - epoch complete!
+2021-04-18 12:14:38,477 - INFO - evaluating now!
+2021-04-18 12:14:38,594 - INFO - Epoch [72/100] train_loss: 0.0029, val_loss: 0.0012, lr: 0.010000, 2.5s
+2021-04-18 12:14:40,941 - INFO - epoch complete!
+2021-04-18 12:14:40,945 - INFO - evaluating now!
+2021-04-18 12:14:41,069 - INFO - Epoch [73/100] train_loss: 0.0029, val_loss: 0.0011, lr: 0.010000, 2.5s
+2021-04-18 12:14:41,084 - INFO - Saved model at 73
+2021-04-18 12:14:41,087 - INFO - Val loss decrease from 0.0012 to 0.0011, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch73.tar
+2021-04-18 12:14:43,460 - INFO - epoch complete!
+2021-04-18 12:14:43,462 - INFO - evaluating now!
+2021-04-18 12:14:43,579 - INFO - Epoch [74/100] train_loss: 0.0029, val_loss: 0.0011, lr: 0.010000, 2.5s
+2021-04-18 12:14:43,594 - INFO - Saved model at 74
+2021-04-18 12:14:43,597 - INFO - Val loss decrease from 0.0011 to 0.0011, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch74.tar
+2021-04-18 12:14:45,954 - INFO - epoch complete!
+2021-04-18 12:14:45,956 - INFO - evaluating now!
+2021-04-18 12:14:46,067 - INFO - Epoch [75/100] train_loss: 0.0029, val_loss: 0.0013, lr: 0.010000, 2.5s
+2021-04-18 12:14:48,419 - INFO - epoch complete!
+2021-04-18 12:14:48,422 - INFO - evaluating now!
+2021-04-18 12:14:48,534 - INFO - Epoch [76/100] train_loss: 0.0029, val_loss: 0.0009, lr: 0.010000, 2.5s
+2021-04-18 12:14:48,548 - INFO - Saved model at 76
+2021-04-18 12:14:48,552 - INFO - Val loss decrease from 0.0011 to 0.0009, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch76.tar
+2021-04-18 12:14:50,914 - INFO - epoch complete!
+2021-04-18 12:14:50,916 - INFO - evaluating now!
+2021-04-18 12:14:51,039 - INFO - Epoch [77/100] train_loss: 0.0029, val_loss: 0.0011, lr: 0.010000, 2.5s
+2021-04-18 12:14:53,396 - INFO - epoch complete!
+2021-04-18 12:14:53,399 - INFO - evaluating now!
+2021-04-18 12:14:53,512 - INFO - Epoch [78/100] train_loss: 0.0028, val_loss: 0.0010, lr: 0.010000, 2.5s
+2021-04-18 12:14:55,854 - INFO - epoch complete!
+2021-04-18 12:14:55,856 - INFO - evaluating now!
+2021-04-18 12:14:55,981 - INFO - Epoch [79/100] train_loss: 0.0028, val_loss: 0.0009, lr: 0.010000, 2.5s
+2021-04-18 12:14:56,003 - INFO - Saved model at 79
+2021-04-18 12:14:56,009 - INFO - Val loss decrease from 0.0009 to 0.0009, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch79.tar
+2021-04-18 12:14:58,392 - INFO - epoch complete!
+2021-04-18 12:14:58,395 - INFO - evaluating now!
+2021-04-18 12:14:58,513 - INFO - Epoch [80/100] train_loss: 0.0028, val_loss: 0.0010, lr: 0.010000, 2.5s
+2021-04-18 12:15:00,869 - INFO - epoch complete!
+2021-04-18 12:15:00,871 - INFO - evaluating now!
+2021-04-18 12:15:00,992 - INFO - Epoch [81/100] train_loss: 0.0027, val_loss: 0.0008, lr: 0.010000, 2.5s
+2021-04-18 12:15:01,010 - INFO - Saved model at 81
+2021-04-18 12:15:01,016 - INFO - Val loss decrease from 0.0009 to 0.0008, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch81.tar
+2021-04-18 12:15:03,377 - INFO - epoch complete!
+2021-04-18 12:15:03,381 - INFO - evaluating now!
+2021-04-18 12:15:03,499 - INFO - Epoch [82/100] train_loss: 0.0027, val_loss: 0.0008, lr: 0.010000, 2.5s
+2021-04-18 12:15:05,844 - INFO - epoch complete!
+2021-04-18 12:15:05,846 - INFO - evaluating now!
+2021-04-18 12:15:05,962 - INFO - Epoch [83/100] train_loss: 0.0027, val_loss: 0.0013, lr: 0.010000, 2.5s
+2021-04-18 12:15:08,346 - INFO - epoch complete!
+2021-04-18 12:15:08,350 - INFO - evaluating now!
+2021-04-18 12:15:08,462 - INFO - Epoch [84/100] train_loss: 0.0029, val_loss: 0.0007, lr: 0.010000, 2.5s
+2021-04-18 12:15:08,476 - INFO - Saved model at 84
+2021-04-18 12:15:08,480 - INFO - Val loss decrease from 0.0008 to 0.0007, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch84.tar
+2021-04-18 12:15:10,837 - INFO - epoch complete!
+2021-04-18 12:15:10,839 - INFO - evaluating now!
+2021-04-18 12:15:10,953 - INFO - Epoch [85/100] train_loss: 0.0028, val_loss: 0.0008, lr: 0.010000, 2.5s
+2021-04-18 12:15:13,311 - INFO - epoch complete!
+2021-04-18 12:15:13,314 - INFO - evaluating now!
+2021-04-18 12:15:13,425 - INFO - Epoch [86/100] train_loss: 0.0027, val_loss: 0.0012, lr: 0.010000, 2.5s
+2021-04-18 12:15:15,766 - INFO - epoch complete!
+2021-04-18 12:15:15,771 - INFO - evaluating now!
+2021-04-18 12:15:15,891 - INFO - Epoch [87/100] train_loss: 0.0027, val_loss: 0.0008, lr: 0.010000, 2.5s
+2021-04-18 12:15:18,260 - INFO - epoch complete!
+2021-04-18 12:15:18,263 - INFO - evaluating now!
+2021-04-18 12:15:18,377 - INFO - Epoch [88/100] train_loss: 0.0027, val_loss: 0.0007, lr: 0.010000, 2.5s
+2021-04-18 12:15:18,395 - INFO - Saved model at 88
+2021-04-18 12:15:18,398 - INFO - Val loss decrease from 0.0007 to 0.0007, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch88.tar
+2021-04-18 12:15:20,787 - INFO - epoch complete!
+2021-04-18 12:15:20,790 - INFO - evaluating now!
+2021-04-18 12:15:20,907 - INFO - Epoch [89/100] train_loss: 0.0027, val_loss: 0.0006, lr: 0.010000, 2.5s
+2021-04-18 12:15:20,921 - INFO - Saved model at 89
+2021-04-18 12:15:20,928 - INFO - Val loss decrease from 0.0007 to 0.0006, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch89.tar
+2021-04-18 12:15:23,286 - INFO - epoch complete!
+2021-04-18 12:15:23,288 - INFO - evaluating now!
+2021-04-18 12:15:23,406 - INFO - Epoch [90/100] train_loss: 0.0027, val_loss: 0.0008, lr: 0.010000, 2.5s
+2021-04-18 12:15:25,751 - INFO - epoch complete!
+2021-04-18 12:15:25,753 - INFO - evaluating now!
+2021-04-18 12:15:25,868 - INFO - Epoch [91/100] train_loss: 0.0026, val_loss: 0.0010, lr: 0.010000, 2.5s
+2021-04-18 12:15:28,244 - INFO - epoch complete!
+2021-04-18 12:15:28,248 - INFO - evaluating now!
+2021-04-18 12:15:28,370 - INFO - Epoch [92/100] train_loss: 0.0026, val_loss: 0.0007, lr: 0.010000, 2.5s
+2021-04-18 12:15:30,751 - INFO - epoch complete!
+2021-04-18 12:15:30,755 - INFO - evaluating now!
+2021-04-18 12:15:30,881 - INFO - Epoch [93/100] train_loss: 0.0026, val_loss: 0.0006, lr: 0.010000, 2.5s
+2021-04-18 12:15:30,898 - INFO - Saved model at 93
+2021-04-18 12:15:30,901 - INFO - Val loss decrease from 0.0006 to 0.0006, saving to ./trafficdl/cache/model_cache/mymodel_HEAT_epoch93.tar
+2021-04-18 12:15:33,335 - INFO - epoch complete!
+2021-04-18 12:15:33,337 - INFO - evaluating now!
+2021-04-18 12:15:33,451 - INFO - Epoch [94/100] train_loss: 0.0025, val_loss: 0.0006, lr: 0.010000, 2.5s
+2021-04-18 12:15:35,825 - INFO - epoch complete!
+2021-04-18 12:15:35,828 - INFO - evaluating now!
+2021-04-18 12:15:35,939 - INFO - Epoch [95/100] train_loss: 0.0025, val_loss: 0.0007, lr: 0.010000, 2.5s
+2021-04-18 12:15:38,326 - INFO - epoch complete!
+2021-04-18 12:15:38,328 - INFO - evaluating now!
+2021-04-18 12:15:38,445 - INFO - Epoch [96/100] train_loss: 0.0025, val_loss: 0.0007, lr: 0.010000, 2.5s
+2021-04-18 12:15:40,803 - INFO - epoch complete!
+2021-04-18 12:15:40,805 - INFO - evaluating now!
+2021-04-18 12:15:40,918 - INFO - Epoch [97/100] train_loss: 0.0025, val_loss: 0.0007, lr: 0.010000, 2.5s
+2021-04-18 12:15:43,276 - INFO - epoch complete!
+2021-04-18 12:15:43,278 - INFO - evaluating now!
+2021-04-18 12:15:43,394 - INFO - Epoch [98/100] train_loss: 0.0025, val_loss: 0.0008, lr: 0.010000, 2.5s
+2021-04-18 12:15:45,739 - INFO - epoch complete!
+2021-04-18 12:15:45,742 - INFO - evaluating now!
+2021-04-18 12:15:45,856 - INFO - Epoch [99/100] train_loss: 0.0025, val_loss: 0.0006, lr: 0.010000, 2.5s
+2021-04-18 12:15:46,312 - INFO - Loaded model at 93
+2021-04-18 12:15:46,317 - INFO - Saved model at ./trafficdl/cache/model_cache/mymodel_HEAT.m
+2021-04-18 12:15:46,331 - INFO - Start evaluating ...
+2021-04-18 12:15:46,734 - INFO - Evaluate result is {"MAE@1": 0.023350046947598457, "MAPE@1": Infinity, "MSE@1": 0.000713794375769794, "RMSE@1": 0.02671693079173565, "masked_MAE@1": 0.025486910715699196, "masked_MSE@1": 0.000875145778991282, "masked_RMSE@1": 0.029582863673567772, "masked_MAPE@1": 7.962746620178223, "R2@1": 0.90426732779217, "EVAR@1": 0.9227444529533386, "MAE@2": 0.022796975448727608, "MAPE@2": Infinity, "MSE@2": 0.0006777741364203393, "RMSE@2": 0.026034096255898476, "masked_MAE@2": 0.024695169180631638, "masked_MSE@2": 0.0008235615096054971, "masked_RMSE@2": 0.02869776077568531, "masked_MAPE@2": 7.966245651245117, "R2@2": 0.9088915064517864, "EVAR@2": 0.930228590965271, "MAE@3": 0.021908428519964218, "MAPE@3": Infinity, "MSE@3": 0.0006332037155516446, "RMSE@3": 0.02516353875398636, "masked_MAE@3": 0.023424923419952393, "masked_MSE@3": 0.0007597986841574311, "masked_RMSE@3": 0.02756444551050663, "masked_MAPE@3": 7.967656135559082, "R2@3": 0.9146896027708029, "EVAR@3": 0.9370617866516113, "MAE@4": 0.021348081529140472, "MAPE@4": Infinity, "MSE@4": 0.000610142364166677, "RMSE@4": 0.024701060727238655, "masked_MAE@4": 0.022624081000685692, "masked_MSE@4": 0.0007267959881573915, "masked_RMSE@4": 0.02695915475487709, "masked_MAPE@4": 7.959713459014893, "R2@4": 0.9176104422386738, "EVAR@4": 0.9407760500907898, "MAE@5": 0.021359045058488846, "MAPE@5": Infinity, "MSE@5": 0.0006113642593845725, "RMSE@5": 0.02472578175365925, "masked_MAE@5": 0.02263898216187954, "masked_MSE@5": 0.0007284709718078375, "masked_RMSE@5": 0.026990201324224472, "masked_MAPE@5": 7.949577331542969, "R2@5": 0.9172589007411348, "EVAR@5": 0.9395780563354492, "MAE@6": 0.021508092060685158, "MAPE@6": Infinity, "MSE@6": 0.0006190063431859016, "RMSE@6": 0.024879837408661842, "masked_MAE@6": 0.022850943729281425, "masked_MSE@6": 0.0007393112173303962, "masked_RMSE@6": 0.027190277352929115, "masked_MAPE@6": 7.937201499938965, "R2@6": 0.9160357480617533, "EVAR@6": 0.9386389255523682, "MAE@7": 0.021767549216747284, "MAPE@7": Infinity, "MSE@7": 0.0006322542321868241, "RMSE@7": 0.02514466643333435, "masked_MAE@7": 0.023220403119921684, "masked_MSE@7": 0.0007581487880088389, "masked_RMSE@7": 0.027534501627087593, "masked_MAPE@7": 7.923979759216309, "R2@7": 0.9140458072923892, "EVAR@7": 0.9366042017936707, "MAE@8": 0.021736543625593185, "MAPE@8": Infinity, "MSE@8": 0.000629955087788403, "RMSE@8": 0.025098906829953194, "masked_MAE@8": 0.023175440728664398, "masked_MSE@8": 0.0007548058638349175, "masked_RMSE@8": 0.027473730966448784, "masked_MAPE@8": 7.908504962921143, "R2@8": 0.9141661233766288, "EVAR@8": 0.9379883408546448, "MAE@9": 0.02159549854695797, "MAPE@9": Infinity, "MSE@9": 0.0006220059003680944, "RMSE@9": 0.024940045550465584, "masked_MAE@9": 0.022973572835326195, "masked_MSE@9": 0.0007434070575982332, "masked_RMSE@9": 0.02726549282670021, "masked_MAPE@9": 7.892604827880859, "R2@9": 0.9150594004349006, "EVAR@9": 0.9394336342811584, "MAE@10": 0.021345730870962143, "MAPE@10": Infinity, "MSE@10": 0.0006112070987001061, "RMSE@10": 0.02472260221838951, "masked_MAE@10": 0.022616738453507423, "masked_MSE@10": 0.0007279489655047655, "masked_RMSE@10": 0.026980528607964516, "masked_MAPE@10": 7.875939846038818, "R2@10": 0.9163475241259476, "EVAR@10": 0.9413142800331116, "MAE@11": 0.021327858790755272, "MAPE@11": Infinity, "MSE@11": 0.0006100945174694061, "RMSE@11": 0.024700092151761055, "masked_MAE@11": 0.022590644657611847, "masked_MSE@11": 0.0007263067527674139, "masked_RMSE@11": 0.026950078085064888, "masked_MAPE@11": 7.860589504241943, "R2@11": 0.9163135676395172, "EVAR@11": 0.9410693645477295, "MAE@12": 0.021404653787612915, "MAPE@12": Infinity, "MSE@12": 0.0006134854629635811, "RMSE@12": 0.024768639355897903, "masked_MAE@12": 0.022699518129229546, "masked_MSE@12": 0.0007310856017284095, "masked_RMSE@12": 0.02703859470784664, "masked_MAPE@12": 7.8453803062438965, "R2@12": 0.9156611740401498, "EVAR@12": 0.9403550624847412}
+2021-04-18 12:15:46,738 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache\2021_04_18_12_15_46_mymodel_HEAT.json
+2021-04-18 12:15:46,751 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache\2021_04_18_12_15_46_mymodel_HEAT.csv
+2021-04-18 12:15:46,780 - INFO - 
+         MAE  MAPE       MSE      RMSE  masked_MAE  masked_MSE  masked_RMSE  \
+0   0.023350   inf  0.000714  0.026717    0.025487    0.000875     0.029583   
+1   0.022797   inf  0.000678  0.026034    0.024695    0.000824     0.028698   
+2   0.021908   inf  0.000633  0.025164    0.023425    0.000760     0.027564   
+3   0.021348   inf  0.000610  0.024701    0.022624    0.000727     0.026959   
+4   0.021359   inf  0.000611  0.024726    0.022639    0.000728     0.026990   
+5   0.021508   inf  0.000619  0.024880    0.022851    0.000739     0.027190   
+6   0.021768   inf  0.000632  0.025145    0.023220    0.000758     0.027535   
+7   0.021737   inf  0.000630  0.025099    0.023175    0.000755     0.027474   
+8   0.021595   inf  0.000622  0.024940    0.022974    0.000743     0.027265   
+9   0.021346   inf  0.000611  0.024723    0.022617    0.000728     0.026981   
+10  0.021328   inf  0.000610  0.024700    0.022591    0.000726     0.026950   
+11  0.021405   inf  0.000613  0.024769    0.022700    0.000731     0.027039   
+
+    masked_MAPE        R2      EVAR  
+0      7.962747  0.904267  0.922744  
+1      7.966246  0.908892  0.930229  
+2      7.967656  0.914690  0.937062  
+3      7.959713  0.917610  0.940776  
+4      7.949577  0.917259  0.939578  
+5      7.937201  0.916036  0.938639  
+6      7.923980  0.914046  0.936604  
+7      7.908505  0.914166  0.937988  
+8      7.892605  0.915059  0.939434  
+9      7.875940  0.916348  0.941314  
+10     7.860590  0.916314  0.941069  
+11     7.845380  0.915661  0.940355  

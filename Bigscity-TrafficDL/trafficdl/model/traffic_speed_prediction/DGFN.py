@@ -1,16 +1,12 @@
-from logging import getLogger
-import random
-import math
-import torch
-from torch import nn
-import torch.nn.functional as F
-from trafficdl.model import loss
-from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
 import numpy as np
 import scipy.sparse as sp
 import networkx as nx
-
-from collections import defaultdict
+import random
+import torch
+from torch import nn
+from torchvision.transforms import Lambda
+from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+from logging import getLogger
 
 
 # math_utils
@@ -138,12 +134,12 @@ class math_utils:
 
         for i in range(nb_samples - 1):
             for j in range(time_steps):
-                for l in range(N):
-                    ref = ground_truth[i + 1][j][l]
+                for ll in range(N):
+                    ref = ground_truth[i + 1][j][ll]
                     f = 0.
                     for p in range(-k, k + 1):
-                        f += mask[p + k] * kernels[i][j][l][l + p + k]
-                        importances[int(-ref - 1)][p + k] += kernels[i][j][l][l + p + k]
+                        f += mask[p + k] * kernels[i][j][ll][ll + p + k]
+                        importances[int(-ref - 1)][p + k] += kernels[i][j][ll][ll + p + k]
                         # f += mask[p+k]*kernels[i][j][l][l+p]
                         # importances[int(-ref-1)][p+k] += kernels[i][j][l][l+p]
                     f_value[int(-ref - 1)] += f
@@ -183,14 +179,14 @@ class math_utils:
         for i in range(nb_samples - 1):
             for j in range(time_steps):
                 filters = kernels[i][j]
-                for l in range(N):
-                    ref = ground_truth[i + 1][j][l]
-                    counts[l][int(-ref - 1)] += 1
+                for ll in range(N):
+                    ref = ground_truth[i + 1][j][ll]
+                    counts[ll][int(-ref - 1)] += 1
                     f = 0
                     for p in range(-k, k + 1):
-                        f += mask[p + k] * filters[l][l + p + k]
-                        J[l][int(-ref - 1)][p + k] += filters[l][l + p + k]
-                    f_value[l][int(-ref - 1)] += f
+                        f += mask[p + k] * filters[ll][ll + p + k]
+                        J[ll][int(-ref - 1)][p + k] += filters[ll][ll + p + k]
+                    f_value[ll][int(-ref - 1)] += f
 
         f_out = f_value / counts
         sp = []
@@ -216,11 +212,11 @@ class math_utils:
 
         for i in range(nb_samples):
             filters = kernels[i]
-            for l in range(N):
+            for ll in range(N):
                 f1 = 0
                 for p in range(-k, k + 1):
-                    f1 += mask[p + k] * filters[l][l + p + k]
-                f_value[i][l] = f1
+                    f1 += mask[p + k] * filters[ll][ll + p + k]
+                f_value[i][ll] = f1
         print(f_value.shape)
 
         return f_value
@@ -228,8 +224,8 @@ class math_utils:
     def Track(self, data, mask, Ad, Au, A, k, node):
         nb_samples, time_steps, N = data.shape
 
-        G = nx.from_numpy_matrix(A)
-        dis = dict(nx.all_pairs_shortest_path_length(G))
+        # G = nx.from_numpy_matrix(A)
+        # dis = dict(nx.all_pairs_shortest_path_length(G))
 
         # Ak = LA.matrix_power(A, k)
         Ak = torch.pow(A, k)
@@ -289,46 +285,23 @@ class LocallyConnectedGC(nn.Module):
             scaled_lap: scaled Laplacian matrix
     """
 
-    def __init__(self, k,
-                 scaled_lap=scaled_laplacian,
-                 activation=None,
-                 use_bias=True,
-                 kernel_initializer='glorot_uniform',
-                 bias_initializer='zeros',
-                 kernel_regularizer=None,
-                 bias_regularizer=None,
-                 activity_regularizer=None,
-                 kernel_constraint=None,
-                 bias_constraint=None,
-                 **kwargs):
+    def __init__(self, k, scaled_lap=scaled_laplacian, activation=None, use_bias=True, **kwargs):
+        super(LocallyConnectedGC, self).__init__()
         if 'input_shape' not in kwargs and 'input_dim' in kwargs:
             kwargs['input_shape'] = (kwargs.pop('input_dim'),)
-        super(LocallyConnectedGC, self).__init__(**kwargs)
 
         self.k = k
         self.scaled_lap = scaled_lap
 
         if activation == 'tanh':
-            self.activation = nn.functional.tanh
+            self.activation = torch.nn.functional.tanh
         elif activation == 'softmax':
             self.activation = nn.functional.Softplus
 
-        '''self.activation = activations.get(activation)               # nn.functional.Tanh or Softplus'''
         self.use_bias = use_bias
-        '''self.kernel_initializer = initializers.get(kernel_initializer) #torch.nn.init.uniform(tensor, a=0, b=1)
-        self.bias_initializer = initializers.get(bias_initializer)   # torch.Tensor(0)
-        self.kernel_regularizer = regularizers.get(kernel_regularizer)
-        self.bias_regularizer = regularizers.get(bias_regularizer)
-        self.activity_regularizer = regularizers.get(activity_regularizer)
-        self.kernel_constraint = constraints.get(kernel_constraint)
-        self.bias_constraint = constraints.get(bias_constraint)'''
         self.supports_masking = True
         self.supports = []
-        # k-hop adjacency matrix
-        # torch.sparse.to_dense()
-        #
 
-        # S = K.constant(K.to_dense(math_utils.calculate_adjacency_k(self.scaled_lap, self.k))) # 常数张量，稀疏张量转换为稠密张量
         S = torch.nn.init.constant(torch.Tensor.to_dense(math_utils.calculate_adjacency_k(self.scaled_lap, self.k)))
         self.supports.append(S)
 
@@ -355,7 +328,7 @@ class LocallyConnectedGC(nn.Module):
             self.bias = None
         self.built = True
 
-    def call(self, inputs, mask=None):
+    def forward(self, inputs, mask=None):
         features = inputs
         W = self.supports[0] * self.kernel
         X = torch.dot(torch.transpose(features, 1, 2), W)  # dot 点乘，重新排列张量的轴
@@ -372,39 +345,19 @@ class Linear(nn.Module):
             units: dimension of output
     """
 
-    def __init__(self, units=1,
-                 activation=None,
-                 use_bias=True,
-                 kernel_initializer='glorot_uniform',
-                 bias_initializer='zeros',
-                 kernel_regularizer=None,
-                 bias_regularizer=None,
-                 activity_regularizer=None,
-                 kernel_constraint=None,
-                 bias_constraint=None,
-                 **kwargs):
+    def __init__(self, units=1, activation=None, use_bias=True, **kwargs):
         if 'input_shape' not in kwargs and 'input_dim' in kwargs:
             kwargs['input_shape'] = (kwargs.pop('input_dim'),)
         super(Linear, self).__init__(**kwargs)
         self.units = units
 
         # 根据传入激活函数名称选择对应的激活函数
-        # self.activation = activations.get(activation)
         if activation == 'tanh':
             self.activation = nn.functional.tanh
         elif activation == 'hard_sigmoid':
             self.activation = nn.functional.hardsigmoid
 
         self.use_bias = use_bias
-        '''
-        self.kernel_initializer = initializers.get(kernel_initializer)
-        self.bias_initializer = initializers.get(bias_initializer)
-        self.kernel_regularizer = regularizers.get(kernel_regularizer)
-        self.bias_regularizer = regularizers.get(bias_regularizer)
-        self.activity_regularizer = regularizers.get(activity_regularizer)
-        self.kernel_constraint = constraints.get(kernel_constraint)
-        self.bias_constraint = constraints.get(bias_constraint)
-        '''
         self.supports_masking = True
 
     def compute_output_shape(self, input_shapes):
@@ -429,7 +382,7 @@ class Linear(nn.Module):
             self.bias = None
         self.built = True
 
-    def call(self, inputs, mask=None):
+    def forward(self, inputs, mask=None):
         outputs = torch.dot(inputs, self.kernel_lin)
         if self.use_bias:
             outputs += self.bias
@@ -460,7 +413,7 @@ class Scheduled(nn.Module):
     def reset_coin(self, s):
         self.coin = s
 
-    def call(self, inputs, mask=None):
+    def forward(self, inputs, mask=None):
         rand = random.uniform(0, 1)
         if rand > self.coin:
             # outputs = K.permute_dimensions(inputs[0], (0, 2, 1))
@@ -651,18 +604,13 @@ class DGCRNNCell(nn.Module):
     Eq-(DGGRU) in the paper
         Arguments:
             k: receptive field - 1
-            dgc_mode: spatial attention module,
-                {'dgc','gan','lc'}
+            dgc_mode: spatial attention module, {'dgc','gan','lc'}
     """
 
-    def __init__(self, k,
-                 dgc_mode='hybrid',
-                 activation='tanh',
-                 recurrent_activation='hard_sigmoid',
-                 **kwargs):
+    def __init__(self, k, dgc_mode='hybrid', activation='tanh', recurrent_activation='hard_sigmoid', **kwargs):
         if 'input_shape' not in kwargs and 'input_dim' in kwargs:
             kwargs['input_shape'] = (kwargs.pop('input_dim'),)
-        super(DGCRNNCell, self).__init__(**kwargs)
+        super(DGCRNNCell, self).__init__()
         self.k = k
         self.dgc_mode = dgc_mode
         self.state_size = dim
@@ -673,8 +621,8 @@ class DGCRNNCell(nn.Module):
     def build(self, input_shape):
         # input_shape = (bs, nb_nodes)
         shapes = (input_shape[0], input_shape[1], 2)
-        inner = (input_shape[0], input_shape[1], 2 * self.k + 1)
-        shapes_1 = (input_shape[0], input_shape[1], 1)
+        # inner = (input_shape[0], input_shape[1], 2 * self.k + 1)
+        # shapes_1 = (input_shape[0], input_shape[1], 1)
 
         if self.dgc_mode == 'hybrid':
             self.dgc_r = LocallyConnectedGC(2)  # , depthwise=False
@@ -710,14 +658,12 @@ class DGCRNNCell(nn.Module):
         self._trainable_weights = w
         self.built = True
 
-    def call(self, inputs, states):
+    def forward(self, inputs, states):
 
         feature_ru1 = torch.cat([torch.unsqueeze(inputs), torch.unsqueeze(states[0])])
-        # feature_ru1 = K.concatenate([K.expand_dims(inputs), K.expand_dims(states[0])])  # (bs, nb_nodes, 2)
         p = self.core(feature_ru1)
 
         feature_ru = torch.cat([p, torch.unsqueeze(states[0])])
-        # feature_ru = K.concatenate([p, K.expand_dims(states[0])])
 
         r = self.dgc_r(feature_ru)  # (bs, nb_nodes, 2)
         r = self.lin_r(r)  # (bs, nb_nodes, 1)
@@ -785,63 +731,6 @@ def stack(x):
     # return K.squeeze(y, axis=2)
 
 
-class LambdaLayer(nn.Module):
-    def __init__(self, lambd):
-        super(LambdaLayer, self).__init__()
-        self.lambd = lambd
-
-    def Lambda(self, x):
-        return self.lambd(x)
-
-
-'''
-def create_embed_model(obs_timesteps=10, pred_timesteps=3, nb_nodes=208, k=1, dgc_mode='hybrid', inner_act=None):
-    #encoder = RNN(DGCRNNCell(k, dgc_mode=dgc_mode), return_state=True)
-    #decoder = RNN(DGCRNNCell(k, dgc_mode=dgc_mode), return_sequences=True, return_state=True)
-    encoder = torch.nn.RNN(DGCRNNCell(k, dgc_mode=dgc_mode), return_state=True)
-    decoder = torch.nn.RNN(DGCRNNCell(k, dgc_mode=dgc_mode), return_sequences=True, return_state=True)
-
-    unstack_k = LambdaLayer.Lambda(unstack)
-    choice = Scheduled()
-
-    input_obs = torch.randn(size=(obs_timesteps, nb_nodes, 1))
-    # input_obs = Input(shape=(obs_timesteps, nb_nodes, 1)) ????????????????
-    input_gt = torch.randn(size=(pred_timesteps, nb_nodes, 1))  # (None, T, N, 1)
-    # input_gt = Input(shape=(pred_timesteps, nb_nodes, 1))  # (None, T, N, 1)
-    encoder_inputs = LambdaLayer.Lambda(lambda x: torch.squeeze(x, dim=-1))(input_obs)  # (None, T, N)
-    # encoder_inputs = Lambda(lambda x: K.squeeze(x, axis=-1))(input_obs)  # (None, T, N)
-
-    encoder_outputs, state_h = encoder(encoder_inputs)
-
-    unstacked = unstack_k(input_gt)  # [(None, N, 1) x T] list
-
-    initial = unstacked[0]  # (None, N, 1)
-    decoder_inputs = LambdaLayer.Lambda(lambda x: torch.permute_dimensions(x, 1, 2))(initial)  # (None, 1, N)
-    decoder_outputs_new, state_h_new = decoder(decoder_inputs, initial_state=state_h)
-    state_h = state_h_new
-
-    # prediction part
-    prediction = []
-    decoded_results = decoder_outputs_new
-    prediction.append(decoded_results)
-
-    if pred_timesteps > 1:
-        for i in range(1, pred_timesteps):
-            decoder_inputs = choice([prediction[-1], unstacked[i]])  # (None, 208, 1)
-            decoder_inputs = LambdaLayer.Lambda(lambda x: torch.permute_dimensions(x, 1, 2))(decoder_inputs)  # (None, 1, 208)
-            decoder_outputs_new, state_h_new = decoder(decoder_inputs, initial_state=state_h)
-            state_h = state_h_new
-            decoded_results = decoder_outputs_new
-            prediction.append(decoded_results)
-
-    outputs = LambdaLayer.Lambda(stack)(prediction)
-    model = Model([input_obs, input_gt], outputs)
-
-
-    return model
-'''
-
-
 # DGFN
 class DGFN(AbstractTrafficStateModel):
     def __init__(self, config, data_feature):
@@ -866,11 +755,11 @@ class DGFN(AbstractTrafficStateModel):
         self.decoder = torch.nn.RNN()
         self.input_obs = torch.randn()
         self.input_gt = torch.randn()
-        self.encoder_inputs = LambdaLayer.Lambda(lambda x: torch.squeeze(x, dim=-1))(self.input_obs)
+        self.encoder_inputs = Lambda(lambda x: torch.squeeze(x, dim=-1))(self.input_obs)
         self.encoder_outputs, state_h = self.encoder(self.encoder_inputs)
         self.unstacked = self.unstack_k(self.input_gt)
         self.initial = self.unstacked[0]  # (None, N, 1)
-        self.decoder_inputs = LambdaLayer.Lambda(lambda x: torch.transpose(x, 1, 2))(self.initial)
+        self.decoder_inputs = Lambda(lambda x: torch.transpose(x, 1, 2))(self.initial)
         self.decoder_outputs_new, self.state_h_new = self.decoder(self.decoder_inputs, initial_state=state_h)
         self.state_h = self.state_h_new
 
@@ -883,14 +772,14 @@ class DGFN(AbstractTrafficStateModel):
         if self.pred_timesteps > 1:
             for i in range(1, self.pred_timesteps):
                 self.decoder_inputs = self.choice([self.prediction[-1], self.unstacked[i]])  # (None, 208, 1)
-                self.decoder_inputs = LambdaLayer.Lambda(lambda x: torch.transpose(x, 1, 2))(
+                self.decoder_inputs = Lambda(lambda x: torch.transpose(x, 1, 2))(
                     self.decoder_inputs)  # (None, 1, 208)
                 self.decoder_outputs_new, self.state_h_new = self.decoder(self.decoder_inputs, initial_state=state_h)
                 self.state_h = self.state_h_new
                 self.decoded_results = self.decoder_outputs_new
                 self.prediction.append(self.decoded_results)
 
-        self.outputs = LambdaLayer.Lambda(stack)(self.prediction)
+        self.outputs = Lambda(stack)(self.prediction)
 
     def forward(self, batch):
         # 1.取数据，模型输入的特征维度应该等于self.feature_dim
@@ -905,19 +794,20 @@ class DGFN(AbstractTrafficStateModel):
         encoder = torch.nn.RNN(DGCRNNCell(k, dgc_mode=dgc_mode), return_state=True)
         decoder = torch.nn.RNN(DGCRNNCell(k, dgc_mode=dgc_mode), return_sequences=True, return_state=True)
 
-        unstack_k = LambdaLayer.Lambda(unstack)
+        unstack_k = Lambda(unstack)
         choice = Scheduled()
 
         input_obs = torch.randn(size=(obs_timesteps, nb_nodes, 1))
         input_gt = torch.randn(size=(pred_timesteps, nb_nodes, 1))  # (None, T, N, 1)
-        encoder_inputs = LambdaLayer.Lambda(lambda x: torch.squeeze(x, dim=-1))(input_obs)  # (None, T, N)
+        encoder_inputs = Lambda(lambda x: torch.squeeze(x, dim=-1))(input_obs)  # (None, T, N)
 
         encoder_outputs, state_h = encoder(encoder_inputs)
 
         unstacked = unstack_k(input_gt)  # [(None, N, 1) x T] list
 
         initial = unstacked[0]  # (None, N, 1)
-        decoder_inputs = LambdaLayer.Lambda(lambda x: torch.transpose(x, 1, 2))(initial)  # (None, 1, N)
+
+        decoder_inputs = Lambda(lambda x: torch.transpose(x, 1, 2))(initial)  # (None, 1, N)
         decoder_outputs_new, state_h_new = decoder(decoder_inputs, initial_state=state_h)
         state_h = state_h_new
 
@@ -929,13 +819,13 @@ class DGFN(AbstractTrafficStateModel):
         if pred_timesteps > 1:
             for i in range(1, pred_timesteps):
                 decoder_inputs = choice([prediction[-1], unstacked[i]])  # (None, 208, 1)
-                decoder_inputs = LambdaLayer.Lambda(lambda x: torch.transpose(x, 1, 2))(decoder_inputs)
+                decoder_inputs = Lambda(lambda x: torch.transpose(x, 1, 2))(decoder_inputs)
                 decoder_outputs_new, state_h_new = decoder(decoder_inputs, initial_state=state_h)
                 state_h = state_h_new
                 decoded_results = decoder_outputs_new
                 prediction.append(decoded_results)
 
-        outputs = LambdaLayer.Lambda(stack)(prediction)
+        outputs = Lambda(stack)(prediction)
 
         return outputs
 

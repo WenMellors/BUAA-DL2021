@@ -162,7 +162,7 @@
       "evaluator": "TrafficStateEvaluator"
     },
     "DGCN": {
-      "dataset_class": "ASTGCNDataset",
+      "dataset_class": "DGCNDataset",
       "executor": "TrafficStateExecutor",
       "evaluator": "TrafficStateEvaluator"
     }

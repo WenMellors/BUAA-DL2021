@@ -5,8 +5,10 @@ from trafficdl.model.trajectory_loc_prediction.LSTPM import LSTPM
 from trafficdl.model.trajectory_loc_prediction.STRNN import STRNN
 from trafficdl.model.trajectory_loc_prediction.TemplateTLP import TemplateTLP
 from trafficdl.model.trajectory_loc_prediction.SERM import SERM
+from trafficdl.model.trajectory_loc_prediction.ATSTLSTM import ATSTLSTM
 
 __all__ = [
+    "ATSTLSTM",
     "DeepMove",
     "RNN",
     "FPMC",

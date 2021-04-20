@@ -163,7 +163,7 @@
     },
     "DGCN": {
       "dataset_class": "DGCNDataset",
-      "executor": "TGCNExecutor",
+      "executor": "DGCNExecutor",
       "evaluator": "TrafficStateEvaluator"
     }
   }

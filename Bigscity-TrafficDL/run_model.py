@@ -2,6 +2,8 @@
 训练并评估单一模型的脚本
 """
 
+# python run_model.py --model ATSTLSTM --dataset gowalla --saved_model False --train True --gpu False
+
 import argparse
 
 from trafficdl.pipeline import run_model
@@ -26,9 +28,9 @@ if __name__ == '__main__':
     parser.add_argument('--task', type=str,
                         default='traj_loc_pred', help='the name of task')
     parser.add_argument('--model', type=str,
-                        default='DeepMove', help='the name of model')
+                        default='ATSTLSTM', help='the name of model')
     parser.add_argument('--dataset', type=str,
-                        default='foursquare_tky', help='the name of dataset')
+                        default='gowalla', help='the name of dataset')
     parser.add_argument('--config_file', type=str,
                         default=None, help='the file name of config file')
     parser.add_argument('--saved_model', type=str2bool,
@@ -44,6 +46,15 @@ if __name__ == '__main__':
     other_args = {key: val for key, val in dict_args.items() if key not in [
         'task', 'model', 'dataset', 'config_file', 'saved_model', 'train'] and
         val is not None}
+    other_args['gpu'] = False
+    other_args['learning_rate'] = 0.001
+    other_args['L2'] = 0.00001
+    other_args['max_epoch'] = 1
+    other_args['metrics'] = ['Precision', 'Recall', 'F1']
+    other_args['topk'] = 10
+    other_args['train'] = True
+    other_args['saved_model'] = True
+    other_args['batch_size'] = 20
     run_model(task=args.task, model_name=args.model, dataset_name=args.dataset,
               config_file=args.config_file, save_model=args.saved_model,
               train=args.train, other_args=other_args)

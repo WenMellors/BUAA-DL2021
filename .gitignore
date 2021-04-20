@@ -11,3 +11,6 @@
 
 /.vscode
 /.idea
+
+/Bigscity-TrafficDL/venv
+/Bigscity-TrafficDL/venv/*

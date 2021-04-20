@@ -165,7 +165,7 @@ class DGCNDataset(TrafficStatePointDataset):
         """
         return {"scaler": self.scaler, "adj_mx": self.adj_mx,
                 "num_nodes": self.num_nodes, "feature_dim": self.feature_dim,
-                "output_dim": 1,
+                "output_dim": self.output_dim,
                 "len_closeness": self.len_closeness * self.output_window,
                 "len_period": self.len_period * self.output_window,
                 "len_trend": self.len_trend * self.output_window}

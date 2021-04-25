@@ -348,6 +348,9 @@ class STSGCN(AbstractTrafficStateModel):
 
         data = batch['X']
 
+        if data.shape[-1] > self.num_of_features:
+            data = data[:, :, :, 0:self.num_of_features]
+
         if self.first_layer_embedding:
             data = torch.relu(self.first_layer_embedding(data))
 

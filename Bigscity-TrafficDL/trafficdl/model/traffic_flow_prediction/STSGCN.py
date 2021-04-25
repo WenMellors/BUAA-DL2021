@@ -364,8 +364,8 @@ class STSGCN(AbstractTrafficStateModel):
 
     def calculate_loss(self, batch):
         y_true = batch['y'][:, :, :, 0]
-        y_predicted = self.predict(batch)
+        y_predicted = self.predict(batch)[:, :, :, 0]
         return self.loss(y_predicted, y_true)
 
     def predict(self, batch):
-        return self.forward(batch)
+        return self.forward(batch).unsqueeze(-1)

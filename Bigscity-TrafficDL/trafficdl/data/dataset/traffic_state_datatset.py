@@ -731,7 +731,7 @@ class TrafficStateDataset(AbstractDataset):
         num_val = num_samples - num_test - num_train
 
         # train
-        x_train, y_train = x[:num_train], y[:num_train]
+        x_train, y_train = x[:,:num_train], y[:,:num_train]
         # val
         x_val, y_val = x[num_train: num_train + num_val], y[num_train: num_train + num_val]
         # test

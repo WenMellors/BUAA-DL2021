@@ -1,0 +1,359 @@
+2021-04-25 13:04:18,386 - INFO - Log directory: ./trafficdl/log
+2021-04-25 13:04:18,387 - INFO - Begin pipeline, task=traffic_state_pred, model_name=STSGCN, dataset_name=PEMSD7
+2021-04-25 13:04:18,583 - INFO - Loaded file PEMSD7.geo, num_nodes=883
+2021-04-25 13:04:18,590 - INFO - Loaded file PEMSD7.rel, shape=(883, 883)
+2021-04-25 13:04:33,927 - INFO - Loaded file PEMSD7.dyna, shape=(28224, 883, 1)
+2021-04-25 13:04:41,696 - INFO - Dataset created
+2021-04-25 13:04:41,696 - INFO - x shape: (28201, 12, 883, 1), y shape: (28201, 12, 883, 1)
+2021-04-25 13:04:41,708 - INFO - train	x: (19741, 12, 883, 1)y: (19741, 12, 883, 1)
+2021-04-25 13:04:41,708 - INFO - eval	x: (2820, 12, 883, 1)y: (2820, 12, 883, 1)
+2021-04-25 13:04:41,708 - INFO - test	x: (5640, 12, 883, 1)y: (5640, 12, 883, 1)
+2021-04-25 13:10:01,337 - INFO - Saved at ./trafficdl/cache/dataset_cache/point_based_PEMSD7_12_12_0.7_0.1_none_32_False_False_True.npz
+2021-04-25 13:10:01,337 - INFO - NoneScaler
+2021-04-25 13:10:09,108 - INFO - first_layer_embedding.weight	torch.Size([64, 1])	cuda:0	True
+2021-04-25 13:10:09,109 - INFO - first_layer_embedding.bias	torch.Size([64])	cuda:0	True
+2021-04-25 13:10:09,109 - INFO - stsgcl_layers.0.layer.gcms.0.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,109 - INFO - stsgcl_layers.0.layer.gcms.0.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,109 - INFO - stsgcl_layers.0.layer.gcms.0.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,109 - INFO - stsgcl_layers.0.layer.gcms.0.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,109 - INFO - stsgcl_layers.0.layer.gcms.0.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,109 - INFO - stsgcl_layers.0.layer.gcms.0.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,110 - INFO - stsgcl_layers.0.layer.gcms.1.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,110 - INFO - stsgcl_layers.0.layer.gcms.1.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,110 - INFO - stsgcl_layers.0.layer.gcms.1.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,110 - INFO - stsgcl_layers.0.layer.gcms.1.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,110 - INFO - stsgcl_layers.0.layer.gcms.1.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,110 - INFO - stsgcl_layers.0.layer.gcms.1.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,110 - INFO - stsgcl_layers.0.layer.gcms.2.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,110 - INFO - stsgcl_layers.0.layer.gcms.2.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,111 - INFO - stsgcl_layers.0.layer.gcms.2.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,111 - INFO - stsgcl_layers.0.layer.gcms.2.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,111 - INFO - stsgcl_layers.0.layer.gcms.2.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,111 - INFO - stsgcl_layers.0.layer.gcms.2.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,111 - INFO - stsgcl_layers.0.layer.gcms.3.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,111 - INFO - stsgcl_layers.0.layer.gcms.3.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,111 - INFO - stsgcl_layers.0.layer.gcms.3.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,112 - INFO - stsgcl_layers.0.layer.gcms.3.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,112 - INFO - stsgcl_layers.0.layer.gcms.3.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,112 - INFO - stsgcl_layers.0.layer.gcms.3.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,112 - INFO - stsgcl_layers.0.layer.gcms.4.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,112 - INFO - stsgcl_layers.0.layer.gcms.4.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,112 - INFO - stsgcl_layers.0.layer.gcms.4.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,112 - INFO - stsgcl_layers.0.layer.gcms.4.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,112 - INFO - stsgcl_layers.0.layer.gcms.4.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,113 - INFO - stsgcl_layers.0.layer.gcms.4.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,113 - INFO - stsgcl_layers.0.layer.gcms.5.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,113 - INFO - stsgcl_layers.0.layer.gcms.5.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,113 - INFO - stsgcl_layers.0.layer.gcms.5.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,113 - INFO - stsgcl_layers.0.layer.gcms.5.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,113 - INFO - stsgcl_layers.0.layer.gcms.5.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,113 - INFO - stsgcl_layers.0.layer.gcms.5.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,113 - INFO - stsgcl_layers.0.layer.gcms.6.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,114 - INFO - stsgcl_layers.0.layer.gcms.6.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,114 - INFO - stsgcl_layers.0.layer.gcms.6.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,114 - INFO - stsgcl_layers.0.layer.gcms.6.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,114 - INFO - stsgcl_layers.0.layer.gcms.6.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,114 - INFO - stsgcl_layers.0.layer.gcms.6.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,114 - INFO - stsgcl_layers.0.layer.gcms.7.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,114 - INFO - stsgcl_layers.0.layer.gcms.7.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,114 - INFO - stsgcl_layers.0.layer.gcms.7.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,115 - INFO - stsgcl_layers.0.layer.gcms.7.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,115 - INFO - stsgcl_layers.0.layer.gcms.7.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,115 - INFO - stsgcl_layers.0.layer.gcms.7.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,115 - INFO - stsgcl_layers.0.layer.gcms.8.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,115 - INFO - stsgcl_layers.0.layer.gcms.8.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,115 - INFO - stsgcl_layers.0.layer.gcms.8.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,115 - INFO - stsgcl_layers.0.layer.gcms.8.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,115 - INFO - stsgcl_layers.0.layer.gcms.8.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,115 - INFO - stsgcl_layers.0.layer.gcms.8.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.0.layer.gcms.9.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.0.layer.gcms.9.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.0.layer.gcms.9.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.0.layer.gcms.9.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.0.layer.gcms.9.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.0.layer.gcms.9.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.1.layer.gcms.0.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.1.layer.gcms.0.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.1.layer.gcms.0.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.1.layer.gcms.0.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,116 - INFO - stsgcl_layers.1.layer.gcms.0.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.0.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.1.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.1.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.1.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.1.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.1.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.1.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.2.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.2.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.2.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,117 - INFO - stsgcl_layers.1.layer.gcms.2.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.2.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.2.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.3.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.3.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.3.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.3.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.3.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.3.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.4.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.4.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.4.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,118 - INFO - stsgcl_layers.1.layer.gcms.4.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.4.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.4.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.5.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.5.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.5.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.5.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.5.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.5.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.6.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.6.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,119 - INFO - stsgcl_layers.1.layer.gcms.6.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.1.layer.gcms.6.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.1.layer.gcms.6.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.1.layer.gcms.6.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.1.layer.gcms.7.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.1.layer.gcms.7.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.1.layer.gcms.7.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.1.layer.gcms.7.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.1.layer.gcms.7.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.1.layer.gcms.7.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.2.layer.gcms.0.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,120 - INFO - stsgcl_layers.2.layer.gcms.0.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.0.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.0.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.0.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.0.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.1.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.1.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.1.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.1.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.1.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.1.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.2.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,121 - INFO - stsgcl_layers.2.layer.gcms.2.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.2.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.2.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.2.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.2.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.3.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.3.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.3.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.3.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.3.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.3.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,122 - INFO - stsgcl_layers.2.layer.gcms.4.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.4.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.4.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.4.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.4.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.4.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.5.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.5.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.5.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.5.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.5.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.2.layer.gcms.5.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,123 - INFO - stsgcl_layers.3.layer.gcms.0.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.0.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.0.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.0.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.0.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.0.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.1.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.1.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.1.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.1.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.1.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,124 - INFO - stsgcl_layers.3.layer.gcms.1.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.2.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.2.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.2.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.2.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.2.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.2.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.3.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.3.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.3.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.3.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.3.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-25 13:10:09,125 - INFO - stsgcl_layers.3.layer.gcms.3.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.0.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.0.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.0.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.0.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.1.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.1.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.1.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.1.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.2.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.2.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.2.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,126 - INFO - outputs.2.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.3.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.3.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.3.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.3.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.4.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.4.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.4.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.4.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.5.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.5.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,127 - INFO - outputs.5.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.5.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.6.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.6.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.6.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.6.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.7.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.7.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.7.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.7.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.8.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.8.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,128 - INFO - outputs.8.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.8.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.9.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.9.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.9.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.9.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.10.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.10.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.10.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.10.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.11.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.11.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-25 13:10:09,129 - INFO - outputs.11.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-25 13:10:09,130 - INFO - outputs.11.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-25 13:10:09,130 - INFO - Total parameter numbers: 1095308
+2021-04-25 13:10:09,131 - INFO - Start training ...
+2021-04-25 13:10:09,132 - INFO - num_batches:617
+2021-04-25 13:17:10,961 - INFO - epoch complete!
+2021-04-25 13:17:10,962 - INFO - evaluating now!
+2021-04-25 13:17:41,508 - INFO - Epoch [0/30] train_loss: 112.4227, val_loss: 77.2451, lr: 0.001000, 452.4s
+2021-04-25 13:17:41,538 - INFO - Saved model at 0
+2021-04-25 13:17:41,538 - INFO - Val loss decrease from inf to 77.2451, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD7_epoch0.tar
+2021-04-25 13:25:27,463 - INFO - epoch complete!
+2021-04-25 13:25:27,463 - INFO - evaluating now!
+2021-04-25 13:25:59,178 - INFO - Epoch [1/30] train_loss: 84.7389, val_loss: 75.2708, lr: 0.001000, 497.6s
+2021-04-25 13:25:59,203 - INFO - Saved model at 1
+2021-04-25 13:25:59,204 - INFO - Val loss decrease from 77.2451 to 75.2708, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD7_epoch1.tar
+2021-04-25 13:33:46,337 - INFO - epoch complete!
+2021-04-25 13:33:46,338 - INFO - evaluating now!
+2021-04-25 13:34:18,150 - INFO - Epoch [2/30] train_loss: 102.1967, val_loss: 78.4368, lr: 0.001000, 498.9s
+2021-04-25 13:42:03,823 - INFO - epoch complete!
+2021-04-25 13:42:03,823 - INFO - evaluating now!
+2021-04-25 13:42:35,456 - INFO - Epoch [3/30] train_loss: 72.6283, val_loss: 92.6735, lr: 0.001000, 497.3s
+2021-04-25 13:50:21,650 - INFO - epoch complete!
+2021-04-25 13:50:21,651 - INFO - evaluating now!
+2021-04-25 13:50:52,882 - INFO - Epoch [4/30] train_loss: 76.5111, val_loss: 68.9472, lr: 0.001000, 497.4s
+2021-04-25 13:50:52,906 - INFO - Saved model at 4
+2021-04-25 13:50:52,906 - INFO - Val loss decrease from 75.2708 to 68.9472, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD7_epoch4.tar
+2021-04-25 13:58:36,397 - INFO - epoch complete!
+2021-04-25 13:58:36,398 - INFO - evaluating now!
+2021-04-25 13:59:07,521 - INFO - Epoch [5/30] train_loss: 64.9447, val_loss: 65.9013, lr: 0.001000, 494.6s
+2021-04-25 13:59:07,545 - INFO - Saved model at 5
+2021-04-25 13:59:07,546 - INFO - Val loss decrease from 68.9472 to 65.9013, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD7_epoch5.tar
+2021-04-25 14:06:49,901 - INFO - epoch complete!
+2021-04-25 14:06:49,901 - INFO - evaluating now!
+2021-04-25 14:07:21,295 - INFO - Epoch [6/30] train_loss: 60.0212, val_loss: 54.6803, lr: 0.001000, 493.7s
+2021-04-25 14:07:21,320 - INFO - Saved model at 6
+2021-04-25 14:07:21,320 - INFO - Val loss decrease from 65.9013 to 54.6803, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD7_epoch6.tar
+2021-04-25 14:15:00,855 - INFO - epoch complete!
+2021-04-25 14:15:00,855 - INFO - evaluating now!
+2021-04-25 14:15:29,243 - INFO - Epoch [7/30] train_loss: 52.4742, val_loss: 44.2885, lr: 0.001000, 487.9s
+2021-04-25 14:15:29,267 - INFO - Saved model at 7
+2021-04-25 14:15:29,268 - INFO - Val loss decrease from 54.6803 to 44.2885, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD7_epoch7.tar
+2021-04-25 14:22:47,682 - INFO - epoch complete!
+2021-04-25 14:22:47,683 - INFO - evaluating now!
+2021-04-25 14:23:16,683 - INFO - Epoch [8/30] train_loss: 41.6270, val_loss: 35.3447, lr: 0.001000, 467.4s
+2021-04-25 14:23:16,708 - INFO - Saved model at 8
+2021-04-25 14:23:16,708 - INFO - Val loss decrease from 44.2885 to 35.3447, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD7_epoch8.tar
+2021-04-25 14:30:33,911 - INFO - epoch complete!
+2021-04-25 14:30:33,911 - INFO - evaluating now!
+2021-04-25 14:31:01,552 - INFO - Epoch [9/30] train_loss: 129.4637, val_loss: 202.4640, lr: 0.001000, 464.8s
+2021-04-25 14:38:06,499 - INFO - epoch complete!
+2021-04-25 14:38:06,500 - INFO - evaluating now!
+2021-04-25 14:38:34,519 - INFO - Epoch [10/30] train_loss: 150.8244, val_loss: 127.9809, lr: 0.001000, 453.0s
+2021-04-25 14:45:38,933 - INFO - epoch complete!
+2021-04-25 14:45:38,934 - INFO - evaluating now!
+2021-04-25 14:46:06,617 - INFO - Epoch [11/30] train_loss: 115.8028, val_loss: 83.2952, lr: 0.001000, 452.1s
+2021-04-25 14:53:09,314 - INFO - epoch complete!
+2021-04-25 14:53:09,314 - INFO - evaluating now!
+2021-04-25 14:53:36,869 - INFO - Epoch [12/30] train_loss: 73.7792, val_loss: 74.7710, lr: 0.001000, 450.3s
+2021-04-25 15:00:40,026 - INFO - epoch complete!
+2021-04-25 15:00:40,027 - INFO - evaluating now!
+2021-04-25 15:01:07,650 - INFO - Epoch [13/30] train_loss: 57.0285, val_loss: 49.0336, lr: 0.001000, 450.8s
+2021-04-25 15:08:03,668 - INFO - epoch complete!
+2021-04-25 15:08:03,669 - INFO - evaluating now!
+2021-04-25 15:08:31,242 - INFO - Epoch [14/30] train_loss: 287.5772, val_loss: 301.2861, lr: 0.001000, 443.6s
+2021-04-25 15:15:24,092 - INFO - epoch complete!
+2021-04-25 15:15:24,092 - INFO - evaluating now!
+2021-04-25 15:15:51,774 - INFO - Epoch [15/30] train_loss: 304.6132, val_loss: 300.5019, lr: 0.001000, 440.5s
+2021-04-25 15:22:45,979 - INFO - epoch complete!
+2021-04-25 15:22:45,980 - INFO - evaluating now!
+2021-04-25 15:23:13,463 - INFO - Epoch [16/30] train_loss: 303.8890, val_loss: 299.8176, lr: 0.001000, 441.7s
+2021-04-25 15:30:07,619 - INFO - epoch complete!
+2021-04-25 15:30:07,620 - INFO - evaluating now!
+2021-04-25 15:30:35,253 - INFO - Epoch [17/30] train_loss: 303.2286, val_loss: 299.1733, lr: 0.001000, 441.8s
+2021-04-25 15:37:29,381 - INFO - epoch complete!
+2021-04-25 15:37:29,381 - INFO - evaluating now!
+2021-04-25 15:37:57,208 - INFO - Epoch [18/30] train_loss: 302.5961, val_loss: 298.5479, lr: 0.001000, 442.0s
+2021-04-25 15:44:51,215 - INFO - epoch complete!
+2021-04-25 15:44:51,216 - INFO - evaluating now!
+2021-04-25 15:45:18,868 - INFO - Epoch [19/30] train_loss: 301.9774, val_loss: 297.9325, lr: 0.001000, 441.7s
+2021-04-25 15:52:11,247 - INFO - epoch complete!
+2021-04-25 15:52:11,247 - INFO - evaluating now!
+2021-04-25 15:52:38,848 - INFO - Epoch [20/30] train_loss: 301.3661, val_loss: 297.3224, lr: 0.001000, 440.0s
+2021-04-25 15:59:31,633 - INFO - epoch complete!
+2021-04-25 15:59:31,634 - INFO - evaluating now!
+2021-04-25 15:59:59,366 - INFO - Epoch [21/30] train_loss: 302.2234, val_loss: 296.7163, lr: 0.001000, 440.5s
+2021-04-25 16:06:51,701 - INFO - epoch complete!
+2021-04-25 16:06:51,702 - INFO - evaluating now!
+2021-04-25 16:07:19,134 - INFO - Epoch [22/30] train_loss: 300.1551, val_loss: 296.1115, lr: 0.001000, 439.8s
+2021-04-25 16:14:11,659 - INFO - epoch complete!
+2021-04-25 16:14:11,660 - INFO - evaluating now!
+2021-04-25 16:14:39,564 - INFO - Epoch [23/30] train_loss: 299.5522, val_loss: 295.5080, lr: 0.001000, 440.4s
+2021-04-25 16:21:31,991 - INFO - epoch complete!
+2021-04-25 16:21:31,992 - INFO - evaluating now!
+2021-04-25 16:21:59,811 - INFO - Epoch [24/30] train_loss: 298.9506, val_loss: 294.9057, lr: 0.001000, 440.2s
+2021-04-25 16:28:51,467 - INFO - epoch complete!
+2021-04-25 16:28:51,467 - INFO - evaluating now!
+2021-04-25 16:29:19,232 - INFO - Epoch [25/30] train_loss: 298.3499, val_loss: 294.3043, lr: 0.001000, 439.4s
+2021-04-25 16:36:12,560 - INFO - epoch complete!
+2021-04-25 16:36:12,561 - INFO - evaluating now!
+2021-04-25 16:36:40,037 - INFO - Epoch [26/30] train_loss: 297.7501, val_loss: 293.7036, lr: 0.001000, 440.8s
+2021-04-25 16:43:33,730 - INFO - epoch complete!
+2021-04-25 16:43:33,731 - INFO - evaluating now!
+2021-04-25 16:44:01,292 - INFO - Epoch [27/30] train_loss: 297.1511, val_loss: 293.1036, lr: 0.001000, 441.3s
+2021-04-25 16:50:54,197 - INFO - epoch complete!
+2021-04-25 16:50:54,198 - INFO - evaluating now!
+2021-04-25 16:51:21,679 - INFO - Epoch [28/30] train_loss: 296.5527, val_loss: 292.5042, lr: 0.001000, 440.4s
+2021-04-25 16:58:13,874 - INFO - epoch complete!
+2021-04-25 16:58:13,875 - INFO - evaluating now!
+2021-04-25 16:58:41,465 - INFO - Epoch [29/30] train_loss: 295.9550, val_loss: 291.9055, lr: 0.001000, 439.8s
+2021-04-25 16:58:41,617 - INFO - Loaded model at 8
+2021-04-25 16:58:41,618 - INFO - Saved model at ./trafficdl/cache/model_cache/STSGCN_PEMSD7.m
+2021-04-25 16:58:41,641 - INFO - Start evaluating ...
+2021-04-25 17:01:18,953 - INFO - Evaluate result is {"MAE@1": 24.584674835205078, "MAPE@1": Infinity, "MSE@1": 1308.585205078125, "RMSE@1": 36.174373626708984, "masked_MAE@1": 24.616403579711914, "masked_MSE@1": 1309.84130859375, "masked_RMSE@1": 36.19173049926758, "masked_MAPE@1": 0.11958009749650955, "R2@1": 0.9624490134265805, "EVAR@1": 0.9627121686935425, "MAE@2": 26.226926803588867, "MAPE@2": Infinity, "MSE@2": 1488.9498291015625, "RMSE@2": 38.5869140625, "masked_MAE@2": 26.277070999145508, "masked_MSE@2": 1491.405517578125, "masked_RMSE@2": 38.61872100830078, "masked_MAPE@2": 0.12377811968326569, "R2@2": 0.9572758418291866, "EVAR@2": 0.9580551981925964, "MAE@3": 27.62976837158203, "MAPE@3": Infinity, "MSE@3": 1641.5535888671875, "RMSE@3": 40.516090393066406, "masked_MAE@3": 27.678070068359375, "masked_MSE@3": 1643.6754150390625, "masked_RMSE@3": 40.542266845703125, "masked_MAPE@3": 0.13332149386405945, "R2@3": 0.952898686719256, "EVAR@3": 0.952899158000946, "MAE@4": 28.363245010375977, "MAPE@4": Infinity, "MSE@4": 1738.65087890625, "RMSE@4": 41.6971321105957, "masked_MAE@4": 28.41786766052246, "masked_MSE@4": 1741.227783203125, "masked_RMSE@4": 41.72801971435547, "masked_MAPE@4": 0.13593840599060059, "R2@4": 0.9501136979461879, "EVAR@4": 0.9501151442527771, "MAE@5": 29.161474227905273, "MAPE@5": Infinity, "MSE@5": 1843.415283203125, "RMSE@5": 42.93501281738281, "masked_MAE@5": 29.222780227661133, "masked_MSE@5": 1846.60400390625, "masked_RMSE@5": 42.972129821777344, "masked_MAPE@5": 0.13882572948932648, "R2@5": 0.9471103810386448, "EVAR@5": 0.9471257925033569, "MAE@6": 30.067710876464844, "MAPE@6": Infinity, "MSE@6": 1963.272216796875, "RMSE@6": 44.3088264465332, "masked_MAE@6": 30.130752563476562, "masked_MSE@6": 1966.7669677734375, "masked_RMSE@6": 44.34824752807617, "masked_MAPE@6": 0.1432192176580429, "R2@6": 0.9436733005334434, "EVAR@6": 0.943750262260437, "MAE@7": 30.93620491027832, "MAPE@7": Infinity, "MSE@7": 2082.426025390625, "RMSE@7": 45.63360595703125, "masked_MAE@7": 31.0043888092041, "masked_MSE@7": 2086.4716796875, "masked_RMSE@7": 45.677913665771484, "masked_MAPE@7": 0.14721043407917023, "R2@7": 0.9402565550174873, "EVAR@7": 0.9402941465377808, "MAE@8": 31.841020584106445, "MAPE@8": Infinity, "MSE@8": 2209.14013671875, "RMSE@8": 47.00149154663086, "masked_MAE@8": 31.914966583251953, "masked_MSE@8": 2213.806396484375, "masked_RMSE@8": 47.05110549926758, "masked_MAPE@8": 0.15087765455245972, "R2@8": 0.9366239599216197, "EVAR@8": 0.9367092847824097, "MAE@9": 32.738006591796875, "MAPE@9": Infinity, "MSE@9": 2339.0849609375, "RMSE@9": 48.36408615112305, "masked_MAE@9": 32.81525802612305, "masked_MSE@9": 2344.27392578125, "masked_RMSE@9": 48.417701721191406, "masked_MAPE@9": 0.15521731972694397, "R2@9": 0.9328990037269804, "EVAR@9": 0.9329838156700134, "MAE@10": 33.64833068847656, "MAPE@10": Infinity, "MSE@10": 2473.8291015625, "RMSE@10": 49.73760223388672, "masked_MAE@10": 33.72923278808594, "masked_MSE@10": 2479.593994140625, "masked_RMSE@10": 49.7955207824707, "masked_MAPE@10": 0.16026592254638672, "R2@10": 0.9290365477616914, "EVAR@10": 0.9290796518325806, "MAE@11": 34.60980224609375, "MAPE@11": Infinity, "MSE@11": 2623.98828125, "RMSE@11": 51.22488021850586, "masked_MAE@11": 34.694854736328125, "masked_MSE@11": 2630.2841796875, "masked_RMSE@11": 51.28629684448242, "masked_MAPE@11": 0.16508010029792786, "R2@11": 0.9247328908079094, "EVAR@11": 0.9247456789016724, "MAE@12": 35.6728630065918, "MAPE@12": Infinity, "MSE@12": 2793.231201171875, "RMSE@12": 52.85102844238281, "masked_MAE@12": 35.76214599609375, "masked_MSE@12": 2800.1484375, "masked_RMSE@12": 52.91642761230469, "masked_MAPE@12": 0.17057158052921295, "R2@12": 0.9198831493144344, "EVAR@12": 0.919884204864502}
+2021-04-25 17:01:18,954 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_25_17_01_18_STSGCN_PEMSD7.json
+2021-04-25 17:01:18,969 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_25_17_01_18_STSGCN_PEMSD7.csv
+2021-04-25 17:01:18,986 - INFO - 
+          MAE  MAPE          MSE  ...  masked_MAPE        R2      EVAR
+0   24.584675   inf  1308.585205  ...     0.119580  0.962449  0.962712
+1   26.226927   inf  1488.949829  ...     0.123778  0.957276  0.958055
+2   27.629768   inf  1641.553589  ...     0.133321  0.952899  0.952899
+3   28.363245   inf  1738.650879  ...     0.135938  0.950114  0.950115
+4   29.161474   inf  1843.415283  ...     0.138826  0.947110  0.947126
+5   30.067711   inf  1963.272217  ...     0.143219  0.943673  0.943750
+6   30.936205   inf  2082.426025  ...     0.147210  0.940257  0.940294
+7   31.841021   inf  2209.140137  ...     0.150878  0.936624  0.936709
+8   32.738007   inf  2339.084961  ...     0.155217  0.932899  0.932984
+9   33.648331   inf  2473.829102  ...     0.160266  0.929037  0.929080
+10  34.609802   inf  2623.988281  ...     0.165080  0.924733  0.924746
+11  35.672863   inf  2793.231201  ...     0.170572  0.919883  0.919884
+
+[12 rows x 10 columns]

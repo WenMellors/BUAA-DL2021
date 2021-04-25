@@ -316,6 +316,7 @@ class STSGCN(AbstractTrafficStateModel):
         self.filter_list = config["filters"]
 
         # TODO (Check) First_layer_embedding
+        self.embedding_dim = config['num_of_features']
         self.num_of_features = config['num_of_features']
         first_layer_embedding_size = config["first_layer_embedding_size"]
         if first_layer_embedding_size:
@@ -348,8 +349,8 @@ class STSGCN(AbstractTrafficStateModel):
 
         data = batch['X']
 
-        if data.shape[-1] > self.num_of_features:
-            data = data[:, :, :, 0:self.num_of_features]
+        if data.shape[-1] > self.embedding_dim:
+            data = data[:, :, :, 0:self.embedding_dim]
 
         if self.first_layer_embedding:
             data = torch.relu(self.first_layer_embedding(data))

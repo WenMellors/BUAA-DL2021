@@ -13,7 +13,7 @@
     ],
     "batch_size": 32,
     "optimizer": "adam",
-    "learning_rate": 1e-3,
+    "learning_rate": 1e-4,
     "epochs": 200,
     "max_update_factor": 1,
     "num_of_vertices": 358,

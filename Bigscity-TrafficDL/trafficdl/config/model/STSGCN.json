@@ -22,5 +22,7 @@
     "predict_length": 12,
     "num_of_features": 1,
     "ctx": 0,
-    "rho": 1
+    "rho": 1,
+    "scaler": "standard"
+
 }

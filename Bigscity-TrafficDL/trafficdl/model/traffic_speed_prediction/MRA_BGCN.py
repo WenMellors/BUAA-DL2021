@@ -124,6 +124,8 @@ class MRA_BGCN(AbstractTrafficStateModel):
         super().__init__(config, data_feature)
         self._logger = getLogger()
         self.device = config.get('device', torch.device('cpu'))
+        self._scaler = self.data_feature.get('scaler')
+        self.output_dim = self.data_feature.get('output_dim', 1)
         dim_in = config['dim_in']
         dim_out_node = config['dim_out_node']
         dim_out_edge = config['dim_out_edge']

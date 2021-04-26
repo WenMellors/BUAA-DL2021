@@ -1,0 +1,365 @@
+2021-04-25 23:29:26,988 - INFO - Log directory: ./trafficdl/log
+2021-04-25 23:29:26,988 - INFO - Begin pipeline, task=traffic_state_pred, model_name=CONVGCN, dataset_name=BEIJING SUBWAY_15MIN
+2021-04-25 23:29:27,673 - INFO - Loaded file BEIJING SUBWAY_15MIN.geo, num_nodes=276
+2021-04-25 23:29:27,927 - INFO - Loaded file BEIJING SUBWAY_15MIN.rel, shape=(276, 276)
+2021-04-25 23:29:27,927 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_BEIJING SUBWAY_15MIN_2_30_11_36_5_5.npz
+2021-04-25 23:29:28,792 - INFO - train	x: (1250, 276, 30, 2)y: (1250, 276)
+2021-04-25 23:29:28,792 - INFO - eval	x: (178, 276, 30, 2)y: (178, 276)
+2021-04-25 23:29:28,792 - INFO - test	x: (357, 276, 30, 2)y: (357, 276)
+2021-04-25 23:29:28,930 - INFO - StandardScaler mean: 0.039066333916425174, std: 0.05724073809748231
+2021-04-25 23:29:30,750 - INFO - node_embeddings	torch.Size([16])	cpu	True
+2021-04-25 23:29:30,750 - INFO - gc11.gc1.weight	torch.Size([30, 16])	cpu	True
+2021-04-25 23:29:30,750 - INFO - gc11.gc1.bias	torch.Size([16])	cpu	True
+2021-04-25 23:29:30,750 - INFO - gc11.gc2.weight	torch.Size([16, 15])	cpu	True
+2021-04-25 23:29:30,750 - INFO - gc11.gc2.bias	torch.Size([15])	cpu	True
+2021-04-25 23:29:30,750 - INFO - gc12.gc1.weight	torch.Size([30, 16])	cpu	True
+2021-04-25 23:29:30,750 - INFO - gc12.gc1.bias	torch.Size([16])	cpu	True
+2021-04-25 23:29:30,750 - INFO - gc12.gc2.weight	torch.Size([16, 15])	cpu	True
+2021-04-25 23:29:30,750 - INFO - gc12.gc2.bias	torch.Size([15])	cpu	True
+2021-04-25 23:29:30,750 - INFO - Conv.weight	torch.Size([276, 276, 3, 3, 3])	cpu	True
+2021-04-25 23:29:30,750 - INFO - Conv.bias	torch.Size([276])	cpu	True
+2021-04-25 23:29:30,750 - INFO - fc.weight	torch.Size([276, 38640])	cpu	True
+2021-04-25 23:29:30,750 - INFO - fc.bias	torch.Size([276])	cpu	True
+2021-04-25 23:29:30,750 - INFO - Total parameter numbers: 12723462
+2021-04-25 23:29:30,750 - INFO - Start training ...
+2021-04-25 23:29:30,750 - INFO - num_batches:20
+2021-04-25 23:29:59,778 - INFO - epoch complete!
+2021-04-25 23:29:59,778 - INFO - evaluating now!
+2021-04-25 23:30:02,123 - INFO - Epoch [0/100] train_loss: 18.6535, val_loss: 3.9554, lr: 0.001000, 31.4s
+2021-04-25 23:30:02,244 - INFO - Saved model at 0
+2021-04-25 23:30:02,244 - INFO - Val loss decrease from inf to 3.9554, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch0.tar
+2021-04-25 23:30:30,805 - INFO - epoch complete!
+2021-04-25 23:30:30,805 - INFO - evaluating now!
+2021-04-25 23:30:33,260 - INFO - Epoch [1/100] train_loss: 1.6064, val_loss: 0.4987, lr: 0.001000, 31.0s
+2021-04-25 23:30:33,391 - INFO - Saved model at 1
+2021-04-25 23:30:33,391 - INFO - Val loss decrease from 3.9554 to 0.4987, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch1.tar
+2021-04-25 23:31:02,210 - INFO - epoch complete!
+2021-04-25 23:31:02,210 - INFO - evaluating now!
+2021-04-25 23:31:04,537 - INFO - Epoch [2/100] train_loss: 0.1646, val_loss: 0.0945, lr: 0.001000, 31.1s
+2021-04-25 23:31:04,665 - INFO - Saved model at 2
+2021-04-25 23:31:04,665 - INFO - Val loss decrease from 0.4987 to 0.0945, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch2.tar
+2021-04-25 23:31:33,354 - INFO - epoch complete!
+2021-04-25 23:31:33,354 - INFO - evaluating now!
+2021-04-25 23:31:35,804 - INFO - Epoch [3/100] train_loss: 0.0464, val_loss: 0.0276, lr: 0.001000, 31.1s
+2021-04-25 23:31:35,925 - INFO - Saved model at 3
+2021-04-25 23:31:35,925 - INFO - Val loss decrease from 0.0945 to 0.0276, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch3.tar
+2021-04-25 23:32:05,008 - INFO - epoch complete!
+2021-04-25 23:32:05,008 - INFO - evaluating now!
+2021-04-25 23:32:07,320 - INFO - Epoch [4/100] train_loss: 0.0241, val_loss: 0.0159, lr: 0.001000, 31.4s
+2021-04-25 23:32:07,459 - INFO - Saved model at 4
+2021-04-25 23:32:07,459 - INFO - Val loss decrease from 0.0276 to 0.0159, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch4.tar
+2021-04-25 23:32:36,290 - INFO - epoch complete!
+2021-04-25 23:32:36,290 - INFO - evaluating now!
+2021-04-25 23:32:38,653 - INFO - Epoch [5/100] train_loss: 0.0163, val_loss: 0.0186, lr: 0.001000, 31.2s
+2021-04-25 23:33:07,600 - INFO - epoch complete!
+2021-04-25 23:33:07,600 - INFO - evaluating now!
+2021-04-25 23:33:09,987 - INFO - Epoch [6/100] train_loss: 0.0132, val_loss: 0.0118, lr: 0.001000, 31.3s
+2021-04-25 23:33:10,129 - INFO - Saved model at 6
+2021-04-25 23:33:10,129 - INFO - Val loss decrease from 0.0159 to 0.0118, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch6.tar
+2021-04-25 23:33:39,119 - INFO - epoch complete!
+2021-04-25 23:33:39,119 - INFO - evaluating now!
+2021-04-25 23:33:41,583 - INFO - Epoch [7/100] train_loss: 0.0118, val_loss: 0.0127, lr: 0.001000, 31.5s
+2021-04-25 23:34:10,792 - INFO - epoch complete!
+2021-04-25 23:34:10,792 - INFO - evaluating now!
+2021-04-25 23:34:13,314 - INFO - Epoch [8/100] train_loss: 0.0124, val_loss: 0.0148, lr: 0.001000, 31.7s
+2021-04-25 23:34:46,259 - INFO - epoch complete!
+2021-04-25 23:34:46,259 - INFO - evaluating now!
+2021-04-25 23:34:49,196 - INFO - Epoch [9/100] train_loss: 0.0132, val_loss: 0.0251, lr: 0.001000, 35.9s
+2021-04-25 23:35:21,756 - INFO - epoch complete!
+2021-04-25 23:35:21,756 - INFO - evaluating now!
+2021-04-25 23:35:24,202 - INFO - Epoch [10/100] train_loss: 0.0319, val_loss: 0.0807, lr: 0.001000, 35.0s
+2021-04-25 23:35:52,706 - INFO - epoch complete!
+2021-04-25 23:35:52,706 - INFO - evaluating now!
+2021-04-25 23:35:55,130 - INFO - Epoch [11/100] train_loss: 0.0614, val_loss: 0.0546, lr: 0.001000, 30.9s
+2021-04-25 23:36:23,929 - INFO - epoch complete!
+2021-04-25 23:36:23,929 - INFO - evaluating now!
+2021-04-25 23:36:26,340 - INFO - Epoch [12/100] train_loss: 0.0305, val_loss: 0.0183, lr: 0.001000, 31.2s
+2021-04-25 23:36:55,198 - INFO - epoch complete!
+2021-04-25 23:36:55,198 - INFO - evaluating now!
+2021-04-25 23:36:57,541 - INFO - Epoch [13/100] train_loss: 0.0175, val_loss: 0.0176, lr: 0.001000, 31.2s
+2021-04-25 23:37:26,374 - INFO - epoch complete!
+2021-04-25 23:37:26,374 - INFO - evaluating now!
+2021-04-25 23:37:28,888 - INFO - Epoch [14/100] train_loss: 0.0121, val_loss: 0.0129, lr: 0.001000, 31.3s
+2021-04-25 23:37:58,033 - INFO - epoch complete!
+2021-04-25 23:37:58,041 - INFO - evaluating now!
+2021-04-25 23:38:00,499 - INFO - Epoch [15/100] train_loss: 0.0093, val_loss: 0.0118, lr: 0.001000, 31.6s
+2021-04-25 23:38:00,630 - INFO - Saved model at 15
+2021-04-25 23:38:00,630 - INFO - Val loss decrease from 0.0118 to 0.0118, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch15.tar
+2021-04-25 23:38:29,267 - INFO - epoch complete!
+2021-04-25 23:38:29,275 - INFO - evaluating now!
+2021-04-25 23:38:31,550 - INFO - Epoch [16/100] train_loss: 0.0111, val_loss: 0.0119, lr: 0.001000, 30.9s
+2021-04-25 23:39:01,582 - INFO - epoch complete!
+2021-04-25 23:39:01,582 - INFO - evaluating now!
+2021-04-25 23:39:04,049 - INFO - Epoch [17/100] train_loss: 0.0116, val_loss: 0.0104, lr: 0.001000, 32.5s
+2021-04-25 23:39:04,190 - INFO - Saved model at 17
+2021-04-25 23:39:04,190 - INFO - Val loss decrease from 0.0118 to 0.0104, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch17.tar
+2021-04-25 23:39:32,986 - INFO - epoch complete!
+2021-04-25 23:39:32,986 - INFO - evaluating now!
+2021-04-25 23:39:35,289 - INFO - Epoch [18/100] train_loss: 0.0116, val_loss: 0.0114, lr: 0.001000, 31.1s
+2021-04-25 23:40:04,551 - INFO - epoch complete!
+2021-04-25 23:40:04,551 - INFO - evaluating now!
+2021-04-25 23:40:07,004 - INFO - Epoch [19/100] train_loss: 0.0099, val_loss: 0.0098, lr: 0.001000, 31.7s
+2021-04-25 23:40:07,214 - INFO - Saved model at 19
+2021-04-25 23:40:07,214 - INFO - Val loss decrease from 0.0104 to 0.0098, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch19.tar
+2021-04-25 23:40:37,019 - INFO - epoch complete!
+2021-04-25 23:40:37,019 - INFO - evaluating now!
+2021-04-25 23:40:39,430 - INFO - Epoch [20/100] train_loss: 0.0101, val_loss: 0.0187, lr: 0.001000, 32.2s
+2021-04-25 23:41:08,631 - INFO - epoch complete!
+2021-04-25 23:41:08,631 - INFO - evaluating now!
+2021-04-25 23:41:11,105 - INFO - Epoch [21/100] train_loss: 0.0100, val_loss: 0.0113, lr: 0.001000, 31.7s
+2021-04-25 23:41:40,518 - INFO - epoch complete!
+2021-04-25 23:41:40,518 - INFO - evaluating now!
+2021-04-25 23:41:42,982 - INFO - Epoch [22/100] train_loss: 0.0089, val_loss: 0.0098, lr: 0.001000, 31.9s
+2021-04-25 23:41:43,192 - INFO - Saved model at 22
+2021-04-25 23:41:43,192 - INFO - Val loss decrease from 0.0098 to 0.0098, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch22.tar
+2021-04-25 23:42:12,324 - INFO - epoch complete!
+2021-04-25 23:42:12,324 - INFO - evaluating now!
+2021-04-25 23:42:14,860 - INFO - Epoch [23/100] train_loss: 0.0089, val_loss: 0.0125, lr: 0.001000, 31.7s
+2021-04-25 23:42:43,462 - INFO - epoch complete!
+2021-04-25 23:42:43,462 - INFO - evaluating now!
+2021-04-25 23:42:45,804 - INFO - Epoch [24/100] train_loss: 0.0094, val_loss: 0.0119, lr: 0.001000, 30.9s
+2021-04-25 23:43:14,572 - INFO - epoch complete!
+2021-04-25 23:43:14,572 - INFO - evaluating now!
+2021-04-25 23:43:17,029 - INFO - Epoch [25/100] train_loss: 0.0128, val_loss: 0.0129, lr: 0.001000, 31.2s
+2021-04-25 23:43:45,960 - INFO - epoch complete!
+2021-04-25 23:43:45,960 - INFO - evaluating now!
+2021-04-25 23:43:48,259 - INFO - Epoch [26/100] train_loss: 0.0125, val_loss: 0.0153, lr: 0.001000, 31.2s
+2021-04-25 23:44:17,403 - INFO - epoch complete!
+2021-04-25 23:44:17,403 - INFO - evaluating now!
+2021-04-25 23:44:19,937 - INFO - Epoch [27/100] train_loss: 0.0159, val_loss: 0.0165, lr: 0.001000, 31.7s
+2021-04-25 23:44:49,009 - INFO - epoch complete!
+2021-04-25 23:44:49,009 - INFO - evaluating now!
+2021-04-25 23:44:51,982 - INFO - Epoch [28/100] train_loss: 0.0156, val_loss: 0.0230, lr: 0.001000, 32.0s
+2021-04-25 23:45:21,776 - INFO - epoch complete!
+2021-04-25 23:45:21,776 - INFO - evaluating now!
+2021-04-25 23:45:24,342 - INFO - Epoch [29/100] train_loss: 0.0144, val_loss: 0.0221, lr: 0.001000, 32.4s
+2021-04-25 23:45:53,540 - INFO - epoch complete!
+2021-04-25 23:45:53,540 - INFO - evaluating now!
+2021-04-25 23:45:56,113 - INFO - Epoch [30/100] train_loss: 0.0135, val_loss: 0.0140, lr: 0.001000, 31.8s
+2021-04-25 23:46:25,082 - INFO - epoch complete!
+2021-04-25 23:46:25,082 - INFO - evaluating now!
+2021-04-25 23:46:27,474 - INFO - Epoch [31/100] train_loss: 0.0116, val_loss: 0.0127, lr: 0.001000, 31.4s
+2021-04-25 23:46:56,573 - INFO - epoch complete!
+2021-04-25 23:46:56,573 - INFO - evaluating now!
+2021-04-25 23:46:58,881 - INFO - Epoch [32/100] train_loss: 0.0102, val_loss: 0.0119, lr: 0.001000, 31.4s
+2021-04-25 23:47:27,220 - INFO - epoch complete!
+2021-04-25 23:47:27,228 - INFO - evaluating now!
+2021-04-25 23:47:30,294 - INFO - Epoch [33/100] train_loss: 0.0163, val_loss: 0.0205, lr: 0.001000, 31.4s
+2021-04-25 23:47:59,297 - INFO - epoch complete!
+2021-04-25 23:47:59,297 - INFO - evaluating now!
+2021-04-25 23:48:01,885 - INFO - Epoch [34/100] train_loss: 0.0267, val_loss: 0.0254, lr: 0.001000, 31.6s
+2021-04-25 23:48:30,333 - INFO - epoch complete!
+2021-04-25 23:48:30,342 - INFO - evaluating now!
+2021-04-25 23:48:32,695 - INFO - Epoch [35/100] train_loss: 0.0221, val_loss: 0.0257, lr: 0.001000, 30.8s
+2021-04-25 23:49:01,699 - INFO - epoch complete!
+2021-04-25 23:49:01,699 - INFO - evaluating now!
+2021-04-25 23:49:03,972 - INFO - Epoch [36/100] train_loss: 0.0222, val_loss: 0.0961, lr: 0.001000, 31.3s
+2021-04-25 23:49:34,503 - INFO - epoch complete!
+2021-04-25 23:49:34,503 - INFO - evaluating now!
+2021-04-25 23:49:37,498 - INFO - Epoch [37/100] train_loss: 0.0362, val_loss: 0.0213, lr: 0.001000, 33.5s
+2021-04-25 23:50:11,556 - INFO - epoch complete!
+2021-04-25 23:50:11,556 - INFO - evaluating now!
+2021-04-25 23:50:14,150 - INFO - Epoch [38/100] train_loss: 0.0134, val_loss: 0.0285, lr: 0.001000, 36.7s
+2021-04-25 23:50:43,041 - INFO - epoch complete!
+2021-04-25 23:50:43,041 - INFO - evaluating now!
+2021-04-25 23:50:45,424 - INFO - Epoch [39/100] train_loss: 0.0171, val_loss: 0.0252, lr: 0.001000, 31.3s
+2021-04-25 23:51:14,357 - INFO - epoch complete!
+2021-04-25 23:51:14,357 - INFO - evaluating now!
+2021-04-25 23:51:17,949 - INFO - Epoch [40/100] train_loss: 0.0202, val_loss: 0.0174, lr: 0.001000, 32.5s
+2021-04-25 23:51:47,295 - INFO - epoch complete!
+2021-04-25 23:51:47,295 - INFO - evaluating now!
+2021-04-25 23:51:49,647 - INFO - Epoch [41/100] train_loss: 0.0130, val_loss: 0.0174, lr: 0.001000, 31.7s
+2021-04-25 23:52:18,446 - INFO - epoch complete!
+2021-04-25 23:52:18,446 - INFO - evaluating now!
+2021-04-25 23:52:20,794 - INFO - Epoch [42/100] train_loss: 0.0140, val_loss: 0.0125, lr: 0.001000, 31.1s
+2021-04-25 23:52:49,814 - INFO - epoch complete!
+2021-04-25 23:52:49,816 - INFO - evaluating now!
+2021-04-25 23:52:52,098 - INFO - Epoch [43/100] train_loss: 0.0119, val_loss: 0.0119, lr: 0.001000, 31.3s
+2021-04-25 23:53:20,231 - INFO - epoch complete!
+2021-04-25 23:53:20,233 - INFO - evaluating now!
+2021-04-25 23:53:22,575 - INFO - Epoch [44/100] train_loss: 0.0088, val_loss: 0.0111, lr: 0.001000, 30.5s
+2021-04-25 23:53:50,656 - INFO - epoch complete!
+2021-04-25 23:53:50,656 - INFO - evaluating now!
+2021-04-25 23:53:53,061 - INFO - Epoch [45/100] train_loss: 0.0090, val_loss: 0.0091, lr: 0.001000, 30.5s
+2021-04-25 23:53:53,251 - INFO - Saved model at 45
+2021-04-25 23:53:53,251 - INFO - Val loss decrease from 0.0098 to 0.0091, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch45.tar
+2021-04-25 23:54:21,832 - INFO - epoch complete!
+2021-04-25 23:54:21,832 - INFO - evaluating now!
+2021-04-25 23:54:24,155 - INFO - Epoch [46/100] train_loss: 0.0093, val_loss: 0.0099, lr: 0.001000, 30.9s
+2021-04-25 23:54:51,841 - INFO - epoch complete!
+2021-04-25 23:54:51,841 - INFO - evaluating now!
+2021-04-25 23:54:54,291 - INFO - Epoch [47/100] train_loss: 0.0086, val_loss: 0.0093, lr: 0.001000, 30.1s
+2021-04-25 23:55:22,893 - INFO - epoch complete!
+2021-04-25 23:55:22,893 - INFO - evaluating now!
+2021-04-25 23:55:26,199 - INFO - Epoch [48/100] train_loss: 0.0078, val_loss: 0.0103, lr: 0.001000, 31.9s
+2021-04-25 23:55:54,539 - INFO - epoch complete!
+2021-04-25 23:55:54,539 - INFO - evaluating now!
+2021-04-25 23:55:56,930 - INFO - Epoch [49/100] train_loss: 0.0077, val_loss: 0.0101, lr: 0.001000, 30.7s
+2021-04-25 23:56:25,783 - INFO - epoch complete!
+2021-04-25 23:56:25,783 - INFO - evaluating now!
+2021-04-25 23:56:28,055 - INFO - Epoch [50/100] train_loss: 0.0080, val_loss: 0.0099, lr: 0.001000, 31.1s
+2021-04-25 23:56:58,087 - INFO - epoch complete!
+2021-04-25 23:56:58,095 - INFO - evaluating now!
+2021-04-25 23:57:00,663 - INFO - Epoch [51/100] train_loss: 0.0085, val_loss: 0.0096, lr: 0.001000, 32.6s
+2021-04-25 23:57:29,712 - INFO - epoch complete!
+2021-04-25 23:57:29,712 - INFO - evaluating now!
+2021-04-25 23:57:32,188 - INFO - Epoch [52/100] train_loss: 0.0080, val_loss: 0.0092, lr: 0.001000, 31.5s
+2021-04-25 23:58:01,802 - INFO - epoch complete!
+2021-04-25 23:58:01,804 - INFO - evaluating now!
+2021-04-25 23:58:04,135 - INFO - Epoch [53/100] train_loss: 0.0078, val_loss: 0.0111, lr: 0.001000, 31.9s
+2021-04-25 23:58:32,593 - INFO - epoch complete!
+2021-04-25 23:58:32,593 - INFO - evaluating now!
+2021-04-25 23:58:34,951 - INFO - Epoch [54/100] train_loss: 0.0091, val_loss: 0.0125, lr: 0.001000, 30.8s
+2021-04-25 23:59:03,104 - INFO - epoch complete!
+2021-04-25 23:59:03,104 - INFO - evaluating now!
+2021-04-25 23:59:05,570 - INFO - Epoch [55/100] train_loss: 0.0084, val_loss: 0.0098, lr: 0.001000, 30.6s
+2021-04-25 23:59:33,531 - INFO - epoch complete!
+2021-04-25 23:59:33,531 - INFO - evaluating now!
+2021-04-25 23:59:35,934 - INFO - Epoch [56/100] train_loss: 0.0083, val_loss: 0.0103, lr: 0.001000, 30.4s
+2021-04-26 00:00:05,060 - INFO - epoch complete!
+2021-04-26 00:00:05,060 - INFO - evaluating now!
+2021-04-26 00:00:07,996 - INFO - Epoch [57/100] train_loss: 0.0079, val_loss: 0.0099, lr: 0.001000, 32.1s
+2021-04-26 00:00:36,591 - INFO - epoch complete!
+2021-04-26 00:00:36,591 - INFO - evaluating now!
+2021-04-26 00:00:38,914 - INFO - Epoch [58/100] train_loss: 0.0077, val_loss: 0.0090, lr: 0.001000, 30.9s
+2021-04-26 00:00:39,075 - INFO - Saved model at 58
+2021-04-26 00:00:39,075 - INFO - Val loss decrease from 0.0091 to 0.0090, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch58.tar
+2021-04-26 00:01:07,378 - INFO - epoch complete!
+2021-04-26 00:01:07,378 - INFO - evaluating now!
+2021-04-26 00:01:09,653 - INFO - Epoch [59/100] train_loss: 0.0074, val_loss: 0.0096, lr: 0.001000, 30.6s
+2021-04-26 00:01:37,814 - INFO - epoch complete!
+2021-04-26 00:01:37,814 - INFO - evaluating now!
+2021-04-26 00:01:40,149 - INFO - Epoch [60/100] train_loss: 0.0074, val_loss: 0.0103, lr: 0.001000, 30.5s
+2021-04-26 00:02:08,758 - INFO - epoch complete!
+2021-04-26 00:02:08,758 - INFO - evaluating now!
+2021-04-26 00:02:11,182 - INFO - Epoch [61/100] train_loss: 0.0072, val_loss: 0.0098, lr: 0.001000, 31.0s
+2021-04-26 00:02:39,240 - INFO - epoch complete!
+2021-04-26 00:02:39,240 - INFO - evaluating now!
+2021-04-26 00:02:41,527 - INFO - Epoch [62/100] train_loss: 0.0074, val_loss: 0.0102, lr: 0.001000, 30.3s
+2021-04-26 00:03:10,403 - INFO - epoch complete!
+2021-04-26 00:03:10,403 - INFO - evaluating now!
+2021-04-26 00:03:12,886 - INFO - Epoch [63/100] train_loss: 0.0080, val_loss: 0.0109, lr: 0.001000, 31.4s
+2021-04-26 00:03:41,710 - INFO - epoch complete!
+2021-04-26 00:03:41,710 - INFO - evaluating now!
+2021-04-26 00:03:44,131 - INFO - Epoch [64/100] train_loss: 0.0078, val_loss: 0.0088, lr: 0.001000, 31.2s
+2021-04-26 00:03:44,272 - INFO - Saved model at 64
+2021-04-26 00:03:44,272 - INFO - Val loss decrease from 0.0090 to 0.0088, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch64.tar
+2021-04-26 00:04:12,610 - INFO - epoch complete!
+2021-04-26 00:04:12,610 - INFO - evaluating now!
+2021-04-26 00:04:14,914 - INFO - Epoch [65/100] train_loss: 0.0075, val_loss: 0.0101, lr: 0.001000, 30.6s
+2021-04-26 00:04:46,917 - INFO - epoch complete!
+2021-04-26 00:04:46,917 - INFO - evaluating now!
+2021-04-26 00:04:49,916 - INFO - Epoch [66/100] train_loss: 0.0086, val_loss: 0.0127, lr: 0.001000, 35.0s
+2021-04-26 00:05:22,409 - INFO - epoch complete!
+2021-04-26 00:05:22,409 - INFO - evaluating now!
+2021-04-26 00:05:24,754 - INFO - Epoch [67/100] train_loss: 0.0101, val_loss: 0.0129, lr: 0.001000, 34.8s
+2021-04-26 00:05:53,156 - INFO - epoch complete!
+2021-04-26 00:05:53,156 - INFO - evaluating now!
+2021-04-26 00:05:55,561 - INFO - Epoch [68/100] train_loss: 0.0132, val_loss: 0.0126, lr: 0.001000, 30.8s
+2021-04-26 00:06:23,797 - INFO - epoch complete!
+2021-04-26 00:06:23,797 - INFO - evaluating now!
+2021-04-26 00:06:26,266 - INFO - Epoch [69/100] train_loss: 0.0108, val_loss: 0.0122, lr: 0.001000, 30.7s
+2021-04-26 00:06:54,150 - INFO - epoch complete!
+2021-04-26 00:06:54,150 - INFO - evaluating now!
+2021-04-26 00:06:56,341 - INFO - Epoch [70/100] train_loss: 0.0107, val_loss: 0.0125, lr: 0.001000, 30.1s
+2021-04-26 00:07:24,963 - INFO - epoch complete!
+2021-04-26 00:07:24,963 - INFO - evaluating now!
+2021-04-26 00:07:27,361 - INFO - Epoch [71/100] train_loss: 0.0103, val_loss: 0.0151, lr: 0.001000, 31.0s
+2021-04-26 00:07:56,045 - INFO - epoch complete!
+2021-04-26 00:07:56,045 - INFO - evaluating now!
+2021-04-26 00:07:58,409 - INFO - Epoch [72/100] train_loss: 0.0099, val_loss: 0.0118, lr: 0.001000, 31.0s
+2021-04-26 00:08:26,924 - INFO - epoch complete!
+2021-04-26 00:08:26,924 - INFO - evaluating now!
+2021-04-26 00:08:29,308 - INFO - Epoch [73/100] train_loss: 0.0092, val_loss: 0.0109, lr: 0.001000, 30.9s
+2021-04-26 00:08:57,825 - INFO - epoch complete!
+2021-04-26 00:08:57,825 - INFO - evaluating now!
+2021-04-26 00:09:00,802 - INFO - Epoch [74/100] train_loss: 0.0083, val_loss: 0.0103, lr: 0.001000, 31.5s
+2021-04-26 00:09:31,207 - INFO - epoch complete!
+2021-04-26 00:09:31,207 - INFO - evaluating now!
+2021-04-26 00:09:33,529 - INFO - Epoch [75/100] train_loss: 0.0081, val_loss: 0.0106, lr: 0.001000, 32.7s
+2021-04-26 00:10:02,101 - INFO - epoch complete!
+2021-04-26 00:10:02,101 - INFO - evaluating now!
+2021-04-26 00:10:04,413 - INFO - Epoch [76/100] train_loss: 0.0086, val_loss: 0.0117, lr: 0.001000, 30.9s
+2021-04-26 00:10:33,876 - INFO - epoch complete!
+2021-04-26 00:10:33,876 - INFO - evaluating now!
+2021-04-26 00:10:36,319 - INFO - Epoch [77/100] train_loss: 0.0084, val_loss: 0.0121, lr: 0.001000, 31.9s
+2021-04-26 00:11:04,609 - INFO - epoch complete!
+2021-04-26 00:11:04,609 - INFO - evaluating now!
+2021-04-26 00:11:06,832 - INFO - Epoch [78/100] train_loss: 0.0074, val_loss: 0.0102, lr: 0.001000, 30.5s
+2021-04-26 00:11:35,238 - INFO - epoch complete!
+2021-04-26 00:11:35,238 - INFO - evaluating now!
+2021-04-26 00:11:37,642 - INFO - Epoch [79/100] train_loss: 0.0075, val_loss: 0.0095, lr: 0.001000, 30.8s
+2021-04-26 00:12:06,189 - INFO - epoch complete!
+2021-04-26 00:12:06,191 - INFO - evaluating now!
+2021-04-26 00:12:08,603 - INFO - Epoch [80/100] train_loss: 0.0086, val_loss: 0.0105, lr: 0.001000, 31.0s
+2021-04-26 00:12:37,081 - INFO - epoch complete!
+2021-04-26 00:12:37,081 - INFO - evaluating now!
+2021-04-26 00:12:39,350 - INFO - Epoch [81/100] train_loss: 0.0082, val_loss: 0.0119, lr: 0.001000, 30.7s
+2021-04-26 00:13:07,892 - INFO - epoch complete!
+2021-04-26 00:13:07,892 - INFO - evaluating now!
+2021-04-26 00:13:10,274 - INFO - Epoch [82/100] train_loss: 0.0079, val_loss: 0.0109, lr: 0.001000, 30.9s
+2021-04-26 00:13:38,782 - INFO - epoch complete!
+2021-04-26 00:13:38,782 - INFO - evaluating now!
+2021-04-26 00:13:41,086 - INFO - Epoch [83/100] train_loss: 0.0085, val_loss: 0.0092, lr: 0.001000, 30.8s
+2021-04-26 00:14:09,586 - INFO - epoch complete!
+2021-04-26 00:14:09,586 - INFO - evaluating now!
+2021-04-26 00:14:11,970 - INFO - Epoch [84/100] train_loss: 0.0079, val_loss: 0.0103, lr: 0.001000, 30.9s
+2021-04-26 00:14:41,131 - INFO - epoch complete!
+2021-04-26 00:14:41,131 - INFO - evaluating now!
+2021-04-26 00:14:43,402 - INFO - Epoch [85/100] train_loss: 0.0085, val_loss: 0.0112, lr: 0.001000, 31.4s
+2021-04-26 00:15:13,340 - INFO - epoch complete!
+2021-04-26 00:15:13,340 - INFO - evaluating now!
+2021-04-26 00:15:16,163 - INFO - Epoch [86/100] train_loss: 0.0083, val_loss: 0.0101, lr: 0.001000, 32.8s
+2021-04-26 00:15:45,528 - INFO - epoch complete!
+2021-04-26 00:15:45,528 - INFO - evaluating now!
+2021-04-26 00:15:47,940 - INFO - Epoch [87/100] train_loss: 0.0074, val_loss: 0.0086, lr: 0.001000, 31.8s
+2021-04-26 00:15:48,049 - INFO - Saved model at 87
+2021-04-26 00:15:48,049 - INFO - Val loss decrease from 0.0088 to 0.0086, saving to ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN_epoch87.tar
+2021-04-26 00:16:16,160 - INFO - epoch complete!
+2021-04-26 00:16:16,168 - INFO - evaluating now!
+2021-04-26 00:16:18,351 - INFO - Epoch [88/100] train_loss: 0.0085, val_loss: 0.0106, lr: 0.001000, 30.3s
+2021-04-26 00:16:46,520 - INFO - epoch complete!
+2021-04-26 00:16:46,520 - INFO - evaluating now!
+2021-04-26 00:16:48,944 - INFO - Epoch [89/100] train_loss: 0.0085, val_loss: 0.0098, lr: 0.001000, 30.6s
+2021-04-26 00:17:17,197 - INFO - epoch complete!
+2021-04-26 00:17:17,205 - INFO - evaluating now!
+2021-04-26 00:17:19,516 - INFO - Epoch [90/100] train_loss: 0.0096, val_loss: 0.0105, lr: 0.001000, 30.6s
+2021-04-26 00:17:47,590 - INFO - epoch complete!
+2021-04-26 00:17:47,590 - INFO - evaluating now!
+2021-04-26 00:17:50,001 - INFO - Epoch [91/100] train_loss: 0.0102, val_loss: 0.0099, lr: 0.001000, 30.5s
+2021-04-26 00:18:18,071 - INFO - epoch complete!
+2021-04-26 00:18:18,071 - INFO - evaluating now!
+2021-04-26 00:18:20,364 - INFO - Epoch [92/100] train_loss: 0.0115, val_loss: 0.0174, lr: 0.001000, 30.4s
+2021-04-26 00:18:48,507 - INFO - epoch complete!
+2021-04-26 00:18:48,507 - INFO - evaluating now!
+2021-04-26 00:18:50,960 - INFO - Epoch [93/100] train_loss: 0.0113, val_loss: 0.0107, lr: 0.001000, 30.6s
+2021-04-26 00:19:19,192 - INFO - epoch complete!
+2021-04-26 00:19:19,192 - INFO - evaluating now!
+2021-04-26 00:19:21,522 - INFO - Epoch [94/100] train_loss: 0.0102, val_loss: 0.0105, lr: 0.001000, 30.6s
+2021-04-26 00:19:55,485 - INFO - epoch complete!
+2021-04-26 00:19:55,485 - INFO - evaluating now!
+2021-04-26 00:19:58,681 - INFO - Epoch [95/100] train_loss: 0.0090, val_loss: 0.0121, lr: 0.001000, 37.2s
+2021-04-26 00:20:29,754 - INFO - epoch complete!
+2021-04-26 00:20:29,754 - INFO - evaluating now!
+2021-04-26 00:20:32,105 - INFO - Epoch [96/100] train_loss: 0.0087, val_loss: 0.0094, lr: 0.001000, 33.4s
+2021-04-26 00:21:00,367 - INFO - epoch complete!
+2021-04-26 00:21:00,367 - INFO - evaluating now!
+2021-04-26 00:21:02,688 - INFO - Epoch [97/100] train_loss: 0.0085, val_loss: 0.0112, lr: 0.001000, 30.6s
+2021-04-26 00:21:30,851 - INFO - epoch complete!
+2021-04-26 00:21:30,851 - INFO - evaluating now!
+2021-04-26 00:21:33,365 - INFO - Epoch [98/100] train_loss: 0.0086, val_loss: 0.0128, lr: 0.001000, 30.7s
+2021-04-26 00:22:01,313 - INFO - epoch complete!
+2021-04-26 00:22:01,313 - INFO - evaluating now!
+2021-04-26 00:22:03,615 - INFO - Epoch [99/100] train_loss: 0.0081, val_loss: 0.0090, lr: 0.001000, 30.3s
+2021-04-26 00:22:03,646 - INFO - Loaded model at 87
+2021-04-26 00:22:03,656 - INFO - Saved model at ./trafficdl/cache/model_cache/CONVGCN_BEIJING SUBWAY_15MIN.m
+2021-04-26 00:22:03,767 - INFO - Start evaluating ...
+2021-04-26 00:22:08,785 - INFO - Evaluate result is {"MAE@1": 0.0497262142598629, "MAPE@1": Infinity, "MSE@1": 0.005298049654811621, "RMSE@1": 0.07278770208358765, "masked_MAE@1": 0.04985683411359787, "masked_MSE@1": 0.005331868305802345, "masked_RMSE@1": 0.07301964610815048, "masked_MAPE@1": 4.161674499511719, "R2@1": 0.4469622723613902, "EVAR@1": 0.450883686542511, "MAE@2": 0.06252710521221161, "MAPE@2": Infinity, "MSE@2": 0.0066404202952980995, "RMSE@2": 0.08148877322673798, "masked_MAE@2": 0.06247711554169655, "masked_MSE@2": 0.006656935438513756, "masked_RMSE@2": 0.08159004151821136, "masked_MAPE@2": 7.428249835968018, "R2@2": 0.04441326289709635, "EVAR@2": 0.2167639136314392}
+2021-04-26 00:22:08,785 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache\2021_04_26_00_22_08_CONVGCN_BEIJING SUBWAY_15MIN.json
+2021-04-26 00:22:08,795 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache\2021_04_26_00_22_08_CONVGCN_BEIJING SUBWAY_15MIN.csv
+2021-04-26 00:22:08,826 - INFO - 
+        MAE  MAPE       MSE  ...  masked_MAPE        R2      EVAR
+0  0.049726   inf  0.005298  ...     4.161674  0.446962  0.450884
+1  0.062527   inf  0.006640  ...     7.428250  0.044413  0.216764
+
+[2 rows x 10 columns]

@@ -97,6 +97,7 @@ class ConfigParser(object):
         # evaluator
         default_file_list.append('evaluator/{}.json'.format(self.config['evaluator']))
         # 加载所有默认配置
+        print(default_file_list)
         for file_name in default_file_list:
             with open('./trafficdl/config/{}'.format(file_name), 'r') as f:
                 x = json.load(f)
@@ -107,8 +108,8 @@ class ConfigParser(object):
     def _init_device(self):
         use_gpu = self.config.get('gpu', True)
         gpu_id = self.config.get('gpu_id', 0)
-        if use_gpu:
-            torch.cuda.set_device(gpu_id)
+        #if use_gpu:
+        #    torch.cuda.set_device(gpu_id)
         self.config['device'] = torch.device(
             "cuda" if torch.cuda.is_available() and use_gpu else "cpu")
 

@@ -1,5 +1,5 @@
 {
-  "gpu": true,
+  "gpu": false,
   "gpu_id": 0,
   "max_epoch": 100,
   "epoch": 0,

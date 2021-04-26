@@ -1,0 +1,12 @@
+{
+  "seq_target": 12,
+  "dim_in": 64,
+  "dim_out": 32,
+  "dim_out_node": 64,
+  "dim_out_edge": 32,
+  "num_of_vertices_edge": 500,
+  "range_K": 3,
+  "in_drop": 0.0,
+  "gcn_drop": 0.0,
+  "residual": true
+}

@@ -303,6 +303,7 @@ class STSGCN(AbstractTrafficStateModel):
         self.adj = self.data_feature.get("adj_mx")
         self.adj = construct_adj(self.adj, 3)
         self.adj = torch.tensor(self.adj, requires_grad=False, dtype=torch.float32)
+        self.num_of_vertices = self.adj.shape[0] // 3
         if config["gpu"]:
             self.adj = self.adj.cuda()
 

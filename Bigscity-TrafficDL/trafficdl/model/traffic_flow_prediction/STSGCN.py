@@ -6,10 +6,10 @@ import numpy as np
 
 
 # 时空嵌入矩阵，真正的时空特征的嵌入表示
-class position_embedding(nn.Module):
+class PositionEmbedding(nn.Module):
 
     def __init__(self, input_length, num_of_vertices, embedding_size, temporal=True, spatial=True, config=None):
-        super(position_embedding, self).__init__()
+        super(PositionEmbedding, self).__init__()
         self.input_length = input_length
         self.num_of_vertices = num_of_vertices
         self.embedding_size = embedding_size
@@ -35,7 +35,7 @@ class position_embedding(nn.Module):
 
 
 # 图卷积，没啥好说的
-class gcn_operation(nn.Module):
+class GcnOperation(nn.Module):
 
     def __init__(self, num_of_filter, num_of_features, num_of_vertices, activation):
 
@@ -77,7 +77,7 @@ class Stsgcm(nn.Module):
         self.activation = activation
         self.layers = nn.ModuleList()
         for i in range(len(filters)):
-            self.layers.append(gcn_operation(filters[i], num_of_features, num_of_vertices, activation))
+            self.layers.append(GcnOperation(filters[i], num_of_features, num_of_vertices, activation))
             num_of_features = filters[i]
 
     def forward(self, data, adj):
@@ -100,14 +100,14 @@ class Stsgcm(nn.Module):
         return torch.max(torch.cat(need_concat, dim=0), dim=0)[0]
 
 
-class stsgcl(nn.Module):
+class Stsgcl(nn.Module):
 
-    def __init__(self, T, num_of_vertices, num_of_features, filters, module_type, activation, temporal_emb=True,
+    def __init__(self, t, num_of_vertices, num_of_features, filters, module_type, activation, temporal_emb=True,
                  spatial_emb=True, config=None):
 
         super().__init__()
         assert module_type in {'sharing', 'individual'}
-        self.T = T
+        self.T = t
         self.num_of_vertices = num_of_vertices
         self.num_of_features = num_of_features
         self.filters = filters
@@ -117,13 +117,13 @@ class stsgcl(nn.Module):
         self.spatial_emb = spatial_emb
 
         if module_type == 'individual':
-            self.layer = Sthgcn_layer_individual(
-                T, num_of_vertices, num_of_features, filters,
+            self.layer = SthgcnLayerIndividual(
+                t, num_of_vertices, num_of_features, filters,
                 activation, temporal_emb, spatial_emb, config
             )
         else:
-            self.layer = Sthgcn_layer_sharing(
-                T, num_of_vertices, num_of_features, filters,
+            self.layer = SthgcnLayerSharing(
+                t, num_of_vertices, num_of_features, filters,
                 activation, temporal_emb, spatial_emb, config
             )
 
@@ -131,20 +131,20 @@ class stsgcl(nn.Module):
         return self.layer(data, adj)
 
 
-class Sthgcn_layer_individual(nn.Module):
+class SthgcnLayerIndividual(nn.Module):
 
-    def __init__(self, T, num_of_vertices, num_of_features, filters,
+    def __init__(self, t, num_of_vertices, num_of_features, filters,
                  activation, temporal_emb=True, spatial_emb=True, config=None):
         super().__init__()
-        self.T = T
+        self.T = t
         self.num_of_vertices = num_of_vertices
         self.num_of_features = num_of_features
         self.filters = filters
         self.activation = activation
         self.temporal_emb = temporal_emb
         self.spatial_emb = spatial_emb
-        self.position_embedding = position_embedding(T, num_of_vertices, num_of_features,
-                                                     temporal_emb, spatial_emb, config)
+        self.position_embedding = PositionEmbedding(t, num_of_vertices, num_of_features,
+                                                    temporal_emb, spatial_emb, config)
 
         # 一个 GCM 模块可以捕获连续 3 个时间片的时空特征
         # T 个时间片，每 3 个一捕获，即 T - 2 次，对应 T - 2 个 GCM 模块
@@ -179,20 +179,20 @@ class Sthgcn_layer_individual(nn.Module):
 
 
 # 论文作者消融实验使用，与 Sthgcn_layer_individual 的区别在于，共用一个 stsgcm 模块
-class Sthgcn_layer_sharing(nn.Module):
+class SthgcnLayerSharing(nn.Module):
 
-    def __init__(self, T, num_of_vertices, num_of_features, filters,
+    def __init__(self, t, num_of_vertices, num_of_features, filters,
                  activation, temporal_emb=True, spatial_emb=True, config=None):
         super().__init__()
-        self.T = T
+        self.T = t
         self.num_of_vertices = num_of_vertices
         self.num_of_features = num_of_features
         self.filters = filters
         self.activation = activation
         self.temporal_emb = temporal_emb
         self.spatial_emb = spatial_emb
-        self.position_embedding = position_embedding(T, num_of_vertices, num_of_features,
-                                                     temporal_emb, spatial_emb, config)
+        self.position_embedding = PositionEmbedding(t, num_of_vertices, num_of_features,
+                                                    temporal_emb, spatial_emb, config)
         self.gcm = Stsgcm(self.filters, self.num_of_features, self.num_of_vertices,
                           activation=self.activation)
 
@@ -223,7 +223,7 @@ class Sthgcn_layer_sharing(nn.Module):
         # shape is (B, T - 2, N, C)
 
 
-class Output_layer(nn.Module):
+class OutputLayer(nn.Module):
 
     def __init__(self, num_of_vertices, input_length, num_of_features, num_of_filters=128, predict_length=12):
         super().__init__()
@@ -255,25 +255,25 @@ class Output_layer(nn.Module):
         return data
 
 
-def construct_adj(A, steps):
+def construct_adj(a, steps):
     """
     构造局部时空图
 
     Parameters
     ----------
-    A: np.ndarray, shape： (N, N), 原图邻接矩阵
+    a: np.ndarray, shape： (N, N), 原图邻接矩阵
 
-    steps: 时间步长度，原论文是 3 个一和
+    steps: 时间步长度，原论文是 3 个一合
 
     Returns
     ----------
     局部时空图矩阵 shape：(N * steps, N * steps)
     """
-    n = len(A)
+    n = len(a)
     adj = np.zeros([n * steps] * 2)
 
     for i in range(steps):
-        adj[i * n: (i + 1) * n, i * n: (i + 1) * n] = A
+        adj[i * n: (i + 1) * n, i * n: (i + 1) * n] = a
 
     # 实际就是加了相邻两个时间步节点到自身的边
     for i in range(n):
@@ -334,7 +334,7 @@ class STSGCN(AbstractTrafficStateModel):
         self.filter_list = config["filters"]
         self.stsgcl_layers = nn.ModuleList()
         for idx, filters in enumerate(self.filter_list):
-            self.stsgcl_layers.append(stsgcl(self.input_length, self.num_of_vertices,
+            self.stsgcl_layers.append(Stsgcl(self.input_length, self.num_of_vertices,
                                              self.num_of_features, filters, self.module_type,
                                              activation=self.activation,
                                              temporal_emb=self.temporal_emb,
@@ -346,8 +346,8 @@ class STSGCN(AbstractTrafficStateModel):
 
         self.outputs = nn.ModuleList()
         for i in range(self.predict_length):
-            self.outputs.append(Output_layer(self.num_of_vertices, self.input_length, self.num_of_features,
-                                             num_of_filters=4, predict_length=1))
+            self.outputs.append(OutputLayer(self.num_of_vertices, self.input_length, self.num_of_features,
+                                            num_of_filters=4, predict_length=1))
 
         # Huber Loss 损失函数
         self.loss = nn.SmoothL1Loss(beta=self.rho)

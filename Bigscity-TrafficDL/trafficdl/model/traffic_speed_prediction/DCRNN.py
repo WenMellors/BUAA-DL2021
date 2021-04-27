@@ -330,7 +330,7 @@ class DecoderModel(nn.Module, Seq2SeqAttrs):
 
 
 class DCRNN(AbstractTrafficStateModel, Seq2SeqAttrs):
-    def __init__(self, config, data_feature):
+    def __init__(self, config, data_feature, train_data_array):
         self.adj_mx = data_feature.get('adj_mx')
         self.num_nodes = data_feature.get('num_nodes', 1)
         self.feature_dim = data_feature.get('feature_dim', 1)
@@ -439,7 +439,7 @@ class DCRNN(AbstractTrafficStateModel, Seq2SeqAttrs):
         outputs = outputs.view(self.output_window, batch_size, self.num_nodes, self.output_dim).permute(1, 0, 2, 3)
         return outputs
 
-    def calculate_loss(self, batch, batches_seen=None):
+    def calculate_loss(self, batch, epoch=0, batches_seen=0):
         y_true = batch['y']
         y_predicted = self.predict(batch, batches_seen)
         y_true = self._scaler.inverse_transform(y_true[..., :self.output_dim])

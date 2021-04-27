@@ -1,0 +1,27 @@
+
+{
+  "scaler": "standard",
+  "learner": "adam",
+  "learning_rate": 0.01,
+  "rnn_units": 64,
+  "dim_fc": 479712,
+  "seq_len": 12,
+  "max_diffusion_step": 3,
+  "l1_decay": 0,
+  "filter_type": "dual_random_walk",
+  "cl_decay_steps": 2000,
+  "epoch_use_regularization": 50,
+  "num_rnn_layers" :1,
+
+  "add_time_in_day": true,
+  "add_day_in_week": false,
+
+  "load_external": true,
+  "normal_external": true,
+  "lr_decay": true,
+  "lr_scheduler": "multisteplr",
+  "lr_decay_ratio": 0.1,
+  "steps": [5, 20, 40, 70],
+  "clip_grad_norm": true,
+  "max_grad_norm": 5
+}

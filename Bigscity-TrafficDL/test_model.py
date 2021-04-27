@@ -3,7 +3,7 @@ from trafficdl.data import get_dataset
 from trafficdl.utils import get_model, get_executor
 
 # 加载配置文件
-config = ConfigParser(task='traj_loc_pred', model='TemplateTLP',
+config = ConfigParser(task='traj_loc_pred', model='STRNN',
                       dataset='foursquare_tky', config_file=None,
                       other_args={'batch_size': 2})
 # 如果是交通流量\速度预测任务，请使用下面的加载配置文件语句
@@ -16,6 +16,7 @@ train_data, valid_data, test_data = dataset.get_data()
 data_feature = dataset.get_data_feature()
 # 抽取一个 batch 的数据进行模型测试
 batch = train_data.__iter__().__next__()
+
 # 加载模型
 model = get_model(config, data_feature)
 self = model.to(config['device'])

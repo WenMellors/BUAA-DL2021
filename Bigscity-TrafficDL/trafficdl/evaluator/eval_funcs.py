@@ -69,6 +69,7 @@ def top_k(loc_pred, loc_true, topk):
     """
     assert topk > 0, "top-k ACC评估方法：k值应不小于1"
     loc_pred = torch.FloatTensor(loc_pred)
+    print(loc_pred.shape)
     val, index = torch.topk(loc_pred, topk, 1)
     index = index.numpy()
     hit = 0

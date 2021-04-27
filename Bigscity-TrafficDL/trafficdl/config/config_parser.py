@@ -61,6 +61,8 @@ class ConfigParser(object):
         with open('./trafficdl/config/task_config.json', 'r') as f:
             task_config = json.load(f)
             if self.config['task'] not in task_config:
+                #print(self.config['task'])
+                #print(task_config)
                 raise ValueError(
                     'task {} is not supported.'.format(self.config['task']))
             task_config = task_config[self.config['task']]
@@ -99,6 +101,7 @@ class ConfigParser(object):
         # 加载所有默认配置
         for file_name in default_file_list:
             with open('./trafficdl/config/{}'.format(file_name), 'r') as f:
+                #print(f)
                 x = json.load(f)
                 for key in x:
                     if key not in self.config:

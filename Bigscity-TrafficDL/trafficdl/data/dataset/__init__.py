@@ -15,6 +15,7 @@ from trafficdl.data.dataset.acfm_dataset import ACFMDataset
 from trafficdl.data.dataset.tgclstm_dataset import TGCLSTMDataset
 from trafficdl.data.dataset.astgcn_dataset import ASTGCNDataset
 from trafficdl.data.dataset.stresnet_dataset import STResNetDataset
+from trafficdl.data.dataset.stfrnn_dataset import STFRNNDataset
 
 __all__ = [
     "AbstractDataset",
@@ -28,5 +29,6 @@ __all__ = [
     "ACFMDataset",
     "TGCLSTMDataset",
     "ASTGCNDataset",
-    "STResNetDataset"
+    "STResNetDataset",
+    "STFRNNDataset"
 ]

@@ -28,15 +28,20 @@ def run_model(task=None, model_name=None, dataset_name=None, config_file=None,
     # 加载数据集
     dataset = get_dataset(config)
     # 转换数据，并划分数据集
+    logger.info('getting data')
     train_data, valid_data, test_data = dataset.get_data()
+    logger.info('getting data feature')
     data_feature = dataset.get_data_feature()
     # 加载执行器
+    logger.info('getting model')
     model_cache_file = './trafficdl/cache/model_cache/{}_{}.m'.format(
         model_name, dataset_name)
     model = get_model(config, data_feature)
+    logger.info('getting executor')
     executor = get_executor(config, model)
     # 训练
     if train or not os.path.exists(model_cache_file):
+        logger.info('training')
         executor.train(train_data, valid_data)
         if save_model:
             executor.save_model(model_cache_file)

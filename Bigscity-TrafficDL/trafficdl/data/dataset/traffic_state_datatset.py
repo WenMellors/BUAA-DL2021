@@ -876,7 +876,7 @@ class TrafficStateDataset(AbstractDataset):
         self.train_dataloader, self.eval_dataloader, self.test_dataloader = \
             generate_dataloader(train_data, eval_data, test_data, self.feature_name,
                                 self.batch_size, self.num_workers, pad_with_last_sample=self.pad_with_last_sample)
-        return self.train_dataloader, self.eval_dataloader, self.test_dataloader
+        return self.train_dataloader, self.eval_dataloader, self.test_dataloader, train_data
 
     def get_data_feature(self):
         """

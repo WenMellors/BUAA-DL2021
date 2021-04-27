@@ -330,7 +330,7 @@ class DecoderModel(nn.Module, Seq2SeqAttrs):
 
 
 class DCRNN(AbstractTrafficStateModel, Seq2SeqAttrs):
-    def __init__(self, config, data_feature):
+    def __init__(self, config, data_feature, train_data_array):
         self.adj_mx = data_feature.get('adj_mx')
         self.num_nodes = data_feature.get('num_nodes', 1)
         self.feature_dim = data_feature.get('feature_dim', 1)

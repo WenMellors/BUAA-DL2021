@@ -98,7 +98,7 @@ class ConfigParser(object):
         default_file_list.append('evaluator/{}.json'.format(self.config['evaluator']))
         # 加载所有默认配置
         for file_name in default_file_list:
-            with open('./trafficdl/config/{}'.format(file_name), 'r') as f:
+            with open('./trafficdl/config/{}'.format(file_name), 'r',encoding='utf-8') as f:
                 x = json.load(f)
                 for key in x:
                     if key not in self.config:

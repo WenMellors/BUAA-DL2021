@@ -9,5 +9,7 @@
 /Bigscity-TrafficDL/trafficdl/log/*
 /Bigscity-TrafficDL/trafficdl/model/*/__pycache__
 
-/.vscode
-/.idea
+.vscode/
+.idea/
+.DS_Store
+__pycache__/

@@ -1,0 +1,14 @@
+{
+    "nb_points": 64,
+    "tm_length": 64,
+    "dense_dim": 64,
+    "embedding_size_1": 100,
+    "embedding_size_2": 6,
+    "rnn_size": 20,
+    "windows_size": 2,
+    "min_time": 1800,
+    "min_dist": 0.2,
+    "epochs": 100,
+    "batch_size": 30,
+    "gpu" : false
+}

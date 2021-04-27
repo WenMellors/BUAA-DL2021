@@ -3,9 +3,9 @@ from trafficdl.data import get_dataset
 from trafficdl.utils import get_model, get_executor
 
 # 加载配置文件
-config = ConfigParser(task='traj_loc_pred', model='TemplateTLP',
+config = ConfigParser(task='traj_loc_pred', model='LSTPM',
                       dataset='foursquare_tky', config_file=None,
-                      other_args={'batch_size': 2})
+                      other_args={'batch_size': 1})
 # 如果是交通流量\速度预测任务，请使用下面的加载配置文件语句
 # config = ConfigParser(task='traffic_state_pred', model='TemplateTSP',
 #       dataset='metr_la', config_file=None, other_args={'batch_size': 2})
@@ -25,3 +25,4 @@ res = model.predict(batch)
 # 请自行确认 res 的 shape 是否符合赛道的约束
 # 如果要加载执行器的话
 executor = get_executor(config, model)
+executor.train(train_data, valid_data)

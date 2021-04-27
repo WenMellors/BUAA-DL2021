@@ -1,7 +1,7 @@
-import os
-
 from trafficdl.data import get_dataset
-from trafficdl.utils import get_executor, get_evaluator, get_model
+from trafficdl.utils import get_executor, get_model
+
+
 config = {
     "dataset_class": "TrajectoryDataset",
     "executor": "TrajLocPredExecutor",
@@ -19,7 +19,7 @@ config = {
     "eval_rate": 0.2,
     "gpu": True,
     "learning_rate": 5e-4,
-    "L2": 1e-5, 
+    "L2": 1e-5,
     "max_epoch": 1,
     "lr_step": 2,
     "lr_decay": 0.1,
@@ -36,8 +36,8 @@ config = {
     'history_type': 'cut_off'
 }
 
-config['dataset'] = 'foursquare_tky' # foursquare_tky
-config['model'] = 'DeepMove' # DeepMove
+config['dataset'] = 'foursquare_tky'  # foursquare_tky
+config['model'] = 'DeepMove'  # DeepMove
 # 加载数据集
 dataset = get_dataset(config)
 # 转换数据，并划分数据集

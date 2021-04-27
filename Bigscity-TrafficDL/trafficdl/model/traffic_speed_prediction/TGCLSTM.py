@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+import torch.nn.functional as f
 from torch.autograd import Variable
 from torch.nn.parameter import Parameter
 from trafficdl.model import loss
@@ -36,7 +36,7 @@ class FilterLinear(nn.Module):
             self.bias.data.uniform_(-stdv, stdv)
 
     def forward(self, input):
-        return F.linear(input, self.filter_square_matrix.mul(self.weight), self.bias)
+        return f.linear(input, self.filter_square_matrix.mul(self.weight), self.bias)
 
     def __repr__(self):
         return self.__class__.__name__ + '(' \

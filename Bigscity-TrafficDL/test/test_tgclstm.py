@@ -2,6 +2,9 @@ from trafficdl.data import get_dataset
 from trafficdl.utils import get_executor
 from trafficdl.utils import get_model
 from trafficdl.utils import get_logger
+import os
+import torch
+
 
 config = {
     'log_level': 'INFO',
@@ -43,9 +46,8 @@ config = {
     'patience': 50,
 }
 
-import os
+
 os.environ["CUDA_VISIBLE_DEVICES"] = config['gpu_id']
-import torch
 config['device'] = torch.device("cuda" if torch.cuda.is_available() and config['gpu'] else "cpu")
 
 logger = get_logger(config)

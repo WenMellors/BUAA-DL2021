@@ -50,11 +50,15 @@ class TrajLocPredExecutor(AbstractExecutor):
             avg_acc = self._valid_epoch(
                 eval_dataloader, self.model, eval_total_batch,
                 self.config['verbose'])
-            print('==>Eval Acc:{:.4f}'.format(avg_acc))
+            metrics_random = None
+            for i in avg_acc:
+                if metrics_random is None:
+                    metrics_random = i
+                print('==>Eval Acc: {} :{:.4f}'.format(i, avg_acc[i]))
             metrics['accuracy'].append(avg_acc)
             save_name_tmp = 'ep_' + str(epoch) + '.m'
             torch.save(self.model.state_dict(), self.tmp_path + save_name_tmp)
-            scheduler.step(avg_acc)
+            scheduler.step(avg_acc[metrics_random])
             lr_last = lr
             lr = optimizer.param_groups[0]['lr']
             if lr_last > lr:
@@ -65,7 +69,7 @@ class TrajLocPredExecutor(AbstractExecutor):
                 print('load epoch={} model state'.format(load_epoch))
             if lr <= 0.9 * 1e-5:
                 break
-        best = np.argmax(metrics['accuracy'])  # 这个不是最好的一次吗？
+        best = 0  # 这个不是最好的一次吗？
         avg_acc = metrics['accuracy'][best]
         # save metrics
         with open('./metrics.json', 'w') as f:
@@ -125,7 +129,7 @@ class TrajLocPredExecutor(AbstractExecutor):
                 for p in model.parameters():
                     if p.requires_grad:
                         p.data.add_(-lr, p.grad.data)
-            except:
+            except Exception:
                 pass
             optimizer.step()
             cnt += 1
@@ -152,5 +156,5 @@ class TrajLocPredExecutor(AbstractExecutor):
             if cnt % verbose == 0:
                 print('finish batch {}/{}'.format(cnt, total_batch))
             self.evaluator.collect(evaluate_input)
-        avg_acc = self.evaluator.evaluate()[self.metrics]  # 随便选一个就行
+        avg_acc = self.evaluator.evaluate()  # 随便选一个就行
         return avg_acc

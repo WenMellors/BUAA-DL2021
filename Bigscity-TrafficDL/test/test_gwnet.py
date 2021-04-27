@@ -1,6 +1,7 @@
 from trafficdl.data import get_dataset
 from trafficdl.utils import get_logger, get_executor, get_model
 
+
 if __name__ == '__main__':
     config = {
         'log_level': 'INFO',
@@ -26,8 +27,8 @@ if __name__ == '__main__':
         'epoch': 0,
         'max_grad_norm': 5,
         'clip_grad_norm': True,
-
-        'metrics': ['MAE', 'MSE', 'RMSE', 'MAPE', 'masked_MAE', 'masked_MSE', 'masked_RMSE', 'masked_MAPE', 'R2', 'EVAR'],
+        'metrics': ['MAE', 'MSE', 'RMSE', 'MAPE', 'masked_MAE', 'masked_MSE',
+                    'masked_RMSE', 'masked_MAPE', 'R2', 'EVAR'],
         'gpu': True,
         'gpu_id': '1',
         'dataset': 'METR_LA',

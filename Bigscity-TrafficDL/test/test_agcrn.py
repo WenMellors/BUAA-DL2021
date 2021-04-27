@@ -2,6 +2,8 @@ from trafficdl.data import get_dataset
 from trafficdl.utils import get_executor
 from trafficdl.utils import get_model
 from trafficdl.utils import get_logger
+import os
+import torch
 
 
 config = {
@@ -54,9 +56,8 @@ config = {
     'patience': 15,
 }
 
-import os
+
 os.environ["CUDA_VISIBLE_DEVICES"] = config['gpu_id']
-import torch
 config['device'] = torch.device("cuda" if torch.cuda.is_available() and config['gpu'] else "cpu")
 
 logger = get_logger(config)
@@ -64,9 +65,12 @@ logger = get_logger(config)
 dataset = get_dataset(config)
 # 转换数据，并划分数据集
 train_data, valid_data, test_data = dataset.get_data()
-print(len(train_data), len(train_data.dataset), train_data.dataset[0][0].shape, train_data.dataset[0][1].shape, train_data.batch_size)
-print(len(valid_data), len(valid_data.dataset), valid_data.dataset[0][0].shape, valid_data.dataset[0][1].shape, valid_data.batch_size)
-print(len(test_data), len(test_data.dataset), test_data.dataset[0][0].shape, test_data.dataset[0][1].shape, test_data.batch_size)
+print(len(train_data), len(train_data.dataset), train_data.dataset[0][0].shape,
+      train_data.dataset[0][1].shape, train_data.batch_size)
+print(len(valid_data), len(valid_data.dataset), valid_data.dataset[0][0].shape,
+      valid_data.dataset[0][1].shape, valid_data.batch_size)
+print(len(test_data), len(test_data.dataset), test_data.dataset[0][0].shape,
+      test_data.dataset[0][1].shape, test_data.batch_size)
 
 data_feature = dataset.get_data_feature()
 print(data_feature['adj_mx'].shape)

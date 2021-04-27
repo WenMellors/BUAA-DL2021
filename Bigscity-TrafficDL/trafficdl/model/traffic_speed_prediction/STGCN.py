@@ -4,7 +4,7 @@ from logging import getLogger
 import torch
 import torch.nn as nn
 import torch.nn.init as init
-import torch.nn.functional as F
+import torch.nn.functional as f
 from trafficdl.model import loss
 from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
 
@@ -85,7 +85,7 @@ class Align(nn.Module):
         if self.c_in > self.c_out:
             return self.conv1x1(x)
         if self.c_in < self.c_out:
-            return F.pad(x, [0, 0, 0, 0, 0, self.c_out - self.c_in, 0, 0])
+            return f.pad(x, [0, 0, 0, 0, 0, self.c_out - self.c_in, 0, 0])
         return x  # return: (batch_size, c_out, input_length-1+1, num_nodes-1+1)
 
 

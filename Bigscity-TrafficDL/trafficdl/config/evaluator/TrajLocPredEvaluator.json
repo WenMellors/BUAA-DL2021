@@ -1,4 +1,4 @@
 {
-  "metrics": ["Recall"],
-  "topk": 1
+  "metrics": ["Precision", "Recall", "F1", "MRR", "MAP", "NDCG"],
+  "topk": 5
 }

@@ -1,8 +1,7 @@
-import os
-import torch
 from trafficdl.config import ConfigParser
 from trafficdl.data import get_dataset
 from trafficdl.utils import get_executor, get_model
+
 
 model_name = 'FPMC'
 dataset_name = 'foursquare_tky'

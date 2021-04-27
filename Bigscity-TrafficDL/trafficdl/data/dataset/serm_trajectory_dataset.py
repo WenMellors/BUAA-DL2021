@@ -334,9 +334,9 @@ class SermTrajectoryDataset(AbstractDataset):
     def load_wordvec(self, vecpath=WORD_VEC_PATH):
         word_vec = {}
         with open(vecpath, 'r', encoding='utf-8') as f:
-            for l in f:
+            for length in f:
                 vec = []
-                attrs = l.replace('\n', '').split(' ')
+                attrs = length.replace('\n', '').split(' ')
                 for i in range(1, len(attrs)):
                     vec.append(float(attrs[i]))
                 word_vec[attrs[0]] = vec

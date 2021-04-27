@@ -6,6 +6,7 @@ from logging import getLogger
 from torch.utils.tensorboard import SummaryWriter
 from trafficdl.executor.abstract_executor import AbstractExecutor
 from trafficdl.utils import get_evaluator, ensure_dir
+from trafficdl.executor.my_scheduler import MyScheduler
 
 
 class TrafficStateExecutor(AbstractExecutor):
@@ -26,9 +27,15 @@ class TrafficStateExecutor(AbstractExecutor):
         self._logger = getLogger()
         self._scaler = self.model.get_data_feature().get('scaler')
         for name, param in self.model.named_parameters():
-            self._logger.info(str(name) + '\t' + str(param.shape) + '\t' +
-                              str(param.device) + '\t' + str(param.requires_grad))
-        total_num = sum([param.nelement() for param in self.model.parameters()])
+            self._logger.info(str(name) +
+                              '\t' +
+                              str(param.shape) +
+                              '\t' +
+                              str(param.device) +
+                              '\t' +
+                              str(param.requires_grad))
+        total_num = sum([param.nelement()
+                        for param in self.model.parameters()])
         self._logger.info('Total parameter numbers: {}'.format(total_num))
 
         self.epochs = self.config.get('max_epoch', 100)
@@ -51,8 +58,7 @@ class TrafficStateExecutor(AbstractExecutor):
         self.log_every = self.config.get('log_every', 1)
         self.saved = self.config.get('saved_model', True)
 
-        # self.output_dim = self.model.get_data_feature().get('output_dim', 1)
-        self.output_dim = self.config.get('info', {}).get('output_dim', 1)
+        self.output_dim = self.config.get('output_dim', 1)
         self._epoch_num = self.config.get('epoch', 0)
         if self._epoch_num > 0:
             self.load_model_with_epoch(self._epoch_num)
@@ -61,80 +67,63 @@ class TrafficStateExecutor(AbstractExecutor):
         self.lr_scheduler = self._build_lr_scheduler()
 
     def save_model(self, cache_name):
-        """
-        将当前的模型保存到文件
-
-        Args:
-            cache_name(str): 保存的文件名
-        """
         ensure_dir(self.cache_dir)
         self._logger.info("Saved model at " + cache_name)
         torch.save(self.model.state_dict(), cache_name)
 
     def load_model(self, cache_name):
-        """
-        加载对应模型的 cache
-
-        Args:
-            cache_name(str): 保存的文件名
-        """
         self._logger.info("Loaded model at " + cache_name)
         self.model.load_state_dict(torch.load(cache_name))
 
     def save_model_with_epoch(self, epoch):
-        """
-        保存某个epoch的模型
-
-        Args:
-            epoch(int): 轮数
-        """
         ensure_dir(self.cache_dir)
         config = dict()
         config['model_state_dict'] = self.model.state_dict()
         config['epoch'] = epoch
-        model_path = self.cache_dir + '/' + self.config['model'] + '_' + self.config['dataset'] + '_epoch%d.tar' % epoch
+        model_path = self.cache_dir + '/' + \
+            self.config['model'] + '_' + self.config['dataset'] + '_epoch%d.tar' % epoch
         torch.save(config, model_path)
         self._logger.info("Saved model at {}".format(epoch))
         return model_path
 
     def load_model_with_epoch(self, epoch):
-        """
-        加载某个epoch的模型
-
-        Args:
-            epoch(int): 轮数
-        """
-        model_path = self.cache_dir + '/' + self.config['model'] + '_' + self.config['dataset'] + '_epoch%d.tar' % epoch
-        assert os.path.exists(model_path), 'Weights at epoch %d not found' % epoch
+        model_path = self.cache_dir + '/' + \
+            self.config['model'] + '_' + self.config['dataset'] + '_epoch%d.tar' % epoch
+        assert os.path.exists(
+            model_path), 'Weights at epoch %d not found' % epoch
         checkpoint = torch.load(model_path, map_location='cpu')
         self.model.load_state_dict(checkpoint['model_state_dict'])
         self._logger.info("Loaded model at {}".format(epoch))
 
     def _build_optimizer(self):
-        """
-        根据全局参数`learner`选择optimizer
-        """
         if self.learner.lower() == 'adam':
-            optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate,
-                                         eps=self.lr_epsilon, weight_decay=self.weight_decay)
+            print("lr_decay: " + str(self.weight_decay))
+            optimizer = torch.optim.Adam(
+                self.model.parameters(), lr=self.learning_rate, betas=(
+                    0.9, 0.98), eps=self.lr_epsilon, weight_decay=self.weight_decay)
         elif self.learner.lower() == 'sgd':
-            optimizer = torch.optim.SGD(self.model.parameters(), lr=self.learning_rate)
+            optimizer = torch.optim.SGD(
+                self.model.parameters(), lr=self.learning_rate)
         elif self.learner.lower() == 'adagrad':
-            optimizer = torch.optim.Adagrad(self.model.parameters(), lr=self.learning_rate)
+            optimizer = torch.optim.Adagrad(
+                self.model.parameters(), lr=self.learning_rate)
         elif self.learner.lower() == 'rmsprop':
-            optimizer = torch.optim.RMSprop(self.model.parameters(), lr=self.learning_rate)
+            optimizer = torch.optim.RMSprop(
+                self.model.parameters(), lr=self.learning_rate)
         elif self.learner.lower() == 'sparse_adam':
-            optimizer = torch.optim.SparseAdam(self.model.parameters(), lr=self.learning_rate)
+            optimizer = torch.optim.SparseAdam(
+                self.model.parameters(), lr=self.learning_rate)
         else:
-            self._logger.warning('Received unrecognized optimizer, set default Adam optimizer')
-            optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate,
-                                         eps=self.lr_epsilon, weight_decay=self.weight_decay)
+            self._logger.warning(
+                'Received unrecognized optimizer, set default Adam optimizer')
+            optimizer = torch.optim.Adam(
+                self.model.parameters(),
+                lr=self.learning_rate,
+                eps=self.lr_epsilon,
+                weight_decay=self.weight_decay)
         return optimizer
 
     def _build_lr_scheduler(self):
-        """
-        根据全局参数`lr_scheduler`选择对应的lr_scheduler
-        """
         if self.lr_decay:
             if self.lr_scheduler_type.lower() == 'multisteplr':
                 lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(
@@ -151,6 +140,9 @@ class TrafficStateExecutor(AbstractExecutor):
             elif self.lr_scheduler_type.lower() == 'lambdalr':
                 lr_scheduler = torch.optim.lr_scheduler.LambdaLR(
                     self.optimizer, lr_lambda=self.lr_lambda)
+            elif self.lr_scheduler_type.lower() == 'my_scheduler':
+                print("using my_scheduler")
+                lr_scheduler = MyScheduler(self.optimizer)
             else:
                 lr_scheduler = None
         else:
@@ -158,12 +150,6 @@ class TrafficStateExecutor(AbstractExecutor):
         return lr_scheduler
 
     def evaluate(self, test_dataloader):
-        """
-        use model to test data
-
-        Args:
-            test_dataloader(torch.Dataloader): Dataloader
-        """
         self._logger.info('Start evaluating ...')
         with torch.no_grad():
             self.model.eval()
@@ -173,8 +159,17 @@ class TrafficStateExecutor(AbstractExecutor):
             for batch in test_dataloader:
                 batch.to_tensor(self.device)
                 output = self.model.predict(batch)
-                y_true = self._scaler.inverse_transform(batch['y'][..., :self.output_dim])
-                y_pred = self._scaler.inverse_transform(output[..., :self.output_dim])
+                # y_true = self._scaler.inverse_transform(batch['y'][..., :self.output_dim])
+                # print(batch['y'].shape)
+                if self.config.get("dataset") == 'bike':
+                    max_list = torch.tensor([262, 274]).cuda()
+                else:
+                    max_list = torch.tensor([1409, 1518]).cuda()
+                y_true = batch['y'][..., :self.output_dim] * max_list
+                print(y_true.shape)
+                # y_pred = self._scaler.inverse_transform(output[..., :self.output_dim])
+                y_pred = output[..., :self.output_dim] * max_list
+                # print(y_pred.shape)
                 y_truths.append(y_true.cpu().numpy())
                 y_preds.append(y_pred.cpu().numpy())
                 # evaluate_input = {'y_true': y_true, 'y_pred': y_pred}
@@ -186,19 +181,17 @@ class TrafficStateExecutor(AbstractExecutor):
             filename = \
                 time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime(time.time())) + '_' \
                 + self.config['model'] + '_' + self.config['dataset'] + '_predictions.npz'
-            np.savez_compressed(os.path.join(self.evaluate_res_dir, filename), **outputs)
+            np.savez_compressed(
+                os.path.join(
+                    self.evaluate_res_dir,
+                    filename),
+                **outputs)
             self.evaluator.clear()
-            self.evaluator.collect({'y_true': torch.tensor(y_truths), 'y_pred': torch.tensor(y_preds)})
+            self.evaluator.collect({'y_true': torch.tensor(
+                y_truths), 'y_pred': torch.tensor(y_preds)})
             self.evaluator.save_result(self.evaluate_res_dir)
 
     def train(self, train_dataloader, eval_dataloader):
-        """
-        use data to train model with config
-
-        Args:
-            train_dataloader(torch.Dataloader): Dataloader
-            eval_dataloader(torch.Dataloader): Dataloader
-        """
         self._logger.info('Start training ...')
         min_val_loss = float('inf')
         wait = 0
@@ -209,7 +202,8 @@ class TrafficStateExecutor(AbstractExecutor):
         for epoch_idx in range(self._epoch_num, self.epochs):
             start_time = time.time()
             losses = self._train_epoch(train_dataloader, epoch_idx)
-            self._writer.add_scalar('training loss', np.mean(losses), epoch_idx)
+            self._writer.add_scalar(
+                'training loss', np.mean(losses), epoch_idx)
             self._logger.info("epoch complete!")
             if self.lr_scheduler is not None:
                 self.lr_scheduler.step()
@@ -222,37 +216,30 @@ class TrafficStateExecutor(AbstractExecutor):
                     log_lr = self.lr_scheduler.get_last_lr()[0]
                 else:
                     log_lr = self.learning_rate
-                message = 'Epoch [{}/{}] train_loss: {:.4f}, val_loss: {:.4f}, lr: {:.6f}, {:.1f}s'.\
-                    format(epoch_idx, self.epochs, np.mean(losses), val_loss, log_lr, (end_time - start_time))
+                message = 'Epoch [{}/{}] train_loss: {:.4f}, val_loss: {:.4f}, lr: {:.6f}, {:.1f}s'. format(
+                    epoch_idx, self.epochs, np.mean(losses), val_loss, log_lr, (end_time - start_time))
                 self._logger.info(message)
 
             if val_loss < min_val_loss:
                 wait = 0
                 if self.saved:
                     model_file_name = self.save_model_with_epoch(epoch_idx)
-                    self._logger.info('Val loss decrease from {:.4f} to {:.4f}, '
-                                      'saving to {}'.format(min_val_loss, val_loss, model_file_name))
+                    self._logger.info(
+                        'Val loss decrease from {:.4f} to {:.4f}, '
+                        'saving to {}'.format(
+                            min_val_loss, val_loss, model_file_name))
                 min_val_loss = val_loss
                 best_epoch = epoch_idx
             else:
                 wait += 1
                 if wait == self.patience and self.use_early_stop:
-                    self._logger.warning('Early stopping at epoch: %d' % epoch_idx)
+                    self._logger.warning(
+                        'Early stopping at epoch: %d' %
+                        epoch_idx)
                     break
         self.load_model_with_epoch(best_epoch)
 
     def _train_epoch(self, train_dataloader, epoch_idx, loss_func=None):
-        """
-        完成模型一个轮次的训练
-
-        Args:
-            train_dataloader: 训练数据
-            epoch_idx: 轮次数
-            loss_func: 损失函数
-
-        Returns:
-            list: 每个batch的损失的数组
-        """
         self.model.train()
         loss_func = loss_func if loss_func is not None else self.model.calculate_loss
         losses = []
@@ -264,22 +251,12 @@ class TrafficStateExecutor(AbstractExecutor):
             losses.append(loss.item())
             loss.backward()
             if self.clip_grad_norm:
-                torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.max_grad_norm)
+                torch.nn.utils.clip_grad_norm_(
+                    self.model.parameters(), self.max_grad_norm)
             self.optimizer.step()
         return losses
 
     def _valid_epoch(self, eval_dataloader, epoch_idx, loss_func=None):
-        """
-        完成模型一个轮次的评估
-
-        Args:
-            eval_dataloader: 评估数据
-            epoch_idx: 轮次数
-            loss_func: 损失函数
-
-        Returns:
-            float: 评估数据的平均损失值
-        """
         with torch.no_grad():
             self.model.eval()
             loss_func = loss_func if loss_func is not None else self.model.calculate_loss

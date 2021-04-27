@@ -1,12 +1,6 @@
-import os
-import torch
 from trafficdl.config import ConfigParser
 from trafficdl.data import get_dataset
-from trafficdl.utils import get_executor, get_model
-from trafficdl.utils.dataset import parseCoordinate
-from geopy import distance
-import numpy as np
-import torch.nn.functional as F
+from trafficdl.utils import get_model
 
 config = ConfigParser('traj_loc_pred', 'STRNN', 'foursquare_tky', None, None)
 dataset = get_dataset(config)
@@ -37,10 +31,12 @@ for i in range(batch_size):
         # 计算 target - origin 的距离，并写入 ld[i][j] 中
         ld[i][j] = distance.distance((lat_i, lon_i), (lat_j, lon_j)).kilometers
 
-td_upper = torch.LongTensor([self.up_time] * batch_size).to(self.device).unsqueeze(1)
+td_upper = torch.LongTensor([self.up_time]
+* batch_size).to(self.device).unsqueeze(1)
 td_upper = td_upper - td
 td_lower = td # 因为 lower 是 0
-ld_upper = torch.LongTensor([self.up_loc] * batch_size).to(self.device).unsqueeze(1)
+ld_upper = torch.LongTensor([self.up_loc]
+* batch_size).to(self.device).unsqueeze(1)
 ld_upper = ld_upper - ld
 ld_lower = ld # 因为下界是 0
 

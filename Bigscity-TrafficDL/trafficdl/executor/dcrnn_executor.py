@@ -10,13 +10,6 @@ class DCRNNExecutor(TrafficStateExecutor):
         TrafficStateExecutor.__init__(self, config, model)
 
     def train(self, train_dataloader, eval_dataloader):
-        """
-        use data to train model with config
-
-        Args:
-            train_dataloader(torch.Dataloader): Dataloader
-            eval_dataloader(torch.Dataloader): Dataloader
-        """
         self._logger.info('Start training ...')
         min_val_loss = float('inf')
         wait = 0
@@ -27,13 +20,16 @@ class DCRNNExecutor(TrafficStateExecutor):
         batches_seen = num_batches * self._epoch_num
         for epoch_idx in range(self._epoch_num, self.epochs):
             start_time = time.time()
-            losses, batches_seen = self._train_epoch(train_dataloader, epoch_idx, batches_seen)
-            self._writer.add_scalar('training loss', np.mean(losses), batches_seen)
+            losses, batches_seen = self._train_epoch(
+                train_dataloader, epoch_idx, batches_seen)
+            self._writer.add_scalar(
+                'training loss', np.mean(losses), batches_seen)
             self._logger.info("epoch complete!")
             if self.lr_scheduler is not None:
                 self.lr_scheduler.step()
             self._logger.info("evaluating now!")
-            val_loss = self._valid_epoch(eval_dataloader, epoch_idx, batches_seen)
+            val_loss = self._valid_epoch(
+                eval_dataloader, epoch_idx, batches_seen)
             end_time = time.time()
 
             if (epoch_idx % self.log_every) == 0:
@@ -50,32 +46,27 @@ class DCRNNExecutor(TrafficStateExecutor):
                 wait = 0
                 if self.saved:
                     model_file_name = self.save_model_with_epoch(epoch_idx)
-                    self._logger.info('Val loss decrease from {:.4f} to {:.4f}, '
-                                      'saving to {}'.format(min_val_loss, val_loss, model_file_name))
+                    self._logger.info(
+                        'Val loss decrease from {:.4f} to {:.4f}, '
+                        'saving to {}'.format(
+                            min_val_loss, val_loss, model_file_name))
                 min_val_loss = val_loss
                 best_epoch = epoch_idx
             else:
                 wait += 1
                 if wait == self.patience and self.use_early_stop:
-                    self._logger.warning('Early stopping at epoch: %d' % epoch_idx)
+                    self._logger.warning(
+                        'Early stopping at epoch: %d' %
+                        epoch_idx)
                     break
         self.load_model_with_epoch(best_epoch)
 
-    def _train_epoch(self, train_dataloader, epoch_idx, batches_seen=None, loss_func=None):
-        """
-        完成模型一个轮次的训练
-
-        Args:
-            train_dataloader: 训练数据
-            epoch_idx: 轮次数
-            batches_seen: 全局batch数
-            loss_func: 损失函数
-
-        Returns:
-            tuple: tuple contains
-                losses(list): 每个batch的损失的数组 \n
-                batches_seen(int): 全局batch数
-        """
+    def _train_epoch(
+            self,
+            train_dataloader,
+            epoch_idx,
+            batches_seen=None,
+            loss_func=None):
         self.model.train()
         loss_func = loss_func if loss_func is not None else self.model.calculate_loss
         losses = []
@@ -88,23 +79,17 @@ class DCRNNExecutor(TrafficStateExecutor):
             batches_seen += 1
             loss.backward()
             if self.clip_grad_norm:
-                torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.max_grad_norm)
+                torch.nn.utils.clip_grad_norm_(
+                    self.model.parameters(), self.max_grad_norm)
             self.optimizer.step()
         return losses, batches_seen
 
-    def _valid_epoch(self, eval_dataloader, epoch_idx, batches_seen=None, loss_func=None):
-        """
-        完成模型一个轮次的评估
-
-        Args:
-            eval_dataloader: 评估数据
-            epoch_idx: 轮次数
-            batches_seen: 全局batch数
-            loss_func: 损失函数
-
-        Returns:
-            float: 评估数据的平均损失值
-        """
+    def _valid_epoch(
+            self,
+            eval_dataloader,
+            epoch_idx,
+            batches_seen=None,
+            loss_func=None):
         with torch.no_grad():
             self.model.eval()
             loss_func = loss_func if loss_func is not None else self.model.calculate_loss

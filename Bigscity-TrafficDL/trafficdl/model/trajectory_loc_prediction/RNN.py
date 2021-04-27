@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+import torch.nn.functional as f
 from torch.nn.utils.rnn import pack_padded_sequence
 from torch.nn.utils.rnn import pad_packed_sequence
 
@@ -81,11 +81,11 @@ class RNN(AbstractModel):
         # out = out.squeeze(1)
         out, out_len = pad_packed_sequence(out, batch_first=True)
         # out = out.permute(1, 0, 2)
-        out = F.selu(out)
+        out = f.selu(out)
         out = self.dropout(out)
 
         y = self.fc(out)
-        score = F.log_softmax(y, dim=2)  # calculate loss by NLLoss
+        score = f.log_softmax(y, dim=2)  # calculate loss by NLLoss
         # 因为是补齐了的，所以需要找到真正的 score
         loc_len = batch.get_origin_len('current_loc')
         for i in range(score.shape[0]):

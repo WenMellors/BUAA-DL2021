@@ -1,5 +1,3 @@
-import os
-import torch
 from trafficdl.config import ConfigParser
 from trafficdl.data import get_dataset
 from trafficdl.utils import get_executor, get_model
@@ -16,7 +14,8 @@ data_feature = dataset.get_data_feature()
 batch = train_data.__iter__().__next__()
 batch.to_tensor(gpu=True)
 # 加载执行器
-model_cache_file = './trafficdl/cache/model_cache/{}_{}.m'.format(model_name, dataset_name)
+model_cache_file = './trafficdl/cache/model_cache/{}_{}.m'.format(
+    model_name, dataset_name)
 model = get_model(config, data_feature)
 executor = get_executor(config, model)
 # 训练

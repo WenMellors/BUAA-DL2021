@@ -1,71 +1,57 @@
 {
     "traj_loc_pred": {
-        "allowed_model": ["DeepMove", "RNN", "LSTM", "GRU", "FPMC", "LSTPM", "STRNN", "SERM", "TemplateTLP"],
+        "allowed_model": ["DeepMove", "RNN", "LSTM", "GRU", "FPMC", "LSTPM", "STRNN", "TemplateTLP"],
         "allowed_dataset": ["foursquare_tky", "foursquare_nyc", "gowalla"],
         "DeepMove": {
             "dataset_class": "TrajectoryDataset",
             "executor": "TrajLocPredExecutor",
-            "evaluator": "TrajLocPredEvaluator",
-            "traj_encoder": "StandardTrajectoryEncoder"
+            "evaluator": "TrajLocPredEvaluator"
         },
         "RNN": {
             "dataset_class": "TrajectoryDataset",
             "executor": "TrajLocPredExecutor",
-            "evaluator": "TrajLocPredEvaluator",
-            "traj_encoder": "StandardTrajectoryEncoder"
+            "evaluator": "TrajLocPredEvaluator"
         },
         "LSTM": {
             "dataset_class": "TrajectoryDataset",
             "executor": "TrajLocPredExecutor",
-            "evaluator": "TrajLocPredEvaluator",
-            "traj_encoder": "StandardTrajectoryEncoder"
+            "evaluator": "TrajLocPredEvaluator"
         },
         "GRU": {
             "dataset_class": "TrajectoryDataset",
             "executor": "TrajLocPredExecutor",
-            "evaluator": "TrajLocPredEvaluator",
-            "traj_encoder": "StandardTrajectoryEncoder"
+            "evaluator": "TrajLocPredEvaluator"
         },
         "FPMC": {
             "dataset_class": "TrajectoryDataset",
             "executor": "TrajLocPredExecutor",
-            "evaluator": "TrajLocPredEvaluator",
-            "traj_encoder": "StandardTrajectoryEncoder"
+            "evaluator": "TrajLocPredEvaluator"
         },
         "LSTPM": {
             "dataset_class": "TrajectoryDataset",
             "executor": "TrajLocPredExecutor",
-            "evaluator": "TrajLocPredEvaluator",
-            "traj_encoder": "StandardTrajectoryEncoder"
+            "evaluator": "TrajLocPredEvaluator"
         },
         "STRNN": {
             "dataset_class": "TrajectoryDataset",
             "executor": "TrajLocPredExecutor",
-            "evaluator": "TrajLocPredEvaluator",
-            "traj_encoder": "StandardTrajectoryEncoder"
-        },
-        "SERM": {
-            "dataset_class": "SermTrajectoryDataset",
-            "executor": "TrajLocPredExecutor",
-            "evaluator": "TrajLocPredEvaluator",
-            "traj_encoder": "StandardTrajectoryEncoder"
+            "evaluator": "TrajLocPredEvaluator"
         },
         "TemplateTLP": {
             "dataset_class": "TrajectoryDataset",
             "executor": "TrajLocPredExecutor",
-            "evaluator": "TrajLocPredEvaluator",
-            "traj_encoder": "StandardTrajectoryEncoder"
+            "evaluator": "TrajLocPredEvaluator"
         }
     },
     "traffic_state_pred": {
-        "allowed_model": ["DCRNN", "STGCN", "GWNET", "AGCRN", "TGCLSTM", "TGCN", "TemplateTSP",
-            "ASTGCN", "MSTGCN"],
+        "allowed_model": ["DCRNN", "STGCN", "GWNET", "AGCRN", "DSAN", "TGCLSTM", "TGCN", "TemplateTSP"],
         "allowed_dataset": ["METR_LA", "PEMS_BAY", "PEMSD3", "PEMSD4", "PEMSD7", "PEMSD8", "PeMSD7(M)",
             "Loop Seattle", "LOS-LOOP", "LOS-LOOP-SMALL", "Q-TRAFFIC", "SZ-TAXI",
             "NYCBike20140409", "NYCBike20160708", "NYCBike20160809", "NYCTaxi2014",
             "NYCTaxi20150103", "NYCTaxi20160102", "TAXIBJ", "T-Drive20150206",
             "AcousticPollution", "BEIJING SUBWAY_10MIN", "BEIJING SUBWAY_15MIN", "BEIJING SUBWAY_30MIN",
             "CTM", "HEAT", "Rotterdam", "HZMetro", "SHMetro", "M_DENSE"
+            ,"bike", "taxi"
         ],
         "DCRNN": {
             "dataset_class": "TrafficStatePointDataset",
@@ -87,6 +73,11 @@
             "executor": "TrafficStateExecutor",
             "evaluator": "TrafficStateEvaluator"
         },
+        "DSAN": {
+            "dataset_class": "TrafficStateFlowDataset",
+            "executor": "TrafficStateExecutor",
+            "evaluator": "TrafficStateEvaluator"
+        },
         "TGCLSTM": {
             "dataset_class": "TGCLSTMDataset",
             "executor": "TrafficStateExecutor",
@@ -99,16 +90,6 @@
         },
         "TemplateTSP": {
             "dataset_class": "TrafficStatePointDataset",
-            "executor": "TrafficStateExecutor",
-            "evaluator": "TrafficStateEvaluator"
-        },
-        "ASTGCN": {
-            "dataset_class": "ASTGCNDataset",
-            "executor": "TrafficStateExecutor",
-            "evaluator": "TrafficStateEvaluator"
-        },
-        "MSTGCN": {
-            "dataset_class": "ASTGCNDataset",
             "executor": "TrafficStateExecutor",
             "evaluator": "TrafficStateEvaluator"
         }

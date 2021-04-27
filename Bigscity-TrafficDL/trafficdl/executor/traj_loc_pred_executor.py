@@ -125,7 +125,7 @@ class TrajLocPredExecutor(AbstractExecutor):
                 for p in model.parameters():
                     if p.requires_grad:
                         p.data.add_(-lr, p.grad.data)
-            except:
+            except BaseException:
                 pass
             optimizer.step()
             cnt += 1

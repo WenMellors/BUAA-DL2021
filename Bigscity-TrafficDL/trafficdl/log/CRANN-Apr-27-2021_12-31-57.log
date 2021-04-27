@@ -1,0 +1,375 @@
+2021-04-27 12:31:57,732 - INFO - Log directory: ./trafficdl/log
+2021-04-27 12:31:57,733 - INFO - Begin pipeline, task=traffic_state_pred, model_name=CRANN, dataset_name=METR_LA
+2021-04-27 12:31:57,922 - INFO - Loaded file METR_LA.geo, num_nodes=207
+2021-04-27 12:31:57,958 - INFO - Loaded file METR_LA.rel, shape=(207, 207)
+2021-04-27 12:31:57,958 - INFO - Start Calculate the weight by Gauss kernel!
+2021-04-27 12:31:57,960 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_METR_LA_12_12_0.7_0.1_none_64_False_False_True.npz
+2021-04-27 12:32:01,196 - INFO - train	x: (23974, 12, 207, 1)y: (23974, 12, 207, 1)
+2021-04-27 12:32:01,197 - INFO - eval	x: (3425, 12, 207, 1)y: (3425, 12, 207, 1)
+2021-04-27 12:32:01,197 - INFO - test	x: (6850, 12, 207, 1)y: (6850, 12, 207, 1)
+2021-04-27 12:32:01,197 - INFO - NoneScaler
+2021-04-27 12:32:07,696 - INFO - spatial_model.conv_block1.op.0.weight	torch.Size([64, 12, 3, 3])	cuda:0	True
+2021-04-27 12:32:07,696 - INFO - spatial_model.conv_block1.op.0.bias	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,696 - INFO - spatial_model.conv_block1.op.1.weight	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,696 - INFO - spatial_model.conv_block1.op.1.bias	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.3.bias	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.4.weight	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.4.bias	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.6.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.6.bias	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.7.weight	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.7.bias	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.9.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.9.bias	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.10.weight	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.10.bias	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.12.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.12.bias	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.13.weight	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.conv_block1.op.13.bias	torch.Size([64])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.att1.weight	torch.Size([12, 207, 207])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.regressor.weight	torch.Size([12, 64, 3, 3])	cuda:0	True
+2021-04-27 12:32:07,697 - INFO - spatial_model.regressor.bias	torch.Size([12])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_encoder.lstm.weight_ih_l0	torch.Size([400, 1])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_encoder.lstm.weight_hh_l0	torch.Size([400, 100])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_encoder.lstm.bias_ih_l0	torch.Size([400])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_encoder.lstm.bias_hh_l0	torch.Size([400])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.weight	torch.Size([1, 100])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.fc_hidden.weight	torch.Size([100, 100])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.fc_encoder.weight	torch.Size([100, 100])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.attn_combine.weight	torch.Size([100, 200])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.attn_combine.bias	torch.Size([100])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.lstm.weight_ih_l0	torch.Size([400, 101])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.lstm.weight_hh_l0	torch.Size([400, 100])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.lstm.bias_ih_l0	torch.Size([400])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.lstm.bias_hh_l0	torch.Size([400])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.fc_prediction.weight	torch.Size([1, 100])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - temporal_decoder.fc_prediction.bias	torch.Size([1])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - model.module.weight	torch.Size([2484, 3336])	cuda:0	True
+2021-04-27 12:32:07,698 - INFO - model.module.bias	torch.Size([2484])	cuda:0	True
+2021-04-27 12:32:07,699 - INFO - Total parameter numbers: 9128249
+2021-04-27 12:32:07,699 - INFO - Start training ...
+2021-04-27 12:32:07,699 - INFO - num_batches:375
+2021-04-27 12:33:05,719 - INFO - epoch complete!
+2021-04-27 12:33:05,720 - INFO - evaluating now!
+2021-04-27 12:33:09,249 - INFO - Epoch [0/100] train_loss: 1527.4371, val_loss: 150.8813, lr: 0.010000, 61.6s
+2021-04-27 12:33:09,407 - INFO - Saved model at 0
+2021-04-27 12:33:09,408 - INFO - Val loss decrease from inf to 150.8813, saving to ./trafficdl/cache/model_cache/CRANN_METR_LA_epoch0.tar
+2021-04-27 12:34:07,603 - INFO - epoch complete!
+2021-04-27 12:34:07,603 - INFO - evaluating now!
+2021-04-27 12:34:11,143 - INFO - Epoch [1/100] train_loss: 126.9393, val_loss: 173.5817, lr: 0.010000, 61.7s
+2021-04-27 12:35:09,398 - INFO - epoch complete!
+2021-04-27 12:35:09,399 - INFO - evaluating now!
+2021-04-27 12:35:12,953 - INFO - Epoch [2/100] train_loss: 151.0014, val_loss: 236.7215, lr: 0.010000, 61.8s
+2021-04-27 12:36:10,973 - INFO - epoch complete!
+2021-04-27 12:36:10,974 - INFO - evaluating now!
+2021-04-27 12:36:14,498 - INFO - Epoch [3/100] train_loss: 212.0522, val_loss: 334.4783, lr: 0.010000, 61.5s
+2021-04-27 12:37:12,541 - INFO - epoch complete!
+2021-04-27 12:37:12,541 - INFO - evaluating now!
+2021-04-27 12:37:16,058 - INFO - Epoch [4/100] train_loss: 280.1563, val_loss: 244.5725, lr: 0.010000, 61.6s
+2021-04-27 12:38:14,198 - INFO - epoch complete!
+2021-04-27 12:38:14,198 - INFO - evaluating now!
+2021-04-27 12:38:17,728 - INFO - Epoch [5/100] train_loss: 290.9437, val_loss: 364.6803, lr: 0.010000, 61.7s
+2021-04-27 12:39:15,874 - INFO - epoch complete!
+2021-04-27 12:39:15,874 - INFO - evaluating now!
+2021-04-27 12:39:19,428 - INFO - Epoch [6/100] train_loss: 301.4102, val_loss: 326.5213, lr: 0.010000, 61.7s
+2021-04-27 12:40:17,389 - INFO - epoch complete!
+2021-04-27 12:40:17,389 - INFO - evaluating now!
+2021-04-27 12:40:20,944 - INFO - Epoch [7/100] train_loss: 307.1821, val_loss: 316.2795, lr: 0.010000, 61.5s
+2021-04-27 12:41:18,985 - INFO - epoch complete!
+2021-04-27 12:41:18,986 - INFO - evaluating now!
+2021-04-27 12:41:22,510 - INFO - Epoch [8/100] train_loss: 289.3552, val_loss: 284.3930, lr: 0.010000, 61.6s
+2021-04-27 12:42:20,685 - INFO - epoch complete!
+2021-04-27 12:42:20,685 - INFO - evaluating now!
+2021-04-27 12:42:24,226 - INFO - Epoch [9/100] train_loss: 286.3511, val_loss: 479.1235, lr: 0.010000, 61.7s
+2021-04-27 12:43:22,421 - INFO - epoch complete!
+2021-04-27 12:43:22,422 - INFO - evaluating now!
+2021-04-27 12:43:25,945 - INFO - Epoch [10/100] train_loss: 299.4845, val_loss: 220.7295, lr: 0.010000, 61.7s
+2021-04-27 12:44:24,168 - INFO - epoch complete!
+2021-04-27 12:44:24,168 - INFO - evaluating now!
+2021-04-27 12:44:27,729 - INFO - Epoch [11/100] train_loss: 286.2170, val_loss: 482.9127, lr: 0.010000, 61.8s
+2021-04-27 12:45:26,069 - INFO - epoch complete!
+2021-04-27 12:45:26,070 - INFO - evaluating now!
+2021-04-27 12:45:29,604 - INFO - Epoch [12/100] train_loss: 303.2626, val_loss: 325.6113, lr: 0.010000, 61.9s
+2021-04-27 12:46:27,675 - INFO - epoch complete!
+2021-04-27 12:46:27,676 - INFO - evaluating now!
+2021-04-27 12:46:31,206 - INFO - Epoch [13/100] train_loss: 290.6859, val_loss: 249.1783, lr: 0.010000, 61.6s
+2021-04-27 12:47:29,272 - INFO - epoch complete!
+2021-04-27 12:47:29,273 - INFO - evaluating now!
+2021-04-27 12:47:32,795 - INFO - Epoch [14/100] train_loss: 293.1596, val_loss: 439.6388, lr: 0.010000, 61.6s
+2021-04-27 12:48:31,056 - INFO - epoch complete!
+2021-04-27 12:48:31,056 - INFO - evaluating now!
+2021-04-27 12:48:34,583 - INFO - Epoch [15/100] train_loss: 285.4738, val_loss: 266.6059, lr: 0.010000, 61.8s
+2021-04-27 12:49:32,815 - INFO - epoch complete!
+2021-04-27 12:49:32,816 - INFO - evaluating now!
+2021-04-27 12:49:36,343 - INFO - Epoch [16/100] train_loss: 314.6957, val_loss: 304.9287, lr: 0.010000, 61.8s
+2021-04-27 12:50:34,533 - INFO - epoch complete!
+2021-04-27 12:50:34,533 - INFO - evaluating now!
+2021-04-27 12:50:38,068 - INFO - Epoch [17/100] train_loss: 283.0559, val_loss: 351.5923, lr: 0.010000, 61.7s
+2021-04-27 12:51:36,088 - INFO - epoch complete!
+2021-04-27 12:51:36,088 - INFO - evaluating now!
+2021-04-27 12:51:39,603 - INFO - Epoch [18/100] train_loss: 276.3487, val_loss: 295.6934, lr: 0.010000, 61.5s
+2021-04-27 12:52:37,619 - INFO - epoch complete!
+2021-04-27 12:52:37,619 - INFO - evaluating now!
+2021-04-27 12:52:41,137 - INFO - Epoch [19/100] train_loss: 304.0160, val_loss: 274.3773, lr: 0.010000, 61.5s
+2021-04-27 12:53:39,437 - INFO - epoch complete!
+2021-04-27 12:53:39,438 - INFO - evaluating now!
+2021-04-27 12:53:42,988 - INFO - Epoch [20/100] train_loss: 283.2643, val_loss: 302.1376, lr: 0.010000, 61.9s
+2021-04-27 12:54:41,151 - INFO - epoch complete!
+2021-04-27 12:54:41,152 - INFO - evaluating now!
+2021-04-27 12:54:44,673 - INFO - Epoch [21/100] train_loss: 304.4475, val_loss: 274.1146, lr: 0.010000, 61.7s
+2021-04-27 12:55:42,806 - INFO - epoch complete!
+2021-04-27 12:55:42,806 - INFO - evaluating now!
+2021-04-27 12:55:46,370 - INFO - Epoch [22/100] train_loss: 304.1973, val_loss: 309.7218, lr: 0.010000, 61.7s
+2021-04-27 12:56:44,483 - INFO - epoch complete!
+2021-04-27 12:56:44,483 - INFO - evaluating now!
+2021-04-27 12:56:48,013 - INFO - Epoch [23/100] train_loss: 292.4037, val_loss: 211.6944, lr: 0.010000, 61.6s
+2021-04-27 12:57:46,321 - INFO - epoch complete!
+2021-04-27 12:57:46,321 - INFO - evaluating now!
+2021-04-27 12:57:49,865 - INFO - Epoch [24/100] train_loss: 279.5078, val_loss: 265.2980, lr: 0.010000, 61.9s
+2021-04-27 12:58:47,925 - INFO - epoch complete!
+2021-04-27 12:58:47,925 - INFO - evaluating now!
+2021-04-27 12:58:51,440 - INFO - Epoch [25/100] train_loss: 297.0072, val_loss: 239.3694, lr: 0.010000, 61.6s
+2021-04-27 12:59:49,562 - INFO - epoch complete!
+2021-04-27 12:59:49,562 - INFO - evaluating now!
+2021-04-27 12:59:53,090 - INFO - Epoch [26/100] train_loss: 291.0651, val_loss: 302.0836, lr: 0.010000, 61.6s
+2021-04-27 13:00:51,251 - INFO - epoch complete!
+2021-04-27 13:00:51,252 - INFO - evaluating now!
+2021-04-27 13:00:54,798 - INFO - Epoch [27/100] train_loss: 283.8963, val_loss: 242.7388, lr: 0.010000, 61.7s
+2021-04-27 13:01:52,968 - INFO - epoch complete!
+2021-04-27 13:01:52,969 - INFO - evaluating now!
+2021-04-27 13:01:56,504 - INFO - Epoch [28/100] train_loss: 295.7628, val_loss: 275.1291, lr: 0.010000, 61.7s
+2021-04-27 13:02:54,609 - INFO - epoch complete!
+2021-04-27 13:02:54,609 - INFO - evaluating now!
+2021-04-27 13:02:58,149 - INFO - Epoch [29/100] train_loss: 284.7707, val_loss: 319.2980, lr: 0.010000, 61.6s
+2021-04-27 13:03:56,366 - INFO - epoch complete!
+2021-04-27 13:03:56,366 - INFO - evaluating now!
+2021-04-27 13:03:59,899 - INFO - Epoch [30/100] train_loss: 309.5898, val_loss: 292.7587, lr: 0.010000, 61.7s
+2021-04-27 13:04:58,012 - INFO - epoch complete!
+2021-04-27 13:04:58,013 - INFO - evaluating now!
+2021-04-27 13:05:01,543 - INFO - Epoch [31/100] train_loss: 292.1649, val_loss: 313.8134, lr: 0.010000, 61.6s
+2021-04-27 13:05:59,730 - INFO - epoch complete!
+2021-04-27 13:05:59,731 - INFO - evaluating now!
+2021-04-27 13:06:03,250 - INFO - Epoch [32/100] train_loss: 289.8675, val_loss: 466.4783, lr: 0.010000, 61.7s
+2021-04-27 13:07:01,420 - INFO - epoch complete!
+2021-04-27 13:07:01,421 - INFO - evaluating now!
+2021-04-27 13:07:04,978 - INFO - Epoch [33/100] train_loss: 289.7828, val_loss: 274.2514, lr: 0.010000, 61.7s
+2021-04-27 13:08:03,118 - INFO - epoch complete!
+2021-04-27 13:08:03,119 - INFO - evaluating now!
+2021-04-27 13:08:06,640 - INFO - Epoch [34/100] train_loss: 293.3627, val_loss: 326.7614, lr: 0.010000, 61.7s
+2021-04-27 13:09:04,813 - INFO - epoch complete!
+2021-04-27 13:09:04,813 - INFO - evaluating now!
+2021-04-27 13:09:08,342 - INFO - Epoch [35/100] train_loss: 308.4407, val_loss: 307.0729, lr: 0.010000, 61.7s
+2021-04-27 13:10:06,388 - INFO - epoch complete!
+2021-04-27 13:10:06,388 - INFO - evaluating now!
+2021-04-27 13:10:09,904 - INFO - Epoch [36/100] train_loss: 276.6873, val_loss: 269.5543, lr: 0.010000, 61.6s
+2021-04-27 13:11:08,080 - INFO - epoch complete!
+2021-04-27 13:11:08,081 - INFO - evaluating now!
+2021-04-27 13:11:11,588 - INFO - Epoch [37/100] train_loss: 298.8709, val_loss: 372.1941, lr: 0.010000, 61.7s
+2021-04-27 13:12:09,669 - INFO - epoch complete!
+2021-04-27 13:12:09,670 - INFO - evaluating now!
+2021-04-27 13:12:13,212 - INFO - Epoch [38/100] train_loss: 295.1339, val_loss: 399.3925, lr: 0.010000, 61.6s
+2021-04-27 13:13:11,283 - INFO - epoch complete!
+2021-04-27 13:13:11,283 - INFO - evaluating now!
+2021-04-27 13:13:14,803 - INFO - Epoch [39/100] train_loss: 290.8930, val_loss: 406.9143, lr: 0.010000, 61.6s
+2021-04-27 13:14:13,103 - INFO - epoch complete!
+2021-04-27 13:14:13,103 - INFO - evaluating now!
+2021-04-27 13:14:16,631 - INFO - Epoch [40/100] train_loss: 292.3928, val_loss: 399.8193, lr: 0.010000, 61.8s
+2021-04-27 13:15:14,606 - INFO - epoch complete!
+2021-04-27 13:15:14,606 - INFO - evaluating now!
+2021-04-27 13:15:18,123 - INFO - Epoch [41/100] train_loss: 293.8337, val_loss: 337.2341, lr: 0.010000, 61.5s
+2021-04-27 13:16:16,052 - INFO - epoch complete!
+2021-04-27 13:16:16,052 - INFO - evaluating now!
+2021-04-27 13:16:19,580 - INFO - Epoch [42/100] train_loss: 296.6980, val_loss: 258.3453, lr: 0.010000, 61.5s
+2021-04-27 13:17:17,730 - INFO - epoch complete!
+2021-04-27 13:17:17,730 - INFO - evaluating now!
+2021-04-27 13:17:21,257 - INFO - Epoch [43/100] train_loss: 279.3606, val_loss: 388.6383, lr: 0.010000, 61.7s
+2021-04-27 13:18:19,334 - INFO - epoch complete!
+2021-04-27 13:18:19,334 - INFO - evaluating now!
+2021-04-27 13:18:22,881 - INFO - Epoch [44/100] train_loss: 323.9235, val_loss: 266.9416, lr: 0.010000, 61.6s
+2021-04-27 13:19:20,973 - INFO - epoch complete!
+2021-04-27 13:19:20,973 - INFO - evaluating now!
+2021-04-27 13:19:24,492 - INFO - Epoch [45/100] train_loss: 272.4504, val_loss: 265.4460, lr: 0.010000, 61.6s
+2021-04-27 13:20:22,528 - INFO - epoch complete!
+2021-04-27 13:20:22,528 - INFO - evaluating now!
+2021-04-27 13:20:26,080 - INFO - Epoch [46/100] train_loss: 299.4136, val_loss: 412.6585, lr: 0.010000, 61.6s
+2021-04-27 13:21:24,343 - INFO - epoch complete!
+2021-04-27 13:21:24,344 - INFO - evaluating now!
+2021-04-27 13:21:27,869 - INFO - Epoch [47/100] train_loss: 286.9893, val_loss: 292.0490, lr: 0.010000, 61.8s
+2021-04-27 13:22:25,863 - INFO - epoch complete!
+2021-04-27 13:22:25,864 - INFO - evaluating now!
+2021-04-27 13:22:29,375 - INFO - Epoch [48/100] train_loss: 284.8561, val_loss: 284.2662, lr: 0.010000, 61.5s
+2021-04-27 13:23:27,495 - INFO - epoch complete!
+2021-04-27 13:23:27,495 - INFO - evaluating now!
+2021-04-27 13:23:31,020 - INFO - Epoch [49/100] train_loss: 291.9706, val_loss: 407.0522, lr: 0.010000, 61.6s
+2021-04-27 13:24:28,936 - INFO - epoch complete!
+2021-04-27 13:24:28,937 - INFO - evaluating now!
+2021-04-27 13:24:32,463 - INFO - Epoch [50/100] train_loss: 287.5237, val_loss: 337.4302, lr: 0.010000, 61.4s
+2021-04-27 13:25:30,384 - INFO - epoch complete!
+2021-04-27 13:25:30,384 - INFO - evaluating now!
+2021-04-27 13:25:33,915 - INFO - Epoch [51/100] train_loss: 313.5540, val_loss: 236.2482, lr: 0.010000, 61.5s
+2021-04-27 13:26:32,147 - INFO - epoch complete!
+2021-04-27 13:26:32,148 - INFO - evaluating now!
+2021-04-27 13:26:35,676 - INFO - Epoch [52/100] train_loss: 281.3386, val_loss: 243.1035, lr: 0.010000, 61.8s
+2021-04-27 13:27:33,612 - INFO - epoch complete!
+2021-04-27 13:27:33,612 - INFO - evaluating now!
+2021-04-27 13:27:37,141 - INFO - Epoch [53/100] train_loss: 288.9538, val_loss: 392.4328, lr: 0.010000, 61.5s
+2021-04-27 13:28:35,092 - INFO - epoch complete!
+2021-04-27 13:28:35,093 - INFO - evaluating now!
+2021-04-27 13:28:38,626 - INFO - Epoch [54/100] train_loss: 301.3425, val_loss: 285.5262, lr: 0.010000, 61.5s
+2021-04-27 13:29:36,802 - INFO - epoch complete!
+2021-04-27 13:29:36,803 - INFO - evaluating now!
+2021-04-27 13:29:40,350 - INFO - Epoch [55/100] train_loss: 279.6276, val_loss: 321.0500, lr: 0.010000, 61.7s
+2021-04-27 13:30:38,558 - INFO - epoch complete!
+2021-04-27 13:30:38,559 - INFO - evaluating now!
+2021-04-27 13:30:42,084 - INFO - Epoch [56/100] train_loss: 289.6478, val_loss: 271.0232, lr: 0.010000, 61.7s
+2021-04-27 13:31:40,076 - INFO - epoch complete!
+2021-04-27 13:31:40,076 - INFO - evaluating now!
+2021-04-27 13:31:43,613 - INFO - Epoch [57/100] train_loss: 293.8484, val_loss: 235.9476, lr: 0.010000, 61.5s
+2021-04-27 13:32:41,642 - INFO - epoch complete!
+2021-04-27 13:32:41,643 - INFO - evaluating now!
+2021-04-27 13:32:45,162 - INFO - Epoch [58/100] train_loss: 285.1672, val_loss: 352.1736, lr: 0.010000, 61.5s
+2021-04-27 13:33:43,322 - INFO - epoch complete!
+2021-04-27 13:33:43,323 - INFO - evaluating now!
+2021-04-27 13:33:46,874 - INFO - Epoch [59/100] train_loss: 292.6138, val_loss: 377.7467, lr: 0.010000, 61.7s
+2021-04-27 13:34:45,092 - INFO - epoch complete!
+2021-04-27 13:34:45,093 - INFO - evaluating now!
+2021-04-27 13:34:48,616 - INFO - Epoch [60/100] train_loss: 296.2113, val_loss: 269.1587, lr: 0.010000, 61.7s
+2021-04-27 13:35:46,611 - INFO - epoch complete!
+2021-04-27 13:35:46,611 - INFO - evaluating now!
+2021-04-27 13:35:50,156 - INFO - Epoch [61/100] train_loss: 290.3321, val_loss: 307.9745, lr: 0.010000, 61.5s
+2021-04-27 13:36:48,117 - INFO - epoch complete!
+2021-04-27 13:36:48,118 - INFO - evaluating now!
+2021-04-27 13:36:51,641 - INFO - Epoch [62/100] train_loss: 294.4193, val_loss: 396.3094, lr: 0.010000, 61.5s
+2021-04-27 13:37:49,688 - INFO - epoch complete!
+2021-04-27 13:37:49,689 - INFO - evaluating now!
+2021-04-27 13:37:53,218 - INFO - Epoch [63/100] train_loss: 292.6924, val_loss: 422.0407, lr: 0.010000, 61.6s
+2021-04-27 13:38:51,261 - INFO - epoch complete!
+2021-04-27 13:38:51,261 - INFO - evaluating now!
+2021-04-27 13:38:54,769 - INFO - Epoch [64/100] train_loss: 294.2094, val_loss: 276.1505, lr: 0.010000, 61.6s
+2021-04-27 13:39:52,964 - INFO - epoch complete!
+2021-04-27 13:39:52,964 - INFO - evaluating now!
+2021-04-27 13:39:56,490 - INFO - Epoch [65/100] train_loss: 297.5805, val_loss: 345.1135, lr: 0.010000, 61.7s
+2021-04-27 13:40:54,570 - INFO - epoch complete!
+2021-04-27 13:40:54,570 - INFO - evaluating now!
+2021-04-27 13:40:58,083 - INFO - Epoch [66/100] train_loss: 281.7775, val_loss: 326.2732, lr: 0.010000, 61.6s
+2021-04-27 13:41:56,018 - INFO - epoch complete!
+2021-04-27 13:41:56,018 - INFO - evaluating now!
+2021-04-27 13:41:59,543 - INFO - Epoch [67/100] train_loss: 293.2872, val_loss: 405.9505, lr: 0.010000, 61.5s
+2021-04-27 13:42:57,615 - INFO - epoch complete!
+2021-04-27 13:42:57,615 - INFO - evaluating now!
+2021-04-27 13:43:01,126 - INFO - Epoch [68/100] train_loss: 284.2985, val_loss: 496.3055, lr: 0.010000, 61.6s
+2021-04-27 13:43:59,247 - INFO - epoch complete!
+2021-04-27 13:43:59,248 - INFO - evaluating now!
+2021-04-27 13:44:02,768 - INFO - Epoch [69/100] train_loss: 301.3980, val_loss: 220.1314, lr: 0.010000, 61.6s
+2021-04-27 13:45:00,847 - INFO - epoch complete!
+2021-04-27 13:45:00,847 - INFO - evaluating now!
+2021-04-27 13:45:04,377 - INFO - Epoch [70/100] train_loss: 292.6139, val_loss: 414.6444, lr: 0.010000, 61.6s
+2021-04-27 13:46:02,342 - INFO - epoch complete!
+2021-04-27 13:46:02,343 - INFO - evaluating now!
+2021-04-27 13:46:05,839 - INFO - Epoch [71/100] train_loss: 290.8338, val_loss: 313.1922, lr: 0.010000, 61.5s
+2021-04-27 13:47:03,675 - INFO - epoch complete!
+2021-04-27 13:47:03,675 - INFO - evaluating now!
+2021-04-27 13:47:07,181 - INFO - Epoch [72/100] train_loss: 286.8150, val_loss: 251.0948, lr: 0.010000, 61.3s
+2021-04-27 13:48:05,188 - INFO - epoch complete!
+2021-04-27 13:48:05,188 - INFO - evaluating now!
+2021-04-27 13:48:08,695 - INFO - Epoch [73/100] train_loss: 280.1510, val_loss: 397.3267, lr: 0.010000, 61.5s
+2021-04-27 13:49:06,633 - INFO - epoch complete!
+2021-04-27 13:49:06,633 - INFO - evaluating now!
+2021-04-27 13:49:10,140 - INFO - Epoch [74/100] train_loss: 300.9937, val_loss: 269.6410, lr: 0.010000, 61.4s
+2021-04-27 13:50:08,013 - INFO - epoch complete!
+2021-04-27 13:50:08,014 - INFO - evaluating now!
+2021-04-27 13:50:11,514 - INFO - Epoch [75/100] train_loss: 290.4627, val_loss: 353.5412, lr: 0.010000, 61.4s
+2021-04-27 13:51:09,382 - INFO - epoch complete!
+2021-04-27 13:51:09,382 - INFO - evaluating now!
+2021-04-27 13:51:12,882 - INFO - Epoch [76/100] train_loss: 290.7271, val_loss: 454.8690, lr: 0.010000, 61.4s
+2021-04-27 13:52:10,710 - INFO - epoch complete!
+2021-04-27 13:52:10,710 - INFO - evaluating now!
+2021-04-27 13:52:14,211 - INFO - Epoch [77/100] train_loss: 286.8570, val_loss: 479.2389, lr: 0.010000, 61.3s
+2021-04-27 13:53:12,160 - INFO - epoch complete!
+2021-04-27 13:53:12,160 - INFO - evaluating now!
+2021-04-27 13:53:15,666 - INFO - Epoch [78/100] train_loss: 299.3086, val_loss: 237.4640, lr: 0.010000, 61.5s
+2021-04-27 13:54:13,513 - INFO - epoch complete!
+2021-04-27 13:54:13,513 - INFO - evaluating now!
+2021-04-27 13:54:17,015 - INFO - Epoch [79/100] train_loss: 291.0988, val_loss: 267.3899, lr: 0.010000, 61.3s
+2021-04-27 13:55:14,933 - INFO - epoch complete!
+2021-04-27 13:55:14,933 - INFO - evaluating now!
+2021-04-27 13:55:18,431 - INFO - Epoch [80/100] train_loss: 286.0717, val_loss: 366.5260, lr: 0.010000, 61.4s
+2021-04-27 13:56:16,400 - INFO - epoch complete!
+2021-04-27 13:56:16,401 - INFO - evaluating now!
+2021-04-27 13:56:19,901 - INFO - Epoch [81/100] train_loss: 297.1789, val_loss: 334.1450, lr: 0.010000, 61.5s
+2021-04-27 13:57:17,837 - INFO - epoch complete!
+2021-04-27 13:57:17,837 - INFO - evaluating now!
+2021-04-27 13:57:21,378 - INFO - Epoch [82/100] train_loss: 294.5380, val_loss: 293.8002, lr: 0.010000, 61.5s
+2021-04-27 13:58:19,226 - INFO - epoch complete!
+2021-04-27 13:58:19,226 - INFO - evaluating now!
+2021-04-27 13:58:22,725 - INFO - Epoch [83/100] train_loss: 281.2465, val_loss: 280.5780, lr: 0.010000, 61.3s
+2021-04-27 13:59:20,754 - INFO - epoch complete!
+2021-04-27 13:59:20,754 - INFO - evaluating now!
+2021-04-27 13:59:24,244 - INFO - Epoch [84/100] train_loss: 308.0286, val_loss: 341.2697, lr: 0.010000, 61.5s
+2021-04-27 14:00:22,264 - INFO - epoch complete!
+2021-04-27 14:00:22,264 - INFO - evaluating now!
+2021-04-27 14:00:25,761 - INFO - Epoch [85/100] train_loss: 279.1019, val_loss: 316.1751, lr: 0.010000, 61.5s
+2021-04-27 14:01:23,656 - INFO - epoch complete!
+2021-04-27 14:01:23,656 - INFO - evaluating now!
+2021-04-27 14:01:27,143 - INFO - Epoch [86/100] train_loss: 298.2665, val_loss: 283.0277, lr: 0.010000, 61.4s
+2021-04-27 14:02:25,069 - INFO - epoch complete!
+2021-04-27 14:02:25,069 - INFO - evaluating now!
+2021-04-27 14:02:28,569 - INFO - Epoch [87/100] train_loss: 288.1045, val_loss: 447.2600, lr: 0.010000, 61.4s
+2021-04-27 14:03:26,435 - INFO - epoch complete!
+2021-04-27 14:03:26,435 - INFO - evaluating now!
+2021-04-27 14:03:29,942 - INFO - Epoch [88/100] train_loss: 292.2850, val_loss: 267.1578, lr: 0.010000, 61.4s
+2021-04-27 14:04:27,836 - INFO - epoch complete!
+2021-04-27 14:04:27,836 - INFO - evaluating now!
+2021-04-27 14:04:31,351 - INFO - Epoch [89/100] train_loss: 298.7541, val_loss: 246.3797, lr: 0.010000, 61.4s
+2021-04-27 14:05:29,392 - INFO - epoch complete!
+2021-04-27 14:05:29,392 - INFO - evaluating now!
+2021-04-27 14:05:32,910 - INFO - Epoch [90/100] train_loss: 289.0236, val_loss: 262.3059, lr: 0.010000, 61.6s
+2021-04-27 14:06:30,794 - INFO - epoch complete!
+2021-04-27 14:06:30,795 - INFO - evaluating now!
+2021-04-27 14:06:34,335 - INFO - Epoch [91/100] train_loss: 283.9907, val_loss: 345.0369, lr: 0.010000, 61.4s
+2021-04-27 14:07:32,387 - INFO - epoch complete!
+2021-04-27 14:07:32,387 - INFO - evaluating now!
+2021-04-27 14:07:35,940 - INFO - Epoch [92/100] train_loss: 294.1152, val_loss: 421.2610, lr: 0.010000, 61.6s
+2021-04-27 14:08:34,135 - INFO - epoch complete!
+2021-04-27 14:08:34,136 - INFO - evaluating now!
+2021-04-27 14:08:37,696 - INFO - Epoch [93/100] train_loss: 293.5684, val_loss: 252.5368, lr: 0.010000, 61.8s
+2021-04-27 14:09:35,759 - INFO - epoch complete!
+2021-04-27 14:09:35,760 - INFO - evaluating now!
+2021-04-27 14:09:39,298 - INFO - Epoch [94/100] train_loss: 294.8924, val_loss: 269.1378, lr: 0.010000, 61.6s
+2021-04-27 14:10:37,249 - INFO - epoch complete!
+2021-04-27 14:10:37,250 - INFO - evaluating now!
+2021-04-27 14:10:40,789 - INFO - Epoch [95/100] train_loss: 296.2975, val_loss: 286.9422, lr: 0.010000, 61.5s
+2021-04-27 14:11:38,835 - INFO - epoch complete!
+2021-04-27 14:11:38,835 - INFO - evaluating now!
+2021-04-27 14:11:42,398 - INFO - Epoch [96/100] train_loss: 284.0306, val_loss: 303.1675, lr: 0.010000, 61.6s
+2021-04-27 14:12:40,479 - INFO - epoch complete!
+2021-04-27 14:12:40,479 - INFO - evaluating now!
+2021-04-27 14:12:43,997 - INFO - Epoch [97/100] train_loss: 295.2547, val_loss: 488.6251, lr: 0.010000, 61.6s
+2021-04-27 14:13:41,908 - INFO - epoch complete!
+2021-04-27 14:13:41,909 - INFO - evaluating now!
+2021-04-27 14:13:45,425 - INFO - Epoch [98/100] train_loss: 294.3316, val_loss: 292.9766, lr: 0.010000, 61.4s
+2021-04-27 14:14:43,577 - INFO - epoch complete!
+2021-04-27 14:14:43,577 - INFO - evaluating now!
+2021-04-27 14:14:47,123 - INFO - Epoch [99/100] train_loss: 285.7300, val_loss: 341.2421, lr: 0.010000, 61.7s
+2021-04-27 14:14:47,372 - INFO - Loaded model at 0
+2021-04-27 14:14:47,372 - INFO - Saved model at ./trafficdl/cache/model_cache/CRANN_METR_LA.m
+2021-04-27 14:14:47,495 - INFO - Start evaluating ...
+2021-04-27 14:15:16,206 - INFO - Evaluate result is {"MAE@1": 5.927835464477539, "MAPE@1": Infinity, "MSE@1": 96.36115264892578, "RMSE@1": 9.81637191772461, "masked_MAE@1": 5.234736442565918, "masked_MSE@1": 59.07768630981445, "masked_RMSE@1": 7.686201095581055, "masked_MAPE@1": 0.12073912471532822, "R2@1": 0.8133585448852421, "EVAR@1": 0.8206638097763062, "MAE@2": 6.1932148933410645, "MAPE@2": Infinity, "MSE@2": 105.62857055664062, "RMSE@2": 10.277576446533203, "masked_MAE@2": 5.354766845703125, "masked_MSE@2": 64.31328582763672, "masked_RMSE@2": 8.019556045532227, "masked_MAPE@2": 0.12259406596422195, "R2@2": 0.7954113683796896, "EVAR@2": 0.7988406419754028, "MAE@3": 6.421888828277588, "MAPE@3": Infinity, "MSE@3": 114.96707916259766, "RMSE@3": 10.722270011901855, "masked_MAE@3": 5.490471363067627, "masked_MSE@3": 69.3056869506836, "masked_RMSE@3": 8.325003623962402, "masked_MAPE@3": 0.12558290362358093, "R2@3": 0.7773210688444482, "EVAR@3": 0.7797912359237671, "MAE@4": 6.7048234939575195, "MAPE@4": Infinity, "MSE@4": 123.739501953125, "RMSE@4": 11.123826026916504, "masked_MAE@4": 5.69409704208374, "masked_MSE@4": 74.77313995361328, "masked_RMSE@4": 8.647146224975586, "masked_MAPE@4": 0.1294979751110077, "R2@4": 0.7603364234377292, "EVAR@4": 0.7616758942604065, "MAE@5": 7.010733604431152, "MAPE@5": Infinity, "MSE@5": 132.610595703125, "RMSE@5": 11.515666961669922, "masked_MAE@5": 5.912600994110107, "masked_MSE@5": 80.25825500488281, "masked_RMSE@5": 8.958697319030762, "masked_MAPE@5": 0.1334330439567566, "R2@5": 0.7431522047593053, "EVAR@5": 0.7438435554504395, "MAE@6": 7.224416732788086, "MAPE@6": Infinity, "MSE@6": 140.5841827392578, "RMSE@6": 11.856820106506348, "masked_MAE@6": 6.018125534057617, "masked_MSE@6": 83.71467590332031, "masked_RMSE@6": 9.149572372436523, "masked_MAPE@6": 0.13634206354618073, "R2@6": 0.7276944919496642, "EVAR@6": 0.7286761999130249, "MAE@7": 7.4647321701049805, "MAPE@7": Infinity, "MSE@7": 148.57481384277344, "RMSE@7": 12.189126968383789, "masked_MAE@7": 6.155753135681152, "masked_MSE@7": 87.30846405029297, "masked_RMSE@7": 9.343899726867676, "masked_MAPE@7": 0.13958631455898285, "R2@7": 0.7122182710178806, "EVAR@7": 0.7133291959762573, "MAE@8": 7.744470119476318, "MAPE@8": Infinity, "MSE@8": 158.81549072265625, "RMSE@8": 12.602201461791992, "masked_MAE@8": 6.333022117614746, "masked_MSE@8": 91.6046371459961, "masked_RMSE@8": 9.57103157043457, "masked_MAPE@8": 0.14432358741760254, "R2@8": 0.6923826257907064, "EVAR@8": 0.6953920722007751, "MAE@9": 8.121079444885254, "MAPE@9": Infinity, "MSE@9": 171.7462921142578, "RMSE@9": 13.10520076751709, "masked_MAE@9": 6.6162333488464355, "masked_MSE@9": 97.87562561035156, "masked_RMSE@9": 9.893211364746094, "masked_MAPE@9": 0.15156100690364838, "R2@9": 0.6673396411864031, "EVAR@9": 0.6746411323547363, "MAE@10": 8.305527687072754, "MAPE@10": Infinity, "MSE@10": 179.50680541992188, "RMSE@10": 13.398015022277832, "masked_MAE@10": 6.709391117095947, "masked_MSE@10": 100.64152526855469, "masked_RMSE@10": 10.032025337219238, "masked_MAPE@10": 0.15459296107292175, "R2@10": 0.6523149351796995, "EVAR@10": 0.6618334650993347, "MAE@11": 8.47758674621582, "MAPE@11": Infinity, "MSE@11": 186.5781707763672, "RMSE@11": 13.659361839294434, "masked_MAE@11": 6.796703815460205, "masked_MSE@11": 103.19277954101562, "masked_RMSE@11": 10.158384323120117, "masked_MAPE@11": 0.1573648303747177, "R2@11": 0.6386258083246041, "EVAR@11": 0.6496734619140625, "MAE@12": 8.613809585571289, "MAPE@12": Infinity, "MSE@12": 192.01206970214844, "RMSE@12": 13.856842041015625, "masked_MAE@12": 6.867427349090576, "masked_MSE@12": 105.46070098876953, "masked_RMSE@12": 10.26940631866455, "masked_MAPE@12": 0.159303680062294, "R2@12": 0.6281077446939174, "EVAR@12": 0.6387900710105896}
+2021-04-27 14:15:16,218 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_27_14_15_16_CRANN_METR_LA.json
+2021-04-27 14:15:16,229 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_27_14_15_16_CRANN_METR_LA.csv
+2021-04-27 14:15:16,244 - INFO - 
+         MAE  MAPE         MSE       RMSE  masked_MAE  masked_MSE  masked_RMSE  masked_MAPE        R2      EVAR
+0   5.927835   inf   96.361153   9.816372    5.234736   59.077686     7.686201     0.120739  0.813359  0.820664
+1   6.193215   inf  105.628571  10.277576    5.354767   64.313286     8.019556     0.122594  0.795411  0.798841
+2   6.421889   inf  114.967079  10.722270    5.490471   69.305687     8.325004     0.125583  0.777321  0.779791
+3   6.704823   inf  123.739502  11.123826    5.694097   74.773140     8.647146     0.129498  0.760336  0.761676
+4   7.010734   inf  132.610596  11.515667    5.912601   80.258255     8.958697     0.133433  0.743152  0.743844
+5   7.224417   inf  140.584183  11.856820    6.018126   83.714676     9.149572     0.136342  0.727694  0.728676
+6   7.464732   inf  148.574814  12.189127    6.155753   87.308464     9.343900     0.139586  0.712218  0.713329
+7   7.744470   inf  158.815491  12.602201    6.333022   91.604637     9.571032     0.144324  0.692383  0.695392
+8   8.121079   inf  171.746292  13.105201    6.616233   97.875626     9.893211     0.151561  0.667340  0.674641
+9   8.305528   inf  179.506805  13.398015    6.709391  100.641525    10.032025     0.154593  0.652315  0.661833
+10  8.477587   inf  186.578171  13.659362    6.796704  103.192780    10.158384     0.157365  0.638626  0.649673
+11  8.613810   inf  192.012070  13.856842    6.867427  105.460701    10.269406     0.159304  0.628108  0.638790

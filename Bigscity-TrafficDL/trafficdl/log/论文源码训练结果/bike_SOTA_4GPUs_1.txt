@@ -1,0 +1,354 @@
+Namespace(BATCH_SIZE=128, MAX_EPOCH=200, always_test=None, conv_filter=64, conv_layer=3, d_model=64, dataset='bike', dff=256, es_epoch=65, es_patience=5, es_threshold=0.01, gpu_ids='0, 1, 2, 3', hyp=[None], index='SOTA_4GPUs', l_half=3, l_half_g=5, load_saved_data=False, memory_growth=False, mixed_precision=False, model_summary=True, n_before=0, n_d=3, n_head=8, n_layer=3, n_p=1, n_pred=12, n_w=1, n_wd_times=1, no_save=False, pre_shuffle=True, r_d=0.1, remove_old_files=True, run_time=10, same_padding=False, st_revert=False, test_model=None, test_name=None, verbose_train=1, warmup_steps=8000, weights=None)
+Start training...
+
+Model: "dsan"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dae (DAE)                    multiple                  1179136   
+_________________________________________________________________
+sad (SAD)                    multiple                  442368    
+_________________________________________________________________
+dense_84 (Dense)             multiple                  130       
+=================================================================
+Total params: 1,621,634
+Trainable params: 1,621,634
+Non-trainable params: 0
+_________________________________________________________________
+Epoch 1 inflow 0.468262 outflow 0.394858
+
+Time taken for 1 epoch: 276.7002923488617 secs
+
+Epoch 2 inflow 0.128674 outflow 0.128693
+
+Time taken for 1 epoch: 110.71724939346313 secs
+
+Epoch 3 inflow 0.055760 outflow 0.059541
+
+Time taken for 1 epoch: 111.19546175003052 secs
+
+Epoch 4 inflow 0.038884 outflow 0.039966
+
+Time taken for 1 epoch: 111.53930282592773 secs
+
+Epoch 5 inflow 0.031417 outflow 0.031853
+
+Time taken for 1 epoch: 111.47511291503906 secs
+
+Epoch 6 inflow 0.026921 outflow 0.027144
+
+Time taken for 1 epoch: 111.14098143577576 secs
+
+Epoch 7 inflow 0.024368 outflow 0.024391
+
+Time taken for 1 epoch: 111.27645444869995 secs
+
+Epoch 8 inflow 0.022694 outflow 0.022942
+
+Time taken for 1 epoch: 112.30643796920776 secs
+
+Epoch 9 inflow 0.021546 outflow 0.021832
+
+Time taken for 1 epoch: 111.6554970741272 secs
+
+Epoch 10 inflow 0.020882 outflow 0.021012
+
+Time taken for 1 epoch: 112.51689052581787 secs
+
+Epoch 11 inflow 0.020069 outflow 0.020196
+
+Time taken for 1 epoch: 111.32922720909119 secs
+
+Epoch 12 inflow 0.019727 outflow 0.020186
+
+Time taken for 1 epoch: 113.5856671333313 secs
+
+Epoch 13 inflow 0.019915 outflow 0.019685
+
+Time taken for 1 epoch: 114.77176976203918 secs
+
+Epoch 14 inflow 0.019326 outflow 0.019307
+
+Time taken for 1 epoch: 111.50833916664124 secs
+
+Epoch 15 inflow 0.018935 outflow 0.018936
+
+Time taken for 1 epoch: 111.11988425254822 secs
+
+Epoch 16 inflow 0.018216 outflow 0.018735
+
+Time taken for 1 epoch: 111.21939706802368 secs
+
+Epoch 17 inflow 0.018057 outflow 0.018427
+
+Time taken for 1 epoch: 111.68348932266235 secs
+
+Epoch 18 inflow 0.017873 outflow 0.018079
+
+Time taken for 1 epoch: 111.34767246246338 secs
+
+Epoch 19 inflow 0.017607 outflow 0.017586
+
+Time taken for 1 epoch: 111.57042121887207 secs
+
+Epoch 20 inflow 0.017252 outflow 0.017393
+
+Time taken for 1 epoch: 111.19624757766724 secs
+
+Epoch 21 inflow 0.016590 outflow 0.017179
+
+Time taken for 1 epoch: 111.09197115898132 secs
+
+Epoch 22 inflow 0.016797 outflow 0.017075
+
+Time taken for 1 epoch: 111.10760879516602 secs
+
+Epoch 23 inflow 0.016221 outflow 0.016735
+
+Time taken for 1 epoch: 110.45358276367188 secs
+
+Epoch 24 inflow 0.016142 outflow 0.016174
+
+Time taken for 1 epoch: 111.11181449890137 secs
+
+Epoch 25 inflow 0.015719 outflow 0.016074
+
+Time taken for 1 epoch: 111.31230330467224 secs
+
+Epoch 26 inflow 0.015870 outflow 0.015730
+
+Time taken for 1 epoch: 112.18711757659912 secs
+
+Epoch 27 inflow 0.015368 outflow 0.015569
+
+Time taken for 1 epoch: 111.64004349708557 secs
+
+Epoch 28 inflow 0.015309 outflow 0.015396
+
+Time taken for 1 epoch: 111.26982355117798 secs
+
+Epoch 29 inflow 0.015025 outflow 0.015265
+
+Time taken for 1 epoch: 110.4768557548523 secs
+
+Epoch 30 inflow 0.014750 outflow 0.014937
+
+Time taken for 1 epoch: 110.20976829528809 secs
+
+Epoch 31 inflow 0.014538 outflow 0.014679
+
+Time taken for 1 epoch: 111.18601679801941 secs
+
+Epoch 32 inflow 0.014124 outflow 0.014667
+
+Time taken for 1 epoch: 111.33676862716675 secs
+
+Epoch 33 inflow 0.014078 outflow 0.014199
+
+Time taken for 1 epoch: 111.42967963218689 secs
+
+Epoch 34 inflow 0.013825 outflow 0.013976
+
+Time taken for 1 epoch: 110.90209913253784 secs
+
+Epoch 35 inflow 0.013765 outflow 0.013846
+
+Time taken for 1 epoch: 111.83382654190063 secs
+
+Epoch 36 inflow 0.013552 outflow 0.013558
+
+Time taken for 1 epoch: 110.99594497680664 secs
+
+Epoch 37 inflow 0.013417 outflow 0.013437
+
+Time taken for 1 epoch: 110.87461948394775 secs
+
+Epoch 38 inflow 0.013420 outflow 0.013378
+
+Time taken for 1 epoch: 110.51208209991455 secs
+
+Epoch 39 inflow 0.013240 outflow 0.013265
+
+Time taken for 1 epoch: 110.67344975471497 secs
+
+Epoch 40 inflow 0.013079 outflow 0.013083
+
+Time taken for 1 epoch: 111.23266315460205 secs
+
+Epoch 41 inflow 0.012989 outflow 0.012942
+
+Time taken for 1 epoch: 111.26885938644409 secs
+
+Epoch 42 inflow 0.012865 outflow 0.012840
+
+Time taken for 1 epoch: 111.59016156196594 secs
+
+Epoch 43 inflow 0.012774 outflow 0.012729
+
+Time taken for 1 epoch: 111.3840696811676 secs
+
+Epoch 44 inflow 0.012724 outflow 0.012655
+
+Time taken for 1 epoch: 111.80776977539062 secs
+
+Epoch 45 inflow 0.012587 outflow 0.012519
+
+Time taken for 1 epoch: 110.94875025749207 secs
+
+Epoch 46 inflow 0.012528 outflow 0.012437
+
+Time taken for 1 epoch: 110.78275990486145 secs
+
+Epoch 47 inflow 0.012435 outflow 0.012350
+
+Time taken for 1 epoch: 110.51502966880798 secs
+
+Epoch 48 inflow 0.012326 outflow 0.012289
+
+Time taken for 1 epoch: 110.54657435417175 secs
+
+Epoch 49 inflow 0.012295 outflow 0.012244
+
+Time taken for 1 epoch: 110.89204049110413 secs
+
+Epoch 50 inflow 0.012180 outflow 0.012111
+
+Time taken for 1 epoch: 110.99091792106628 secs
+
+Epoch 51 inflow 0.012143 outflow 0.012052
+
+Time taken for 1 epoch: 110.72293591499329 secs
+
+Epoch 52 inflow 0.012048 outflow 0.011986
+
+Time taken for 1 epoch: 110.84861874580383 secs
+
+Epoch 53 inflow 0.011943 outflow 0.011819
+
+Time taken for 1 epoch: 110.55109739303589 secs
+
+Epoch 54 inflow 0.011893 outflow 0.011766
+
+Time taken for 1 epoch: 111.9346272945404 secs
+
+Epoch 55 inflow 0.011816 outflow 0.011700
+
+Time taken for 1 epoch: 110.74493765830994 secs
+
+Epoch 56 inflow 0.011734 outflow 0.011643
+
+Time taken for 1 epoch: 111.20211672782898 secs
+
+Epoch 57 inflow 0.011654 outflow 0.011540
+
+Time taken for 1 epoch: 110.36962127685547 secs
+
+Epoch 58 inflow 0.011638 outflow 0.011473
+
+Time taken for 1 epoch: 111.80420231819153 secs
+
+Epoch 59 inflow 0.011550 outflow 0.011400
+
+Time taken for 1 epoch: 111.08245587348938 secs
+
+Epoch 60 inflow 0.011541 outflow 0.011309
+
+Time taken for 1 epoch: 114.99228715896606 secs
+
+Epoch 61 inflow 0.011391 outflow 0.011266
+
+Time taken for 1 epoch: 112.76016211509705 secs
+
+Epoch 62 inflow 0.011354 outflow 0.011197
+
+Time taken for 1 epoch: 111.4695258140564 secs
+
+Epoch 63 inflow 0.011313 outflow 0.011139
+
+Time taken for 1 epoch: 110.70106863975525 secs
+
+Epoch 64 inflow 0.011225 outflow 0.011027
+
+Time taken for 1 epoch: 114.26937985420227 secs
+
+Epoch 65 inflow 0.011184 outflow 0.010989
+
+Time taken for 1 epoch: 111.39833116531372 secs
+
+Epoch 66 inflow 0.011102 outflow 0.010957
+
+Validation Result (Min-Max Norm, filtering out trivial grids):
+Epoch 66 RMSE:
+inflow: 1. 0.025182 2. 0.024310 3. 0.024491 4. 0.024746 5. 0.025384 6. 0.025919 7. 0.027020 8. 0.028241 9. 0.030177 10. 0.031923 11. 0.032305 12. 0.032334
+outflow: 1. 0.024436 2. 0.024209 3. 0.024048 4. 0.024229 5. 0.024865 6. 0.025841 7. 0.027363 8. 0.028993 9. 0.030589 10. 0.031323 11. 0.032588 12. 0.031621
+
+Time taken for 1 epoch: 707.9842214584351 secs
+
+Epoch 67 inflow 0.011055 outflow 0.010873
+
+Validation Result (Min-Max Norm, filtering out trivial grids):
+Epoch 67 RMSE:
+inflow: 1. 0.024800 2. 0.023669 3. 0.024056 4. 0.023984 5. 0.023730 6. 0.023716 7. 0.024824 8. 0.025348 9. 0.026027 10. 0.027444 11. 0.027862 12. 0.027559
+outflow: 1. 0.023599 2. 0.022919 3. 0.022834 4. 0.022667 5. 0.022838 6. 0.022904 7. 0.023680 8. 0.024224 9. 0.025507 10. 0.025862 11. 0.026473 12. 0.025840
+
+Time taken for 1 epoch: 207.56578135490417 secs
+
+Epoch 68 inflow 0.011001 outflow 0.010794
+
+Validation Result (Min-Max Norm, filtering out trivial grids):
+Epoch 68 RMSE:
+inflow: 1. 0.024929 2. 0.025095 3. 0.025865 4. 0.025640 5. 0.025783 6. 0.026177 7. 0.026545 8. 0.026651 9. 0.026861 10. 0.028634 11. 0.028965 12. 0.028930
+outflow: 1. 0.024428 2. 0.024612 3. 0.024916 4. 0.025204 5. 0.025282 6. 0.025231 7. 0.025472 8. 0.026531 9. 0.026912 10. 0.027680 11. 0.028884 12. 0.028142
+
+Time taken for 1 epoch: 208.0148057937622 secs
+
+Epoch 69 inflow 0.010957 outflow 0.010781
+
+Validation Result (Min-Max Norm, filtering out trivial grids):
+Epoch 69 RMSE:
+inflow: 1. 0.024337 2. 0.023495 3. 0.023663 4. 0.023873 5. 0.024365 6. 0.024788 7. 0.026092 8. 0.027562 9. 0.029859 10. 0.031330 11. 0.031514 12. 0.031955
+outflow: 1. 0.024521 2. 0.024346 3. 0.024594 4. 0.024849 5. 0.025895 6. 0.026708 7. 0.028576 8. 0.030188 9. 0.031933 10. 0.032846 11. 0.033608 12. 0.032487
+
+Time taken for 1 epoch: 207.78944158554077 secs
+
+Epoch 70 inflow 0.010888 outflow 0.010703
+
+Validation Result (Min-Max Norm, filtering out trivial grids):
+Epoch 70 RMSE:
+inflow: 1. 0.025755 2. 0.025041 3. 0.025562 4. 0.026363 5. 0.028024 6. 0.030668 7. 0.034394 8. 0.038595 9. 0.041616 10. 0.043262 11. 0.042947 12. 0.043013
+outflow: 1. 0.023646 2. 0.023394 3. 0.023368 4. 0.023665 5. 0.024587 6. 0.026194 7. 0.028381 8. 0.030612 9. 0.032884 10. 0.034136 11. 0.035470 12. 0.034708
+
+Time taken for 1 epoch: 209.06568884849548 secs
+
+Epoch 71 inflow 0.010816 outflow 0.010624
+
+Validation Result (Min-Max Norm, filtering out trivial grids):
+Epoch 71 RMSE:
+inflow: 1. 0.024571 2. 0.023344 3. 0.023572 4. 0.024124 5. 0.024519 6. 0.025613 7. 0.027782 8. 0.030641 9. 0.033193 10. 0.034718 11. 0.034823 12. 0.035298
+outflow: 1. 0.025969 2. 0.025444 3. 0.025797 4. 0.026458 5. 0.027126 6. 0.028692 7. 0.030962 8. 0.032744 9. 0.034362 10. 0.035108 11. 0.036290 12. 0.035291
+
+Time taken for 1 epoch: 208.53705024719238 secs
+
+Epoch 72 inflow 0.010776 outflow 0.010605
+
+Validation Result (Min-Max Norm, filtering out trivial grids):
+Epoch 72 RMSE:
+inflow: 1. 0.025456 2. 0.024532 3. 0.024688 4. 0.025254 5. 0.025336 6. 0.025999 7. 0.026557 8. 0.027071 9. 0.027465 10. 0.028599 11. 0.030122 12. 0.030040
+outflow: 1. 0.022883 2. 0.022337 3. 0.022463 4. 0.022176 5. 0.022544 6. 0.022694 7. 0.023185 8. 0.024060 9. 0.024878 10. 0.025343 11. 0.026806 12. 0.025772
+
+Time taken for 1 epoch: 207.69036030769348 secs
+
+Start testing (filtering out trivial grids):
+Final:
+RMSE:
+inflow: 1. 10.39(0.039651) 2. 10.99(0.041930) 3. 11.25(0.042928) 4. 11.36(0.043365) 5. 11.56(0.044130) 6. 11.67(0.044558) 7. 11.88(0.045361) 8. 12.19(0.046511) 9. 12.58(0.048023) 10. 12.73(0.048604) 11. 12.90(0.049225) 12. 12.71(0.048508)
+outflow: 1. 10.99(0.040102) 2. 11.82(0.043153) 3. 12.15(0.044330) 4. 12.29(0.044864) 5. 12.39(0.045236) 6. 12.49(0.045593) 7. 12.78(0.046645) 8. 12.99(0.047408) 9. 13.13(0.047909) 10. 13.15(0.047995) 11. 13.20(0.048158) 12. 13.24(0.048326)
+MAE:
+inflow: 1. 7.46(0.028470) 2. 7.81(0.029817) 3. 7.99(0.030497) 4. 8.07(0.030794) 5. 8.20(0.031308) 6. 8.26(0.031530) 7. 8.34(0.031816) 8. 8.44(0.032202) 9. 8.56(0.032654) 10. 8.61(0.032871) 11. 8.66(0.033068) 12. 8.65(0.033004)
+outflow: 1. 7.64(0.027895) 2. 8.09(0.029523) 3. 8.28(0.030222) 4. 8.39(0.030621) 5. 8.49(0.030973) 6. 8.55(0.031200) 7. 8.65(0.031574) 8. 8.76(0.031961) 9. 8.82(0.032206) 10. 8.86(0.032336) 11. 8.88(0.032391) 12. 8.89(0.032463)
+MAPE:
+inflow: 1. 23.95 2. 24.97 3. 25.57 4. 25.84 5. 26.24 6. 26.50 7. 26.75 8. 27.16 9. 27.61 10. 27.86 11. 28.02 12. 27.95
+outflow: 1. 24.12 2. 25.41 3. 25.93 4. 26.30 5. 26.63 6. 26.84 7. 27.05 8. 27.39 9. 27.56 10. 27.76 11. 27.82 12. 27.92
+
+Total time taken: 02:51:30
+

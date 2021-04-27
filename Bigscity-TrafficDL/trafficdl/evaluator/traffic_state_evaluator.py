@@ -42,6 +42,7 @@ class TrafficStateEvaluator(AbstractEvaluator):
             raise TypeError('evaluator.collect input is not a dict of user')
         y_true = batch['y_true']  # tensor
         y_pred = batch['y_pred']  # tensor
+        print("evalutate",y_true.shape,y_pred.shape)
         if y_true.shape != y_pred.shape:
             raise ValueError("batch['y_true'].shape is not equal to batch['y_pred'].shape")
         self.len_timeslots = y_true.shape[1]

@@ -258,7 +258,7 @@ class TrafficStateExecutor(AbstractExecutor):
         losses = []
         for batch in train_dataloader:
             self.optimizer.zero_grad()
-            batch.to_tensor(self.device)
+            batch.to_tensor(self.device)     
             loss = loss_func(batch)
             self._logger.debug(loss.item())
             losses.append(loss.item())

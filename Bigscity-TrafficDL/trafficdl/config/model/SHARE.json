@@ -1,0 +1,8 @@
+{
+    "hc_ratio": 0.1,
+    "dropout": 0.5,
+    "alpha": 0.2,
+    "gat_hop": 2,
+    "hid_dim": 32,
+    "nfeat": 2
+}

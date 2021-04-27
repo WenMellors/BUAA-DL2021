@@ -60,6 +60,8 @@ class DeepMove(AbstractModel):
     """rnn model with long-term history attention"""
 
     def __init__(self, config, data_feature):
+
+
         super(DeepMove, self).__init__(config, data_feature)
         self.loc_size = data_feature['loc_size']
         self.loc_emb_size = config['loc_emb_size']

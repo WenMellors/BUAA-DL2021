@@ -89,6 +89,11 @@ class TrajectoryDataset(AbstractDataset):
         min_sessions = self.config['min_sessions']
         window_size = self.config['window_size']
         window_type = self.config['window_type']
+        '''
+        print('\nself.config\n')
+        for i in self.config:
+            print('\t' + str(i) + ' -> ' + str(self.config[i]))
+        '''
         if window_type == 'time_window':
             # 按照时间窗口进行切割
             base_zero = window_size > 12

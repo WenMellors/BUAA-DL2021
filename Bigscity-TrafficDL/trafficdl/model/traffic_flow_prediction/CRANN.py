@@ -6,6 +6,7 @@ from logging import getLogger
 from trafficdl.model import loss
 import configargparse
 
+
 class DotDict(dict):
     """
     Dot notation access to dictionary attributes
@@ -14,6 +15,7 @@ class DotDict(dict):
     __setattr__ = dict.__setitem__
     __delattr__ = dict.__delitem__
 
+    
 class CRANN(AbstractTrafficStateModel):
     def __init__(self,config,data_feature):
         super().__init__(config,data_feature)
@@ -127,9 +129,6 @@ class CRANN(AbstractTrafficStateModel):
         return y_pred
 
 
-
-
-
     def calculate_loss(self, batch):
         """
         输入一个batch的数据，返回训练过程这个batch数据的loss，也就是需要定义一个loss函数。
@@ -155,6 +154,7 @@ class CRANN(AbstractTrafficStateModel):
     def predict(self, batch):
         return self.forward(batch)
 
+    
 #S model
 class AttentionCNN(nn.Module):
     """
@@ -303,6 +303,7 @@ class AttentionBlock(nn.Module):
         out = att_weights.matmul(x.view(N, T, -1).unsqueeze(3))
         return out.view(N, T, W, H), att_weights
 
+    
 #T model
 class EncoderLSTM(nn.Module):
     """
@@ -414,6 +415,7 @@ class BahdanauDecoder(nn.Module):
 
         return output, hidden, attn_weights
 
+    
 #D model
 class MLP(nn.Module):
     """

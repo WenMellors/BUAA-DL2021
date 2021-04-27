@@ -6,6 +6,5 @@
 /trafficdl/*/__pycache__
 /trafficdl/data/dataset/__pycache__
 /.idea
-/trafficdl/log/*
 /trafficdl/model/*/__pycache__
 /trafficdl/data/dataset/trajectory_encoder/__pycache__

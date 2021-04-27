@@ -1,0 +1,638 @@
+2021-04-26 10:49:12,438 - INFO - Log directory: ./trafficdl/log
+2021-04-26 10:49:12,439 - INFO - Begin pipeline, task=traffic_state_pred, model_name=STSGCN, dataset_name=PEMSD3
+2021-04-26 10:49:12,604 - INFO - Loaded file PEMSD3.geo, num_nodes=358
+2021-04-26 10:49:12,608 - INFO - Loaded file PEMSD3.rel, shape=(358, 358)
+2021-04-26 10:49:12,609 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_PEMSD3_12_12_0.7_0.1_standard_32_False_False_True.npz
+2021-04-26 10:49:16,257 - INFO - train	x: (18330, 12, 358, 1)y: (18330, 12, 358, 1)
+2021-04-26 10:49:16,257 - INFO - eval	x: (2618, 12, 358, 1)y: (2618, 12, 358, 1)
+2021-04-26 10:49:16,257 - INFO - test	x: (5237, 12, 358, 1)y: (5237, 12, 358, 1)
+2021-04-26 10:49:16,724 - INFO - StandardScaler mean: 181.61296410164977, std: 144.5518728194348
+2021-04-26 10:49:21,435 - INFO - first_layer_embedding.weight	torch.Size([64, 1])	cuda:0	True
+2021-04-26 10:49:21,435 - INFO - first_layer_embedding.bias	torch.Size([64])	cuda:0	True
+2021-04-26 10:49:21,435 - INFO - stsgcl_layers.0.layer.gcms.0.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,435 - INFO - stsgcl_layers.0.layer.gcms.0.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,435 - INFO - stsgcl_layers.0.layer.gcms.0.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,435 - INFO - stsgcl_layers.0.layer.gcms.0.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.0.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.0.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.1.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.1.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.1.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.1.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.1.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.1.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.2.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.2.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.2.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,436 - INFO - stsgcl_layers.0.layer.gcms.2.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.2.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.2.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.3.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.3.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.3.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.3.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.3.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.3.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.4.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.4.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.4.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,437 - INFO - stsgcl_layers.0.layer.gcms.4.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.4.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.4.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.5.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.5.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.5.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.5.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.5.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.5.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.6.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.6.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.6.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,438 - INFO - stsgcl_layers.0.layer.gcms.6.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.6.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.6.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.7.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.7.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.7.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.7.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.7.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.7.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.8.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.8.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.8.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,439 - INFO - stsgcl_layers.0.layer.gcms.8.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.0.layer.gcms.8.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.0.layer.gcms.8.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.0.layer.gcms.9.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.0.layer.gcms.9.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.0.layer.gcms.9.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.0.layer.gcms.9.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.0.layer.gcms.9.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.0.layer.gcms.9.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.1.layer.gcms.0.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.1.layer.gcms.0.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.1.layer.gcms.0.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,440 - INFO - stsgcl_layers.1.layer.gcms.0.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.0.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.0.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.1.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.1.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.1.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.1.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.1.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.1.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.2.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.2.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.2.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,441 - INFO - stsgcl_layers.1.layer.gcms.2.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.2.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.2.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.3.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.3.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.3.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.3.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.3.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.3.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.4.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.4.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.4.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,442 - INFO - stsgcl_layers.1.layer.gcms.4.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.4.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.4.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.5.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.5.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.5.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.5.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.5.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.5.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.6.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.6.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.6.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,443 - INFO - stsgcl_layers.1.layer.gcms.6.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.1.layer.gcms.6.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.1.layer.gcms.6.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.1.layer.gcms.7.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.1.layer.gcms.7.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.1.layer.gcms.7.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.1.layer.gcms.7.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.1.layer.gcms.7.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.1.layer.gcms.7.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.2.layer.gcms.0.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.2.layer.gcms.0.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.2.layer.gcms.0.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,444 - INFO - stsgcl_layers.2.layer.gcms.0.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.0.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.0.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.1.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.1.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.1.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.1.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.1.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.1.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.2.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.2.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.2.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,445 - INFO - stsgcl_layers.2.layer.gcms.2.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.2.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.2.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.3.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.3.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.3.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.3.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.3.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.3.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.4.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.4.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.4.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,446 - INFO - stsgcl_layers.2.layer.gcms.4.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.2.layer.gcms.4.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.2.layer.gcms.4.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.2.layer.gcms.5.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.2.layer.gcms.5.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.2.layer.gcms.5.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.2.layer.gcms.5.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.2.layer.gcms.5.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.2.layer.gcms.5.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.3.layer.gcms.0.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.3.layer.gcms.0.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,447 - INFO - stsgcl_layers.3.layer.gcms.0.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.0.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.0.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.0.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.1.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.1.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.1.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.1.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.1.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.1.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.2.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.2.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.2.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,448 - INFO - stsgcl_layers.3.layer.gcms.2.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - stsgcl_layers.3.layer.gcms.2.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - stsgcl_layers.3.layer.gcms.2.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - stsgcl_layers.3.layer.gcms.3.layers.0.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - stsgcl_layers.3.layer.gcms.3.layers.0.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - stsgcl_layers.3.layer.gcms.3.layers.1.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - stsgcl_layers.3.layer.gcms.3.layers.1.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - stsgcl_layers.3.layer.gcms.3.layers.2.layer.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - stsgcl_layers.3.layer.gcms.3.layers.2.layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - outputs.0.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - outputs.0.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - outputs.0.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,449 - INFO - outputs.0.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.1.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.1.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.1.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.1.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.2.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.2.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.2.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.2.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.3.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.3.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.3.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,450 - INFO - outputs.3.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.4.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.4.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.4.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.4.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.5.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.5.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.5.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.5.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.6.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.6.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.6.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,451 - INFO - outputs.6.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.7.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.7.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.7.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.7.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.8.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.8.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.8.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.8.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.9.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.9.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.9.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,452 - INFO - outputs.9.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,453 - INFO - outputs.10.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,453 - INFO - outputs.10.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,453 - INFO - outputs.10.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,453 - INFO - outputs.10.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,453 - INFO - outputs.11.hidden_layer.weight	torch.Size([128, 256])	cuda:0	True
+2021-04-26 10:49:21,453 - INFO - outputs.11.hidden_layer.bias	torch.Size([128])	cuda:0	True
+2021-04-26 10:49:21,453 - INFO - outputs.11.ouput_layer.weight	torch.Size([1, 128])	cuda:0	True
+2021-04-26 10:49:21,453 - INFO - outputs.11.ouput_layer.bias	torch.Size([1])	cuda:0	True
+2021-04-26 10:49:21,454 - INFO - Total parameter numbers: 1095308
+2021-04-26 10:49:21,455 - INFO - Start training ...
+2021-04-26 10:49:21,455 - INFO - num_batches:573
+2021-04-26 10:52:33,090 - INFO - epoch complete!
+2021-04-26 10:52:33,090 - INFO - evaluating now!
+2021-04-26 10:52:43,807 - INFO - Epoch [0/100] train_loss: 0.6303, val_loss: 0.2175, lr: 0.000100, 202.4s
+2021-04-26 10:52:43,830 - INFO - Saved model at 0
+2021-04-26 10:52:43,830 - INFO - Val loss decrease from inf to 0.2175, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch0.tar
+2021-04-26 10:55:55,154 - INFO - epoch complete!
+2021-04-26 10:55:55,154 - INFO - evaluating now!
+2021-04-26 10:56:06,063 - INFO - Epoch [1/100] train_loss: 0.1717, val_loss: 0.1230, lr: 0.000100, 202.2s
+2021-04-26 10:56:06,086 - INFO - Saved model at 1
+2021-04-26 10:56:06,087 - INFO - Val loss decrease from 0.2175 to 0.1230, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch1.tar
+2021-04-26 10:59:17,332 - INFO - epoch complete!
+2021-04-26 10:59:17,333 - INFO - evaluating now!
+2021-04-26 10:59:28,083 - INFO - Epoch [2/100] train_loss: 0.0959, val_loss: 0.0805, lr: 0.000100, 202.0s
+2021-04-26 10:59:28,106 - INFO - Saved model at 2
+2021-04-26 10:59:28,106 - INFO - Val loss decrease from 0.1230 to 0.0805, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch2.tar
+2021-04-26 11:02:39,124 - INFO - epoch complete!
+2021-04-26 11:02:39,125 - INFO - evaluating now!
+2021-04-26 11:02:49,965 - INFO - Epoch [3/100] train_loss: 0.0703, val_loss: 0.0605, lr: 0.000100, 201.9s
+2021-04-26 11:02:49,989 - INFO - Saved model at 3
+2021-04-26 11:02:49,989 - INFO - Val loss decrease from 0.0805 to 0.0605, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch3.tar
+2021-04-26 11:06:00,889 - INFO - epoch complete!
+2021-04-26 11:06:00,890 - INFO - evaluating now!
+2021-04-26 11:06:11,662 - INFO - Epoch [4/100] train_loss: 0.0572, val_loss: 0.0537, lr: 0.000100, 201.7s
+2021-04-26 11:06:11,685 - INFO - Saved model at 4
+2021-04-26 11:06:11,685 - INFO - Val loss decrease from 0.0605 to 0.0537, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch4.tar
+2021-04-26 11:09:22,460 - INFO - epoch complete!
+2021-04-26 11:09:22,460 - INFO - evaluating now!
+2021-04-26 11:09:33,207 - INFO - Epoch [5/100] train_loss: 0.0505, val_loss: 0.0493, lr: 0.000100, 201.5s
+2021-04-26 11:09:33,230 - INFO - Saved model at 5
+2021-04-26 11:09:33,230 - INFO - Val loss decrease from 0.0537 to 0.0493, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch5.tar
+2021-04-26 11:12:43,947 - INFO - epoch complete!
+2021-04-26 11:12:43,948 - INFO - evaluating now!
+2021-04-26 11:12:54,569 - INFO - Epoch [6/100] train_loss: 0.0453, val_loss: 0.0435, lr: 0.000100, 201.3s
+2021-04-26 11:12:54,593 - INFO - Saved model at 6
+2021-04-26 11:12:54,594 - INFO - Val loss decrease from 0.0493 to 0.0435, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch6.tar
+2021-04-26 11:16:05,120 - INFO - epoch complete!
+2021-04-26 11:16:05,120 - INFO - evaluating now!
+2021-04-26 11:16:15,734 - INFO - Epoch [7/100] train_loss: 0.0488, val_loss: 0.0403, lr: 0.000100, 201.1s
+2021-04-26 11:16:15,757 - INFO - Saved model at 7
+2021-04-26 11:16:15,757 - INFO - Val loss decrease from 0.0435 to 0.0403, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch7.tar
+2021-04-26 11:19:26,199 - INFO - epoch complete!
+2021-04-26 11:19:26,200 - INFO - evaluating now!
+2021-04-26 11:19:36,808 - INFO - Epoch [8/100] train_loss: 0.0381, val_loss: 0.0361, lr: 0.000100, 201.1s
+2021-04-26 11:19:36,832 - INFO - Saved model at 8
+2021-04-26 11:19:36,832 - INFO - Val loss decrease from 0.0403 to 0.0361, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch8.tar
+2021-04-26 11:22:47,248 - INFO - epoch complete!
+2021-04-26 11:22:47,248 - INFO - evaluating now!
+2021-04-26 11:22:57,875 - INFO - Epoch [9/100] train_loss: 0.0343, val_loss: 0.0411, lr: 0.000100, 201.0s
+2021-04-26 11:26:08,131 - INFO - epoch complete!
+2021-04-26 11:26:08,131 - INFO - evaluating now!
+2021-04-26 11:26:18,774 - INFO - Epoch [10/100] train_loss: 0.0326, val_loss: 0.0313, lr: 0.000100, 200.9s
+2021-04-26 11:26:18,797 - INFO - Saved model at 10
+2021-04-26 11:26:18,797 - INFO - Val loss decrease from 0.0361 to 0.0313, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch10.tar
+2021-04-26 11:29:28,993 - INFO - epoch complete!
+2021-04-26 11:29:28,993 - INFO - evaluating now!
+2021-04-26 11:29:39,705 - INFO - Epoch [11/100] train_loss: 0.0313, val_loss: 0.0317, lr: 0.000100, 200.9s
+2021-04-26 11:32:49,836 - INFO - epoch complete!
+2021-04-26 11:32:49,837 - INFO - evaluating now!
+2021-04-26 11:33:00,474 - INFO - Epoch [12/100] train_loss: 0.0294, val_loss: 0.0297, lr: 0.000100, 200.8s
+2021-04-26 11:33:00,535 - INFO - Saved model at 12
+2021-04-26 11:33:00,535 - INFO - Val loss decrease from 0.0313 to 0.0297, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch12.tar
+2021-04-26 11:36:10,630 - INFO - epoch complete!
+2021-04-26 11:36:10,631 - INFO - evaluating now!
+2021-04-26 11:36:21,231 - INFO - Epoch [13/100] train_loss: 0.0290, val_loss: 0.0271, lr: 0.000100, 200.7s
+2021-04-26 11:36:21,254 - INFO - Saved model at 13
+2021-04-26 11:36:21,255 - INFO - Val loss decrease from 0.0297 to 0.0271, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch13.tar
+2021-04-26 11:39:31,246 - INFO - epoch complete!
+2021-04-26 11:39:31,247 - INFO - evaluating now!
+2021-04-26 11:39:41,884 - INFO - Epoch [14/100] train_loss: 0.0281, val_loss: 0.0272, lr: 0.000100, 200.6s
+2021-04-26 11:42:51,809 - INFO - epoch complete!
+2021-04-26 11:42:51,810 - INFO - evaluating now!
+2021-04-26 11:43:02,384 - INFO - Epoch [15/100] train_loss: 0.0278, val_loss: 0.0264, lr: 0.000100, 200.5s
+2021-04-26 11:43:02,407 - INFO - Saved model at 15
+2021-04-26 11:43:02,407 - INFO - Val loss decrease from 0.0271 to 0.0264, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch15.tar
+2021-04-26 11:46:12,183 - INFO - epoch complete!
+2021-04-26 11:46:12,184 - INFO - evaluating now!
+2021-04-26 11:46:22,732 - INFO - Epoch [16/100] train_loss: 0.0271, val_loss: 0.0257, lr: 0.000100, 200.3s
+2021-04-26 11:46:22,754 - INFO - Saved model at 16
+2021-04-26 11:46:22,754 - INFO - Val loss decrease from 0.0264 to 0.0257, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch16.tar
+2021-04-26 11:49:32,501 - INFO - epoch complete!
+2021-04-26 11:49:32,502 - INFO - evaluating now!
+2021-04-26 11:49:43,176 - INFO - Epoch [17/100] train_loss: 0.0266, val_loss: 0.0251, lr: 0.000100, 200.4s
+2021-04-26 11:49:43,198 - INFO - Saved model at 17
+2021-04-26 11:49:43,199 - INFO - Val loss decrease from 0.0257 to 0.0251, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch17.tar
+2021-04-26 11:52:52,894 - INFO - epoch complete!
+2021-04-26 11:52:52,895 - INFO - evaluating now!
+2021-04-26 11:53:03,486 - INFO - Epoch [18/100] train_loss: 0.0260, val_loss: 0.0251, lr: 0.000100, 200.3s
+2021-04-26 11:56:13,169 - INFO - epoch complete!
+2021-04-26 11:56:13,169 - INFO - evaluating now!
+2021-04-26 11:56:23,810 - INFO - Epoch [19/100] train_loss: 0.0259, val_loss: 0.0256, lr: 0.000100, 200.3s
+2021-04-26 11:59:33,468 - INFO - epoch complete!
+2021-04-26 11:59:33,469 - INFO - evaluating now!
+2021-04-26 11:59:44,077 - INFO - Epoch [20/100] train_loss: 0.0255, val_loss: 0.0244, lr: 0.000100, 200.3s
+2021-04-26 11:59:44,099 - INFO - Saved model at 20
+2021-04-26 11:59:44,099 - INFO - Val loss decrease from 0.0251 to 0.0244, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch20.tar
+2021-04-26 12:02:53,785 - INFO - epoch complete!
+2021-04-26 12:02:53,786 - INFO - evaluating now!
+2021-04-26 12:03:04,419 - INFO - Epoch [21/100] train_loss: 0.0248, val_loss: 0.0239, lr: 0.000100, 200.3s
+2021-04-26 12:03:04,442 - INFO - Saved model at 21
+2021-04-26 12:03:04,442 - INFO - Val loss decrease from 0.0244 to 0.0239, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch21.tar
+2021-04-26 12:06:14,164 - INFO - epoch complete!
+2021-04-26 12:06:14,165 - INFO - evaluating now!
+2021-04-26 12:06:24,778 - INFO - Epoch [22/100] train_loss: 0.0242, val_loss: 0.0253, lr: 0.000100, 200.3s
+2021-04-26 12:09:34,423 - INFO - epoch complete!
+2021-04-26 12:09:34,424 - INFO - evaluating now!
+2021-04-26 12:09:45,101 - INFO - Epoch [23/100] train_loss: 0.0242, val_loss: 0.0237, lr: 0.000100, 200.3s
+2021-04-26 12:09:45,124 - INFO - Saved model at 23
+2021-04-26 12:09:45,124 - INFO - Val loss decrease from 0.0239 to 0.0237, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch23.tar
+2021-04-26 12:12:55,038 - INFO - epoch complete!
+2021-04-26 12:12:55,039 - INFO - evaluating now!
+2021-04-26 12:13:05,647 - INFO - Epoch [24/100] train_loss: 0.0240, val_loss: 0.0247, lr: 0.000100, 200.5s
+2021-04-26 12:16:15,983 - INFO - epoch complete!
+2021-04-26 12:16:15,984 - INFO - evaluating now!
+2021-04-26 12:16:26,605 - INFO - Epoch [25/100] train_loss: 0.0238, val_loss: 0.0247, lr: 0.000100, 201.0s
+2021-04-26 12:19:37,176 - INFO - epoch complete!
+2021-04-26 12:19:37,177 - INFO - evaluating now!
+2021-04-26 12:19:47,741 - INFO - Epoch [26/100] train_loss: 0.0234, val_loss: 0.0233, lr: 0.000100, 201.1s
+2021-04-26 12:19:47,765 - INFO - Saved model at 26
+2021-04-26 12:19:47,765 - INFO - Val loss decrease from 0.0237 to 0.0233, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch26.tar
+2021-04-26 12:22:58,466 - INFO - epoch complete!
+2021-04-26 12:22:58,467 - INFO - evaluating now!
+2021-04-26 12:23:09,095 - INFO - Epoch [27/100] train_loss: 0.0235, val_loss: 0.0224, lr: 0.000100, 201.3s
+2021-04-26 12:23:09,118 - INFO - Saved model at 27
+2021-04-26 12:23:09,118 - INFO - Val loss decrease from 0.0233 to 0.0224, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch27.tar
+2021-04-26 12:26:19,822 - INFO - epoch complete!
+2021-04-26 12:26:19,823 - INFO - evaluating now!
+2021-04-26 12:26:30,443 - INFO - Epoch [28/100] train_loss: 0.0230, val_loss: 0.0230, lr: 0.000100, 201.3s
+2021-04-26 12:29:41,189 - INFO - epoch complete!
+2021-04-26 12:29:41,190 - INFO - evaluating now!
+2021-04-26 12:29:51,793 - INFO - Epoch [29/100] train_loss: 0.0228, val_loss: 0.0249, lr: 0.000100, 201.3s
+2021-04-26 12:33:02,544 - INFO - epoch complete!
+2021-04-26 12:33:02,545 - INFO - evaluating now!
+2021-04-26 12:33:13,165 - INFO - Epoch [30/100] train_loss: 0.0227, val_loss: 0.0230, lr: 0.000100, 201.4s
+2021-04-26 12:36:23,963 - INFO - epoch complete!
+2021-04-26 12:36:23,963 - INFO - evaluating now!
+2021-04-26 12:36:34,629 - INFO - Epoch [31/100] train_loss: 0.0223, val_loss: 0.0223, lr: 0.000100, 201.5s
+2021-04-26 12:36:34,653 - INFO - Saved model at 31
+2021-04-26 12:36:34,653 - INFO - Val loss decrease from 0.0224 to 0.0223, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch31.tar
+2021-04-26 12:39:45,499 - INFO - epoch complete!
+2021-04-26 12:39:45,499 - INFO - evaluating now!
+2021-04-26 12:39:56,141 - INFO - Epoch [32/100] train_loss: 0.0223, val_loss: 0.0235, lr: 0.000100, 201.5s
+2021-04-26 12:43:06,933 - INFO - epoch complete!
+2021-04-26 12:43:06,934 - INFO - evaluating now!
+2021-04-26 12:43:17,580 - INFO - Epoch [33/100] train_loss: 0.0221, val_loss: 0.0216, lr: 0.000100, 201.4s
+2021-04-26 12:43:17,604 - INFO - Saved model at 33
+2021-04-26 12:43:17,604 - INFO - Val loss decrease from 0.0223 to 0.0216, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch33.tar
+2021-04-26 12:46:28,283 - INFO - epoch complete!
+2021-04-26 12:46:28,284 - INFO - evaluating now!
+2021-04-26 12:46:38,952 - INFO - Epoch [34/100] train_loss: 0.0219, val_loss: 0.0233, lr: 0.000100, 201.3s
+2021-04-26 12:49:49,625 - INFO - epoch complete!
+2021-04-26 12:49:49,625 - INFO - evaluating now!
+2021-04-26 12:50:00,208 - INFO - Epoch [35/100] train_loss: 0.0217, val_loss: 0.0234, lr: 0.000100, 201.3s
+2021-04-26 12:53:10,837 - INFO - epoch complete!
+2021-04-26 12:53:10,838 - INFO - evaluating now!
+2021-04-26 12:53:21,496 - INFO - Epoch [36/100] train_loss: 0.0218, val_loss: 0.0216, lr: 0.000100, 201.3s
+2021-04-26 12:56:31,890 - INFO - epoch complete!
+2021-04-26 12:56:31,890 - INFO - evaluating now!
+2021-04-26 12:56:42,517 - INFO - Epoch [37/100] train_loss: 0.0214, val_loss: 0.0215, lr: 0.000100, 201.0s
+2021-04-26 12:56:42,540 - INFO - Saved model at 37
+2021-04-26 12:56:42,540 - INFO - Val loss decrease from 0.0216 to 0.0215, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch37.tar
+2021-04-26 12:59:52,602 - INFO - epoch complete!
+2021-04-26 12:59:52,602 - INFO - evaluating now!
+2021-04-26 13:00:03,184 - INFO - Epoch [38/100] train_loss: 0.0215, val_loss: 0.0219, lr: 0.000100, 200.6s
+2021-04-26 13:03:12,871 - INFO - epoch complete!
+2021-04-26 13:03:12,872 - INFO - evaluating now!
+2021-04-26 13:03:23,444 - INFO - Epoch [39/100] train_loss: 0.0213, val_loss: 0.0214, lr: 0.000100, 200.3s
+2021-04-26 13:03:23,468 - INFO - Saved model at 39
+2021-04-26 13:03:23,468 - INFO - Val loss decrease from 0.0215 to 0.0214, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch39.tar
+2021-04-26 13:06:33,163 - INFO - epoch complete!
+2021-04-26 13:06:33,163 - INFO - evaluating now!
+2021-04-26 13:06:43,775 - INFO - Epoch [40/100] train_loss: 0.0210, val_loss: 0.0212, lr: 0.000100, 200.3s
+2021-04-26 13:06:43,798 - INFO - Saved model at 40
+2021-04-26 13:06:43,798 - INFO - Val loss decrease from 0.0214 to 0.0212, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch40.tar
+2021-04-26 13:09:53,545 - INFO - epoch complete!
+2021-04-26 13:09:53,545 - INFO - evaluating now!
+2021-04-26 13:10:04,206 - INFO - Epoch [41/100] train_loss: 0.0208, val_loss: 0.0214, lr: 0.000100, 200.4s
+2021-04-26 13:13:14,023 - INFO - epoch complete!
+2021-04-26 13:13:14,023 - INFO - evaluating now!
+2021-04-26 13:13:24,621 - INFO - Epoch [42/100] train_loss: 0.0208, val_loss: 0.0222, lr: 0.000100, 200.4s
+2021-04-26 13:16:34,468 - INFO - epoch complete!
+2021-04-26 13:16:34,468 - INFO - evaluating now!
+2021-04-26 13:16:45,044 - INFO - Epoch [43/100] train_loss: 0.0207, val_loss: 0.0219, lr: 0.000100, 200.4s
+2021-04-26 13:19:54,766 - INFO - epoch complete!
+2021-04-26 13:19:54,766 - INFO - evaluating now!
+2021-04-26 13:20:05,342 - INFO - Epoch [44/100] train_loss: 0.0205, val_loss: 0.0212, lr: 0.000100, 200.3s
+2021-04-26 13:23:15,118 - INFO - epoch complete!
+2021-04-26 13:23:15,119 - INFO - evaluating now!
+2021-04-26 13:23:25,710 - INFO - Epoch [45/100] train_loss: 0.0204, val_loss: 0.0207, lr: 0.000100, 200.4s
+2021-04-26 13:23:25,731 - INFO - Saved model at 45
+2021-04-26 13:23:25,731 - INFO - Val loss decrease from 0.0212 to 0.0207, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch45.tar
+2021-04-26 13:26:35,437 - INFO - epoch complete!
+2021-04-26 13:26:35,438 - INFO - evaluating now!
+2021-04-26 13:26:46,010 - INFO - Epoch [46/100] train_loss: 0.0204, val_loss: 0.0220, lr: 0.000100, 200.3s
+2021-04-26 13:29:55,706 - INFO - epoch complete!
+2021-04-26 13:29:55,706 - INFO - evaluating now!
+2021-04-26 13:30:06,330 - INFO - Epoch [47/100] train_loss: 0.0204, val_loss: 0.0207, lr: 0.000100, 200.3s
+2021-04-26 13:33:16,017 - INFO - epoch complete!
+2021-04-26 13:33:16,017 - INFO - evaluating now!
+2021-04-26 13:33:26,585 - INFO - Epoch [48/100] train_loss: 0.0202, val_loss: 0.0209, lr: 0.000100, 200.3s
+2021-04-26 13:36:36,210 - INFO - epoch complete!
+2021-04-26 13:36:36,210 - INFO - evaluating now!
+2021-04-26 13:36:46,776 - INFO - Epoch [49/100] train_loss: 0.0202, val_loss: 0.0208, lr: 0.000100, 200.2s
+2021-04-26 13:39:56,374 - INFO - epoch complete!
+2021-04-26 13:39:56,374 - INFO - evaluating now!
+2021-04-26 13:40:06,989 - INFO - Epoch [50/100] train_loss: 0.0201, val_loss: 0.0202, lr: 0.000100, 200.2s
+2021-04-26 13:40:07,012 - INFO - Saved model at 50
+2021-04-26 13:40:07,012 - INFO - Val loss decrease from 0.0207 to 0.0202, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch50.tar
+2021-04-26 13:43:16,570 - INFO - epoch complete!
+2021-04-26 13:43:16,570 - INFO - evaluating now!
+2021-04-26 13:43:27,155 - INFO - Epoch [51/100] train_loss: 0.0198, val_loss: 0.0203, lr: 0.000100, 200.1s
+2021-04-26 13:46:36,721 - INFO - epoch complete!
+2021-04-26 13:46:36,722 - INFO - evaluating now!
+2021-04-26 13:46:47,314 - INFO - Epoch [52/100] train_loss: 0.0200, val_loss: 0.0207, lr: 0.000100, 200.2s
+2021-04-26 13:49:56,876 - INFO - epoch complete!
+2021-04-26 13:49:56,877 - INFO - evaluating now!
+2021-04-26 13:50:07,478 - INFO - Epoch [53/100] train_loss: 0.0197, val_loss: 0.0202, lr: 0.000100, 200.2s
+2021-04-26 13:53:17,123 - INFO - epoch complete!
+2021-04-26 13:53:17,124 - INFO - evaluating now!
+2021-04-26 13:53:27,705 - INFO - Epoch [54/100] train_loss: 0.0196, val_loss: 0.0201, lr: 0.000100, 200.2s
+2021-04-26 13:53:27,727 - INFO - Saved model at 54
+2021-04-26 13:53:27,727 - INFO - Val loss decrease from 0.0202 to 0.0201, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch54.tar
+2021-04-26 13:56:37,287 - INFO - epoch complete!
+2021-04-26 13:56:37,287 - INFO - evaluating now!
+2021-04-26 13:56:47,846 - INFO - Epoch [55/100] train_loss: 0.0195, val_loss: 0.0204, lr: 0.000100, 200.1s
+2021-04-26 13:59:57,371 - INFO - epoch complete!
+2021-04-26 13:59:57,372 - INFO - evaluating now!
+2021-04-26 14:00:07,972 - INFO - Epoch [56/100] train_loss: 0.0195, val_loss: 0.0218, lr: 0.000100, 200.1s
+2021-04-26 14:03:17,589 - INFO - epoch complete!
+2021-04-26 14:03:17,589 - INFO - evaluating now!
+2021-04-26 14:03:28,158 - INFO - Epoch [57/100] train_loss: 0.0195, val_loss: 0.0222, lr: 0.000100, 200.2s
+2021-04-26 14:06:37,532 - INFO - epoch complete!
+2021-04-26 14:06:37,532 - INFO - evaluating now!
+2021-04-26 14:06:48,083 - INFO - Epoch [58/100] train_loss: 0.0193, val_loss: 0.0200, lr: 0.000100, 199.9s
+2021-04-26 14:06:48,106 - INFO - Saved model at 58
+2021-04-26 14:06:48,106 - INFO - Val loss decrease from 0.0201 to 0.0200, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch58.tar
+2021-04-26 14:09:57,442 - INFO - epoch complete!
+2021-04-26 14:09:57,442 - INFO - evaluating now!
+2021-04-26 14:10:08,006 - INFO - Epoch [59/100] train_loss: 0.0193, val_loss: 0.0200, lr: 0.000100, 199.9s
+2021-04-26 14:10:08,029 - INFO - Saved model at 59
+2021-04-26 14:10:08,029 - INFO - Val loss decrease from 0.0200 to 0.0200, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch59.tar
+2021-04-26 14:13:17,352 - INFO - epoch complete!
+2021-04-26 14:13:17,353 - INFO - evaluating now!
+2021-04-26 14:13:27,896 - INFO - Epoch [60/100] train_loss: 0.0193, val_loss: 0.0201, lr: 0.000100, 199.9s
+2021-04-26 14:16:37,239 - INFO - epoch complete!
+2021-04-26 14:16:37,240 - INFO - evaluating now!
+2021-04-26 14:16:47,850 - INFO - Epoch [61/100] train_loss: 0.0192, val_loss: 0.0199, lr: 0.000100, 200.0s
+2021-04-26 14:16:47,873 - INFO - Saved model at 61
+2021-04-26 14:16:47,874 - INFO - Val loss decrease from 0.0200 to 0.0199, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch61.tar
+2021-04-26 14:19:57,346 - INFO - epoch complete!
+2021-04-26 14:19:57,346 - INFO - evaluating now!
+2021-04-26 14:20:07,925 - INFO - Epoch [62/100] train_loss: 0.0192, val_loss: 0.0204, lr: 0.000100, 200.1s
+2021-04-26 14:23:17,433 - INFO - epoch complete!
+2021-04-26 14:23:17,434 - INFO - evaluating now!
+2021-04-26 14:23:27,996 - INFO - Epoch [63/100] train_loss: 0.0191, val_loss: 0.0207, lr: 0.000100, 200.1s
+2021-04-26 14:26:37,606 - INFO - epoch complete!
+2021-04-26 14:26:37,606 - INFO - evaluating now!
+2021-04-26 14:26:48,216 - INFO - Epoch [64/100] train_loss: 0.0189, val_loss: 0.0201, lr: 0.000100, 200.2s
+2021-04-26 14:29:57,826 - INFO - epoch complete!
+2021-04-26 14:29:57,827 - INFO - evaluating now!
+2021-04-26 14:30:08,427 - INFO - Epoch [65/100] train_loss: 0.0190, val_loss: 0.0204, lr: 0.000100, 200.2s
+2021-04-26 14:33:18,212 - INFO - epoch complete!
+2021-04-26 14:33:18,212 - INFO - evaluating now!
+2021-04-26 14:33:28,818 - INFO - Epoch [66/100] train_loss: 0.0189, val_loss: 0.0197, lr: 0.000100, 200.4s
+2021-04-26 14:33:28,842 - INFO - Saved model at 66
+2021-04-26 14:33:28,842 - INFO - Val loss decrease from 0.0199 to 0.0197, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch66.tar
+2021-04-26 14:36:38,636 - INFO - epoch complete!
+2021-04-26 14:36:38,637 - INFO - evaluating now!
+2021-04-26 14:36:49,208 - INFO - Epoch [67/100] train_loss: 0.0188, val_loss: 0.0197, lr: 0.000100, 200.4s
+2021-04-26 14:39:58,941 - INFO - epoch complete!
+2021-04-26 14:39:58,941 - INFO - evaluating now!
+2021-04-26 14:40:09,551 - INFO - Epoch [68/100] train_loss: 0.0187, val_loss: 0.0195, lr: 0.000100, 200.3s
+2021-04-26 14:40:09,574 - INFO - Saved model at 68
+2021-04-26 14:40:09,574 - INFO - Val loss decrease from 0.0197 to 0.0195, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch68.tar
+2021-04-26 14:43:19,159 - INFO - epoch complete!
+2021-04-26 14:43:19,159 - INFO - evaluating now!
+2021-04-26 14:43:29,795 - INFO - Epoch [69/100] train_loss: 0.0187, val_loss: 0.0195, lr: 0.000100, 200.2s
+2021-04-26 14:46:39,409 - INFO - epoch complete!
+2021-04-26 14:46:39,409 - INFO - evaluating now!
+2021-04-26 14:46:50,037 - INFO - Epoch [70/100] train_loss: 0.0186, val_loss: 0.0202, lr: 0.000100, 200.2s
+2021-04-26 14:49:59,674 - INFO - epoch complete!
+2021-04-26 14:49:59,674 - INFO - evaluating now!
+2021-04-26 14:50:10,233 - INFO - Epoch [71/100] train_loss: 0.0186, val_loss: 0.0195, lr: 0.000100, 200.2s
+2021-04-26 14:50:10,254 - INFO - Saved model at 71
+2021-04-26 14:50:10,254 - INFO - Val loss decrease from 0.0195 to 0.0195, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch71.tar
+2021-04-26 14:53:19,852 - INFO - epoch complete!
+2021-04-26 14:53:19,852 - INFO - evaluating now!
+2021-04-26 14:53:30,424 - INFO - Epoch [72/100] train_loss: 0.0185, val_loss: 0.0192, lr: 0.000100, 200.2s
+2021-04-26 14:53:30,446 - INFO - Saved model at 72
+2021-04-26 14:53:30,446 - INFO - Val loss decrease from 0.0195 to 0.0192, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch72.tar
+2021-04-26 14:56:39,992 - INFO - epoch complete!
+2021-04-26 14:56:39,993 - INFO - evaluating now!
+2021-04-26 14:56:50,563 - INFO - Epoch [73/100] train_loss: 0.0185, val_loss: 0.0204, lr: 0.000100, 200.1s
+2021-04-26 15:00:00,170 - INFO - epoch complete!
+2021-04-26 15:00:00,171 - INFO - evaluating now!
+2021-04-26 15:00:10,806 - INFO - Epoch [74/100] train_loss: 0.0184, val_loss: 0.0193, lr: 0.000100, 200.2s
+2021-04-26 15:03:20,526 - INFO - epoch complete!
+2021-04-26 15:03:20,527 - INFO - evaluating now!
+2021-04-26 15:03:31,176 - INFO - Epoch [75/100] train_loss: 0.0182, val_loss: 0.0193, lr: 0.000100, 200.4s
+2021-04-26 15:06:41,007 - INFO - epoch complete!
+2021-04-26 15:06:41,008 - INFO - evaluating now!
+2021-04-26 15:06:51,648 - INFO - Epoch [76/100] train_loss: 0.0184, val_loss: 0.0192, lr: 0.000100, 200.5s
+2021-04-26 15:06:51,669 - INFO - Saved model at 76
+2021-04-26 15:06:51,669 - INFO - Val loss decrease from 0.0192 to 0.0192, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch76.tar
+2021-04-26 15:10:01,538 - INFO - epoch complete!
+2021-04-26 15:10:01,540 - INFO - evaluating now!
+2021-04-26 15:10:12,107 - INFO - Epoch [77/100] train_loss: 0.0182, val_loss: 0.0191, lr: 0.000100, 200.4s
+2021-04-26 15:10:12,129 - INFO - Saved model at 77
+2021-04-26 15:10:12,130 - INFO - Val loss decrease from 0.0192 to 0.0191, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch77.tar
+2021-04-26 15:13:22,315 - INFO - epoch complete!
+2021-04-26 15:13:22,364 - INFO - evaluating now!
+2021-04-26 15:13:32,931 - INFO - Epoch [78/100] train_loss: 0.0182, val_loss: 0.0202, lr: 0.000100, 200.8s
+2021-04-26 15:16:43,203 - INFO - epoch complete!
+2021-04-26 15:16:43,203 - INFO - evaluating now!
+2021-04-26 15:16:53,943 - INFO - Epoch [79/100] train_loss: 0.0182, val_loss: 0.0206, lr: 0.000100, 201.0s
+2021-04-26 15:20:04,197 - INFO - epoch complete!
+2021-04-26 15:20:04,197 - INFO - evaluating now!
+2021-04-26 15:20:14,800 - INFO - Epoch [80/100] train_loss: 0.0180, val_loss: 0.0192, lr: 0.000100, 200.9s
+2021-04-26 15:23:25,037 - INFO - epoch complete!
+2021-04-26 15:23:25,038 - INFO - evaluating now!
+2021-04-26 15:23:35,668 - INFO - Epoch [81/100] train_loss: 0.0182, val_loss: 0.0191, lr: 0.000100, 200.9s
+2021-04-26 15:23:35,690 - INFO - Saved model at 81
+2021-04-26 15:23:35,691 - INFO - Val loss decrease from 0.0191 to 0.0191, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch81.tar
+2021-04-26 15:26:46,218 - INFO - epoch complete!
+2021-04-26 15:26:46,219 - INFO - evaluating now!
+2021-04-26 15:26:56,886 - INFO - Epoch [82/100] train_loss: 0.0180, val_loss: 0.0189, lr: 0.000100, 201.2s
+2021-04-26 15:26:56,910 - INFO - Saved model at 82
+2021-04-26 15:26:56,910 - INFO - Val loss decrease from 0.0191 to 0.0189, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch82.tar
+2021-04-26 15:30:07,631 - INFO - epoch complete!
+2021-04-26 15:30:07,632 - INFO - evaluating now!
+2021-04-26 15:30:18,232 - INFO - Epoch [83/100] train_loss: 0.0181, val_loss: 0.0198, lr: 0.000100, 201.3s
+2021-04-26 15:33:28,666 - INFO - epoch complete!
+2021-04-26 15:33:28,667 - INFO - evaluating now!
+2021-04-26 15:33:39,335 - INFO - Epoch [84/100] train_loss: 0.0179, val_loss: 0.0188, lr: 0.000100, 201.1s
+2021-04-26 15:33:39,357 - INFO - Saved model at 84
+2021-04-26 15:33:39,357 - INFO - Val loss decrease from 0.0189 to 0.0188, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch84.tar
+2021-04-26 15:36:49,720 - INFO - epoch complete!
+2021-04-26 15:36:49,721 - INFO - evaluating now!
+2021-04-26 15:37:00,327 - INFO - Epoch [85/100] train_loss: 0.0178, val_loss: 0.0198, lr: 0.000100, 201.0s
+2021-04-26 15:40:10,639 - INFO - epoch complete!
+2021-04-26 15:40:10,639 - INFO - evaluating now!
+2021-04-26 15:40:21,256 - INFO - Epoch [86/100] train_loss: 0.0178, val_loss: 0.0191, lr: 0.000100, 200.9s
+2021-04-26 15:43:31,795 - INFO - epoch complete!
+2021-04-26 15:43:31,798 - INFO - evaluating now!
+2021-04-26 15:43:42,407 - INFO - Epoch [87/100] train_loss: 0.0178, val_loss: 0.0193, lr: 0.000100, 201.2s
+2021-04-26 15:46:52,754 - INFO - epoch complete!
+2021-04-26 15:46:52,757 - INFO - evaluating now!
+2021-04-26 15:47:03,347 - INFO - Epoch [88/100] train_loss: 0.0178, val_loss: 0.0193, lr: 0.000100, 200.9s
+2021-04-26 15:50:13,311 - INFO - epoch complete!
+2021-04-26 15:50:13,312 - INFO - evaluating now!
+2021-04-26 15:50:23,910 - INFO - Epoch [89/100] train_loss: 0.0177, val_loss: 0.0189, lr: 0.000100, 200.6s
+2021-04-26 15:53:34,028 - INFO - epoch complete!
+2021-04-26 15:53:34,028 - INFO - evaluating now!
+2021-04-26 15:53:44,584 - INFO - Epoch [90/100] train_loss: 0.0177, val_loss: 0.0189, lr: 0.000100, 200.7s
+2021-04-26 15:56:54,656 - INFO - epoch complete!
+2021-04-26 15:56:54,657 - INFO - evaluating now!
+2021-04-26 15:57:05,270 - INFO - Epoch [91/100] train_loss: 0.0176, val_loss: 0.0187, lr: 0.000100, 200.7s
+2021-04-26 15:57:05,294 - INFO - Saved model at 91
+2021-04-26 15:57:05,294 - INFO - Val loss decrease from 0.0188 to 0.0187, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch91.tar
+2021-04-26 16:00:15,284 - INFO - epoch complete!
+2021-04-26 16:00:15,285 - INFO - evaluating now!
+2021-04-26 16:00:25,845 - INFO - Epoch [92/100] train_loss: 0.0176, val_loss: 0.0187, lr: 0.000100, 200.6s
+2021-04-26 16:00:25,871 - INFO - Saved model at 92
+2021-04-26 16:00:25,871 - INFO - Val loss decrease from 0.0187 to 0.0187, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch92.tar
+2021-04-26 16:03:35,488 - INFO - epoch complete!
+2021-04-26 16:03:35,489 - INFO - evaluating now!
+2021-04-26 16:03:46,144 - INFO - Epoch [93/100] train_loss: 0.0176, val_loss: 0.0196, lr: 0.000100, 200.3s
+2021-04-26 16:06:56,521 - INFO - epoch complete!
+2021-04-26 16:06:56,522 - INFO - evaluating now!
+2021-04-26 16:07:07,154 - INFO - Epoch [94/100] train_loss: 0.0175, val_loss: 0.0189, lr: 0.000100, 201.0s
+2021-04-26 16:10:17,721 - INFO - epoch complete!
+2021-04-26 16:10:17,722 - INFO - evaluating now!
+2021-04-26 16:10:28,407 - INFO - Epoch [95/100] train_loss: 0.0175, val_loss: 0.0190, lr: 0.000100, 201.3s
+2021-04-26 16:13:38,962 - INFO - epoch complete!
+2021-04-26 16:13:38,963 - INFO - evaluating now!
+2021-04-26 16:13:49,571 - INFO - Epoch [96/100] train_loss: 0.0175, val_loss: 0.0185, lr: 0.000100, 201.2s
+2021-04-26 16:13:49,594 - INFO - Saved model at 96
+2021-04-26 16:13:49,594 - INFO - Val loss decrease from 0.0187 to 0.0185, saving to ./trafficdl/cache/model_cache/STSGCN_PEMSD3_epoch96.tar
+2021-04-26 16:17:00,033 - INFO - epoch complete!
+2021-04-26 16:17:00,034 - INFO - evaluating now!
+2021-04-26 16:17:10,655 - INFO - Epoch [97/100] train_loss: 0.0173, val_loss: 0.0188, lr: 0.000100, 201.1s
+2021-04-26 16:20:21,047 - INFO - epoch complete!
+2021-04-26 16:20:21,048 - INFO - evaluating now!
+2021-04-26 16:20:31,650 - INFO - Epoch [98/100] train_loss: 0.0173, val_loss: 0.0192, lr: 0.000100, 201.0s
+2021-04-26 16:23:42,066 - INFO - epoch complete!
+2021-04-26 16:23:42,067 - INFO - evaluating now!
+2021-04-26 16:23:52,701 - INFO - Epoch [99/100] train_loss: 0.0173, val_loss: 0.0186, lr: 0.000100, 201.1s
+2021-04-26 16:23:52,780 - INFO - Loaded model at 96
+2021-04-26 16:23:52,781 - INFO - Saved model at ./trafficdl/cache/model_cache/STSGCN_PEMSD3.m
+2021-04-26 16:23:52,807 - INFO - Start evaluating ...
+2021-04-26 16:24:50,013 - INFO - Evaluate result is {"MAE@1": 13.96937084197998, "MAPE@1": Infinity, "MSE@1": 535.0385131835938, "RMSE@1": 23.13089942932129, "masked_MAE@1": 14.003785133361816, "masked_MSE@1": 536.1270141601562, "masked_RMSE@1": 23.154417037963867, "masked_MAPE@1": 0.1682911366224289, "R2@1": 0.9731356942115162, "EVAR@1": 0.9731523990631104, "MAE@2": 14.592711448669434, "MAPE@2": Infinity, "MSE@2": 581.2891845703125, "RMSE@2": 24.109939575195312, "masked_MAE@2": 14.628405570983887, "masked_MSE@2": 582.3815307617188, "masked_RMSE@2": 24.13258171081543, "masked_MAPE@2": 0.17548717558383942, "R2@2": 0.970812369693085, "EVAR@2": 0.9708671569824219, "MAE@3": 15.14582347869873, "MAPE@3": Infinity, "MSE@3": 622.9173583984375, "RMSE@3": 24.95831298828125, "masked_MAE@3": 15.182716369628906, "masked_MSE@3": 624.0488891601562, "masked_RMSE@3": 24.98097038269043, "masked_MAPE@3": 0.18227902054786682, "R2@3": 0.9687213871818678, "EVAR@3": 0.9688234329223633, "MAE@4": 15.63105297088623, "MAPE@4": Infinity, "MSE@4": 661.19189453125, "RMSE@4": 25.713651657104492, "masked_MAE@4": 15.669686317443848, "masked_MSE@4": 662.3447265625, "masked_RMSE@4": 25.736059188842773, "masked_MAPE@4": 0.18611972033977509, "R2@4": 0.9667989461437653, "EVAR@4": 0.9669380784034729, "MAE@5": 16.03403663635254, "MAPE@5": Infinity, "MSE@5": 694.4229125976562, "RMSE@5": 26.351905822753906, "masked_MAE@5": 16.074039459228516, "masked_MSE@5": 695.6162109375, "masked_RMSE@5": 26.374536514282227, "masked_MAPE@5": 0.18947066366672516, "R2@5": 0.9651300568944995, "EVAR@5": 0.9652646780014038, "MAE@6": 16.414796829223633, "MAPE@6": Infinity, "MSE@6": 724.9000244140625, "RMSE@6": 26.923967361450195, "masked_MAE@6": 16.455965042114258, "masked_MSE@6": 726.096923828125, "masked_RMSE@6": 26.946186065673828, "masked_MAPE@6": 0.1926366537809372, "R2@6": 0.9635996524158574, "EVAR@6": 0.9637083411216736, "MAE@7": 16.793813705444336, "MAPE@7": Infinity, "MSE@7": 755.5199584960938, "RMSE@7": 27.486722946166992, "masked_MAE@7": 16.836387634277344, "masked_MSE@7": 756.728759765625, "masked_RMSE@7": 27.508703231811523, "masked_MAPE@7": 0.19550620019435883, "R2@7": 0.9620622319400911, "EVAR@7": 0.9621524214744568, "MAE@8": 17.16835594177246, "MAPE@8": Infinity, "MSE@8": 786.5396118164062, "RMSE@8": 28.045312881469727, "masked_MAE@8": 17.213001251220703, "masked_MSE@8": 787.8233032226562, "masked_RMSE@8": 28.06818962097168, "masked_MAPE@8": 0.19809837639331818, "R2@8": 0.9605046870944638, "EVAR@8": 0.9605801701545715, "MAE@9": 17.534015655517578, "MAPE@9": Infinity, "MSE@9": 817.3720092773438, "RMSE@9": 28.589717864990234, "masked_MAE@9": 17.580211639404297, "masked_MSE@9": 818.7144165039062, "masked_RMSE@9": 28.61318588256836, "masked_MAPE@9": 0.20115897059440613, "R2@9": 0.9589566541485915, "EVAR@9": 0.9590263366699219, "MAE@10": 17.903722763061523, "MAPE@10": Infinity, "MSE@10": 849.1732788085938, "RMSE@10": 29.14057731628418, "masked_MAE@10": 17.950971603393555, "masked_MSE@10": 850.5711059570312, "masked_RMSE@10": 29.164552688598633, "masked_MAPE@10": 0.20549233257770538, "R2@10": 0.9573601323706652, "EVAR@10": 0.9574368596076965, "MAE@11": 18.275161743164062, "MAPE@11": Infinity, "MSE@11": 881.6161499023438, "RMSE@11": 29.6920223236084, "masked_MAE@11": 18.32354164123535, "masked_MSE@11": 883.0922241210938, "masked_RMSE@11": 29.716867446899414, "masked_MAPE@11": 0.21018677949905396, "R2@11": 0.9557316452081795, "EVAR@11": 0.9558101892471313, "MAE@12": 18.677263259887695, "MAPE@12": Infinity, "MSE@12": 917.1453857421875, "RMSE@12": 30.284408569335938, "masked_MAE@12": 18.726160049438477, "masked_MSE@12": 918.6868286132812, "masked_RMSE@12": 30.309846878051758, "masked_MAPE@12": 0.21736200153827667, "R2@12": 0.9539485063052792, "EVAR@12": 0.9540314078330994}
+2021-04-26 16:24:50,017 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_26_16_24_50_STSGCN_PEMSD3.json
+2021-04-26 16:24:50,026 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_26_16_24_50_STSGCN_PEMSD3.csv
+2021-04-26 16:24:50,041 - INFO - 
+          MAE  MAPE         MSE  ...  masked_MAPE        R2      EVAR
+0   13.969371   inf  535.038513  ...     0.168291  0.973136  0.973152
+1   14.592711   inf  581.289185  ...     0.175487  0.970812  0.970867
+2   15.145823   inf  622.917358  ...     0.182279  0.968721  0.968823
+3   15.631053   inf  661.191895  ...     0.186120  0.966799  0.966938
+4   16.034037   inf  694.422913  ...     0.189471  0.965130  0.965265
+5   16.414797   inf  724.900024  ...     0.192637  0.963600  0.963708
+6   16.793814   inf  755.519958  ...     0.195506  0.962062  0.962152
+7   17.168356   inf  786.539612  ...     0.198098  0.960505  0.960580
+8   17.534016   inf  817.372009  ...     0.201159  0.958957  0.959026
+9   17.903723   inf  849.173279  ...     0.205492  0.957360  0.957437
+10  18.275162   inf  881.616150  ...     0.210187  0.955732  0.955810
+11  18.677263   inf  917.145386  ...     0.217362  0.953949  0.954031
+
+[12 rows x 10 columns]

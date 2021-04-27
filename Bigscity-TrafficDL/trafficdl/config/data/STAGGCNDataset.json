@@ -1,0 +1,8 @@
+{
+    "batch_size":64,
+    "num_workers": 8,
+    "scaler": "standard",
+    "input_window": 12,
+    "output_window": 12,
+    "gpu_id":3
+}

@@ -1,0 +1,113 @@
+2021-04-27 22:38:27,493 - INFO - Log directory: ./trafficdl/log
+2021-04-27 22:38:27,493 - INFO - Begin pipeline, task=traffic_state_pred, model_name=STAGGCN, dataset_name=PEMS_BAY
+2021-04-27 22:38:27,815 - INFO - Loaded file PEMS_BAY.geo, num_nodes=325
+2021-04-27 22:38:27,857 - INFO - Loaded file PEMS_BAY.rel, shape=(325, 325)
+2021-04-27 22:38:27,857 - INFO - Start Calculate the weight by Gauss kernel!
+2021-04-27 22:38:28,114 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_PEMS_BAY_12_12_0.7_0.1_standard_64_False_False_True.npz
+2021-04-27 22:38:39,994 - INFO - train	x: (36465, 12, 325, 1)y: (36465, 12, 325, 1)
+2021-04-27 22:38:39,994 - INFO - eval	x: (5209, 12, 325, 1)y: (5209, 12, 325, 1)
+2021-04-27 22:38:39,994 - INFO - test	x: (10419, 12, 325, 1)y: (10419, 12, 325, 1)
+2021-04-27 22:38:56,821 - INFO - StandardScaler mean: 62.73567651594296, std: 9.438173664359947
+2021-04-27 22:40:11,991 - INFO - model.STCell.sp_source_embed	torch.Size([325, 12])	cuda:3	True
+2021-04-27 22:40:11,991 - INFO - model.STCell.sp_target_embed	torch.Size([12, 325])	cuda:3	True
+2021-04-27 22:40:11,992 - INFO - model.STCell.dtw_source_embed	torch.Size([325, 12])	cuda:3	True
+2021-04-27 22:40:11,992 - INFO - model.STCell.dtw_target_embed	torch.Size([12, 325])	cuda:3	True
+2021-04-27 22:40:11,992 - INFO - model.STCell.seq_linear.weight	torch.Size([12, 12])	cuda:3	True
+2021-04-27 22:40:11,992 - INFO - model.STCell.seq_linear.bias	torch.Size([12])	cuda:3	True
+2021-04-27 22:40:11,992 - INFO - model.STCell.self_atten.in_proj_weight	torch.Size([975, 325])	cuda:3	True
+2021-04-27 22:40:11,992 - INFO - model.STCell.self_atten.in_proj_bias	torch.Size([975])	cuda:3	True
+2021-04-27 22:40:11,992 - INFO - model.STCell.self_atten.out_proj.weight	torch.Size([325, 325])	cuda:3	True
+2021-04-27 22:40:11,992 - INFO - model.STCell.self_atten.out_proj.bias	torch.Size([325])	cuda:3	True
+2021-04-27 22:40:11,993 - INFO - model.STCell.tcn.network.0.conv1.bias	torch.Size([10])	cuda:3	True
+2021-04-27 22:40:11,993 - INFO - model.STCell.tcn.network.0.conv1.weight_g	torch.Size([10, 1, 1])	cuda:3	True
+2021-04-27 22:40:11,993 - INFO - model.STCell.tcn.network.0.conv1.weight_v	torch.Size([10, 1, 2])	cuda:3	True
+2021-04-27 22:40:11,993 - INFO - model.STCell.tcn.network.0.conv2.bias	torch.Size([10])	cuda:3	True
+2021-04-27 22:40:11,993 - INFO - model.STCell.tcn.network.0.conv2.weight_g	torch.Size([10, 1, 1])	cuda:3	True
+2021-04-27 22:40:11,993 - INFO - model.STCell.tcn.network.0.conv2.weight_v	torch.Size([10, 10, 2])	cuda:3	True
+2021-04-27 22:40:11,993 - INFO - model.STCell.tcn.network.0.downsample.weight	torch.Size([10, 1, 1])	cuda:3	True
+2021-04-27 22:40:11,993 - INFO - model.STCell.tcn.network.0.downsample.bias	torch.Size([10])	cuda:3	True
+2021-04-27 22:40:11,994 - INFO - model.STCell.tlinear.weight	torch.Size([32, 120])	cuda:3	True
+2021-04-27 22:40:11,994 - INFO - model.STCell.tlinear.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,994 - INFO - model.STCell.sp_origin.weight	torch.Size([32, 12])	cuda:3	True
+2021-04-27 22:40:11,994 - INFO - model.STCell.sp_origin.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,994 - INFO - model.STCell.sp_gconv1.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,994 - INFO - model.STCell.sp_gconv1.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,994 - INFO - model.STCell.sp_gconv1.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,994 - INFO - model.STCell.sp_gconv1.lin_l.weight	torch.Size([96, 12])	cuda:3	True
+2021-04-27 22:40:11,994 - INFO - model.STCell.sp_gconv2.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,995 - INFO - model.STCell.sp_gconv2.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,995 - INFO - model.STCell.sp_gconv2.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,995 - INFO - model.STCell.sp_gconv2.lin_l.weight	torch.Size([96, 32])	cuda:3	True
+2021-04-27 22:40:11,995 - INFO - model.STCell.sp_gconv3.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,995 - INFO - model.STCell.sp_gconv3.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,995 - INFO - model.STCell.sp_gconv3.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,995 - INFO - model.STCell.sp_gconv3.lin_l.weight	torch.Size([96, 32])	cuda:3	True
+2021-04-27 22:40:11,995 - INFO - model.STCell.sp_gconv4.att_l	torch.Size([1, 1, 32])	cuda:3	True
+2021-04-27 22:40:11,995 - INFO - model.STCell.sp_gconv4.att_r	torch.Size([1, 1, 32])	cuda:3	True
+2021-04-27 22:40:11,996 - INFO - model.STCell.sp_gconv4.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,996 - INFO - model.STCell.sp_gconv4.lin_l.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 22:40:11,996 - INFO - model.STCell.sp_linear_1.weight	torch.Size([32, 12])	cuda:3	True
+2021-04-27 22:40:11,996 - INFO - model.STCell.sp_linear_1.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,996 - INFO - model.STCell.sp_linear_2.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 22:40:11,996 - INFO - model.STCell.sp_linear_2.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,996 - INFO - model.STCell.sp_linear_3.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 22:40:11,996 - INFO - model.STCell.sp_linear_3.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,996 - INFO - model.STCell.sp_linear_4.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 22:40:11,996 - INFO - model.STCell.sp_linear_4.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,997 - INFO - model.STCell.dtw_origin.weight	torch.Size([32, 12])	cuda:3	True
+2021-04-27 22:40:11,997 - INFO - model.STCell.dtw_origin.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,997 - INFO - model.STCell.dtw_gconv1.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,997 - INFO - model.STCell.dtw_gconv1.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,997 - INFO - model.STCell.dtw_gconv1.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,997 - INFO - model.STCell.dtw_gconv1.lin_l.weight	torch.Size([96, 12])	cuda:3	True
+2021-04-27 22:40:11,997 - INFO - model.STCell.dtw_gconv2.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,997 - INFO - model.STCell.dtw_gconv2.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,997 - INFO - model.STCell.dtw_gconv2.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,998 - INFO - model.STCell.dtw_gconv2.lin_l.weight	torch.Size([96, 32])	cuda:3	True
+2021-04-27 22:40:11,998 - INFO - model.STCell.dtw_gconv3.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,998 - INFO - model.STCell.dtw_gconv3.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,998 - INFO - model.STCell.dtw_gconv3.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,998 - INFO - model.STCell.dtw_gconv3.lin_l.weight	torch.Size([96, 32])	cuda:3	True
+2021-04-27 22:40:11,998 - INFO - model.STCell.dtw_gconv4.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,998 - INFO - model.STCell.dtw_gconv4.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 22:40:11,998 - INFO - model.STCell.dtw_gconv4.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,998 - INFO - model.STCell.dtw_gconv4.lin_l.weight	torch.Size([96, 32])	cuda:3	True
+2021-04-27 22:40:11,998 - INFO - model.STCell.dtw_linear_1.weight	torch.Size([32, 12])	cuda:3	True
+2021-04-27 22:40:11,999 - INFO - model.STCell.dtw_linear_1.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,999 - INFO - model.STCell.dtw_linear_2.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 22:40:11,999 - INFO - model.STCell.dtw_linear_2.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,999 - INFO - model.STCell.dtw_linear_3.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 22:40:11,999 - INFO - model.STCell.dtw_linear_3.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,999 - INFO - model.STCell.dtw_linear_4.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 22:40:11,999 - INFO - model.STCell.dtw_linear_4.bias	torch.Size([32])	cuda:3	True
+2021-04-27 22:40:11,999 - INFO - model.output_linear.weight	torch.Size([12, 96])	cuda:3	True
+2021-04-27 22:40:11,999 - INFO - model.output_linear.bias	torch.Size([12])	cuda:3	True
+2021-04-27 22:40:12,001 - INFO - Total parameter numbers: 473224
+2021-04-27 22:40:12,142 - INFO - Loaded model at 1512
+2021-04-27 22:40:12,144 - INFO - Start training ...
+2021-04-27 22:40:12,144 - INFO - num_batches:570
+2021-04-27 22:40:49,254 - INFO - epoch complete!
+2021-04-27 22:40:49,255 - INFO - evaluating now!
+2021-04-27 22:40:52,664 - INFO - Epoch [1512/1513] train_loss: 2.6081, val_loss: 2.9567, lr: 0.000100, 40.5s
+2021-04-27 22:40:52,681 - INFO - Saved model at 1512
+2021-04-27 22:40:52,681 - INFO - Val loss decrease from inf to 2.9567, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch1512.tar
+2021-04-27 22:40:52,700 - INFO - Loaded model at 1512
+2021-04-27 22:40:52,700 - INFO - Saved model at ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY.m
+2021-04-27 22:40:52,709 - INFO - Start evaluating ...
+2021-04-27 22:41:42,023 - INFO - Evaluate result is {"MAE@1": 2.775784969329834, "MAPE@1": Infinity, "MSE@1": 29.68471908569336, "RMSE@1": 5.448368549346924, "masked_MAE@1": 2.7717037200927734, "masked_MSE@1": 29.4029598236084, "masked_RMSE@1": 5.422449588775635, "masked_MAPE@1": 0.06597653776407242, "R2@1": 0.6819556994542337, "EVAR@1": 0.6867969036102295, "MAE@2": 2.771454095840454, "MAPE@2": Infinity, "MSE@2": 29.487960815429688, "RMSE@2": 5.430281639099121, "masked_MAE@2": 2.7673699855804443, "masked_MSE@2": 29.205921173095703, "masked_RMSE@2": 5.404250144958496, "masked_MAPE@2": 0.06578518450260162, "R2@2": 0.6840067172197719, "EVAR@2": 0.6884446740150452, "MAE@3": 2.7771339416503906, "MAPE@3": Infinity, "MSE@3": 29.69112777709961, "RMSE@3": 5.448956489562988, "masked_MAE@3": 2.773049831390381, "masked_MSE@3": 29.40896987915039, "masked_RMSE@3": 5.423003673553467, "masked_MAPE@3": 0.06580379605293274, "R2@3": 0.681780122839988, "EVAR@3": 0.686179518699646, "MAE@4": 2.777844190597534, "MAPE@4": Infinity, "MSE@4": 29.769994735717773, "RMSE@4": 5.456188678741455, "masked_MAE@4": 2.7737576961517334, "masked_MSE@4": 29.487537384033203, "masked_RMSE@4": 5.430243015289307, "masked_MAPE@4": 0.06584225594997406, "R2@4": 0.6808896739618643, "EVAR@4": 0.6853327751159668, "MAE@5": 2.7877564430236816, "MAPE@5": Infinity, "MSE@5": 29.946081161499023, "RMSE@5": 5.472301483154297, "masked_MAE@5": 2.7836670875549316, "masked_MSE@5": 29.663206100463867, "masked_RMSE@5": 5.446393966674805, "masked_MAPE@5": 0.06604219228029251, "R2@5": 0.6789606322375148, "EVAR@5": 0.6835096478462219, "MAE@6": 2.795063018798828, "MAPE@6": Infinity, "MSE@6": 30.19338035583496, "RMSE@6": 5.494850158691406, "masked_MAE@6": 2.7909739017486572, "masked_MSE@6": 29.910511016845703, "masked_RMSE@6": 5.469050407409668, "masked_MAPE@6": 0.06625668704509735, "R2@6": 0.6762718621942717, "EVAR@6": 0.6807735562324524, "MAE@7": 2.805751085281372, "MAPE@7": Infinity, "MSE@7": 30.45233154296875, "RMSE@7": 5.518362998962402, "masked_MAE@7": 2.801661252975464, "masked_MSE@7": 30.169246673583984, "masked_RMSE@7": 5.492653846740723, "masked_MAPE@7": 0.06655054539442062, "R2@7": 0.6734612386115719, "EVAR@7": 0.678041934967041, "MAE@8": 2.8170480728149414, "MAPE@8": Infinity, "MSE@8": 30.753530502319336, "RMSE@8": 5.545586585998535, "masked_MAE@8": 2.812957525253296, "masked_MSE@8": 30.470266342163086, "masked_RMSE@8": 5.519988059997559, "masked_MAPE@8": 0.06685842573642731, "R2@8": 0.6702000290407093, "EVAR@8": 0.674782395362854, "MAE@9": 2.8294315338134766, "MAPE@9": Infinity, "MSE@9": 31.060827255249023, "RMSE@9": 5.573224067687988, "masked_MAE@9": 2.8253402709960938, "masked_MSE@9": 30.777402877807617, "masked_RMSE@9": 5.547738552093506, "masked_MAPE@9": 0.06718835979700089, "R2@9": 0.6668763231033461, "EVAR@9": 0.6714832782745361, "MAE@10": 2.8427486419677734, "MAPE@10": Infinity, "MSE@10": 31.38086700439453, "RMSE@10": 5.601862907409668, "masked_MAE@10": 2.8386576175689697, "masked_MSE@10": 31.097400665283203, "masked_RMSE@10": 5.576504230499268, "masked_MAPE@10": 0.06755799800157547, "R2@10": 0.6634175934157587, "EVAR@10": 0.6680539846420288, "MAE@11": 2.858480215072632, "MAPE@11": Infinity, "MSE@11": 31.79524803161621, "RMSE@11": 5.63872766494751, "masked_MAE@11": 2.8543896675109863, "masked_MSE@11": 31.511701583862305, "masked_RMSE@11": 5.613528251647949, "masked_MAPE@11": 0.06802017986774445, "R2@11": 0.6589491038658872, "EVAR@11": 0.6637231111526489, "MAE@12": 2.871940851211548, "MAPE@12": Infinity, "MSE@12": 32.15333557128906, "RMSE@12": 5.670391082763672, "masked_MAE@12": 2.867849826812744, "masked_MSE@12": 31.86968994140625, "masked_RMSE@12": 5.64532470703125, "masked_MAPE@12": 0.06841285526752472, "R2@12": 0.6550870808811111, "EVAR@12": 0.6599313020706177}
+2021-04-27 22:41:42,024 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_27_22_41_42_STAGGCN_PEMS_BAY.json
+2021-04-27 22:41:42,031 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_27_22_41_42_STAGGCN_PEMS_BAY.csv
+2021-04-27 22:41:42,047 - INFO - 
+         MAE  MAPE        MSE      RMSE  masked_MAE  masked_MSE  masked_RMSE  masked_MAPE        R2      EVAR
+0   2.775785   inf  29.684719  5.448369    2.771704   29.402960     5.422450     0.065977  0.681956  0.686797
+1   2.771454   inf  29.487961  5.430282    2.767370   29.205921     5.404250     0.065785  0.684007  0.688445
+2   2.777134   inf  29.691128  5.448956    2.773050   29.408970     5.423004     0.065804  0.681780  0.686180
+3   2.777844   inf  29.769995  5.456189    2.773758   29.487537     5.430243     0.065842  0.680890  0.685333
+4   2.787756   inf  29.946081  5.472301    2.783667   29.663206     5.446394     0.066042  0.678961  0.683510
+5   2.795063   inf  30.193380  5.494850    2.790974   29.910511     5.469050     0.066257  0.676272  0.680774
+6   2.805751   inf  30.452332  5.518363    2.801661   30.169247     5.492654     0.066551  0.673461  0.678042
+7   2.817048   inf  30.753531  5.545587    2.812958   30.470266     5.519988     0.066858  0.670200  0.674782
+8   2.829432   inf  31.060827  5.573224    2.825340   30.777403     5.547739     0.067188  0.666876  0.671483
+9   2.842749   inf  31.380867  5.601863    2.838658   31.097401     5.576504     0.067558  0.663418  0.668054
+10  2.858480   inf  31.795248  5.638728    2.854390   31.511702     5.613528     0.068020  0.658949  0.663723
+11  2.871941   inf  32.153336  5.670391    2.867850   31.869690     5.645325     0.068413  0.655087  0.659931

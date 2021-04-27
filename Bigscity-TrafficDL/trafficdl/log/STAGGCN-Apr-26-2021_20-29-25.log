@@ -1,0 +1,925 @@
+2021-04-26 20:29:25,711 - INFO - Log directory: ./trafficdl/log
+2021-04-26 20:29:25,712 - INFO - Begin pipeline, task=traffic_state_pred, model_name=STAGGCN, dataset_name=PEMS_BAY
+2021-04-26 20:29:26,530 - INFO - Loaded file PEMS_BAY.geo, num_nodes=325
+2021-04-26 20:29:26,557 - INFO - Loaded file PEMS_BAY.rel, shape=(325, 325)
+2021-04-26 20:29:26,558 - INFO - Start Calculate the weight by Gauss kernel!
+2021-04-26 20:29:26,815 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_PEMS_BAY_12_12_0.7_0.1_standard_64_False_False_True.npz
+2021-04-26 20:29:39,466 - INFO - train	x: (36465, 12, 325, 1)y: (36465, 12, 325, 1)
+2021-04-26 20:29:39,467 - INFO - eval	x: (5209, 12, 325, 1)y: (5209, 12, 325, 1)
+2021-04-26 20:29:39,467 - INFO - test	x: (10419, 12, 325, 1)y: (10419, 12, 325, 1)
+2021-04-26 20:29:52,964 - INFO - StandardScaler mean: 62.73567651594296, std: 9.438173664359947
+2021-04-26 20:30:55,905 - INFO - model.STCell.sp_source_embed	torch.Size([325, 12])	cuda:1	True
+2021-04-26 20:30:55,905 - INFO - model.STCell.sp_target_embed	torch.Size([12, 325])	cuda:1	True
+2021-04-26 20:30:55,905 - INFO - model.STCell.dtw_source_embed	torch.Size([325, 12])	cuda:1	True
+2021-04-26 20:30:55,905 - INFO - model.STCell.dtw_target_embed	torch.Size([12, 325])	cuda:1	True
+2021-04-26 20:30:55,905 - INFO - model.STCell.seq_linear.weight	torch.Size([12, 12])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.seq_linear.bias	torch.Size([12])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.self_atten.in_proj_weight	torch.Size([975, 325])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.self_atten.in_proj_bias	torch.Size([975])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.self_atten.out_proj.weight	torch.Size([325, 325])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.self_atten.out_proj.bias	torch.Size([325])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.tcn.network.0.conv1.bias	torch.Size([10])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.tcn.network.0.conv1.weight_g	torch.Size([10, 1, 1])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.tcn.network.0.conv1.weight_v	torch.Size([10, 1, 2])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.tcn.network.0.conv2.bias	torch.Size([10])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.tcn.network.0.conv2.weight_g	torch.Size([10, 1, 1])	cuda:1	True
+2021-04-26 20:30:55,906 - INFO - model.STCell.tcn.network.0.conv2.weight_v	torch.Size([10, 10, 2])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.tcn.network.0.downsample.weight	torch.Size([10, 1, 1])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.tcn.network.0.downsample.bias	torch.Size([10])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.tlinear.weight	torch.Size([32, 120])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.tlinear.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.sp_origin.weight	torch.Size([32, 12])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.sp_origin.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.sp_gconv1.att_l	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.sp_gconv1.att_r	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.sp_gconv1.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.sp_gconv1.lin_l.weight	torch.Size([96, 12])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.sp_gconv2.att_l	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,907 - INFO - model.STCell.sp_gconv2.att_r	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_gconv2.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_gconv2.lin_l.weight	torch.Size([96, 32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_gconv3.att_l	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_gconv3.att_r	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_gconv3.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_gconv3.lin_l.weight	torch.Size([96, 32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_gconv4.att_l	torch.Size([1, 1, 32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_gconv4.att_r	torch.Size([1, 1, 32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_gconv4.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_gconv4.lin_l.weight	torch.Size([32, 32])	cuda:1	True
+2021-04-26 20:30:55,908 - INFO - model.STCell.sp_linear_1.weight	torch.Size([32, 12])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.sp_linear_1.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.sp_linear_2.weight	torch.Size([32, 32])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.sp_linear_2.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.sp_linear_3.weight	torch.Size([32, 32])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.sp_linear_3.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.sp_linear_4.weight	torch.Size([32, 32])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.sp_linear_4.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.dtw_origin.weight	torch.Size([32, 12])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.dtw_origin.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.dtw_gconv1.att_l	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.dtw_gconv1.att_r	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,909 - INFO - model.STCell.dtw_gconv1.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv1.lin_l.weight	torch.Size([96, 12])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv2.att_l	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv2.att_r	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv2.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv2.lin_l.weight	torch.Size([96, 32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv3.att_l	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv3.att_r	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv3.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv3.lin_l.weight	torch.Size([96, 32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv4.att_l	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv4.att_r	torch.Size([1, 3, 32])	cuda:1	True
+2021-04-26 20:30:55,910 - INFO - model.STCell.dtw_gconv4.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.STCell.dtw_gconv4.lin_l.weight	torch.Size([96, 32])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.STCell.dtw_linear_1.weight	torch.Size([32, 12])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.STCell.dtw_linear_1.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.STCell.dtw_linear_2.weight	torch.Size([32, 32])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.STCell.dtw_linear_2.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.STCell.dtw_linear_3.weight	torch.Size([32, 32])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.STCell.dtw_linear_3.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.STCell.dtw_linear_4.weight	torch.Size([32, 32])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.STCell.dtw_linear_4.bias	torch.Size([32])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.output_linear.weight	torch.Size([12, 96])	cuda:1	True
+2021-04-26 20:30:55,911 - INFO - model.output_linear.bias	torch.Size([12])	cuda:1	True
+2021-04-26 20:30:55,913 - INFO - Total parameter numbers: 473224
+2021-04-26 20:30:55,923 - INFO - Loaded model at 199
+2021-04-26 20:30:55,925 - INFO - Start training ...
+2021-04-26 20:30:55,925 - INFO - num_batches:570
+2021-04-26 20:31:59,406 - INFO - epoch complete!
+2021-04-26 20:31:59,407 - INFO - evaluating now!
+2021-04-26 20:32:06,199 - INFO - Epoch [199/500] train_loss: 2.8221, val_loss: 3.4038, lr: 0.000100, 70.3s
+2021-04-26 20:32:06,214 - INFO - Saved model at 199
+2021-04-26 20:32:06,214 - INFO - Val loss decrease from inf to 3.4038, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch199.tar
+2021-04-26 20:33:08,602 - INFO - epoch complete!
+2021-04-26 20:33:08,602 - INFO - evaluating now!
+2021-04-26 20:33:15,447 - INFO - Epoch [200/500] train_loss: 2.8206, val_loss: 3.4016, lr: 0.000100, 69.2s
+2021-04-26 20:33:15,460 - INFO - Saved model at 200
+2021-04-26 20:33:15,461 - INFO - Val loss decrease from 3.4038 to 3.4016, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch200.tar
+2021-04-26 20:34:14,216 - INFO - epoch complete!
+2021-04-26 20:34:14,217 - INFO - evaluating now!
+2021-04-26 20:34:20,512 - INFO - Epoch [201/500] train_loss: 2.8187, val_loss: 3.4032, lr: 0.000100, 65.1s
+2021-04-26 20:35:18,127 - INFO - epoch complete!
+2021-04-26 20:35:18,129 - INFO - evaluating now!
+2021-04-26 20:35:24,663 - INFO - Epoch [202/500] train_loss: 2.8169, val_loss: 3.4045, lr: 0.000100, 64.1s
+2021-04-26 20:36:24,647 - INFO - epoch complete!
+2021-04-26 20:36:24,652 - INFO - evaluating now!
+2021-04-26 20:36:31,555 - INFO - Epoch [203/500] train_loss: 2.8153, val_loss: 3.3984, lr: 0.000100, 66.9s
+2021-04-26 20:36:31,577 - INFO - Saved model at 203
+2021-04-26 20:36:31,577 - INFO - Val loss decrease from 3.4016 to 3.3984, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch203.tar
+2021-04-26 20:37:32,636 - INFO - epoch complete!
+2021-04-26 20:37:32,637 - INFO - evaluating now!
+2021-04-26 20:37:38,909 - INFO - Epoch [204/500] train_loss: 2.8139, val_loss: 3.4013, lr: 0.000100, 67.3s
+2021-04-26 20:38:38,633 - INFO - epoch complete!
+2021-04-26 20:38:38,634 - INFO - evaluating now!
+2021-04-26 20:38:44,713 - INFO - Epoch [205/500] train_loss: 2.8117, val_loss: 3.3965, lr: 0.000100, 65.8s
+2021-04-26 20:38:44,725 - INFO - Saved model at 205
+2021-04-26 20:38:44,726 - INFO - Val loss decrease from 3.3984 to 3.3965, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch205.tar
+2021-04-26 20:39:43,460 - INFO - epoch complete!
+2021-04-26 20:39:43,461 - INFO - evaluating now!
+2021-04-26 20:39:49,535 - INFO - Epoch [206/500] train_loss: 2.8107, val_loss: 3.3955, lr: 0.000100, 64.8s
+2021-04-26 20:39:49,549 - INFO - Saved model at 206
+2021-04-26 20:39:49,549 - INFO - Val loss decrease from 3.3965 to 3.3955, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch206.tar
+2021-04-26 20:40:49,003 - INFO - epoch complete!
+2021-04-26 20:40:49,004 - INFO - evaluating now!
+2021-04-26 20:40:55,901 - INFO - Epoch [207/500] train_loss: 2.8091, val_loss: 3.3983, lr: 0.000100, 66.4s
+2021-04-26 20:41:56,905 - INFO - epoch complete!
+2021-04-26 20:41:56,906 - INFO - evaluating now!
+2021-04-26 20:42:03,188 - INFO - Epoch [208/500] train_loss: 2.8076, val_loss: 3.3938, lr: 0.000100, 67.3s
+2021-04-26 20:42:03,198 - INFO - Saved model at 208
+2021-04-26 20:42:03,198 - INFO - Val loss decrease from 3.3955 to 3.3938, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch208.tar
+2021-04-26 20:43:02,667 - INFO - epoch complete!
+2021-04-26 20:43:02,667 - INFO - evaluating now!
+2021-04-26 20:43:08,588 - INFO - Epoch [209/500] train_loss: 2.8057, val_loss: 3.3916, lr: 0.000100, 65.4s
+2021-04-26 20:43:08,600 - INFO - Saved model at 209
+2021-04-26 20:43:08,600 - INFO - Val loss decrease from 3.3938 to 3.3916, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch209.tar
+2021-04-26 20:44:07,430 - INFO - epoch complete!
+2021-04-26 20:44:07,430 - INFO - evaluating now!
+2021-04-26 20:44:13,827 - INFO - Epoch [210/500] train_loss: 2.8043, val_loss: 3.3912, lr: 0.000100, 65.2s
+2021-04-26 20:44:13,841 - INFO - Saved model at 210
+2021-04-26 20:44:13,842 - INFO - Val loss decrease from 3.3916 to 3.3912, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch210.tar
+2021-04-26 20:45:13,724 - INFO - epoch complete!
+2021-04-26 20:45:13,725 - INFO - evaluating now!
+2021-04-26 20:45:18,485 - INFO - Epoch [211/500] train_loss: 2.8028, val_loss: 3.3865, lr: 0.000100, 64.6s
+2021-04-26 20:45:18,496 - INFO - Saved model at 211
+2021-04-26 20:45:18,496 - INFO - Val loss decrease from 3.3912 to 3.3865, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch211.tar
+2021-04-26 20:46:14,183 - INFO - epoch complete!
+2021-04-26 20:46:14,184 - INFO - evaluating now!
+2021-04-26 20:46:21,085 - INFO - Epoch [212/500] train_loss: 2.8014, val_loss: 3.3905, lr: 0.000100, 62.6s
+2021-04-26 20:47:18,209 - INFO - epoch complete!
+2021-04-26 20:47:18,210 - INFO - evaluating now!
+2021-04-26 20:47:24,361 - INFO - Epoch [213/500] train_loss: 2.7996, val_loss: 3.3867, lr: 0.000100, 63.3s
+2021-04-26 20:48:21,899 - INFO - epoch complete!
+2021-04-26 20:48:21,901 - INFO - evaluating now!
+2021-04-26 20:48:28,253 - INFO - Epoch [214/500] train_loss: 2.7982, val_loss: 3.3837, lr: 0.000100, 63.9s
+2021-04-26 20:48:28,263 - INFO - Saved model at 214
+2021-04-26 20:48:28,263 - INFO - Val loss decrease from 3.3865 to 3.3837, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch214.tar
+2021-04-26 20:49:27,428 - INFO - epoch complete!
+2021-04-26 20:49:27,428 - INFO - evaluating now!
+2021-04-26 20:49:34,080 - INFO - Epoch [215/500] train_loss: 2.7967, val_loss: 3.3875, lr: 0.000100, 65.8s
+2021-04-26 20:50:34,269 - INFO - epoch complete!
+2021-04-26 20:50:34,270 - INFO - evaluating now!
+2021-04-26 20:50:40,708 - INFO - Epoch [216/500] train_loss: 2.7950, val_loss: 3.3840, lr: 0.000100, 66.6s
+2021-04-26 20:51:38,926 - INFO - epoch complete!
+2021-04-26 20:51:38,926 - INFO - evaluating now!
+2021-04-26 20:51:45,684 - INFO - Epoch [217/500] train_loss: 2.7937, val_loss: 3.3828, lr: 0.000100, 65.0s
+2021-04-26 20:51:45,696 - INFO - Saved model at 217
+2021-04-26 20:51:45,696 - INFO - Val loss decrease from 3.3837 to 3.3828, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch217.tar
+2021-04-26 20:52:43,309 - INFO - epoch complete!
+2021-04-26 20:52:43,310 - INFO - evaluating now!
+2021-04-26 20:52:49,921 - INFO - Epoch [218/500] train_loss: 2.7923, val_loss: 3.3816, lr: 0.000100, 64.2s
+2021-04-26 20:52:49,946 - INFO - Saved model at 218
+2021-04-26 20:52:49,947 - INFO - Val loss decrease from 3.3828 to 3.3816, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch218.tar
+2021-04-26 20:53:48,218 - INFO - epoch complete!
+2021-04-26 20:53:48,219 - INFO - evaluating now!
+2021-04-26 20:53:54,636 - INFO - Epoch [219/500] train_loss: 2.7907, val_loss: 3.3806, lr: 0.000100, 64.7s
+2021-04-26 20:53:54,646 - INFO - Saved model at 219
+2021-04-26 20:53:54,647 - INFO - Val loss decrease from 3.3816 to 3.3806, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch219.tar
+2021-04-26 20:54:52,997 - INFO - epoch complete!
+2021-04-26 20:54:52,998 - INFO - evaluating now!
+2021-04-26 20:54:58,998 - INFO - Epoch [220/500] train_loss: 2.7896, val_loss: 3.3775, lr: 0.000100, 64.4s
+2021-04-26 20:54:59,015 - INFO - Saved model at 220
+2021-04-26 20:54:59,015 - INFO - Val loss decrease from 3.3806 to 3.3775, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch220.tar
+2021-04-26 20:56:00,498 - INFO - epoch complete!
+2021-04-26 20:56:00,499 - INFO - evaluating now!
+2021-04-26 20:56:07,489 - INFO - Epoch [221/500] train_loss: 2.7880, val_loss: 3.3794, lr: 0.000100, 68.5s
+2021-04-26 20:57:06,065 - INFO - epoch complete!
+2021-04-26 20:57:06,067 - INFO - evaluating now!
+2021-04-26 20:57:13,016 - INFO - Epoch [222/500] train_loss: 2.7864, val_loss: 3.3843, lr: 0.000100, 65.5s
+2021-04-26 20:58:15,485 - INFO - epoch complete!
+2021-04-26 20:58:15,488 - INFO - evaluating now!
+2021-04-26 20:58:21,802 - INFO - Epoch [223/500] train_loss: 2.7851, val_loss: 3.3743, lr: 0.000100, 68.8s
+2021-04-26 20:58:21,814 - INFO - Saved model at 223
+2021-04-26 20:58:21,815 - INFO - Val loss decrease from 3.3775 to 3.3743, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch223.tar
+2021-04-26 20:59:22,598 - INFO - epoch complete!
+2021-04-26 20:59:22,599 - INFO - evaluating now!
+2021-04-26 20:59:29,403 - INFO - Epoch [224/500] train_loss: 2.7840, val_loss: 3.3778, lr: 0.000100, 67.6s
+2021-04-26 21:00:27,258 - INFO - epoch complete!
+2021-04-26 21:00:27,258 - INFO - evaluating now!
+2021-04-26 21:00:34,144 - INFO - Epoch [225/500] train_loss: 2.7821, val_loss: 3.3730, lr: 0.000100, 64.7s
+2021-04-26 21:00:34,155 - INFO - Saved model at 225
+2021-04-26 21:00:34,155 - INFO - Val loss decrease from 3.3743 to 3.3730, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch225.tar
+2021-04-26 21:01:32,655 - INFO - epoch complete!
+2021-04-26 21:01:32,657 - INFO - evaluating now!
+2021-04-26 21:01:38,944 - INFO - Epoch [226/500] train_loss: 2.7811, val_loss: 3.3686, lr: 0.000100, 64.8s
+2021-04-26 21:01:38,958 - INFO - Saved model at 226
+2021-04-26 21:01:38,958 - INFO - Val loss decrease from 3.3730 to 3.3686, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch226.tar
+2021-04-26 21:02:37,768 - INFO - epoch complete!
+2021-04-26 21:02:37,769 - INFO - evaluating now!
+2021-04-26 21:02:44,205 - INFO - Epoch [227/500] train_loss: 2.7797, val_loss: 3.3689, lr: 0.000100, 65.2s
+2021-04-26 21:03:44,934 - INFO - epoch complete!
+2021-04-26 21:03:44,934 - INFO - evaluating now!
+2021-04-26 21:03:51,765 - INFO - Epoch [228/500] train_loss: 2.7786, val_loss: 3.3696, lr: 0.000100, 67.6s
+2021-04-26 21:04:49,425 - INFO - epoch complete!
+2021-04-26 21:04:49,426 - INFO - evaluating now!
+2021-04-26 21:04:56,204 - INFO - Epoch [229/500] train_loss: 2.7773, val_loss: 3.3687, lr: 0.000100, 64.4s
+2021-04-26 21:05:54,673 - INFO - epoch complete!
+2021-04-26 21:05:54,674 - INFO - evaluating now!
+2021-04-26 21:06:01,088 - INFO - Epoch [230/500] train_loss: 2.7762, val_loss: 3.3684, lr: 0.000100, 64.9s
+2021-04-26 21:06:01,098 - INFO - Saved model at 230
+2021-04-26 21:06:01,098 - INFO - Val loss decrease from 3.3686 to 3.3684, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch230.tar
+2021-04-26 21:06:58,797 - INFO - epoch complete!
+2021-04-26 21:06:58,798 - INFO - evaluating now!
+2021-04-26 21:07:04,458 - INFO - Epoch [231/500] train_loss: 2.7745, val_loss: 3.3671, lr: 0.000100, 63.4s
+2021-04-26 21:07:04,471 - INFO - Saved model at 231
+2021-04-26 21:07:04,472 - INFO - Val loss decrease from 3.3684 to 3.3671, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch231.tar
+2021-04-26 21:08:00,547 - INFO - epoch complete!
+2021-04-26 21:08:00,548 - INFO - evaluating now!
+2021-04-26 21:08:06,808 - INFO - Epoch [232/500] train_loss: 2.7731, val_loss: 3.3668, lr: 0.000100, 62.3s
+2021-04-26 21:08:06,822 - INFO - Saved model at 232
+2021-04-26 21:08:06,822 - INFO - Val loss decrease from 3.3671 to 3.3668, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch232.tar
+2021-04-26 21:09:02,508 - INFO - epoch complete!
+2021-04-26 21:09:02,509 - INFO - evaluating now!
+2021-04-26 21:09:08,564 - INFO - Epoch [233/500] train_loss: 2.7720, val_loss: 3.3682, lr: 0.000100, 61.7s
+2021-04-26 21:10:05,181 - INFO - epoch complete!
+2021-04-26 21:10:05,182 - INFO - evaluating now!
+2021-04-26 21:10:10,818 - INFO - Epoch [234/500] train_loss: 2.7710, val_loss: 3.3660, lr: 0.000100, 62.3s
+2021-04-26 21:10:10,827 - INFO - Saved model at 234
+2021-04-26 21:10:10,828 - INFO - Val loss decrease from 3.3668 to 3.3660, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch234.tar
+2021-04-26 21:11:09,694 - INFO - epoch complete!
+2021-04-26 21:11:09,694 - INFO - evaluating now!
+2021-04-26 21:11:16,614 - INFO - Epoch [235/500] train_loss: 2.7695, val_loss: 3.3649, lr: 0.000100, 65.8s
+2021-04-26 21:11:16,629 - INFO - Saved model at 235
+2021-04-26 21:11:16,629 - INFO - Val loss decrease from 3.3660 to 3.3649, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch235.tar
+2021-04-26 21:12:15,417 - INFO - epoch complete!
+2021-04-26 21:12:15,417 - INFO - evaluating now!
+2021-04-26 21:12:22,045 - INFO - Epoch [236/500] train_loss: 2.7682, val_loss: 3.3653, lr: 0.000100, 65.4s
+2021-04-26 21:13:18,549 - INFO - epoch complete!
+2021-04-26 21:13:18,551 - INFO - evaluating now!
+2021-04-26 21:13:24,631 - INFO - Epoch [237/500] train_loss: 2.7673, val_loss: 3.3625, lr: 0.000100, 62.6s
+2021-04-26 21:13:24,645 - INFO - Saved model at 237
+2021-04-26 21:13:24,645 - INFO - Val loss decrease from 3.3649 to 3.3625, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch237.tar
+2021-04-26 21:14:19,903 - INFO - epoch complete!
+2021-04-26 21:14:19,903 - INFO - evaluating now!
+2021-04-26 21:14:25,697 - INFO - Epoch [238/500] train_loss: 2.7658, val_loss: 3.3606, lr: 0.000100, 61.1s
+2021-04-26 21:14:25,711 - INFO - Saved model at 238
+2021-04-26 21:14:25,711 - INFO - Val loss decrease from 3.3625 to 3.3606, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch238.tar
+2021-04-26 21:15:22,258 - INFO - epoch complete!
+2021-04-26 21:15:22,259 - INFO - evaluating now!
+2021-04-26 21:15:28,192 - INFO - Epoch [239/500] train_loss: 2.7650, val_loss: 3.3638, lr: 0.000100, 62.5s
+2021-04-26 21:16:25,372 - INFO - epoch complete!
+2021-04-26 21:16:25,373 - INFO - evaluating now!
+2021-04-26 21:16:31,526 - INFO - Epoch [240/500] train_loss: 2.7636, val_loss: 3.3616, lr: 0.000100, 63.3s
+2021-04-26 21:17:24,528 - INFO - epoch complete!
+2021-04-26 21:17:24,530 - INFO - evaluating now!
+2021-04-26 21:17:30,373 - INFO - Epoch [241/500] train_loss: 2.7624, val_loss: 3.3583, lr: 0.000100, 58.8s
+2021-04-26 21:17:30,385 - INFO - Saved model at 241
+2021-04-26 21:17:30,386 - INFO - Val loss decrease from 3.3606 to 3.3583, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch241.tar
+2021-04-26 21:18:22,052 - INFO - epoch complete!
+2021-04-26 21:18:22,053 - INFO - evaluating now!
+2021-04-26 21:18:27,271 - INFO - Epoch [242/500] train_loss: 2.7617, val_loss: 3.3554, lr: 0.000100, 56.9s
+2021-04-26 21:18:27,283 - INFO - Saved model at 242
+2021-04-26 21:18:27,284 - INFO - Val loss decrease from 3.3583 to 3.3554, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch242.tar
+2021-04-26 21:19:20,949 - INFO - epoch complete!
+2021-04-26 21:19:20,949 - INFO - evaluating now!
+2021-04-26 21:19:26,536 - INFO - Epoch [243/500] train_loss: 2.7600, val_loss: 3.3557, lr: 0.000100, 59.3s
+2021-04-26 21:20:19,298 - INFO - epoch complete!
+2021-04-26 21:20:19,298 - INFO - evaluating now!
+2021-04-26 21:20:24,565 - INFO - Epoch [244/500] train_loss: 2.7593, val_loss: 3.3566, lr: 0.000100, 58.0s
+2021-04-26 21:21:17,455 - INFO - epoch complete!
+2021-04-26 21:21:17,456 - INFO - evaluating now!
+2021-04-26 21:21:22,896 - INFO - Epoch [245/500] train_loss: 2.7578, val_loss: 3.3564, lr: 0.000100, 58.3s
+2021-04-26 21:22:11,832 - INFO - epoch complete!
+2021-04-26 21:22:11,833 - INFO - evaluating now!
+2021-04-26 21:22:17,183 - INFO - Epoch [246/500] train_loss: 2.7568, val_loss: 3.3556, lr: 0.000100, 54.3s
+2021-04-26 21:23:08,075 - INFO - epoch complete!
+2021-04-26 21:23:08,075 - INFO - evaluating now!
+2021-04-26 21:23:14,162 - INFO - Epoch [247/500] train_loss: 2.7557, val_loss: 3.3512, lr: 0.000100, 57.0s
+2021-04-26 21:23:14,174 - INFO - Saved model at 247
+2021-04-26 21:23:14,175 - INFO - Val loss decrease from 3.3554 to 3.3512, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch247.tar
+2021-04-26 21:24:05,187 - INFO - epoch complete!
+2021-04-26 21:24:05,188 - INFO - evaluating now!
+2021-04-26 21:24:10,933 - INFO - Epoch [248/500] train_loss: 2.7546, val_loss: 3.3550, lr: 0.000100, 56.8s
+2021-04-26 21:25:04,788 - INFO - epoch complete!
+2021-04-26 21:25:04,789 - INFO - evaluating now!
+2021-04-26 21:25:09,933 - INFO - Epoch [249/500] train_loss: 2.7534, val_loss: 3.3498, lr: 0.000100, 59.0s
+2021-04-26 21:25:09,945 - INFO - Saved model at 249
+2021-04-26 21:25:09,946 - INFO - Val loss decrease from 3.3512 to 3.3498, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch249.tar
+2021-04-26 21:25:58,175 - INFO - epoch complete!
+2021-04-26 21:25:58,176 - INFO - evaluating now!
+2021-04-26 21:26:03,162 - INFO - Epoch [250/500] train_loss: 2.7525, val_loss: 3.3506, lr: 0.000100, 53.2s
+2021-04-26 21:26:51,660 - INFO - epoch complete!
+2021-04-26 21:26:51,661 - INFO - evaluating now!
+2021-04-26 21:26:56,658 - INFO - Epoch [251/500] train_loss: 2.7512, val_loss: 3.3505, lr: 0.000100, 53.5s
+2021-04-26 21:27:45,276 - INFO - epoch complete!
+2021-04-26 21:27:45,277 - INFO - evaluating now!
+2021-04-26 21:27:50,306 - INFO - Epoch [252/500] train_loss: 2.7502, val_loss: 3.3498, lr: 0.000100, 53.6s
+2021-04-26 21:28:38,549 - INFO - epoch complete!
+2021-04-26 21:28:38,550 - INFO - evaluating now!
+2021-04-26 21:28:43,717 - INFO - Epoch [253/500] train_loss: 2.7491, val_loss: 3.3520, lr: 0.000100, 53.4s
+2021-04-26 21:29:33,527 - INFO - epoch complete!
+2021-04-26 21:29:33,527 - INFO - evaluating now!
+2021-04-26 21:29:39,088 - INFO - Epoch [254/500] train_loss: 2.7478, val_loss: 3.3472, lr: 0.000100, 55.4s
+2021-04-26 21:29:39,101 - INFO - Saved model at 254
+2021-04-26 21:29:39,101 - INFO - Val loss decrease from 3.3498 to 3.3472, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch254.tar
+2021-04-26 21:30:28,176 - INFO - epoch complete!
+2021-04-26 21:30:28,177 - INFO - evaluating now!
+2021-04-26 21:30:34,215 - INFO - Epoch [255/500] train_loss: 2.7470, val_loss: 3.3467, lr: 0.000100, 55.1s
+2021-04-26 21:30:34,227 - INFO - Saved model at 255
+2021-04-26 21:30:34,228 - INFO - Val loss decrease from 3.3472 to 3.3467, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch255.tar
+2021-04-26 21:31:22,480 - INFO - epoch complete!
+2021-04-26 21:31:22,481 - INFO - evaluating now!
+2021-04-26 21:31:28,017 - INFO - Epoch [256/500] train_loss: 2.7457, val_loss: 3.3468, lr: 0.000100, 53.8s
+2021-04-26 21:32:17,788 - INFO - epoch complete!
+2021-04-26 21:32:17,788 - INFO - evaluating now!
+2021-04-26 21:32:22,684 - INFO - Epoch [257/500] train_loss: 2.7446, val_loss: 3.3435, lr: 0.000100, 54.7s
+2021-04-26 21:32:22,695 - INFO - Saved model at 257
+2021-04-26 21:32:22,696 - INFO - Val loss decrease from 3.3467 to 3.3435, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch257.tar
+2021-04-26 21:33:11,999 - INFO - epoch complete!
+2021-04-26 21:33:12,000 - INFO - evaluating now!
+2021-04-26 21:33:17,171 - INFO - Epoch [258/500] train_loss: 2.7435, val_loss: 3.3451, lr: 0.000100, 54.5s
+2021-04-26 21:34:05,820 - INFO - epoch complete!
+2021-04-26 21:34:05,821 - INFO - evaluating now!
+2021-04-26 21:34:11,043 - INFO - Epoch [259/500] train_loss: 2.7428, val_loss: 3.3424, lr: 0.000100, 53.9s
+2021-04-26 21:34:11,056 - INFO - Saved model at 259
+2021-04-26 21:34:11,056 - INFO - Val loss decrease from 3.3435 to 3.3424, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch259.tar
+2021-04-26 21:34:59,899 - INFO - epoch complete!
+2021-04-26 21:34:59,899 - INFO - evaluating now!
+2021-04-26 21:35:04,840 - INFO - Epoch [260/500] train_loss: 2.7419, val_loss: 3.3440, lr: 0.000100, 53.8s
+2021-04-26 21:35:52,010 - INFO - epoch complete!
+2021-04-26 21:35:52,010 - INFO - evaluating now!
+2021-04-26 21:35:57,502 - INFO - Epoch [261/500] train_loss: 2.7408, val_loss: 3.3450, lr: 0.000100, 52.7s
+2021-04-26 21:36:49,239 - INFO - epoch complete!
+2021-04-26 21:36:49,240 - INFO - evaluating now!
+2021-04-26 21:36:54,701 - INFO - Epoch [262/500] train_loss: 2.7398, val_loss: 3.3402, lr: 0.000100, 57.2s
+2021-04-26 21:36:54,709 - INFO - Saved model at 262
+2021-04-26 21:36:54,710 - INFO - Val loss decrease from 3.3424 to 3.3402, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch262.tar
+2021-04-26 21:37:45,721 - INFO - epoch complete!
+2021-04-26 21:37:45,722 - INFO - evaluating now!
+2021-04-26 21:37:51,451 - INFO - Epoch [263/500] train_loss: 2.7389, val_loss: 3.3415, lr: 0.000100, 56.7s
+2021-04-26 21:38:40,626 - INFO - epoch complete!
+2021-04-26 21:38:40,627 - INFO - evaluating now!
+2021-04-26 21:38:45,315 - INFO - Epoch [264/500] train_loss: 2.7375, val_loss: 3.3381, lr: 0.000100, 53.9s
+2021-04-26 21:38:45,328 - INFO - Saved model at 264
+2021-04-26 21:38:45,329 - INFO - Val loss decrease from 3.3402 to 3.3381, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch264.tar
+2021-04-26 21:39:31,396 - INFO - epoch complete!
+2021-04-26 21:39:31,399 - INFO - evaluating now!
+2021-04-26 21:39:36,260 - INFO - Epoch [265/500] train_loss: 2.7370, val_loss: 3.3382, lr: 0.000100, 50.9s
+2021-04-26 21:40:23,306 - INFO - epoch complete!
+2021-04-26 21:40:23,307 - INFO - evaluating now!
+2021-04-26 21:40:28,041 - INFO - Epoch [266/500] train_loss: 2.7361, val_loss: 3.3393, lr: 0.000100, 51.8s
+2021-04-26 21:41:15,313 - INFO - epoch complete!
+2021-04-26 21:41:15,313 - INFO - evaluating now!
+2021-04-26 21:41:20,081 - INFO - Epoch [267/500] train_loss: 2.7353, val_loss: 3.3372, lr: 0.000100, 52.0s
+2021-04-26 21:41:20,095 - INFO - Saved model at 267
+2021-04-26 21:41:20,095 - INFO - Val loss decrease from 3.3381 to 3.3372, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch267.tar
+2021-04-26 21:42:06,707 - INFO - epoch complete!
+2021-04-26 21:42:06,707 - INFO - evaluating now!
+2021-04-26 21:42:11,823 - INFO - Epoch [268/500] train_loss: 2.7339, val_loss: 3.3401, lr: 0.000100, 51.7s
+2021-04-26 21:43:01,013 - INFO - epoch complete!
+2021-04-26 21:43:01,014 - INFO - evaluating now!
+2021-04-26 21:43:05,854 - INFO - Epoch [269/500] train_loss: 2.7330, val_loss: 3.3379, lr: 0.000100, 54.0s
+2021-04-26 21:43:53,900 - INFO - epoch complete!
+2021-04-26 21:43:53,901 - INFO - evaluating now!
+2021-04-26 21:43:58,762 - INFO - Epoch [270/500] train_loss: 2.7324, val_loss: 3.3351, lr: 0.000100, 52.9s
+2021-04-26 21:43:58,775 - INFO - Saved model at 270
+2021-04-26 21:43:58,775 - INFO - Val loss decrease from 3.3372 to 3.3351, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch270.tar
+2021-04-26 21:44:39,868 - INFO - epoch complete!
+2021-04-26 21:44:39,868 - INFO - evaluating now!
+2021-04-26 21:44:43,671 - INFO - Epoch [271/500] train_loss: 2.7314, val_loss: 3.3401, lr: 0.000100, 44.9s
+2021-04-26 21:45:22,559 - INFO - epoch complete!
+2021-04-26 21:45:22,559 - INFO - evaluating now!
+2021-04-26 21:45:26,364 - INFO - Epoch [272/500] train_loss: 2.7306, val_loss: 3.3393, lr: 0.000100, 42.7s
+2021-04-26 21:46:04,937 - INFO - epoch complete!
+2021-04-26 21:46:04,938 - INFO - evaluating now!
+2021-04-26 21:46:08,811 - INFO - Epoch [273/500] train_loss: 2.7296, val_loss: 3.3358, lr: 0.000100, 42.4s
+2021-04-26 21:46:47,400 - INFO - epoch complete!
+2021-04-26 21:46:47,401 - INFO - evaluating now!
+2021-04-26 21:46:51,224 - INFO - Epoch [274/500] train_loss: 2.7288, val_loss: 3.3347, lr: 0.000100, 42.4s
+2021-04-26 21:46:51,234 - INFO - Saved model at 274
+2021-04-26 21:46:51,234 - INFO - Val loss decrease from 3.3351 to 3.3347, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch274.tar
+2021-04-26 21:47:35,024 - INFO - epoch complete!
+2021-04-26 21:47:35,025 - INFO - evaluating now!
+2021-04-26 21:47:38,820 - INFO - Epoch [275/500] train_loss: 2.7279, val_loss: 3.3355, lr: 0.000100, 47.6s
+2021-04-26 21:48:16,906 - INFO - epoch complete!
+2021-04-26 21:48:16,907 - INFO - evaluating now!
+2021-04-26 21:48:20,616 - INFO - Epoch [276/500] train_loss: 2.7272, val_loss: 3.3326, lr: 0.000100, 41.8s
+2021-04-26 21:48:20,629 - INFO - Saved model at 276
+2021-04-26 21:48:20,629 - INFO - Val loss decrease from 3.3347 to 3.3326, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch276.tar
+2021-04-26 21:48:58,585 - INFO - epoch complete!
+2021-04-26 21:48:58,585 - INFO - evaluating now!
+2021-04-26 21:49:02,442 - INFO - Epoch [277/500] train_loss: 2.7260, val_loss: 3.3352, lr: 0.000100, 41.8s
+2021-04-26 21:49:41,300 - INFO - epoch complete!
+2021-04-26 21:49:41,301 - INFO - evaluating now!
+2021-04-26 21:49:47,772 - INFO - Epoch [278/500] train_loss: 2.7253, val_loss: 3.3316, lr: 0.000100, 45.3s
+2021-04-26 21:49:47,789 - INFO - Saved model at 278
+2021-04-26 21:49:47,789 - INFO - Val loss decrease from 3.3326 to 3.3316, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch278.tar
+2021-04-26 21:50:28,521 - INFO - epoch complete!
+2021-04-26 21:50:28,522 - INFO - evaluating now!
+2021-04-26 21:50:32,268 - INFO - Epoch [279/500] train_loss: 2.7246, val_loss: 3.3323, lr: 0.000100, 44.5s
+2021-04-26 21:51:11,187 - INFO - epoch complete!
+2021-04-26 21:51:11,188 - INFO - evaluating now!
+2021-04-26 21:51:15,050 - INFO - Epoch [280/500] train_loss: 2.7233, val_loss: 3.3325, lr: 0.000100, 42.8s
+2021-04-26 21:51:53,680 - INFO - epoch complete!
+2021-04-26 21:51:53,681 - INFO - evaluating now!
+2021-04-26 21:51:57,625 - INFO - Epoch [281/500] train_loss: 2.7229, val_loss: 3.3321, lr: 0.000100, 42.6s
+2021-04-26 21:52:40,833 - INFO - epoch complete!
+2021-04-26 21:52:40,833 - INFO - evaluating now!
+2021-04-26 21:52:44,572 - INFO - Epoch [282/500] train_loss: 2.7222, val_loss: 3.3289, lr: 0.000100, 46.9s
+2021-04-26 21:52:44,582 - INFO - Saved model at 282
+2021-04-26 21:52:44,582 - INFO - Val loss decrease from 3.3316 to 3.3289, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch282.tar
+2021-04-26 21:53:23,372 - INFO - epoch complete!
+2021-04-26 21:53:23,374 - INFO - evaluating now!
+2021-04-26 21:53:27,139 - INFO - Epoch [283/500] train_loss: 2.7210, val_loss: 3.3292, lr: 0.000100, 42.6s
+2021-04-26 21:54:06,233 - INFO - epoch complete!
+2021-04-26 21:54:06,234 - INFO - evaluating now!
+2021-04-26 21:54:10,067 - INFO - Epoch [284/500] train_loss: 2.7204, val_loss: 3.3289, lr: 0.000100, 42.9s
+2021-04-26 21:54:10,078 - INFO - Saved model at 284
+2021-04-26 21:54:10,079 - INFO - Val loss decrease from 3.3289 to 3.3289, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch284.tar
+2021-04-26 21:54:53,560 - INFO - epoch complete!
+2021-04-26 21:54:53,561 - INFO - evaluating now!
+2021-04-26 21:54:57,622 - INFO - Epoch [285/500] train_loss: 2.7195, val_loss: 3.3274, lr: 0.000100, 47.5s
+2021-04-26 21:54:57,633 - INFO - Saved model at 285
+2021-04-26 21:54:57,633 - INFO - Val loss decrease from 3.3289 to 3.3274, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch285.tar
+2021-04-26 21:55:36,153 - INFO - epoch complete!
+2021-04-26 21:55:36,153 - INFO - evaluating now!
+2021-04-26 21:55:39,954 - INFO - Epoch [286/500] train_loss: 2.7187, val_loss: 3.3269, lr: 0.000100, 42.3s
+2021-04-26 21:55:39,964 - INFO - Saved model at 286
+2021-04-26 21:55:39,964 - INFO - Val loss decrease from 3.3274 to 3.3269, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch286.tar
+2021-04-26 21:56:18,387 - INFO - epoch complete!
+2021-04-26 21:56:18,388 - INFO - evaluating now!
+2021-04-26 21:56:22,037 - INFO - Epoch [287/500] train_loss: 2.7180, val_loss: 3.3235, lr: 0.000100, 42.1s
+2021-04-26 21:56:22,049 - INFO - Saved model at 287
+2021-04-26 21:56:22,049 - INFO - Val loss decrease from 3.3269 to 3.3235, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch287.tar
+2021-04-26 21:57:00,679 - INFO - epoch complete!
+2021-04-26 21:57:00,680 - INFO - evaluating now!
+2021-04-26 21:57:07,831 - INFO - Epoch [288/500] train_loss: 2.7173, val_loss: 3.3255, lr: 0.000100, 45.8s
+2021-04-26 21:57:43,931 - INFO - epoch complete!
+2021-04-26 21:57:43,931 - INFO - evaluating now!
+2021-04-26 21:57:47,205 - INFO - Epoch [289/500] train_loss: 2.7162, val_loss: 3.3284, lr: 0.000100, 39.4s
+2021-04-26 21:58:22,902 - INFO - epoch complete!
+2021-04-26 21:58:22,902 - INFO - evaluating now!
+2021-04-26 21:58:26,257 - INFO - Epoch [290/500] train_loss: 2.7155, val_loss: 3.3252, lr: 0.000100, 39.1s
+2021-04-26 21:59:01,926 - INFO - epoch complete!
+2021-04-26 21:59:01,926 - INFO - evaluating now!
+2021-04-26 21:59:05,364 - INFO - Epoch [291/500] train_loss: 2.7148, val_loss: 3.3220, lr: 0.000100, 39.1s
+2021-04-26 21:59:05,374 - INFO - Saved model at 291
+2021-04-26 21:59:05,374 - INFO - Val loss decrease from 3.3235 to 3.3220, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch291.tar
+2021-04-26 21:59:41,427 - INFO - epoch complete!
+2021-04-26 21:59:41,428 - INFO - evaluating now!
+2021-04-26 21:59:44,783 - INFO - Epoch [292/500] train_loss: 2.7139, val_loss: 3.3257, lr: 0.000100, 39.4s
+2021-04-26 22:00:20,196 - INFO - epoch complete!
+2021-04-26 22:00:20,197 - INFO - evaluating now!
+2021-04-26 22:00:23,561 - INFO - Epoch [293/500] train_loss: 2.7132, val_loss: 3.3239, lr: 0.000100, 38.8s
+2021-04-26 22:00:59,145 - INFO - epoch complete!
+2021-04-26 22:00:59,145 - INFO - evaluating now!
+2021-04-26 22:01:02,508 - INFO - Epoch [294/500] train_loss: 2.7125, val_loss: 3.3228, lr: 0.000100, 38.9s
+2021-04-26 22:01:38,708 - INFO - epoch complete!
+2021-04-26 22:01:38,709 - INFO - evaluating now!
+2021-04-26 22:01:41,896 - INFO - Epoch [295/500] train_loss: 2.7116, val_loss: 3.3237, lr: 0.000100, 39.4s
+2021-04-26 22:02:17,773 - INFO - epoch complete!
+2021-04-26 22:02:17,774 - INFO - evaluating now!
+2021-04-26 22:02:20,946 - INFO - Epoch [296/500] train_loss: 2.7111, val_loss: 3.3230, lr: 0.000100, 39.0s
+2021-04-26 22:02:56,287 - INFO - epoch complete!
+2021-04-26 22:02:56,288 - INFO - evaluating now!
+2021-04-26 22:02:59,539 - INFO - Epoch [297/500] train_loss: 2.7102, val_loss: 3.3221, lr: 0.000100, 38.6s
+2021-04-26 22:03:35,099 - INFO - epoch complete!
+2021-04-26 22:03:35,100 - INFO - evaluating now!
+2021-04-26 22:03:38,500 - INFO - Epoch [298/500] train_loss: 2.7095, val_loss: 3.3224, lr: 0.000100, 39.0s
+2021-04-26 22:04:14,506 - INFO - epoch complete!
+2021-04-26 22:04:14,506 - INFO - evaluating now!
+2021-04-26 22:04:17,845 - INFO - Epoch [299/500] train_loss: 2.7087, val_loss: 3.3227, lr: 0.000100, 39.3s
+2021-04-26 22:04:53,698 - INFO - epoch complete!
+2021-04-26 22:04:53,699 - INFO - evaluating now!
+2021-04-26 22:04:57,009 - INFO - Epoch [300/500] train_loss: 2.7077, val_loss: 3.3203, lr: 0.000100, 39.2s
+2021-04-26 22:04:57,018 - INFO - Saved model at 300
+2021-04-26 22:04:57,018 - INFO - Val loss decrease from 3.3220 to 3.3203, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch300.tar
+2021-04-26 22:05:33,805 - INFO - epoch complete!
+2021-04-26 22:05:33,806 - INFO - evaluating now!
+2021-04-26 22:05:37,300 - INFO - Epoch [301/500] train_loss: 2.7072, val_loss: 3.3188, lr: 0.000100, 40.3s
+2021-04-26 22:05:37,315 - INFO - Saved model at 301
+2021-04-26 22:05:37,315 - INFO - Val loss decrease from 3.3203 to 3.3188, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch301.tar
+2021-04-26 22:06:13,127 - INFO - epoch complete!
+2021-04-26 22:06:13,128 - INFO - evaluating now!
+2021-04-26 22:06:16,554 - INFO - Epoch [302/500] train_loss: 2.7064, val_loss: 3.3196, lr: 0.000100, 39.2s
+2021-04-26 22:06:52,294 - INFO - epoch complete!
+2021-04-26 22:06:52,294 - INFO - evaluating now!
+2021-04-26 22:06:55,661 - INFO - Epoch [303/500] train_loss: 2.7056, val_loss: 3.3230, lr: 0.000100, 39.1s
+2021-04-26 22:07:31,607 - INFO - epoch complete!
+2021-04-26 22:07:31,607 - INFO - evaluating now!
+2021-04-26 22:07:34,865 - INFO - Epoch [304/500] train_loss: 2.7054, val_loss: 3.3184, lr: 0.000100, 39.2s
+2021-04-26 22:07:34,875 - INFO - Saved model at 304
+2021-04-26 22:07:34,876 - INFO - Val loss decrease from 3.3188 to 3.3184, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch304.tar
+2021-04-26 22:08:11,054 - INFO - epoch complete!
+2021-04-26 22:08:11,055 - INFO - evaluating now!
+2021-04-26 22:08:14,443 - INFO - Epoch [305/500] train_loss: 2.7041, val_loss: 3.3164, lr: 0.000100, 39.6s
+2021-04-26 22:08:14,458 - INFO - Saved model at 305
+2021-04-26 22:08:14,458 - INFO - Val loss decrease from 3.3184 to 3.3164, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch305.tar
+2021-04-26 22:08:50,449 - INFO - epoch complete!
+2021-04-26 22:08:50,450 - INFO - evaluating now!
+2021-04-26 22:08:53,724 - INFO - Epoch [306/500] train_loss: 2.7039, val_loss: 3.3195, lr: 0.000100, 39.3s
+2021-04-26 22:09:29,602 - INFO - epoch complete!
+2021-04-26 22:09:29,603 - INFO - evaluating now!
+2021-04-26 22:09:32,941 - INFO - Epoch [307/500] train_loss: 2.7032, val_loss: 3.3190, lr: 0.000100, 39.2s
+2021-04-26 22:10:08,883 - INFO - epoch complete!
+2021-04-26 22:10:08,883 - INFO - evaluating now!
+2021-04-26 22:10:12,325 - INFO - Epoch [308/500] train_loss: 2.7022, val_loss: 3.3202, lr: 0.000100, 39.4s
+2021-04-26 22:10:48,131 - INFO - epoch complete!
+2021-04-26 22:10:48,132 - INFO - evaluating now!
+2021-04-26 22:10:51,502 - INFO - Epoch [309/500] train_loss: 2.7013, val_loss: 3.3215, lr: 0.000100, 39.2s
+2021-04-26 22:11:27,784 - INFO - epoch complete!
+2021-04-26 22:11:27,785 - INFO - evaluating now!
+2021-04-26 22:11:31,296 - INFO - Epoch [310/500] train_loss: 2.7010, val_loss: 3.3121, lr: 0.000100, 39.8s
+2021-04-26 22:11:31,306 - INFO - Saved model at 310
+2021-04-26 22:11:31,306 - INFO - Val loss decrease from 3.3164 to 3.3121, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch310.tar
+2021-04-26 22:12:07,032 - INFO - epoch complete!
+2021-04-26 22:12:07,032 - INFO - evaluating now!
+2021-04-26 22:12:10,362 - INFO - Epoch [311/500] train_loss: 2.7000, val_loss: 3.3175, lr: 0.000100, 39.1s
+2021-04-26 22:12:45,956 - INFO - epoch complete!
+2021-04-26 22:12:45,957 - INFO - evaluating now!
+2021-04-26 22:12:49,250 - INFO - Epoch [312/500] train_loss: 2.6997, val_loss: 3.3142, lr: 0.000100, 38.9s
+2021-04-26 22:13:25,366 - INFO - epoch complete!
+2021-04-26 22:13:25,367 - INFO - evaluating now!
+2021-04-26 22:13:28,833 - INFO - Epoch [313/500] train_loss: 2.6986, val_loss: 3.3135, lr: 0.000100, 39.6s
+2021-04-26 22:14:04,418 - INFO - epoch complete!
+2021-04-26 22:14:04,419 - INFO - evaluating now!
+2021-04-26 22:14:07,836 - INFO - Epoch [314/500] train_loss: 2.6984, val_loss: 3.3185, lr: 0.000100, 39.0s
+2021-04-26 22:14:43,687 - INFO - epoch complete!
+2021-04-26 22:14:43,688 - INFO - evaluating now!
+2021-04-26 22:14:46,985 - INFO - Epoch [315/500] train_loss: 2.6976, val_loss: 3.3125, lr: 0.000100, 39.1s
+2021-04-26 22:15:23,130 - INFO - epoch complete!
+2021-04-26 22:15:23,131 - INFO - evaluating now!
+2021-04-26 22:15:26,447 - INFO - Epoch [316/500] train_loss: 2.6965, val_loss: 3.3148, lr: 0.000100, 39.5s
+2021-04-26 22:16:02,927 - INFO - epoch complete!
+2021-04-26 22:16:02,928 - INFO - evaluating now!
+2021-04-26 22:16:06,268 - INFO - Epoch [317/500] train_loss: 2.6959, val_loss: 3.3137, lr: 0.000100, 39.8s
+2021-04-26 22:16:42,762 - INFO - epoch complete!
+2021-04-26 22:16:42,763 - INFO - evaluating now!
+2021-04-26 22:16:46,142 - INFO - Epoch [318/500] train_loss: 2.6956, val_loss: 3.3175, lr: 0.000100, 39.9s
+2021-04-26 22:17:23,598 - INFO - epoch complete!
+2021-04-26 22:17:23,598 - INFO - evaluating now!
+2021-04-26 22:17:27,229 - INFO - Epoch [319/500] train_loss: 2.6947, val_loss: 3.3110, lr: 0.000100, 41.1s
+2021-04-26 22:17:27,244 - INFO - Saved model at 319
+2021-04-26 22:17:27,244 - INFO - Val loss decrease from 3.3121 to 3.3110, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch319.tar
+2021-04-26 22:18:03,451 - INFO - epoch complete!
+2021-04-26 22:18:03,451 - INFO - evaluating now!
+2021-04-26 22:18:06,810 - INFO - Epoch [320/500] train_loss: 2.6941, val_loss: 3.3156, lr: 0.000100, 39.6s
+2021-04-26 22:18:42,621 - INFO - epoch complete!
+2021-04-26 22:18:42,621 - INFO - evaluating now!
+2021-04-26 22:18:45,943 - INFO - Epoch [321/500] train_loss: 2.6930, val_loss: 3.3136, lr: 0.000100, 39.1s
+2021-04-26 22:19:21,206 - INFO - epoch complete!
+2021-04-26 22:19:21,206 - INFO - evaluating now!
+2021-04-26 22:19:24,435 - INFO - Epoch [322/500] train_loss: 2.6931, val_loss: 3.3071, lr: 0.000100, 38.5s
+2021-04-26 22:19:24,449 - INFO - Saved model at 322
+2021-04-26 22:19:24,449 - INFO - Val loss decrease from 3.3110 to 3.3071, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch322.tar
+2021-04-26 22:20:00,263 - INFO - epoch complete!
+2021-04-26 22:20:00,264 - INFO - evaluating now!
+2021-04-26 22:20:03,675 - INFO - Epoch [323/500] train_loss: 2.6916, val_loss: 3.3123, lr: 0.000100, 39.2s
+2021-04-26 22:20:39,553 - INFO - epoch complete!
+2021-04-26 22:20:39,554 - INFO - evaluating now!
+2021-04-26 22:20:42,908 - INFO - Epoch [324/500] train_loss: 2.6916, val_loss: 3.3093, lr: 0.000100, 39.2s
+2021-04-26 22:21:18,762 - INFO - epoch complete!
+2021-04-26 22:21:18,763 - INFO - evaluating now!
+2021-04-26 22:21:22,105 - INFO - Epoch [325/500] train_loss: 2.6908, val_loss: 3.3082, lr: 0.000100, 39.2s
+2021-04-26 22:21:57,920 - INFO - epoch complete!
+2021-04-26 22:21:57,920 - INFO - evaluating now!
+2021-04-26 22:22:01,306 - INFO - Epoch [326/500] train_loss: 2.6898, val_loss: 3.3064, lr: 0.000100, 39.2s
+2021-04-26 22:22:01,320 - INFO - Saved model at 326
+2021-04-26 22:22:01,320 - INFO - Val loss decrease from 3.3071 to 3.3064, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch326.tar
+2021-04-26 22:22:37,415 - INFO - epoch complete!
+2021-04-26 22:22:37,415 - INFO - evaluating now!
+2021-04-26 22:22:40,893 - INFO - Epoch [327/500] train_loss: 2.6895, val_loss: 3.3111, lr: 0.000100, 39.6s
+2021-04-26 22:23:16,525 - INFO - epoch complete!
+2021-04-26 22:23:16,525 - INFO - evaluating now!
+2021-04-26 22:23:19,792 - INFO - Epoch [328/500] train_loss: 2.6886, val_loss: 3.3122, lr: 0.000100, 38.9s
+2021-04-26 22:23:55,676 - INFO - epoch complete!
+2021-04-26 22:23:55,676 - INFO - evaluating now!
+2021-04-26 22:23:59,017 - INFO - Epoch [329/500] train_loss: 2.6882, val_loss: 3.3118, lr: 0.000100, 39.2s
+2021-04-26 22:24:35,542 - INFO - epoch complete!
+2021-04-26 22:24:35,543 - INFO - evaluating now!
+2021-04-26 22:24:39,010 - INFO - Epoch [330/500] train_loss: 2.6873, val_loss: 3.3095, lr: 0.000100, 40.0s
+2021-04-26 22:25:21,956 - INFO - epoch complete!
+2021-04-26 22:25:21,957 - INFO - evaluating now!
+2021-04-26 22:25:25,989 - INFO - Epoch [331/500] train_loss: 2.6870, val_loss: 3.3067, lr: 0.000100, 47.0s
+2021-04-26 22:26:08,165 - INFO - epoch complete!
+2021-04-26 22:26:08,166 - INFO - evaluating now!
+2021-04-26 22:26:12,510 - INFO - Epoch [332/500] train_loss: 2.6859, val_loss: 3.3080, lr: 0.000100, 46.5s
+2021-04-26 22:26:55,670 - INFO - epoch complete!
+2021-04-26 22:26:55,670 - INFO - evaluating now!
+2021-04-26 22:26:59,772 - INFO - Epoch [333/500] train_loss: 2.6855, val_loss: 3.3081, lr: 0.000100, 47.3s
+2021-04-26 22:27:44,156 - INFO - epoch complete!
+2021-04-26 22:27:44,156 - INFO - evaluating now!
+2021-04-26 22:27:48,878 - INFO - Epoch [334/500] train_loss: 2.6848, val_loss: 3.3100, lr: 0.000100, 49.1s
+2021-04-26 22:28:34,558 - INFO - epoch complete!
+2021-04-26 22:28:34,558 - INFO - evaluating now!
+2021-04-26 22:28:38,873 - INFO - Epoch [335/500] train_loss: 2.6843, val_loss: 3.3079, lr: 0.000100, 50.0s
+2021-04-26 22:29:23,911 - INFO - epoch complete!
+2021-04-26 22:29:23,911 - INFO - evaluating now!
+2021-04-26 22:29:28,810 - INFO - Epoch [336/500] train_loss: 2.6835, val_loss: 3.3082, lr: 0.000100, 49.9s
+2021-04-26 22:30:14,292 - INFO - epoch complete!
+2021-04-26 22:30:14,292 - INFO - evaluating now!
+2021-04-26 22:30:18,560 - INFO - Epoch [337/500] train_loss: 2.6835, val_loss: 3.3040, lr: 0.000100, 49.7s
+2021-04-26 22:30:18,572 - INFO - Saved model at 337
+2021-04-26 22:30:18,572 - INFO - Val loss decrease from 3.3064 to 3.3040, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch337.tar
+2021-04-26 22:31:02,711 - INFO - epoch complete!
+2021-04-26 22:31:02,711 - INFO - evaluating now!
+2021-04-26 22:31:06,919 - INFO - Epoch [338/500] train_loss: 2.6820, val_loss: 3.3038, lr: 0.000100, 48.3s
+2021-04-26 22:31:06,932 - INFO - Saved model at 338
+2021-04-26 22:31:06,933 - INFO - Val loss decrease from 3.3040 to 3.3038, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch338.tar
+2021-04-26 22:31:50,867 - INFO - epoch complete!
+2021-04-26 22:31:50,868 - INFO - evaluating now!
+2021-04-26 22:31:55,163 - INFO - Epoch [339/500] train_loss: 2.6822, val_loss: 3.3070, lr: 0.000100, 48.2s
+2021-04-26 22:32:40,216 - INFO - epoch complete!
+2021-04-26 22:32:40,216 - INFO - evaluating now!
+2021-04-26 22:32:44,503 - INFO - Epoch [340/500] train_loss: 2.6811, val_loss: 3.3053, lr: 0.000100, 49.3s
+2021-04-26 22:33:29,773 - INFO - epoch complete!
+2021-04-26 22:33:29,773 - INFO - evaluating now!
+2021-04-26 22:33:34,771 - INFO - Epoch [341/500] train_loss: 2.6806, val_loss: 3.3049, lr: 0.000100, 50.3s
+2021-04-26 22:34:19,307 - INFO - epoch complete!
+2021-04-26 22:34:19,308 - INFO - evaluating now!
+2021-04-26 22:34:24,179 - INFO - Epoch [342/500] train_loss: 2.6798, val_loss: 3.3049, lr: 0.000100, 49.4s
+2021-04-26 22:35:11,392 - INFO - epoch complete!
+2021-04-26 22:35:11,392 - INFO - evaluating now!
+2021-04-26 22:35:16,273 - INFO - Epoch [343/500] train_loss: 2.6791, val_loss: 3.3043, lr: 0.000100, 52.1s
+2021-04-26 22:36:01,535 - INFO - epoch complete!
+2021-04-26 22:36:01,535 - INFO - evaluating now!
+2021-04-26 22:36:06,073 - INFO - Epoch [344/500] train_loss: 2.6788, val_loss: 3.3022, lr: 0.000100, 49.8s
+2021-04-26 22:36:06,085 - INFO - Saved model at 344
+2021-04-26 22:36:06,085 - INFO - Val loss decrease from 3.3038 to 3.3022, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch344.tar
+2021-04-26 22:36:51,960 - INFO - epoch complete!
+2021-04-26 22:36:51,961 - INFO - evaluating now!
+2021-04-26 22:36:56,785 - INFO - Epoch [345/500] train_loss: 2.6781, val_loss: 3.3031, lr: 0.000100, 50.7s
+2021-04-26 22:37:41,413 - INFO - epoch complete!
+2021-04-26 22:37:41,414 - INFO - evaluating now!
+2021-04-26 22:37:46,062 - INFO - Epoch [346/500] train_loss: 2.6776, val_loss: 3.3054, lr: 0.000100, 49.3s
+2021-04-26 22:38:32,890 - INFO - epoch complete!
+2021-04-26 22:38:32,891 - INFO - evaluating now!
+2021-04-26 22:38:38,022 - INFO - Epoch [347/500] train_loss: 2.6771, val_loss: 3.3036, lr: 0.000100, 52.0s
+2021-04-26 22:39:23,571 - INFO - epoch complete!
+2021-04-26 22:39:23,571 - INFO - evaluating now!
+2021-04-26 22:39:27,794 - INFO - Epoch [348/500] train_loss: 2.6765, val_loss: 3.2992, lr: 0.000100, 49.8s
+2021-04-26 22:39:27,803 - INFO - Saved model at 348
+2021-04-26 22:39:27,803 - INFO - Val loss decrease from 3.3022 to 3.2992, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch348.tar
+2021-04-26 22:40:13,914 - INFO - epoch complete!
+2021-04-26 22:40:13,915 - INFO - evaluating now!
+2021-04-26 22:40:18,602 - INFO - Epoch [349/500] train_loss: 2.6759, val_loss: 3.2981, lr: 0.000100, 50.8s
+2021-04-26 22:40:18,611 - INFO - Saved model at 349
+2021-04-26 22:40:18,611 - INFO - Val loss decrease from 3.2992 to 3.2981, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch349.tar
+2021-04-26 22:41:04,083 - INFO - epoch complete!
+2021-04-26 22:41:04,083 - INFO - evaluating now!
+2021-04-26 22:41:08,787 - INFO - Epoch [350/500] train_loss: 2.6751, val_loss: 3.3047, lr: 0.000100, 50.2s
+2021-04-26 22:41:54,704 - INFO - epoch complete!
+2021-04-26 22:41:54,704 - INFO - evaluating now!
+2021-04-26 22:41:59,334 - INFO - Epoch [351/500] train_loss: 2.6745, val_loss: 3.2994, lr: 0.000100, 50.5s
+2021-04-26 22:42:45,438 - INFO - epoch complete!
+2021-04-26 22:42:45,438 - INFO - evaluating now!
+2021-04-26 22:42:49,621 - INFO - Epoch [352/500] train_loss: 2.6743, val_loss: 3.3037, lr: 0.000100, 50.3s
+2021-04-26 22:43:34,298 - INFO - epoch complete!
+2021-04-26 22:43:34,298 - INFO - evaluating now!
+2021-04-26 22:43:39,031 - INFO - Epoch [353/500] train_loss: 2.6737, val_loss: 3.2974, lr: 0.000100, 49.4s
+2021-04-26 22:43:39,045 - INFO - Saved model at 353
+2021-04-26 22:43:39,045 - INFO - Val loss decrease from 3.2981 to 3.2974, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch353.tar
+2021-04-26 22:44:24,783 - INFO - epoch complete!
+2021-04-26 22:44:24,783 - INFO - evaluating now!
+2021-04-26 22:44:29,733 - INFO - Epoch [354/500] train_loss: 2.6731, val_loss: 3.3030, lr: 0.000100, 50.7s
+2021-04-26 22:45:16,322 - INFO - epoch complete!
+2021-04-26 22:45:16,323 - INFO - evaluating now!
+2021-04-26 22:45:21,319 - INFO - Epoch [355/500] train_loss: 2.6725, val_loss: 3.3014, lr: 0.000100, 51.6s
+2021-04-26 22:46:07,193 - INFO - epoch complete!
+2021-04-26 22:46:07,193 - INFO - evaluating now!
+2021-04-26 22:46:12,250 - INFO - Epoch [356/500] train_loss: 2.6718, val_loss: 3.2988, lr: 0.000100, 50.9s
+2021-04-26 22:46:57,485 - INFO - epoch complete!
+2021-04-26 22:46:57,485 - INFO - evaluating now!
+2021-04-26 22:47:02,016 - INFO - Epoch [357/500] train_loss: 2.6712, val_loss: 3.2996, lr: 0.000100, 49.8s
+2021-04-26 22:47:47,331 - INFO - epoch complete!
+2021-04-26 22:47:47,332 - INFO - evaluating now!
+2021-04-26 22:47:51,521 - INFO - Epoch [358/500] train_loss: 2.6706, val_loss: 3.3011, lr: 0.000100, 49.5s
+2021-04-26 22:48:36,641 - INFO - epoch complete!
+2021-04-26 22:48:36,641 - INFO - evaluating now!
+2021-04-26 22:48:40,986 - INFO - Epoch [359/500] train_loss: 2.6703, val_loss: 3.2993, lr: 0.000100, 49.5s
+2021-04-26 22:49:24,912 - INFO - epoch complete!
+2021-04-26 22:49:24,914 - INFO - evaluating now!
+2021-04-26 22:49:29,354 - INFO - Epoch [360/500] train_loss: 2.6694, val_loss: 3.3018, lr: 0.000100, 48.4s
+2021-04-26 22:50:15,056 - INFO - epoch complete!
+2021-04-26 22:50:15,057 - INFO - evaluating now!
+2021-04-26 22:50:19,928 - INFO - Epoch [361/500] train_loss: 2.6692, val_loss: 3.2936, lr: 0.000100, 50.6s
+2021-04-26 22:50:19,942 - INFO - Saved model at 361
+2021-04-26 22:50:19,942 - INFO - Val loss decrease from 3.2974 to 3.2936, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch361.tar
+2021-04-26 22:51:04,368 - INFO - epoch complete!
+2021-04-26 22:51:04,368 - INFO - evaluating now!
+2021-04-26 22:51:08,572 - INFO - Epoch [362/500] train_loss: 2.6686, val_loss: 3.2940, lr: 0.000100, 48.6s
+2021-04-26 22:51:54,604 - INFO - epoch complete!
+2021-04-26 22:51:54,604 - INFO - evaluating now!
+2021-04-26 22:51:59,583 - INFO - Epoch [363/500] train_loss: 2.6681, val_loss: 3.2950, lr: 0.000100, 51.0s
+2021-04-26 22:52:44,453 - INFO - epoch complete!
+2021-04-26 22:52:44,453 - INFO - evaluating now!
+2021-04-26 22:52:48,132 - INFO - Epoch [364/500] train_loss: 2.6673, val_loss: 3.2990, lr: 0.000100, 48.5s
+2021-04-26 22:53:33,143 - INFO - epoch complete!
+2021-04-26 22:53:33,144 - INFO - evaluating now!
+2021-04-26 22:53:38,004 - INFO - Epoch [365/500] train_loss: 2.6668, val_loss: 3.2985, lr: 0.000100, 49.9s
+2021-04-26 22:54:24,790 - INFO - epoch complete!
+2021-04-26 22:54:24,790 - INFO - evaluating now!
+2021-04-26 22:54:29,713 - INFO - Epoch [366/500] train_loss: 2.6664, val_loss: 3.2969, lr: 0.000100, 51.7s
+2021-04-26 22:55:15,585 - INFO - epoch complete!
+2021-04-26 22:55:15,585 - INFO - evaluating now!
+2021-04-26 22:55:19,748 - INFO - Epoch [367/500] train_loss: 2.6659, val_loss: 3.2945, lr: 0.000100, 50.0s
+2021-04-26 22:56:07,841 - INFO - epoch complete!
+2021-04-26 22:56:07,842 - INFO - evaluating now!
+2021-04-26 22:56:11,837 - INFO - Epoch [368/500] train_loss: 2.6649, val_loss: 3.2952, lr: 0.000100, 52.1s
+2021-04-26 22:56:57,425 - INFO - epoch complete!
+2021-04-26 22:56:57,425 - INFO - evaluating now!
+2021-04-26 22:57:01,686 - INFO - Epoch [369/500] train_loss: 2.6646, val_loss: 3.2936, lr: 0.000100, 49.8s
+2021-04-26 22:57:01,695 - INFO - Saved model at 369
+2021-04-26 22:57:01,695 - INFO - Val loss decrease from 3.2936 to 3.2936, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch369.tar
+2021-04-26 22:57:46,357 - INFO - epoch complete!
+2021-04-26 22:57:46,357 - INFO - evaluating now!
+2021-04-26 22:57:50,661 - INFO - Epoch [370/500] train_loss: 2.6643, val_loss: 3.2930, lr: 0.000100, 49.0s
+2021-04-26 22:57:50,673 - INFO - Saved model at 370
+2021-04-26 22:57:50,673 - INFO - Val loss decrease from 3.2936 to 3.2930, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch370.tar
+2021-04-26 22:58:33,749 - INFO - epoch complete!
+2021-04-26 22:58:33,749 - INFO - evaluating now!
+2021-04-26 22:58:37,965 - INFO - Epoch [371/500] train_loss: 2.6635, val_loss: 3.2917, lr: 0.000100, 47.3s
+2021-04-26 22:58:37,974 - INFO - Saved model at 371
+2021-04-26 22:58:37,975 - INFO - Val loss decrease from 3.2930 to 3.2917, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch371.tar
+2021-04-26 22:59:21,463 - INFO - epoch complete!
+2021-04-26 22:59:21,464 - INFO - evaluating now!
+2021-04-26 22:59:25,791 - INFO - Epoch [372/500] train_loss: 2.6633, val_loss: 3.2924, lr: 0.000100, 47.8s
+2021-04-26 23:00:09,410 - INFO - epoch complete!
+2021-04-26 23:00:09,411 - INFO - evaluating now!
+2021-04-26 23:00:13,778 - INFO - Epoch [373/500] train_loss: 2.6625, val_loss: 3.2968, lr: 0.000100, 48.0s
+2021-04-26 23:00:57,556 - INFO - epoch complete!
+2021-04-26 23:00:57,557 - INFO - evaluating now!
+2021-04-26 23:01:01,778 - INFO - Epoch [374/500] train_loss: 2.6619, val_loss: 3.2917, lr: 0.000100, 48.0s
+2021-04-26 23:01:01,795 - INFO - Saved model at 374
+2021-04-26 23:01:01,795 - INFO - Val loss decrease from 3.2917 to 3.2917, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch374.tar
+2021-04-26 23:01:47,418 - INFO - epoch complete!
+2021-04-26 23:01:47,419 - INFO - evaluating now!
+2021-04-26 23:01:52,132 - INFO - Epoch [375/500] train_loss: 2.6613, val_loss: 3.2934, lr: 0.000100, 50.3s
+2021-04-26 23:02:37,126 - INFO - epoch complete!
+2021-04-26 23:02:37,127 - INFO - evaluating now!
+2021-04-26 23:02:42,265 - INFO - Epoch [376/500] train_loss: 2.6610, val_loss: 3.2939, lr: 0.000100, 50.1s
+2021-04-26 23:03:27,057 - INFO - epoch complete!
+2021-04-26 23:03:27,058 - INFO - evaluating now!
+2021-04-26 23:03:32,561 - INFO - Epoch [377/500] train_loss: 2.6604, val_loss: 3.2931, lr: 0.000100, 50.3s
+2021-04-26 23:04:21,347 - INFO - epoch complete!
+2021-04-26 23:04:21,348 - INFO - evaluating now!
+2021-04-26 23:04:26,842 - INFO - Epoch [378/500] train_loss: 2.6600, val_loss: 3.2923, lr: 0.000100, 54.3s
+2021-04-26 23:05:15,652 - INFO - epoch complete!
+2021-04-26 23:05:15,652 - INFO - evaluating now!
+2021-04-26 23:05:20,636 - INFO - Epoch [379/500] train_loss: 2.6594, val_loss: 3.2932, lr: 0.000100, 53.8s
+2021-04-26 23:06:11,066 - INFO - epoch complete!
+2021-04-26 23:06:11,067 - INFO - evaluating now!
+2021-04-26 23:06:15,999 - INFO - Epoch [380/500] train_loss: 2.6588, val_loss: 3.2892, lr: 0.000100, 55.4s
+2021-04-26 23:06:16,015 - INFO - Saved model at 380
+2021-04-26 23:06:16,016 - INFO - Val loss decrease from 3.2917 to 3.2892, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch380.tar
+2021-04-26 23:07:06,457 - INFO - epoch complete!
+2021-04-26 23:07:06,458 - INFO - evaluating now!
+2021-04-26 23:07:11,887 - INFO - Epoch [381/500] train_loss: 2.6582, val_loss: 3.2939, lr: 0.000100, 55.9s
+2021-04-26 23:08:00,236 - INFO - epoch complete!
+2021-04-26 23:08:00,237 - INFO - evaluating now!
+2021-04-26 23:08:04,932 - INFO - Epoch [382/500] train_loss: 2.6578, val_loss: 3.2900, lr: 0.000100, 53.0s
+2021-04-26 23:08:54,959 - INFO - epoch complete!
+2021-04-26 23:08:54,959 - INFO - evaluating now!
+2021-04-26 23:09:00,331 - INFO - Epoch [383/500] train_loss: 2.6575, val_loss: 3.2905, lr: 0.000100, 55.4s
+2021-04-26 23:09:49,644 - INFO - epoch complete!
+2021-04-26 23:09:49,645 - INFO - evaluating now!
+2021-04-26 23:09:54,647 - INFO - Epoch [384/500] train_loss: 2.6567, val_loss: 3.2914, lr: 0.000100, 54.3s
+2021-04-26 23:10:42,798 - INFO - epoch complete!
+2021-04-26 23:10:42,798 - INFO - evaluating now!
+2021-04-26 23:10:47,799 - INFO - Epoch [385/500] train_loss: 2.6563, val_loss: 3.2867, lr: 0.000100, 53.2s
+2021-04-26 23:10:47,810 - INFO - Saved model at 385
+2021-04-26 23:10:47,811 - INFO - Val loss decrease from 3.2892 to 3.2867, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch385.tar
+2021-04-26 23:11:35,755 - INFO - epoch complete!
+2021-04-26 23:11:35,756 - INFO - evaluating now!
+2021-04-26 23:11:40,641 - INFO - Epoch [386/500] train_loss: 2.6554, val_loss: 3.2945, lr: 0.000100, 52.8s
+2021-04-26 23:12:29,511 - INFO - epoch complete!
+2021-04-26 23:12:29,511 - INFO - evaluating now!
+2021-04-26 23:12:34,745 - INFO - Epoch [387/500] train_loss: 2.6555, val_loss: 3.2924, lr: 0.000100, 54.1s
+2021-04-26 23:13:24,079 - INFO - epoch complete!
+2021-04-26 23:13:24,080 - INFO - evaluating now!
+2021-04-26 23:13:29,319 - INFO - Epoch [388/500] train_loss: 2.6547, val_loss: 3.2874, lr: 0.000100, 54.6s
+2021-04-26 23:14:17,665 - INFO - epoch complete!
+2021-04-26 23:14:17,666 - INFO - evaluating now!
+2021-04-26 23:14:22,899 - INFO - Epoch [389/500] train_loss: 2.6541, val_loss: 3.2891, lr: 0.000100, 53.6s
+2021-04-26 23:15:09,439 - INFO - epoch complete!
+2021-04-26 23:15:09,440 - INFO - evaluating now!
+2021-04-26 23:15:14,090 - INFO - Epoch [390/500] train_loss: 2.6538, val_loss: 3.2935, lr: 0.000100, 51.2s
+2021-04-26 23:16:00,904 - INFO - epoch complete!
+2021-04-26 23:16:00,904 - INFO - evaluating now!
+2021-04-26 23:16:05,019 - INFO - Epoch [391/500] train_loss: 2.6531, val_loss: 3.2913, lr: 0.000100, 50.9s
+2021-04-26 23:16:49,590 - INFO - epoch complete!
+2021-04-26 23:16:49,591 - INFO - evaluating now!
+2021-04-26 23:16:54,839 - INFO - Epoch [392/500] train_loss: 2.6528, val_loss: 3.2895, lr: 0.000100, 49.8s
+2021-04-26 23:17:43,541 - INFO - epoch complete!
+2021-04-26 23:17:43,544 - INFO - evaluating now!
+2021-04-26 23:17:48,949 - INFO - Epoch [393/500] train_loss: 2.6521, val_loss: 3.2863, lr: 0.000100, 54.1s
+2021-04-26 23:17:48,959 - INFO - Saved model at 393
+2021-04-26 23:17:48,960 - INFO - Val loss decrease from 3.2867 to 3.2863, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch393.tar
+2021-04-26 23:18:36,619 - INFO - epoch complete!
+2021-04-26 23:18:36,619 - INFO - evaluating now!
+2021-04-26 23:18:41,384 - INFO - Epoch [394/500] train_loss: 2.6517, val_loss: 3.2868, lr: 0.000100, 52.4s
+2021-04-26 23:19:30,019 - INFO - epoch complete!
+2021-04-26 23:19:30,019 - INFO - evaluating now!
+2021-04-26 23:19:35,156 - INFO - Epoch [395/500] train_loss: 2.6513, val_loss: 3.2846, lr: 0.000100, 53.8s
+2021-04-26 23:19:35,166 - INFO - Saved model at 395
+2021-04-26 23:19:35,167 - INFO - Val loss decrease from 3.2863 to 3.2846, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch395.tar
+2021-04-26 23:20:30,361 - INFO - epoch complete!
+2021-04-26 23:20:30,362 - INFO - evaluating now!
+2021-04-26 23:20:40,231 - INFO - Epoch [396/500] train_loss: 2.6505, val_loss: 3.2833, lr: 0.000100, 65.1s
+2021-04-26 23:20:40,244 - INFO - Saved model at 396
+2021-04-26 23:20:40,245 - INFO - Val loss decrease from 3.2846 to 3.2833, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch396.tar
+2021-04-26 23:22:06,883 - INFO - epoch complete!
+2021-04-26 23:22:06,884 - INFO - evaluating now!
+2021-04-26 23:22:13,067 - INFO - Epoch [397/500] train_loss: 2.6504, val_loss: 3.2821, lr: 0.000100, 92.8s
+2021-04-26 23:22:13,080 - INFO - Saved model at 397
+2021-04-26 23:22:13,081 - INFO - Val loss decrease from 3.2833 to 3.2821, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch397.tar
+2021-04-26 23:23:05,134 - INFO - epoch complete!
+2021-04-26 23:23:05,135 - INFO - evaluating now!
+2021-04-26 23:23:11,455 - INFO - Epoch [398/500] train_loss: 2.6498, val_loss: 3.2874, lr: 0.000100, 58.4s
+2021-04-26 23:24:03,457 - INFO - epoch complete!
+2021-04-26 23:24:03,458 - INFO - evaluating now!
+2021-04-26 23:24:09,797 - INFO - Epoch [399/500] train_loss: 2.6492, val_loss: 3.2850, lr: 0.000100, 58.3s
+2021-04-26 23:25:01,805 - INFO - epoch complete!
+2021-04-26 23:25:01,806 - INFO - evaluating now!
+2021-04-26 23:25:07,364 - INFO - Epoch [400/500] train_loss: 2.6488, val_loss: 3.2842, lr: 0.000100, 57.6s
+2021-04-26 23:26:02,292 - INFO - epoch complete!
+2021-04-26 23:26:02,293 - INFO - evaluating now!
+2021-04-26 23:26:08,509 - INFO - Epoch [401/500] train_loss: 2.6480, val_loss: 3.2885, lr: 0.000100, 61.1s
+2021-04-26 23:27:18,742 - INFO - epoch complete!
+2021-04-26 23:27:18,742 - INFO - evaluating now!
+2021-04-26 23:27:28,170 - INFO - Epoch [402/500] train_loss: 2.6477, val_loss: 3.2901, lr: 0.000100, 79.7s
+2021-04-26 23:28:34,670 - INFO - epoch complete!
+2021-04-26 23:28:34,671 - INFO - evaluating now!
+2021-04-26 23:28:40,533 - INFO - Epoch [403/500] train_loss: 2.6470, val_loss: 3.2866, lr: 0.000100, 72.4s
+2021-04-26 23:29:31,984 - INFO - epoch complete!
+2021-04-26 23:29:31,985 - INFO - evaluating now!
+2021-04-26 23:29:37,508 - INFO - Epoch [404/500] train_loss: 2.6468, val_loss: 3.2858, lr: 0.000100, 57.0s
+2021-04-26 23:30:29,152 - INFO - epoch complete!
+2021-04-26 23:30:29,153 - INFO - evaluating now!
+2021-04-26 23:30:34,369 - INFO - Epoch [405/500] train_loss: 2.6460, val_loss: 3.2836, lr: 0.000100, 56.9s
+2021-04-26 23:31:22,678 - INFO - epoch complete!
+2021-04-26 23:31:22,679 - INFO - evaluating now!
+2021-04-26 23:31:28,839 - INFO - Epoch [406/500] train_loss: 2.6458, val_loss: 3.2873, lr: 0.000100, 54.5s
+2021-04-26 23:32:21,591 - INFO - epoch complete!
+2021-04-26 23:32:21,592 - INFO - evaluating now!
+2021-04-26 23:32:27,915 - INFO - Epoch [407/500] train_loss: 2.6453, val_loss: 3.2842, lr: 0.000100, 59.1s
+2021-04-26 23:33:20,637 - INFO - epoch complete!
+2021-04-26 23:33:20,637 - INFO - evaluating now!
+2021-04-26 23:33:26,623 - INFO - Epoch [408/500] train_loss: 2.6450, val_loss: 3.2846, lr: 0.000100, 58.7s
+2021-04-26 23:34:19,205 - INFO - epoch complete!
+2021-04-26 23:34:19,206 - INFO - evaluating now!
+2021-04-26 23:34:24,965 - INFO - Epoch [409/500] train_loss: 2.6441, val_loss: 3.2839, lr: 0.000100, 58.3s
+2021-04-26 23:35:16,643 - INFO - epoch complete!
+2021-04-26 23:35:16,644 - INFO - evaluating now!
+2021-04-26 23:35:22,629 - INFO - Epoch [410/500] train_loss: 2.6440, val_loss: 3.2803, lr: 0.000100, 57.7s
+2021-04-26 23:35:22,641 - INFO - Saved model at 410
+2021-04-26 23:35:22,644 - INFO - Val loss decrease from 3.2821 to 3.2803, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch410.tar
+2021-04-26 23:36:15,267 - INFO - epoch complete!
+2021-04-26 23:36:15,268 - INFO - evaluating now!
+2021-04-26 23:36:21,117 - INFO - Epoch [411/500] train_loss: 2.6434, val_loss: 3.2861, lr: 0.000100, 58.5s
+2021-04-26 23:37:12,888 - INFO - epoch complete!
+2021-04-26 23:37:12,889 - INFO - evaluating now!
+2021-04-26 23:37:18,492 - INFO - Epoch [412/500] train_loss: 2.6428, val_loss: 3.2846, lr: 0.000100, 57.4s
+2021-04-26 23:38:10,949 - INFO - epoch complete!
+2021-04-26 23:38:10,950 - INFO - evaluating now!
+2021-04-26 23:38:16,411 - INFO - Epoch [413/500] train_loss: 2.6422, val_loss: 3.2854, lr: 0.000100, 57.9s
+2021-04-26 23:39:10,418 - INFO - epoch complete!
+2021-04-26 23:39:10,418 - INFO - evaluating now!
+2021-04-26 23:39:16,728 - INFO - Epoch [414/500] train_loss: 2.6423, val_loss: 3.2765, lr: 0.000100, 60.3s
+2021-04-26 23:39:16,739 - INFO - Saved model at 414
+2021-04-26 23:39:16,740 - INFO - Val loss decrease from 3.2803 to 3.2765, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch414.tar
+2021-04-26 23:40:09,963 - INFO - epoch complete!
+2021-04-26 23:40:09,964 - INFO - evaluating now!
+2021-04-26 23:40:15,537 - INFO - Epoch [415/500] train_loss: 2.6412, val_loss: 3.2854, lr: 0.000100, 58.8s
+2021-04-26 23:41:07,901 - INFO - epoch complete!
+2021-04-26 23:41:07,902 - INFO - evaluating now!
+2021-04-26 23:41:13,732 - INFO - Epoch [416/500] train_loss: 2.6412, val_loss: 3.2831, lr: 0.000100, 58.2s
+2021-04-26 23:42:06,936 - INFO - epoch complete!
+2021-04-26 23:42:06,937 - INFO - evaluating now!
+2021-04-26 23:42:12,546 - INFO - Epoch [417/500] train_loss: 2.6404, val_loss: 3.2820, lr: 0.000100, 58.8s
+2021-04-26 23:43:05,760 - INFO - epoch complete!
+2021-04-26 23:43:05,760 - INFO - evaluating now!
+2021-04-26 23:43:11,440 - INFO - Epoch [418/500] train_loss: 2.6401, val_loss: 3.2806, lr: 0.000100, 58.9s
+2021-04-26 23:44:04,359 - INFO - epoch complete!
+2021-04-26 23:44:04,360 - INFO - evaluating now!
+2021-04-26 23:44:10,158 - INFO - Epoch [419/500] train_loss: 2.6397, val_loss: 3.2843, lr: 0.000100, 58.7s
+2021-04-26 23:45:01,491 - INFO - epoch complete!
+2021-04-26 23:45:01,492 - INFO - evaluating now!
+2021-04-26 23:45:06,808 - INFO - Epoch [420/500] train_loss: 2.6394, val_loss: 3.2823, lr: 0.000100, 56.6s
+2021-04-26 23:45:59,155 - INFO - epoch complete!
+2021-04-26 23:45:59,156 - INFO - evaluating now!
+2021-04-26 23:46:05,247 - INFO - Epoch [421/500] train_loss: 2.6384, val_loss: 3.2850, lr: 0.000100, 58.4s
+2021-04-26 23:46:57,007 - INFO - epoch complete!
+2021-04-26 23:46:57,008 - INFO - evaluating now!
+2021-04-26 23:47:02,627 - INFO - Epoch [422/500] train_loss: 2.6383, val_loss: 3.2791, lr: 0.000100, 57.4s
+2021-04-26 23:47:57,430 - INFO - epoch complete!
+2021-04-26 23:47:57,430 - INFO - evaluating now!
+2021-04-26 23:48:03,577 - INFO - Epoch [423/500] train_loss: 2.6376, val_loss: 3.2841, lr: 0.000100, 60.9s
+2021-04-26 23:48:58,760 - INFO - epoch complete!
+2021-04-26 23:48:58,761 - INFO - evaluating now!
+2021-04-26 23:49:05,060 - INFO - Epoch [424/500] train_loss: 2.6372, val_loss: 3.2800, lr: 0.000100, 61.5s
+2021-04-26 23:49:54,723 - INFO - epoch complete!
+2021-04-26 23:49:54,724 - INFO - evaluating now!
+2021-04-26 23:49:59,397 - INFO - Epoch [425/500] train_loss: 2.6370, val_loss: 3.2820, lr: 0.000100, 54.3s
+2021-04-26 23:50:51,847 - INFO - epoch complete!
+2021-04-26 23:50:51,848 - INFO - evaluating now!
+2021-04-26 23:50:57,359 - INFO - Epoch [426/500] train_loss: 2.6366, val_loss: 3.2783, lr: 0.000100, 58.0s
+2021-04-26 23:51:51,977 - INFO - epoch complete!
+2021-04-26 23:51:51,977 - INFO - evaluating now!
+2021-04-26 23:51:58,113 - INFO - Epoch [427/500] train_loss: 2.6360, val_loss: 3.2776, lr: 0.000100, 60.8s
+2021-04-26 23:52:54,567 - INFO - epoch complete!
+2021-04-26 23:52:54,568 - INFO - evaluating now!
+2021-04-26 23:53:01,179 - INFO - Epoch [428/500] train_loss: 2.6354, val_loss: 3.2811, lr: 0.000100, 63.1s
+2021-04-26 23:53:57,150 - INFO - epoch complete!
+2021-04-26 23:53:57,151 - INFO - evaluating now!
+2021-04-26 23:54:03,018 - INFO - Epoch [429/500] train_loss: 2.6352, val_loss: 3.2807, lr: 0.000100, 61.8s

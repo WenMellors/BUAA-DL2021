@@ -1,12 +1,10 @@
 /Bigscity-TrafficDL/.vscode
 /Bigscity-TrafficDL/raw_data/*
 /Bigscity-TrafficDL/trafficdl/tmp/*
-/Bigscity-TrafficDL/trafficdl/cache/*
 /Bigscity-TrafficDL/trafficdl/__pycache__
 /Bigscity-TrafficDL/trafficdl/*/__pycache__
 /Bigscity-TrafficDL/trafficdl/data/dataset/__pycache__
 /Bigscity-TrafficDL/.idea
-/Bigscity-TrafficDL/trafficdl/log/*
 /Bigscity-TrafficDL/trafficdl/model/*/__pycache__
 
 /.vscode

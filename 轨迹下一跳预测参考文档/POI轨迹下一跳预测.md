@@ -56,7 +56,7 @@
   * current_loc：当前轨迹位置信息
   * current_tim：当前轨迹时间信息
   * uid：用户 id
-  * target_loc：要预测的下一跳位置信息
+  * target：要预测的下一跳位置信息
   * target_tim：要预测的下一跳时间信息
 
 具体各值对应的数据格式，各组可以参见 test_model.py 脚本，实际在命令行运行进行观察验证。此外对于数据处理部分有想要详细了解的组，可以查看 `/trafficdl/data/dataset/trajectory_dataset.py` 和框架[文档](https://bigscity-trafficdl-docs.readthedocs.io/en/latest/index.html)，以及咨询助教。对于部分困难模型，可能需要组自行参考开源代码的数据处理方式，实现一个 dataset 类。

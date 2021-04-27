@@ -55,7 +55,10 @@ class Batch(object):
         for i, key in enumerate(self.feature_name):
             # 需保证 item 每个特征的顺序与初始化时传入的 feature_name 中特征的顺序一致
             self.data[key].append(item[i])
+            print(key)
             if key in self.pad_item:
+                print(i)
+                print(item[i])
                 self.origin_len[key].append(len(item[i]))
                 if self.pad_len[key] < len(item[i]):
                     # 保持 pad_len 是最大的

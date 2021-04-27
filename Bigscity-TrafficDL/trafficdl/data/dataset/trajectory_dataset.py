@@ -55,6 +55,7 @@ class TrajectoryDataset(AbstractDataset):
         # 由 dataset 添加 poi_profile
         res['poi_profile'] = pd.read_csv(os.path.join(
             self.data_path, '{}.geo'.format(self.config['dataset'])))
+
         with open(os.path.join(self.data_path, 'config.json'), 'r') as f:
             config = json.load(f)
             res['distance_upper'] = config['info']['distance_upper']
@@ -83,6 +84,10 @@ class TrajectoryDataset(AbstractDataset):
         # load data according to config
         traj = pd.read_csv(os.path.join(
             self.data_path, '{}.dyna'.format(self.config['dataset'])))
+        
+        # import pdb
+        # pdb.set_trace()
+
         user_set = pd.unique(traj['entity_id'])
         res = {}
         min_session_len = self.config['min_session_len']

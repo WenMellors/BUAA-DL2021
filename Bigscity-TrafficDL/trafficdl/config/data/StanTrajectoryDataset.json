@@ -1,0 +1,4 @@
+{
+    "max_len": 100,
+    "device": "cuda"
+}

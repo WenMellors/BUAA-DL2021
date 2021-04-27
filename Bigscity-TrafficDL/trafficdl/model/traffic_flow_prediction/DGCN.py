@@ -1,14 +1,12 @@
 from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
 from scipy.sparse.linalg import eigs
-from logging import getLogger
 from trafficdl.model import loss
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
-import sys
-from torch.nn import BatchNorm2d, Conv1d, Conv2d, ModuleList, Parameter, LayerNorm, BatchNorm1d
+from torch.nn import BatchNorm2d, Conv1d, Conv2d, Parameter, LayerNorm, BatchNorm1d
 
 
 class TATT(nn.Module):
@@ -35,7 +33,7 @@ class TATT(nn.Module):
 
         logits = torch.sigmoid(torch.matmul(torch.matmul(f1, self.w), f2) + self.b)
         logits = torch.matmul(self.v, logits)
-        ##normalization
+        # normalization
         a, _ = torch.max(logits, 1, True)
         logits = logits - a
         coefs = torch.softmax(logits, -1)
@@ -66,7 +64,7 @@ class SATT(nn.Module):
 
         logits = torch.sigmoid(torch.matmul(torch.matmul(f1, self.w), f2) + self.b)
         logits = torch.matmul(self.v, logits)
-        ##normalization
+        # normalization
         a, _ = torch.max(logits, 1, True)
         logits = logits - a
         coefs = torch.softmax(logits, -1)
@@ -89,8 +87,8 @@ class cheby_conv_ds(nn.Module):
         L1 = adj
 
         L = ds * adj
-        I = ds * torch.eye(nNode).to(self.device)
-        Ls.append(I)
+        Im = ds * torch.eye(nNode).to(self.device)
+        Ls.append(Im)
         Ls.append(L)
         for k in range(2, self.K):
             L2 = 2 * torch.matmul(adj, L1) - L0
@@ -106,7 +104,7 @@ class cheby_conv_ds(nn.Module):
         out = self.conv1(x)
         return out
 
-    ###ASTGCN_block
+    # ASTGCN_block
 
 
 class ST_BLOCK_0(nn.Module):
@@ -140,10 +138,8 @@ class ST_BLOCK_0(nn.Module):
 
         return out, S_coef, T_coef
 
-    ###1
 
-
-###DGCN_Mask&&DGCN_Res
+# DGCN_Mask&&DGCN_Res
 class T_cheby_conv(nn.Module):
     '''
     x : [batch_size, feat_in, num_node ,tem_size] - input of all time step
@@ -218,8 +214,8 @@ class ST_BLOCK_1(nn.Module):
         return out, supports, T_coef
 
 
-###2
-###DGCN
+# 2
+# DGCN
 class T_cheby_conv_ds(nn.Module):
     '''
     x : [batch_size, feat_in, num_node ,tem_size] - input of all time step
@@ -355,7 +351,7 @@ class TATT_1(nn.Module):
 
         logits = torch.sigmoid(torch.matmul(torch.matmul(f1, self.w), f2) + self.b)
         logits = torch.matmul(self.v, logits)
-        ##normalization
+        # normalization
         # logits=tf_util.batch_norm_for_conv1d(logits, is_training=training,
         #                                   bn_decay=bn_decay, scope='bn')
         # a,_ = torch.max(logits, 1, True)
@@ -419,7 +415,7 @@ class ST_BLOCK_2(nn.Module):
         return out, adj_out, T_coef
 
 
-##DGCN_R
+# DGCN_R
 class TATT_1_r(nn.Module):
     def __init__(self, c_in, num_nodes, tem_size, device):
         super(TATT_1_r, self).__init__()
@@ -445,7 +441,7 @@ class TATT_1_r(nn.Module):
 
         logits = torch.sigmoid(torch.matmul(torch.matmul(f1, self.w), f2) + self.b)
         logits = torch.matmul(self.v, logits)
-        ##normalization
+        # normalization
         # logits=tf_util.batch_norm_for_conv1d(logits, is_training=training,
         #                                   bn_decay=bn_decay, scope='bn')
         # a,_ = torch.max(logits, 1, True)
@@ -509,7 +505,7 @@ class ST_BLOCK_2_r(nn.Module):
         return out, adj_out, T_coef
 
 
-###DGCN_GAT
+# DGCN_GAT
 class GraphAttentionLayer(nn.Module):
     """
     Simple GAT layer, similar to https://arxiv.org/abs/1710.10903
@@ -620,7 +616,7 @@ class ST_BLOCK_3(nn.Module):
         return out, S_coef, T_coef
 
 
-###Gated-STGCN(IJCAI)
+# Gated-STGCN(IJCAI)
 class cheby_conv(nn.Module):
     '''
     x : [batch_size, feat_in, num_node ,tem_size] - input of all time step
@@ -691,7 +687,7 @@ class ST_BLOCK_4(nn.Module):
         return x
 
 
-###GRCN(ICLR)
+# GRCN(ICLR)
 class gcn_conv_hop(nn.Module):
     '''
     x : [batch_size, feat_in, num_node ] - input of one single time step
@@ -880,7 +876,6 @@ class DGCN(AbstractTrafficStateModel):
         # [0, len_closeness) -- input1
         # [len_closeness, len_closeness+len_period) -- input2
         # [len_closeness+len_period, len_closeness+len_period+len_trend) -- input3
-        output = 0
         x_w = None
         x_d = None
         x_r = None

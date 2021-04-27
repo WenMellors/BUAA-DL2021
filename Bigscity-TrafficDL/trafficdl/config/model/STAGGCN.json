@@ -1,0 +1,18 @@
+{
+  "gpu": true,
+  "gpu_id": 3,
+  "input_window": 12,
+  "output_window": 12,
+  "num_workers": 8,
+  "scaler": "standard",
+  "learning_rate": 0.0001,
+  "batch_size": 64,
+  "epoch": 1512,
+  "max_epoch": 1513,
+
+  "graph_dim": 32,
+  "tcn_dim": [10],
+  "atten_head": 5,
+  "choice": [1,1,1],
+  "load_from_local": true
+}

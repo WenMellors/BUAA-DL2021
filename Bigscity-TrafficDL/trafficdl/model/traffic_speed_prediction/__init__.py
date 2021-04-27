@@ -4,6 +4,7 @@ from trafficdl.model.traffic_speed_prediction.GraphWaveNet import GWNET
 from trafficdl.model.traffic_speed_prediction.TGCLSTM import TGCLSTM
 from trafficdl.model.traffic_speed_prediction.TGCN import TGCN
 from trafficdl.model.traffic_speed_prediction.TemplateTSP import TemplateTSP
+from trafficdl.model.traffic_speed_prediction.HGCN import HGCN
 
 __all__ = [
     "DCRNN",
@@ -11,5 +12,6 @@ __all__ = [
     "GWNET",
     "TGCLSTM",
     "TGCN",
-    "TemplateTSP"
+    "TemplateTSP",
+    "HGCN"
 ]

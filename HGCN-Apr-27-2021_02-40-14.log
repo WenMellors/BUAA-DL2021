@@ -1,0 +1,190 @@
+2021-04-27 02:40:14,640 - INFO - Log directory: ./trafficdl/log
+2021-04-27 02:40:14,641 - INFO - Begin pipeline, task=traffic_state_pred, model_name=HGCN, dataset_name=PEMS_BAY
+2021-04-27 02:40:14,905 - INFO - Loaded file PEMS_BAY.geo, num_nodes=325
+2021-04-27 02:40:14,931 - INFO - Loaded file PEMS_BAY.rel, shape=(325, 325)
+2021-04-27 02:40:14,931 - INFO - Start Calculate the weight by Gauss kernel!
+2021-04-27 02:40:14,932 - INFO - Start Calculate the adj_max_cluster!
+2021-04-27 02:40:15,006 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_PEMS_BAY_12_12_0.6_0.2_none_64_False_False_True.npz
+2021-04-27 02:40:21,184 - INFO - train	x: (31256, 12, 325, 1)y: (31256, 12, 325, 1)
+2021-04-27 02:40:21,186 - INFO - eval	x: (10418, 12, 325, 1)y: (10418, 12, 325, 1)
+2021-04-27 02:40:21,186 - INFO - test	x: (10419, 12, 325, 1)y: (10419, 12, 325, 1)
+2021-04-27 02:40:21,187 - INFO - NoneScaler
+2021-04-27 02:40:25,346 - INFO - h	torch.Size([325, 325])	cuda:0	True
+2021-04-27 02:40:25,347 - INFO - h_cluster	torch.Size([10, 10])	cuda:0	True
+2021-04-27 02:40:25,347 - INFO - nodevec1	torch.Size([325, 10])	cuda:0	True
+2021-04-27 02:40:25,347 - INFO - nodevec2	torch.Size([10, 325])	cuda:0	True
+2021-04-27 02:40:25,348 - INFO - nodevec1_c	torch.Size([10, 10])	cuda:0	True
+2021-04-27 02:40:25,348 - INFO - nodevec2_c	torch.Size([10, 10])	cuda:0	True
+2021-04-27 02:40:25,349 - INFO - start_conv.weight	torch.Size([32, 1, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,349 - INFO - start_conv.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,350 - INFO - start_conv_cluster.weight	torch.Size([32, 1, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,351 - INFO - start_conv_cluster.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,352 - INFO - block1.time_conv.weight	torch.Size([64, 64, 1, 3])	cuda:0	True
+2021-04-27 02:40:25,352 - INFO - block1.time_conv.bias	torch.Size([64])	cuda:0	True
+2021-04-27 02:40:25,353 - INFO - block1.multigcn.mlp.mlp.weight	torch.Size([64, 160, 1, 3])	cuda:0	True
+2021-04-27 02:40:25,353 - INFO - block1.multigcn.mlp.mlp.bias	torch.Size([64])	cuda:0	True
+2021-04-27 02:40:25,354 - INFO - block1.TAT.w	torch.Size([325, 32])	cuda:0	True
+2021-04-27 02:40:25,355 - INFO - block1.TAT.b	torch.Size([6, 6])	cuda:0	True
+2021-04-27 02:40:25,355 - INFO - block1.TAT.v	torch.Size([6, 6])	cuda:0	True
+2021-04-27 02:40:25,355 - INFO - block1.TAT.conv1.weight	torch.Size([1, 32, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,356 - INFO - block1.TAT.conv2.weight	torch.Size([1, 325, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,357 - INFO - block1.TAT.bn.weight	torch.Size([6])	cuda:0	True
+2021-04-27 02:40:25,357 - INFO - block1.TAT.bn.bias	torch.Size([6])	cuda:0	True
+2021-04-27 02:40:25,358 - INFO - block1.bn.weight	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,358 - INFO - block1.bn.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,358 - INFO - block1.conv1.weight	torch.Size([32, 64, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,359 - INFO - block1.conv1.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,359 - INFO - block2.time_conv.weight	torch.Size([64, 64, 1, 2])	cuda:0	True
+2021-04-27 02:40:25,360 - INFO - block2.time_conv.bias	torch.Size([64])	cuda:0	True
+2021-04-27 02:40:25,360 - INFO - block2.multigcn.mlp.mlp.weight	torch.Size([64, 160, 1, 2])	cuda:0	True
+2021-04-27 02:40:25,361 - INFO - block2.multigcn.mlp.mlp.bias	torch.Size([64])	cuda:0	True
+2021-04-27 02:40:25,361 - INFO - block2.TAT.w	torch.Size([325, 32])	cuda:0	True
+2021-04-27 02:40:25,361 - INFO - block2.TAT.b	torch.Size([3, 3])	cuda:0	True
+2021-04-27 02:40:25,362 - INFO - block2.TAT.v	torch.Size([3, 3])	cuda:0	True
+2021-04-27 02:40:25,363 - INFO - block2.TAT.conv1.weight	torch.Size([1, 32, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,363 - INFO - block2.TAT.conv2.weight	torch.Size([1, 325, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,364 - INFO - block2.TAT.bn.weight	torch.Size([3])	cuda:0	True
+2021-04-27 02:40:25,364 - INFO - block2.TAT.bn.bias	torch.Size([3])	cuda:0	True
+2021-04-27 02:40:25,365 - INFO - block2.bn.weight	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,366 - INFO - block2.bn.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,369 - INFO - block2.conv1.weight	torch.Size([32, 64, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,370 - INFO - block2.conv1.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,371 - INFO - block_cluster1.time_conv.weight	torch.Size([64, 32, 1, 3])	cuda:0	True
+2021-04-27 02:40:25,371 - INFO - block_cluster1.time_conv.bias	torch.Size([64])	cuda:0	True
+2021-04-27 02:40:25,372 - INFO - block_cluster1.multigcn.mlp.mlp.weight	torch.Size([64, 160, 1, 3])	cuda:0	True
+2021-04-27 02:40:25,372 - INFO - block_cluster1.multigcn.mlp.mlp.bias	torch.Size([64])	cuda:0	True
+2021-04-27 02:40:25,373 - INFO - block_cluster1.TAT.w	torch.Size([10, 32])	cuda:0	True
+2021-04-27 02:40:25,373 - INFO - block_cluster1.TAT.b	torch.Size([6, 6])	cuda:0	True
+2021-04-27 02:40:25,374 - INFO - block_cluster1.TAT.v	torch.Size([6, 6])	cuda:0	True
+2021-04-27 02:40:25,374 - INFO - block_cluster1.TAT.conv1.weight	torch.Size([1, 32, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,375 - INFO - block_cluster1.TAT.conv2.weight	torch.Size([1, 10, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,375 - INFO - block_cluster1.TAT.bn.weight	torch.Size([6])	cuda:0	True
+2021-04-27 02:40:25,376 - INFO - block_cluster1.TAT.bn.bias	torch.Size([6])	cuda:0	True
+2021-04-27 02:40:25,376 - INFO - block_cluster1.bn.weight	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,377 - INFO - block_cluster1.bn.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,377 - INFO - block_cluster1.conv1.weight	torch.Size([32, 32, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,378 - INFO - block_cluster1.conv1.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,378 - INFO - block_cluster2.time_conv.weight	torch.Size([64, 32, 1, 2])	cuda:0	True
+2021-04-27 02:40:25,379 - INFO - block_cluster2.time_conv.bias	torch.Size([64])	cuda:0	True
+2021-04-27 02:40:25,379 - INFO - block_cluster2.multigcn.mlp.mlp.weight	torch.Size([64, 160, 1, 2])	cuda:0	True
+2021-04-27 02:40:25,380 - INFO - block_cluster2.multigcn.mlp.mlp.bias	torch.Size([64])	cuda:0	True
+2021-04-27 02:40:25,380 - INFO - block_cluster2.TAT.w	torch.Size([10, 32])	cuda:0	True
+2021-04-27 02:40:25,381 - INFO - block_cluster2.TAT.b	torch.Size([3, 3])	cuda:0	True
+2021-04-27 02:40:25,381 - INFO - block_cluster2.TAT.v	torch.Size([3, 3])	cuda:0	True
+2021-04-27 02:40:25,382 - INFO - block_cluster2.TAT.conv1.weight	torch.Size([1, 32, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,385 - INFO - block_cluster2.TAT.conv2.weight	torch.Size([1, 10, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,386 - INFO - block_cluster2.TAT.bn.weight	torch.Size([3])	cuda:0	True
+2021-04-27 02:40:25,386 - INFO - block_cluster2.TAT.bn.bias	torch.Size([3])	cuda:0	True
+2021-04-27 02:40:25,387 - INFO - block_cluster2.bn.weight	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,387 - INFO - block_cluster2.bn.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,388 - INFO - block_cluster2.conv1.weight	torch.Size([32, 32, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,388 - INFO - block_cluster2.conv1.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,388 - INFO - skip_conv1.weight	torch.Size([256, 64, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,389 - INFO - skip_conv1.bias	torch.Size([256])	cuda:0	True
+2021-04-27 02:40:25,389 - INFO - skip_conv2.weight	torch.Size([256, 64, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,390 - INFO - skip_conv2.bias	torch.Size([256])	cuda:0	True
+2021-04-27 02:40:25,390 - INFO - end_conv_1.weight	torch.Size([512, 256, 1, 3])	cuda:0	True
+2021-04-27 02:40:25,390 - INFO - end_conv_1.bias	torch.Size([512])	cuda:0	True
+2021-04-27 02:40:25,391 - INFO - end_conv_2.weight	torch.Size([12, 512, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,391 - INFO - end_conv_2.bias	torch.Size([12])	cuda:0	True
+2021-04-27 02:40:25,392 - INFO - conv_cluster1.weight	torch.Size([12, 32, 1, 3])	cuda:0	True
+2021-04-27 02:40:25,392 - INFO - conv_cluster1.bias	torch.Size([12])	cuda:0	True
+2021-04-27 02:40:25,393 - INFO - gate1.conv1.weight	torch.Size([32, 64, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,394 - INFO - gate1.conv1.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,394 - INFO - gate2.conv1.weight	torch.Size([32, 64, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,395 - INFO - gate2.conv1.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,395 - INFO - gate3.conv1.weight	torch.Size([32, 64, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,396 - INFO - gate3.conv1.bias	torch.Size([32])	cuda:0	True
+2021-04-27 02:40:25,396 - INFO - transmit1.w	torch.Size([12, 32])	cuda:0	True
+2021-04-27 02:40:25,396 - INFO - transmit1.b	torch.Size([325, 10])	cuda:0	True
+2021-04-27 02:40:25,397 - INFO - transmit1.conv1.weight	torch.Size([1, 32, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,397 - INFO - transmit1.conv2.weight	torch.Size([1, 12, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,398 - INFO - transmit2.w	torch.Size([6, 32])	cuda:0	True
+2021-04-27 02:40:25,401 - INFO - transmit2.b	torch.Size([325, 10])	cuda:0	True
+2021-04-27 02:40:25,402 - INFO - transmit2.conv1.weight	torch.Size([1, 32, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,403 - INFO - transmit2.conv2.weight	torch.Size([1, 6, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,403 - INFO - transmit3.w	torch.Size([3, 32])	cuda:0	True
+2021-04-27 02:40:25,404 - INFO - transmit3.b	torch.Size([325, 10])	cuda:0	True
+2021-04-27 02:40:25,404 - INFO - transmit3.conv1.weight	torch.Size([1, 32, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,404 - INFO - transmit3.conv2.weight	torch.Size([1, 3, 1, 1])	cuda:0	True
+2021-04-27 02:40:25,405 - INFO - Total parameter numbers: 726274
+2021-04-27 02:40:25,425 - INFO - Loaded model at 3
+2021-04-27 02:40:25,426 - INFO - Start training ...
+2021-04-27 02:40:25,427 - INFO - num_batches:489
+2021-04-27 02:59:02,163 - INFO - epoch complete!
+2021-04-27 02:59:02,164 - INFO - evaluating now!
+2021-04-27 03:04:18,642 - INFO - Epoch [3/20] train_loss: 2.2452, val_loss: 2.7101, lr: 0.001000, 1433.2s
+2021-04-27 03:04:19,602 - INFO - Saved model at 3
+2021-04-27 03:04:19,603 - INFO - Val loss decrease from inf to 2.7101, saving to ./trafficdl/cache/model_cache/HGCN_PEMS_BAY_epoch3.tar
+2021-04-27 03:22:39,861 - INFO - epoch complete!
+2021-04-27 03:22:39,862 - INFO - evaluating now!
+2021-04-27 03:27:55,762 - INFO - Epoch [4/20] train_loss: 2.0947, val_loss: 2.2674, lr: 0.001000, 1416.2s
+2021-04-27 03:27:55,781 - INFO - Saved model at 4
+2021-04-27 03:27:55,781 - INFO - Val loss decrease from 2.7101 to 2.2674, saving to ./trafficdl/cache/model_cache/HGCN_PEMS_BAY_epoch4.tar
+2021-04-27 03:46:21,022 - INFO - epoch complete!
+2021-04-27 03:46:21,022 - INFO - evaluating now!
+2021-04-27 03:51:35,899 - INFO - Epoch [5/20] train_loss: 2.0801, val_loss: 2.4138, lr: 0.001000, 1420.1s
+2021-04-27 04:09:55,611 - INFO - epoch complete!
+2021-04-27 04:09:55,611 - INFO - evaluating now!
+2021-04-27 04:15:11,152 - INFO - Epoch [6/20] train_loss: 2.0104, val_loss: 2.3705, lr: 0.001000, 1415.3s
+2021-04-27 04:33:32,726 - INFO - epoch complete!
+2021-04-27 04:33:32,726 - INFO - evaluating now!
+2021-04-27 04:38:48,703 - INFO - Epoch [7/20] train_loss: 1.9402, val_loss: 2.4063, lr: 0.001000, 1417.6s
+2021-04-27 04:57:09,239 - INFO - epoch complete!
+2021-04-27 04:57:09,240 - INFO - evaluating now!
+2021-04-27 05:02:25,518 - INFO - Epoch [8/20] train_loss: 1.9161, val_loss: 2.3201, lr: 0.001000, 1416.8s
+2021-04-27 05:20:44,692 - INFO - epoch complete!
+2021-04-27 05:20:44,692 - INFO - evaluating now!
+2021-04-27 05:26:00,750 - INFO - Epoch [9/20] train_loss: 1.9131, val_loss: 2.4160, lr: 0.001000, 1415.2s
+2021-04-27 05:44:21,514 - INFO - epoch complete!
+2021-04-27 05:44:21,514 - INFO - evaluating now!
+2021-04-27 05:49:38,166 - INFO - Epoch [10/20] train_loss: 1.8874, val_loss: 2.8593, lr: 0.001000, 1417.4s
+2021-04-27 06:07:57,361 - INFO - epoch complete!
+2021-04-27 06:07:57,361 - INFO - evaluating now!
+2021-04-27 06:13:13,606 - INFO - Epoch [11/20] train_loss: 1.8815, val_loss: 2.5601, lr: 0.001000, 1415.4s
+2021-04-27 06:31:33,856 - INFO - epoch complete!
+2021-04-27 06:31:33,856 - INFO - evaluating now!
+2021-04-27 06:36:49,836 - INFO - Epoch [12/20] train_loss: 1.8433, val_loss: 2.6558, lr: 0.001000, 1416.2s
+2021-04-27 06:55:12,276 - INFO - epoch complete!
+2021-04-27 06:55:12,277 - INFO - evaluating now!
+2021-04-27 07:00:27,764 - INFO - Epoch [13/20] train_loss: 1.8216, val_loss: 2.5149, lr: 0.001000, 1417.9s
+2021-04-27 07:18:52,800 - INFO - epoch complete!
+2021-04-27 07:18:52,800 - INFO - evaluating now!
+2021-04-27 07:24:09,600 - INFO - Epoch [14/20] train_loss: 1.8260, val_loss: 2.4088, lr: 0.001000, 1421.8s
+2021-04-27 07:42:30,236 - INFO - epoch complete!
+2021-04-27 07:42:30,237 - INFO - evaluating now!
+2021-04-27 07:47:45,725 - INFO - Epoch [15/20] train_loss: 1.8279, val_loss: 2.2419, lr: 0.001000, 1416.1s
+2021-04-27 07:47:45,744 - INFO - Saved model at 15
+2021-04-27 07:47:45,744 - INFO - Val loss decrease from 2.2674 to 2.2419, saving to ./trafficdl/cache/model_cache/HGCN_PEMS_BAY_epoch15.tar
+2021-04-27 08:06:05,910 - INFO - epoch complete!
+2021-04-27 08:06:05,910 - INFO - evaluating now!
+2021-04-27 08:11:22,272 - INFO - Epoch [16/20] train_loss: 1.7767, val_loss: 2.4433, lr: 0.001000, 1416.5s
+2021-04-27 08:29:41,984 - INFO - epoch complete!
+2021-04-27 08:29:41,985 - INFO - evaluating now!
+2021-04-27 08:34:58,317 - INFO - Epoch [17/20] train_loss: 1.7680, val_loss: 2.5298, lr: 0.001000, 1416.0s
+2021-04-27 08:53:19,736 - INFO - epoch complete!
+2021-04-27 08:53:19,736 - INFO - evaluating now!
+2021-04-27 08:58:35,844 - INFO - Epoch [18/20] train_loss: 1.7677, val_loss: 2.5833, lr: 0.001000, 1417.5s
+2021-04-27 09:16:54,991 - INFO - epoch complete!
+2021-04-27 09:16:54,991 - INFO - evaluating now!
+2021-04-27 09:22:10,921 - INFO - Epoch [19/20] train_loss: 1.7825, val_loss: 2.2715, lr: 0.001000, 1415.1s
+2021-04-27 09:22:10,938 - INFO - Loaded model at 15
+2021-04-27 09:22:10,938 - INFO - Saved model at ./trafficdl/cache/model_cache/HGCN_PEMS_BAY.m
+2021-04-27 09:22:11,228 - INFO - Start evaluating ...
+2021-04-27 09:28:27,411 - INFO - Evaluate result is {"MAE@1": 1.1802517175674438, "MAPE@1": Infinity, "MSE@1": 4.784867763519287, "RMSE@1": 2.187433958053589, "masked_MAE@1": 1.176059365272522, "masked_MSE@1": 4.500175952911377, "masked_RMSE@1": 2.12136173248291, "masked_MAPE@1": 0.026249736547470093, "R2@1": 0.9487345748658095, "EVAR@1": 0.9499796032905579, "MAE@2": 1.3248752355575562, "MAPE@2": Infinity, "MSE@2": 6.509889125823975, "RMSE@2": 2.551448345184326, "masked_MAE@2": 1.320691466331482, "masked_MSE@2": 6.225170612335205, "masked_RMSE@2": 2.4950292110443115, "masked_MAPE@2": 0.02987576648592949, "R2@2": 0.9302399605910658, "EVAR@2": 0.9313932657241821, "MAE@3": 1.4494115114212036, "MAPE@3": Infinity, "MSE@3": 8.265624046325684, "RMSE@3": 2.874999761581421, "masked_MAE@3": 1.4452323913574219, "masked_MSE@3": 7.980601787567139, "masked_RMSE@3": 2.824995994567871, "masked_MAPE@3": 0.033079300075769424, "R2@3": 0.9114117310474006, "EVAR@3": 0.9124805331230164, "MAE@4": 1.5631307363510132, "MAPE@4": Infinity, "MSE@4": 10.022505760192871, "RMSE@4": 3.1658341884613037, "masked_MAE@4": 1.5589566230773926, "masked_MSE@4": 9.737285614013672, "masked_RMSE@4": 3.120462417602539, "masked_MAPE@4": 0.036022089421749115, "R2@4": 0.8925668423516468, "EVAR@4": 0.8935336470603943, "MAE@5": 1.6701651811599731, "MAPE@5": Infinity, "MSE@5": 11.771641731262207, "RMSE@5": 3.4309825897216797, "masked_MAE@5": 1.665995478630066, "masked_MSE@5": 11.486241340637207, "masked_RMSE@5": 3.3891358375549316, "masked_MAPE@5": 0.03875496983528137, "R2@5": 0.8738011712108923, "EVAR@5": 0.8746339082717896, "MAE@6": 1.770672082901001, "MAPE@6": Infinity, "MSE@6": 13.444442749023438, "RMSE@6": 3.6666665077209473, "masked_MAE@6": 1.766507625579834, "masked_MSE@6": 13.158982276916504, "masked_RMSE@6": 3.627531051635742, "masked_MAPE@6": 0.04124258831143379, "R2@6": 0.8558510627478636, "EVAR@6": 0.8565428256988525, "MAE@7": 1.8653192520141602, "MAPE@7": Infinity, "MSE@7": 15.05510139465332, "RMSE@7": 3.8800904750823975, "masked_MAE@7": 1.861158847808838, "masked_MSE@7": 14.769462585449219, "masked_RMSE@7": 3.8431057929992676, "masked_MAPE@7": 0.04351482540369034, "R2@7": 0.8385649341284082, "EVAR@7": 0.8391225337982178, "MAE@8": 1.9550702571868896, "MAPE@8": Infinity, "MSE@8": 16.584197998046875, "RMSE@8": 4.0723700523376465, "masked_MAE@8": 1.9509137868881226, "masked_MSE@8": 16.298437118530273, "masked_RMSE@8": 4.037132263183594, "masked_MAPE@8": 0.04558645188808441, "R2@8": 0.8221515351380346, "EVAR@8": 0.8225356340408325, "MAE@9": 2.0403952598571777, "MAPE@9": Infinity, "MSE@9": 18.027389526367188, "RMSE@9": 4.2458672523498535, "masked_MAE@9": 2.0362420082092285, "masked_MSE@9": 17.74141502380371, "masked_RMSE@9": 4.212055683135986, "masked_MAPE@9": 0.04749571159482002, "R2@9": 0.8066584258293155, "EVAR@9": 0.8069023489952087, "MAE@10": 2.1211724281311035, "MAPE@10": Infinity, "MSE@10": 19.38579559326172, "RMSE@10": 4.40293025970459, "masked_MAE@10": 2.1170225143432617, "masked_MSE@10": 19.09962272644043, "masked_RMSE@10": 4.370311737060547, "masked_MAPE@10": 0.04924687370657921, "R2@10": 0.7920733740616204, "EVAR@10": 0.7921989560127258, "MAE@11": 2.198110818862915, "MAPE@11": Infinity, "MSE@11": 20.669105529785156, "RMSE@11": 4.546329021453857, "masked_MAE@11": 2.193963050842285, "masked_MSE@11": 20.382753372192383, "masked_RMSE@11": 4.514726161956787, "masked_MAPE@11": 0.050874270498752594, "R2@11": 0.778293413039987, "EVAR@11": 0.7783386707305908, "MAE@12": 2.2712931632995605, "MAPE@12": Infinity, "MSE@12": 21.877071380615234, "RMSE@12": 4.677293300628662, "masked_MAE@12": 2.267148733139038, "masked_MSE@12": 21.590620040893555, "masked_RMSE@12": 4.646570682525635, "masked_MAPE@12": 0.05238483473658562, "R2@12": 0.765321895368655, "EVAR@12": 0.765326201915741}
+2021-04-27 09:28:27,412 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache\2021_04_27_09_28_27_HGCN_PEMS_BAY.json
+2021-04-27 09:28:28,209 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache\2021_04_27_09_28_27_HGCN_PEMS_BAY.csv
+2021-04-27 09:28:28,255 - INFO - 
+         MAE  MAPE        MSE      RMSE  masked_MAE  masked_MSE  masked_RMSE  masked_MAPE        R2      EVAR
+0   1.180252   inf   4.784868  2.187434    1.176059    4.500176     2.121362     0.026250  0.948735  0.949980
+1   1.324875   inf   6.509889  2.551448    1.320691    6.225171     2.495029     0.029876  0.930240  0.931393
+2   1.449412   inf   8.265624  2.875000    1.445232    7.980602     2.824996     0.033079  0.911412  0.912481
+3   1.563131   inf  10.022506  3.165834    1.558957    9.737286     3.120462     0.036022  0.892567  0.893534
+4   1.670165   inf  11.771642  3.430983    1.665995   11.486241     3.389136     0.038755  0.873801  0.874634
+5   1.770672   inf  13.444443  3.666667    1.766508   13.158982     3.627531     0.041243  0.855851  0.856543
+6   1.865319   inf  15.055101  3.880090    1.861159   14.769463     3.843106     0.043515  0.838565  0.839123
+7   1.955070   inf  16.584198  4.072370    1.950914   16.298437     4.037132     0.045586  0.822152  0.822536
+8   2.040395   inf  18.027390  4.245867    2.036242   17.741415     4.212056     0.047496  0.806658  0.806902
+9   2.121172   inf  19.385796  4.402930    2.117023   19.099623     4.370312     0.049247  0.792073  0.792199
+10  2.198111   inf  20.669106  4.546329    2.193963   20.382753     4.514726     0.050874  0.778293  0.778339
+11  2.271293   inf  21.877071  4.677293    2.267149   21.590620     4.646571     0.052385  0.765322  0.765326

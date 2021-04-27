@@ -1,7 +1,8 @@
 {
   "gpu": true,
+  "device":"cuda:0",
   "gpu_id": 0,
-  "max_epoch": 100,
+  "max_epoch": 50,
   "epoch": 0,
   "learner": "adam",
   "learning_rate": 0.01,

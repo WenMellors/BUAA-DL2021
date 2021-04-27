@@ -1,0 +1,224 @@
+2021-04-26 08:55:47,898 - INFO - Log directory: ./trafficdl/log
+2021-04-26 08:55:47,898 - INFO - Begin pipeline, task=traffic_state_pred, model_name=DGCN, dataset_name=PEMSD8
+2021-04-26 08:55:48,147 - INFO - Loaded file PEMSD8.geo, num_nodes=170
+2021-04-26 08:55:48,154 - INFO - Loaded file PEMSD8.rel, shape=(170, 170)
+2021-04-26 08:55:48,156 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_PEMSD8_2_1_2_1_7_12_0.7_0.1_none_64_False_False_True.npz
+2021-04-26 08:56:08,760 - INFO - train	x: (9669, 60, 170, 3)y: (9669, 12, 170, 3)
+2021-04-26 08:56:08,762 - INFO - eval	x: (1381, 60, 170, 3)y: (1381, 12, 170, 3)
+2021-04-26 08:56:08,762 - INFO - test	x: (2763, 60, 170, 3)y: (2763, 12, 170, 3)
+2021-04-26 08:56:08,762 - INFO - NoneScaler
+2021-04-26 08:56:14,616 - INFO - block1.conv1.weight	torch.Size([64, 3, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,616 - INFO - block1.conv1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 08:56:14,616 - INFO - block1.TATT_1.conv1.weight	torch.Size([1, 64, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.TATT_1.conv2.weight	torch.Size([1, 170, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.TATT_1.bn.weight	torch.Size([60])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.TATT_1.bn.bias	torch.Size([60])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.SATT_3.conv1.weight	torch.Size([64, 768, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.SATT_3.conv2.weight	torch.Size([64, 768, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.SATT_3.bn.weight	torch.Size([170, 170, 4])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.SATT_3.bn.bias	torch.Size([170, 170, 4])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.SATT_2.conv1.weight	torch.Size([64, 64, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.SATT_2.conv2.weight	torch.Size([64, 64, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.SATT_2.bn.weight	torch.Size([170, 170, 12])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.SATT_2.bn.bias	torch.Size([170, 170, 12])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.dynamic_gcn.conv1.weight	torch.Size([128, 192, 1, 3])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.dynamic_gcn.conv1.bias	torch.Size([128])	cuda:0	True
+2021-04-26 08:56:14,617 - INFO - block1.LSTM.weight_ih_l0	torch.Size([680, 170])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block1.LSTM.weight_hh_l0	torch.Size([680, 170])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block1.LSTM.bias_ih_l0	torch.Size([680])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block1.LSTM.bias_hh_l0	torch.Size([680])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block1.time_conv.weight	torch.Size([64, 3, 1, 3])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block1.time_conv.bias	torch.Size([64])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block1.bn.weight	torch.Size([64, 170, 60])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block1.bn.bias	torch.Size([64, 170, 60])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block2.conv1.weight	torch.Size([64, 64, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block2.conv1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block2.TATT_1.conv1.weight	torch.Size([1, 64, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block2.TATT_1.conv2.weight	torch.Size([1, 170, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block2.TATT_1.bn.weight	torch.Size([60])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block2.TATT_1.bn.bias	torch.Size([60])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block2.SATT_3.conv1.weight	torch.Size([64, 768, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,618 - INFO - block2.SATT_3.conv2.weight	torch.Size([64, 768, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.SATT_3.bn.weight	torch.Size([170, 170, 4])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.SATT_3.bn.bias	torch.Size([170, 170, 4])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.SATT_2.conv1.weight	torch.Size([64, 64, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.SATT_2.conv2.weight	torch.Size([64, 64, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.SATT_2.bn.weight	torch.Size([170, 170, 12])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.SATT_2.bn.bias	torch.Size([170, 170, 12])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.dynamic_gcn.conv1.weight	torch.Size([128, 192, 1, 3])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.dynamic_gcn.conv1.bias	torch.Size([128])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.LSTM.weight_ih_l0	torch.Size([680, 170])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.LSTM.weight_hh_l0	torch.Size([680, 170])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.LSTM.bias_ih_l0	torch.Size([680])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.LSTM.bias_hh_l0	torch.Size([680])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.time_conv.weight	torch.Size([64, 64, 1, 3])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.time_conv.bias	torch.Size([64])	cuda:0	True
+2021-04-26 08:56:14,619 - INFO - block2.bn.weight	torch.Size([64, 170, 60])	cuda:0	True
+2021-04-26 08:56:14,620 - INFO - block2.bn.bias	torch.Size([64, 170, 60])	cuda:0	True
+2021-04-26 08:56:14,620 - INFO - conv1.weight	torch.Size([1, 64, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,620 - INFO - conv1.bias	torch.Size([1])	cuda:0	True
+2021-04-26 08:56:14,620 - INFO - conv2.weight	torch.Size([1, 64, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,620 - INFO - conv2.bias	torch.Size([1])	cuda:0	True
+2021-04-26 08:56:14,620 - INFO - conv3.weight	torch.Size([1, 64, 1, 1])	cuda:0	True
+2021-04-26 08:56:14,620 - INFO - conv3.bias	torch.Size([1])	cuda:0	True
+2021-04-26 08:56:14,620 - INFO - conv4.weight	torch.Size([1, 64, 1, 2])	cuda:0	True
+2021-04-26 08:56:14,620 - INFO - conv4.bias	torch.Size([1])	cuda:0	True
+2021-04-26 08:56:14,620 - INFO - Total parameter numbers: 5305064
+2021-04-26 08:56:14,621 - INFO - Start training ...
+2021-04-26 08:56:14,621 - INFO - num_batches:152
+2021-04-26 08:57:00,643 - INFO - epoch complete!
+2021-04-26 08:57:00,644 - INFO - evaluating now!
+2021-04-26 08:57:03,024 - INFO - Epoch [0/40] train_loss: 12409.4601, val_loss: 1047.5362, lr: 0.009000, 48.4s
+2021-04-26 08:57:03,115 - INFO - Saved model at 0
+2021-04-26 08:57:03,115 - INFO - Val loss decrease from inf to 1047.5362, saving to ./trafficdl/cache/model_cache/DGCN_PEMSD8_epoch0.tar
+2021-04-26 08:57:49,093 - INFO - epoch complete!
+2021-04-26 08:57:49,094 - INFO - evaluating now!
+2021-04-26 08:57:51,484 - INFO - Epoch [1/40] train_loss: 980.5660, val_loss: 976.0022, lr: 0.008100, 48.4s
+2021-04-26 08:57:51,573 - INFO - Saved model at 1
+2021-04-26 08:57:51,573 - INFO - Val loss decrease from 1047.5362 to 976.0022, saving to ./trafficdl/cache/model_cache/DGCN_PEMSD8_epoch1.tar
+2021-04-26 08:58:37,570 - INFO - epoch complete!
+2021-04-26 08:58:37,571 - INFO - evaluating now!
+2021-04-26 08:58:39,958 - INFO - Epoch [2/40] train_loss: 871.7934, val_loss: 730.4826, lr: 0.007290, 48.4s
+2021-04-26 08:58:40,049 - INFO - Saved model at 2
+2021-04-26 08:58:40,049 - INFO - Val loss decrease from 976.0022 to 730.4826, saving to ./trafficdl/cache/model_cache/DGCN_PEMSD8_epoch2.tar
+2021-04-26 08:59:25,999 - INFO - epoch complete!
+2021-04-26 08:59:25,999 - INFO - evaluating now!
+2021-04-26 08:59:28,384 - INFO - Epoch [3/40] train_loss: 883.3777, val_loss: 744.1890, lr: 0.006561, 48.3s
+2021-04-26 09:00:14,409 - INFO - epoch complete!
+2021-04-26 09:00:14,410 - INFO - evaluating now!
+2021-04-26 09:00:16,792 - INFO - Epoch [4/40] train_loss: 852.3700, val_loss: 829.7972, lr: 0.005905, 48.4s
+2021-04-26 09:01:02,829 - INFO - epoch complete!
+2021-04-26 09:01:02,829 - INFO - evaluating now!
+2021-04-26 09:01:05,202 - INFO - Epoch [5/40] train_loss: 838.3559, val_loss: 783.4053, lr: 0.005314, 48.4s
+2021-04-26 09:01:51,197 - INFO - epoch complete!
+2021-04-26 09:01:51,197 - INFO - evaluating now!
+2021-04-26 09:01:53,588 - INFO - Epoch [6/40] train_loss: 794.8582, val_loss: 763.7156, lr: 0.004783, 48.4s
+2021-04-26 09:02:39,567 - INFO - epoch complete!
+2021-04-26 09:02:39,567 - INFO - evaluating now!
+2021-04-26 09:02:41,967 - INFO - Epoch [7/40] train_loss: 789.3053, val_loss: 900.3762, lr: 0.004305, 48.4s
+2021-04-26 09:03:27,984 - INFO - epoch complete!
+2021-04-26 09:03:27,985 - INFO - evaluating now!
+2021-04-26 09:03:30,366 - INFO - Epoch [8/40] train_loss: 769.3776, val_loss: 839.0753, lr: 0.003874, 48.4s
+2021-04-26 09:04:16,354 - INFO - epoch complete!
+2021-04-26 09:04:16,354 - INFO - evaluating now!
+2021-04-26 09:04:18,732 - INFO - Epoch [9/40] train_loss: 750.9132, val_loss: 802.7690, lr: 0.003487, 48.4s
+2021-04-26 09:05:04,756 - INFO - epoch complete!
+2021-04-26 09:05:04,756 - INFO - evaluating now!
+2021-04-26 09:05:07,131 - INFO - Epoch [10/40] train_loss: 746.3556, val_loss: 767.9659, lr: 0.003138, 48.4s
+2021-04-26 09:05:53,142 - INFO - epoch complete!
+2021-04-26 09:05:53,142 - INFO - evaluating now!
+2021-04-26 09:05:55,535 - INFO - Epoch [11/40] train_loss: 736.3427, val_loss: 696.1786, lr: 0.002824, 48.4s
+2021-04-26 09:05:55,625 - INFO - Saved model at 11
+2021-04-26 09:05:55,625 - INFO - Val loss decrease from 730.4826 to 696.1786, saving to ./trafficdl/cache/model_cache/DGCN_PEMSD8_epoch11.tar
+2021-04-26 09:06:41,618 - INFO - epoch complete!
+2021-04-26 09:06:41,619 - INFO - evaluating now!
+2021-04-26 09:06:44,008 - INFO - Epoch [12/40] train_loss: 718.7915, val_loss: 736.0280, lr: 0.002542, 48.4s
+2021-04-26 09:07:30,034 - INFO - epoch complete!
+2021-04-26 09:07:30,034 - INFO - evaluating now!
+2021-04-26 09:07:32,422 - INFO - Epoch [13/40] train_loss: 724.5895, val_loss: 705.4947, lr: 0.002288, 48.4s
+2021-04-26 09:08:18,398 - INFO - epoch complete!
+2021-04-26 09:08:18,398 - INFO - evaluating now!
+2021-04-26 09:08:20,778 - INFO - Epoch [14/40] train_loss: 703.5475, val_loss: 683.9661, lr: 0.002059, 48.4s
+2021-04-26 09:08:20,870 - INFO - Saved model at 14
+2021-04-26 09:08:20,871 - INFO - Val loss decrease from 696.1786 to 683.9661, saving to ./trafficdl/cache/model_cache/DGCN_PEMSD8_epoch14.tar
+2021-04-26 09:09:06,876 - INFO - epoch complete!
+2021-04-26 09:09:06,877 - INFO - evaluating now!
+2021-04-26 09:09:09,254 - INFO - Epoch [15/40] train_loss: 702.0636, val_loss: 672.2330, lr: 0.001853, 48.4s
+2021-04-26 09:09:09,339 - INFO - Saved model at 15
+2021-04-26 09:09:09,339 - INFO - Val loss decrease from 683.9661 to 672.2330, saving to ./trafficdl/cache/model_cache/DGCN_PEMSD8_epoch15.tar
+2021-04-26 09:09:55,374 - INFO - epoch complete!
+2021-04-26 09:09:55,374 - INFO - evaluating now!
+2021-04-26 09:09:57,766 - INFO - Epoch [16/40] train_loss: 684.7286, val_loss: 688.3350, lr: 0.001668, 48.4s
+2021-04-26 09:10:43,775 - INFO - epoch complete!
+2021-04-26 09:10:43,775 - INFO - evaluating now!
+2021-04-26 09:10:46,184 - INFO - Epoch [17/40] train_loss: 688.5868, val_loss: 683.2387, lr: 0.001501, 48.4s
+2021-04-26 09:11:32,184 - INFO - epoch complete!
+2021-04-26 09:11:32,185 - INFO - evaluating now!
+2021-04-26 09:11:34,572 - INFO - Epoch [18/40] train_loss: 670.6228, val_loss: 704.6191, lr: 0.001351, 48.4s
+2021-04-26 09:12:20,647 - INFO - epoch complete!
+2021-04-26 09:12:20,647 - INFO - evaluating now!
+2021-04-26 09:12:23,055 - INFO - Epoch [19/40] train_loss: 668.2556, val_loss: 661.8646, lr: 0.001216, 48.5s
+2021-04-26 09:12:23,143 - INFO - Saved model at 19
+2021-04-26 09:12:23,143 - INFO - Val loss decrease from 672.2330 to 661.8646, saving to ./trafficdl/cache/model_cache/DGCN_PEMSD8_epoch19.tar
+2021-04-26 09:13:09,223 - INFO - epoch complete!
+2021-04-26 09:13:09,224 - INFO - evaluating now!
+2021-04-26 09:13:11,606 - INFO - Epoch [20/40] train_loss: 663.5557, val_loss: 705.3293, lr: 0.001094, 48.5s
+2021-04-26 09:13:57,639 - INFO - epoch complete!
+2021-04-26 09:13:57,640 - INFO - evaluating now!
+2021-04-26 09:14:00,023 - INFO - Epoch [21/40] train_loss: 660.2211, val_loss: 727.2473, lr: 0.000985, 48.4s
+2021-04-26 09:14:46,078 - INFO - epoch complete!
+2021-04-26 09:14:46,078 - INFO - evaluating now!
+2021-04-26 09:14:48,477 - INFO - Epoch [22/40] train_loss: 654.1652, val_loss: 690.0725, lr: 0.000886, 48.5s
+2021-04-26 09:15:34,576 - INFO - epoch complete!
+2021-04-26 09:15:34,576 - INFO - evaluating now!
+2021-04-26 09:15:36,973 - INFO - Epoch [23/40] train_loss: 653.8246, val_loss: 674.7579, lr: 0.000798, 48.5s
+2021-04-26 09:16:23,061 - INFO - epoch complete!
+2021-04-26 09:16:23,061 - INFO - evaluating now!
+2021-04-26 09:16:25,462 - INFO - Epoch [24/40] train_loss: 650.2631, val_loss: 673.3270, lr: 0.000718, 48.5s
+2021-04-26 09:17:11,563 - INFO - epoch complete!
+2021-04-26 09:17:11,563 - INFO - evaluating now!
+2021-04-26 09:17:13,961 - INFO - Epoch [25/40] train_loss: 647.0534, val_loss: 666.1499, lr: 0.000646, 48.5s
+2021-04-26 09:18:00,054 - INFO - epoch complete!
+2021-04-26 09:18:00,054 - INFO - evaluating now!
+2021-04-26 09:18:02,452 - INFO - Epoch [26/40] train_loss: 646.5211, val_loss: 678.2561, lr: 0.000581, 48.5s
+2021-04-26 09:18:48,515 - INFO - epoch complete!
+2021-04-26 09:18:48,515 - INFO - evaluating now!
+2021-04-26 09:18:50,903 - INFO - Epoch [27/40] train_loss: 642.0683, val_loss: 689.4419, lr: 0.000523, 48.5s
+2021-04-26 09:19:36,977 - INFO - epoch complete!
+2021-04-26 09:19:36,977 - INFO - evaluating now!
+2021-04-26 09:19:39,365 - INFO - Epoch [28/40] train_loss: 639.4963, val_loss: 703.6605, lr: 0.000471, 48.5s
+2021-04-26 09:20:25,410 - INFO - epoch complete!
+2021-04-26 09:20:25,411 - INFO - evaluating now!
+2021-04-26 09:20:27,800 - INFO - Epoch [29/40] train_loss: 641.6187, val_loss: 689.7293, lr: 0.000424, 48.4s
+2021-04-26 09:21:13,866 - INFO - epoch complete!
+2021-04-26 09:21:13,866 - INFO - evaluating now!
+2021-04-26 09:21:16,258 - INFO - Epoch [30/40] train_loss: 637.9886, val_loss: 682.7720, lr: 0.000382, 48.5s
+2021-04-26 09:22:02,348 - INFO - epoch complete!
+2021-04-26 09:22:02,348 - INFO - evaluating now!
+2021-04-26 09:22:04,747 - INFO - Epoch [31/40] train_loss: 637.2869, val_loss: 672.3283, lr: 0.000343, 48.5s
+2021-04-26 09:22:50,876 - INFO - epoch complete!
+2021-04-26 09:22:50,877 - INFO - evaluating now!
+2021-04-26 09:22:53,269 - INFO - Epoch [32/40] train_loss: 636.7400, val_loss: 688.2146, lr: 0.000309, 48.5s
+2021-04-26 09:23:39,336 - INFO - epoch complete!
+2021-04-26 09:23:39,337 - INFO - evaluating now!
+2021-04-26 09:23:41,742 - INFO - Epoch [33/40] train_loss: 633.6145, val_loss: 681.2541, lr: 0.000278, 48.5s
+2021-04-26 09:24:27,770 - INFO - epoch complete!
+2021-04-26 09:24:27,770 - INFO - evaluating now!
+2021-04-26 09:24:30,160 - INFO - Epoch [34/40] train_loss: 630.9427, val_loss: 678.6808, lr: 0.000250, 48.4s
+2021-04-26 09:25:16,193 - INFO - epoch complete!
+2021-04-26 09:25:16,193 - INFO - evaluating now!
+2021-04-26 09:25:18,572 - INFO - Epoch [35/40] train_loss: 630.7608, val_loss: 685.4538, lr: 0.000225, 48.4s
+2021-04-26 09:26:04,590 - INFO - epoch complete!
+2021-04-26 09:26:04,591 - INFO - evaluating now!
+2021-04-26 09:26:06,973 - INFO - Epoch [36/40] train_loss: 631.2178, val_loss: 673.5526, lr: 0.000203, 48.4s
+2021-04-26 09:26:53,008 - INFO - epoch complete!
+2021-04-26 09:26:53,008 - INFO - evaluating now!
+2021-04-26 09:26:55,404 - INFO - Epoch [37/40] train_loss: 630.7019, val_loss: 686.4111, lr: 0.000182, 48.4s
+2021-04-26 09:27:41,497 - INFO - epoch complete!
+2021-04-26 09:27:41,497 - INFO - evaluating now!
+2021-04-26 09:27:43,894 - INFO - Epoch [38/40] train_loss: 629.1582, val_loss: 696.7870, lr: 0.000164, 48.5s
+2021-04-26 09:28:29,989 - INFO - epoch complete!
+2021-04-26 09:28:29,989 - INFO - evaluating now!
+2021-04-26 09:28:32,374 - INFO - Epoch [39/40] train_loss: 628.0535, val_loss: 681.4741, lr: 0.000148, 48.5s
+2021-04-26 09:28:32,617 - INFO - Loaded model at 19
+2021-04-26 09:28:32,617 - INFO - Saved model at ./trafficdl/cache/model_cache/DGCN_PEMSD8.m
+2021-04-26 09:28:32,701 - INFO - Start evaluating ...
+2021-04-26 09:28:44,149 - INFO - Evaluate result is {"MAE@1": 14.725120544433594, "MAPE@1": Infinity, "MSE@1": 492.319091796875, "RMSE@1": 22.188264846801758, "masked_MAE@1": 14.7450532913208, "masked_MSE@1": 487.7558288574219, "masked_RMSE@1": 22.085195541381836, "masked_MAPE@1": 0.10884460061788559, "R2@1": 0.9773500534613278, "EVAR@1": 0.97752845287323, "MAE@2": 14.922969818115234, "MAPE@2": Infinity, "MSE@2": 513.6089477539062, "RMSE@2": 22.66294288635254, "masked_MAE@2": 14.94259262084961, "masked_MSE@2": 509.01910400390625, "masked_RMSE@2": 22.561450958251953, "masked_MAPE@2": 0.1100529134273529, "R2@2": 0.9763764500634559, "EVAR@2": 0.9765400290489197, "MAE@3": 15.106515884399414, "MAPE@3": Infinity, "MSE@3": 531.2264404296875, "RMSE@3": 23.048349380493164, "masked_MAE@3": 15.12644100189209, "masked_MSE@3": 526.6587524414062, "masked_RMSE@3": 22.949047088623047, "masked_MAPE@3": 0.11109714955091476, "R2@3": 0.9755625639789698, "EVAR@3": 0.9757364392280579, "MAE@4": 15.23602294921875, "MAPE@4": Infinity, "MSE@4": 544.7192993164062, "RMSE@4": 23.339221954345703, "masked_MAE@4": 15.256392478942871, "masked_MSE@4": 540.2355346679688, "masked_RMSE@4": 23.24296760559082, "masked_MAPE@4": 0.11176060885190964, "R2@4": 0.9749408548422932, "EVAR@4": 0.9751143455505371, "MAE@5": 15.345358848571777, "MAPE@5": Infinity, "MSE@5": 557.0547485351562, "RMSE@5": 23.602006912231445, "masked_MAE@5": 15.36642074584961, "masked_MSE@5": 552.6212158203125, "masked_RMSE@5": 23.507896423339844, "masked_MAPE@5": 0.11227601766586304, "R2@5": 0.9743760423708274, "EVAR@5": 0.974546492099762, "MAE@6": 15.448532104492188, "MAPE@6": Infinity, "MSE@6": 568.463623046875, "RMSE@6": 23.84247589111328, "masked_MAE@6": 15.470296859741211, "masked_MSE@6": 564.0489501953125, "masked_RMSE@6": 23.749713897705078, "masked_MAPE@6": 0.11269067972898483, "R2@6": 0.9738541087707725, "EVAR@6": 0.974026083946228, "MAE@7": 15.549763679504395, "MAPE@7": Infinity, "MSE@7": 579.15966796875, "RMSE@7": 24.065736770629883, "masked_MAE@7": 15.571831703186035, "masked_MSE@7": 574.7366333007812, "masked_RMSE@7": 23.973665237426758, "masked_MAPE@7": 0.11330674588680267, "R2@7": 0.9733679767152437, "EVAR@7": 0.9735414385795593, "MAE@8": 15.652742385864258, "MAPE@8": Infinity, "MSE@8": 589.5968017578125, "RMSE@8": 24.281614303588867, "masked_MAE@8": 15.675200462341309, "masked_MSE@8": 585.1900024414062, "masked_RMSE@8": 24.19070053100586, "masked_MAPE@8": 0.11390180885791779, "R2@8": 0.9728924780964093, "EVAR@8": 0.9730700850486755, "MAE@9": 15.757078170776367, "MAPE@9": Infinity, "MSE@9": 599.682373046875, "RMSE@9": 24.488412857055664, "masked_MAE@9": 15.780130386352539, "masked_MSE@9": 595.3038330078125, "masked_RMSE@9": 24.398849487304688, "masked_MAPE@9": 0.11458386480808258, "R2@9": 0.972432818663272, "EVAR@9": 0.9726128578186035, "MAE@10": 15.859159469604492, "MAPE@10": Infinity, "MSE@10": 609.580810546875, "RMSE@10": 24.68968963623047, "masked_MAE@10": 15.882986068725586, "masked_MSE@10": 605.2515869140625, "masked_RMSE@10": 24.60186195373535, "masked_MAPE@10": 0.11524881422519684, "R2@10": 0.9719830882726228, "EVAR@10": 0.9721639752388, "MAE@11": 15.964707374572754, "MAPE@11": Infinity, "MSE@11": 619.656982421875, "RMSE@11": 24.89291000366211, "masked_MAE@11": 15.98895263671875, "masked_MSE@11": 615.36767578125, "masked_RMSE@11": 24.80660629272461, "masked_MAPE@11": 0.11585322767496109, "R2@11": 0.9715262992495441, "EVAR@11": 0.9717084765434265, "MAE@12": 16.062475204467773, "MAPE@12": Infinity, "MSE@12": 629.14013671875, "RMSE@12": 25.082666397094727, "masked_MAE@12": 16.087371826171875, "masked_MSE@12": 624.876220703125, "masked_RMSE@12": 24.99752426147461, "masked_MAPE@12": 0.11636083573102951, "R2@12": 0.9710973243404007, "EVAR@12": 0.9712767601013184}
+2021-04-26 09:28:44,161 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_26_09_28_44_DGCN_PEMSD8.json
+2021-04-26 09:28:44,176 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_26_09_28_44_DGCN_PEMSD8.csv
+2021-04-26 09:28:44,195 - INFO - 
+          MAE  MAPE         MSE  ...  masked_MAPE        R2      EVAR
+0   14.725121   inf  492.319092  ...     0.108845  0.977350  0.977528
+1   14.922970   inf  513.608948  ...     0.110053  0.976376  0.976540
+2   15.106516   inf  531.226440  ...     0.111097  0.975563  0.975736
+3   15.236023   inf  544.719299  ...     0.111761  0.974941  0.975114
+4   15.345359   inf  557.054749  ...     0.112276  0.974376  0.974546
+5   15.448532   inf  568.463623  ...     0.112691  0.973854  0.974026
+6   15.549764   inf  579.159668  ...     0.113307  0.973368  0.973541
+7   15.652742   inf  589.596802  ...     0.113902  0.972892  0.973070
+8   15.757078   inf  599.682373  ...     0.114584  0.972433  0.972613
+9   15.859159   inf  609.580811  ...     0.115249  0.971983  0.972164
+10  15.964707   inf  619.656982  ...     0.115853  0.971526  0.971708
+11  16.062475   inf  629.140137  ...     0.116361  0.971097  0.971277
+
+[12 rows x 10 columns]

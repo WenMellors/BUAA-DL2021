@@ -1,12 +1,7 @@
-import os
-import torch
 from trafficdl.config import ConfigParser
 from trafficdl.data import get_dataset
-from trafficdl.utils import get_executor, get_model
-from trafficdl.utils.dataset import parseCoordinate
-from geopy import distance
-import numpy as np
-import torch.nn.functional as F
+from trafficdl.utils import get_model
+
 
 config = ConfigParser('traj_loc_pred', 'LSTPM', 'foursquare_tky', None, {"history_type": 'cut_off'})
 dataset = get_dataset(config)
@@ -52,7 +47,8 @@ user_batch = np.array(batch['uid'].cpu())
 y_list = []
 out_hie = []
 ii = 0
-current_session_input_dilated_rnn_index = self._create_dilated_rnn_input(expand_current_loc[ii].tolist(), origin_len[ii])
+current_session_input_dilated_rnn_index = self._create_dilated_rnn_input(expand_current_loc[ii].tolist(),
+                                                                        origin_len[ii])
 hiddens_current = x1[ii]
 dilated_lstm_outs_h = []
 dilated_lstm_outs_c = []
@@ -66,7 +62,8 @@ for index_dilated in range(len(current_session_input_dilated_rnn_index)):
         dilated_lstm_outs_h.append(h)
         dilated_lstm_outs_c.append(c)
     else:
-        (h, c) = self.dilated_rnn(hidden_current, (dilated_lstm_outs_h[index_dilated_explicit], dilated_lstm_outs_c[index_dilated_explicit]))
+        (h, c) = self.dilated_rnn(hidden_current, (dilated_lstm_outs_h[index_dilated_explicit],
+                                    dilated_lstm_outs_c[index_dilated_explicit]))
         dilated_lstm_outs_h.append(h)
         dilated_lstm_outs_c.append(c)
 
@@ -80,7 +77,8 @@ current_session_embed = out[ii] # sequence_len * embedding_size
 sequence_length = origin_len[ii]
 current_session_represent_list = []
 for iii in range(sequence_length-1):
-    current_session_represent = torch.sum(current_session_embed * current_session_mask, dim=0).unsqueeze(0)/sum(current_session_mask)
+    current_session_represent = torch.sum(current_session_embed * current_session_mask, dim=0).
+                                            unsqueeze(0)/sum(current_session_mask)
     current_session_represent_list.append(current_session_represent)
 
 current_session_represent = torch.cat(current_session_represent_list, dim = 0)
@@ -90,11 +88,12 @@ h2 = torch.zeros(1, 1, self.hidden_size).to(self.device)###whole sequence
 c2 = torch.zeros(1, 1, self.hidden_size).to(self.device)
 for jj in range(len(batch['history_loc'][ii])):
     sequence = batch['history_loc'][ii][jj]
-    sequence_emb = self.item_emb(sequence).unsqueeze(1) # sequence_len * 1 * embedding_size 
+    sequence_emb = self.item_emb(sequence).unsqueeze(1) # sequence_len * 1 * embedding_size
     sequence = sequence.tolist()
     sequence_emb, (h2, c2) = self.lstmcell_history(sequence_emb, (h2, c2))
     sequence_tim_id = batch['history_tim'][ii][jj].tolist()
-    jaccard_sim_row = torch.FloatTensor(self.tim_sim_matrix[current_session_timid]).to(self.device) # 相当于自己做了一个 tim 的表征
+    # 相当于自己做了一个 tim 的表征
+    jaccard_sim_row = torch.FloatTensor(self.tim_sim_matrix[current_session_timid]).to(self.device)
     jaccard_sim_expicit = jaccard_sim_row[:,sequence_tim_id]
     # 使用 profile 计算局部距离矩阵
     distance_matrix = []
@@ -116,17 +115,23 @@ for jj in range(len(batch['history_loc'][ii])):
     list_for_avg_distance.append(distance_row_expicit_avg.unsqueeze(0))
 
 avg_distance = torch.cat(list_for_avg_distance, dim = 0).transpose(0,1)
-sessions_represent = torch.cat(list_for_sessions, dim=0).transpose(0,1) ##current_items * history_session_length * embedding_size
+##current_items * history_session_length * embedding_size
+sessions_represent = torch.cat(list_for_sessions, dim=0).transpose(0,1)
 current_session_represent = current_session_represent.unsqueeze(2) ### current_items * embedding_size * 1
-sims = F.softmax(sessions_represent.bmm(current_session_represent).squeeze(2), dim = 1).unsqueeze(1) ##==> current_items * 1 * history_session_length
+##==> current_items * 1 * history_session_length
+sims = F.softmax(sessions_represent.bmm(current_session_represent).squeeze(2), dim = 1).unsqueeze(1)
 out_y_current =torch.selu(self.linear1(sims.bmm(sessions_represent).squeeze(1)))
 ##############layer_2
-#layer_2_current = (lambda*out_y_current + (1-lambda)*current_session_embed[:sequence_length-1]).unsqueeze(2) #lambda from [0.1-0.9] better performance
-# layer_2_current = (out_y_current + current_session_embed[:sequence_length-1]).unsqueeze(2)##==>current_items * embedding_size * 1
+#lambda from [0.1-0.9] better performance
+#layer_2_current = (lambda*out_y_current + (1-lambda)*current_session_embed[:sequence_length-1]).unsqueeze(2)
+##==>current_items * embedding_size * 1
+# layer_2_current = (out_y_current + current_session_embed[:sequence_length-1]).unsqueeze(2)
 layer_2_current = (0.5 *out_y_current + 0.5 * current_session_embed[:sequence_length - 1]).unsqueeze(2)
-layer_2_sims =  F.softmax(sessions_represent.bmm(layer_2_current).squeeze(2) * 1.0/avg_distance, dim = 1).unsqueeze(1)##==>>current_items * 1 * history_session_length
+##==>>current_items * 1 * history_session_length
+layer_2_sims =  F.softmax(sessions_represent.bmm(layer_2_current).squeeze(2) * 1.0/avg_distance, dim = 1).unsqueeze(1)
 out_layer_2 = layer_2_sims.bmm(sessions_represent).squeeze(1)
-out_y_current_padd = torch.FloatTensor(sequence_size - sequence_length + 1, self.emb_size).zero_().to(self.device) # TODO: 感觉他这个是把 target 当成 current 的最后一个点了，有点问题
+# TODO: 感觉他这个是把 target 当成 current 的最后一个点了，有点问题
+out_y_current_padd = torch.FloatTensor(sequence_size - sequence_length + 1, self.emb_size).zero_().to(self.device)
 out_layer_2_list = []
 out_layer_2_list.append(out_layer_2)
 out_layer_2_list.append(out_y_current_padd)

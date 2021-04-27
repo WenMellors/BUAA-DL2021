@@ -1,4 +1,4 @@
 {
   "metrics": ["NDCG"],
-  "topk": 20
+  "topk": 10
 }

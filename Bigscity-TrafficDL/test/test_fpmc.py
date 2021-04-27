@@ -1,5 +1,3 @@
-import os
-import torch
 from trafficdl.config import ConfigParser
 from trafficdl.data import get_dataset
 from trafficdl.utils import get_executor, get_model

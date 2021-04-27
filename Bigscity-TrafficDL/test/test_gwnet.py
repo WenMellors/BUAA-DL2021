@@ -27,7 +27,8 @@ if __name__ == '__main__':
         'max_grad_norm': 5,
         'clip_grad_norm': True,
 
-        'metrics': ['MAE', 'MSE', 'RMSE', 'MAPE', 'masked_MAE', 'masked_MSE', 'masked_RMSE', 'masked_MAPE', 'R2', 'EVAR'],
+        'metrics': ['MAE', 'MSE', 'RMSE', 'MAPE', 'masked_MAE', 'masked_MSE',
+                    'masked_RMSE', 'masked_MAPE', 'R2', 'EVAR'],
         'gpu': True,
         'gpu_id': '1',
         'dataset': 'METR_LA',

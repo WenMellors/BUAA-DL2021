@@ -439,7 +439,7 @@ class DCRNN(AbstractTrafficStateModel, Seq2SeqAttrs):
         outputs = outputs.view(self.output_window, batch_size, self.num_nodes, self.output_dim).permute(1, 0, 2, 3)
         return outputs
 
-    def calculate_loss(self, batch, batches_seen=None):
+    def calculate_loss(self, batch, epoch=0, batches_seen=0):
         y_true = batch['y']
         y_predicted = self.predict(batch, batches_seen)
         y_true = self._scaler.inverse_transform(y_true[..., :self.output_dim])

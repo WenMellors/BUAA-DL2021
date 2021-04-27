@@ -24,9 +24,9 @@ class DCRNNExecutor(TrafficStateExecutor):
         num_batches = len(train_dataloader)
         self._logger.info("num_batches:{}".format(num_batches))
 
-        batches_seen = num_batches * self._epoch_num
         for epoch_idx in range(self._epoch_num, self.epochs):
             start_time = time.time()
+            batches_seen = num_batches * epoch_idx
             losses, batches_seen = self._train_epoch(train_dataloader, epoch_idx, batches_seen)
             self._writer.add_scalar('training loss', np.mean(losses), batches_seen)
             self._logger.info("epoch complete!")
@@ -82,7 +82,7 @@ class DCRNNExecutor(TrafficStateExecutor):
         for batch in train_dataloader:
             self.optimizer.zero_grad()
             batch.to_tensor(self.device)
-            loss = loss_func(batch, batches_seen)
+            loss = loss_func(batch, epoch_idx, batches_seen)
             self._logger.debug(loss.item())
             losses.append(loss.item())
             batches_seen += 1

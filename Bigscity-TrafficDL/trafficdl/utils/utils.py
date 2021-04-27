@@ -6,16 +6,6 @@ import sys
 
 
 def get_executor(config, model):
-    """
-    according the config['executor'] to create the executor
-
-    Args:
-        config(ConfigParser): config
-        model(AbstractModel): model
-
-    Returns:
-        AbstractExecutor: the loaded executor
-    """
     try:
         return getattr(importlib.import_module('trafficdl.executor'),
                        config['executor'])(config, model)
@@ -23,34 +13,15 @@ def get_executor(config, model):
         raise AttributeError('executor is not found')
 
 
-def get_model(config, data_feature):
-    """
-    according the config['model'] to create the model
-
-    Args:
-        config(ConfigParser): config
-        data_feature(dict): feature of the data
-
-    Returns:
-        AbstractModel: the loaded model
-    """
+def get_model(config, data_feature, dataset_name):
     try:
         return getattr(importlib.import_module('trafficdl.model'),
-                       config['model'])(config, data_feature)
+                       config['model'])(config, data_feature, dataset_name)
     except AttributeError:
         raise AttributeError('model is not found')
 
 
 def get_evaluator(config):
-    """
-    according the config['evaluator'] to create the evaluator
-
-    Args:
-        config(ConfigParser): config
-
-    Returns:
-        AbstractEvaluator: the loaded evaluator
-    """
     try:
         return getattr(importlib.import_module('trafficdl.evaluator'),
                        config['evaluator'])(config)
@@ -59,16 +30,6 @@ def get_evaluator(config):
 
 
 def get_logger(config, name=None):
-    """
-    获取Logger对象
-
-    Args:
-        config(ConfigParser): config
-        name: specified name
-
-    Returns:
-        Logger: logger
-    """
     log_dir = './trafficdl/log'
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
@@ -111,22 +72,17 @@ def get_logger(config, name=None):
 
 
 def get_local_time():
-    """
-    获取时间
-
-    Return:
-        datetime: 时间
-    """
     cur = datetime.datetime.now()
     cur = cur.strftime('%b-%d-%Y_%H-%M-%S')
     return cur
 
 
 def ensure_dir(dir_path):
-    """Make sure the directory exists, if it does not exist, create it.
+    r"""Make sure the directory exists, if it does not exist, create it
 
     Args:
         dir_path (str): directory path
+
     """
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
@@ -134,13 +90,10 @@ def ensure_dir(dir_path):
 
 def trans_naming_rule(origin, origin_rule, target_rule):
     """
-    名字转换规则
-
     Args:
         origin (str): 源命名格式下的变量名
         origin_rule (str): 源命名格式，枚举类
         target_rule (str): 目标命名格式，枚举类
-
     Return:
         target (str): 转换之后的结果
     """

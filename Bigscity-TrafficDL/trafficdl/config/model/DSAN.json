@@ -1,0 +1,31 @@
+{
+  "n_layer": 3,
+  "d_model": 64,
+  "n_head": 2,
+  "conv_layer": 3,
+  "conv_filter": 64,
+  "n_w": 1,
+  "n_d": 3,
+  "n_wd_times": 1,
+  "n_p": 1,
+  "n_before": 0,
+  "n_pred": 12,
+  "l_half": 3,
+  "l_half_g": 5,
+  "pre_shuffle": true,
+  "same_padding": false,
+  "test_model": null,
+  "no_save": false,
+  "load_saved_data": true,
+  "st_revert":false,
+
+
+  "max_epoch": 50,
+  "learner": "adam",
+  "learning_rate": 0.003,
+  "lr_decay": true,
+  "lr_epsilon": 1e-9,
+  "clip_grad_norm": false,
+  "use_early_stop": true,
+  "patience": 50
+}

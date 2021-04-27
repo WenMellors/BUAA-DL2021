@@ -4,6 +4,7 @@
   "Clamp_A": false,
 
   "scaler": "normal",
+  "calculate_weight": false,
   "load_external": false,
   "normal_external": false,
   "add_time_in_day": false,

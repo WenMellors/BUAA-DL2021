@@ -1,8 +1,9 @@
+import torch
+import os
 from trafficdl.data import get_dataset
 from trafficdl.utils import get_executor
 from trafficdl.utils import get_model
 from trafficdl.utils import get_logger
-import sys
 import time
 
 config = {
@@ -47,12 +48,11 @@ config = {
     'lambda': 0.0015
 }
 
-import os
 
 os.environ["CUDA_VISIBLE_DEVICES"] = config['gpu_id']
-import torch
 
-config['device'] = torch.device("cuda" if torch.cuda.is_available() and config['gpu'] else "cpu")
+config['device'] = torch.device(
+    "cuda" if torch.cuda.is_available() and config['gpu'] else "cpu")
 
 logger = get_logger(config)
 # 加载数据集
@@ -60,9 +60,18 @@ dataset = get_dataset(config)
 # 转换数据，并划分数据集
 train_data, valid_data, test_data = dataset.get_data()
 
-print(len(train_data.dataset), train_data.dataset[0][0].shape, train_data.dataset[0][1].shape, train_data.batch_size)
-print(len(valid_data.dataset), valid_data.dataset[0][0].shape, valid_data.dataset[0][1].shape, valid_data.batch_size)
-print(len(test_data.dataset), test_data.dataset[0][0].shape, test_data.dataset[0][1].shape, test_data.batch_size)
+print(len(train_data.dataset),
+      train_data.dataset[0][0].shape,
+      train_data.dataset[0][1].shape,
+      train_data.batch_size)
+print(len(valid_data.dataset),
+      valid_data.dataset[0][0].shape,
+      valid_data.dataset[0][1].shape,
+      valid_data.batch_size)
+print(len(test_data.dataset),
+      test_data.dataset[0][0].shape,
+      test_data.dataset[0][1].shape,
+      test_data.batch_size)
 
 data_feature = dataset.get_data_feature()
 print(data_feature['adj_mx'].shape)
@@ -71,7 +80,8 @@ print(data_feature['adj_mx'].sum())
 model = get_model(config, data_feature)
 
 # 加载执行器
-model_cache_file = './trafficdl/cache/model_cache/' + config['model'] + '_' + config['dataset'] + '.m'
+model_cache_file = './trafficdl/cache/model_cache/' + \
+    config['model'] + '_' + config['dataset'] + '.m'
 executor = get_executor(config, model)
 start_time = time.time()
 # 训练

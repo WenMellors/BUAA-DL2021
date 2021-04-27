@@ -68,7 +68,8 @@ class TemplateTSP(AbstractTrafficStateModel):
         y_predicted = self.predict(batch)
         # 3.使用self._scaler将进行了归一化的真值和预测值进行反向归一化（必须）
         y_true = self._scaler.inverse_transform(y_true[..., :self.output_dim])
-        y_predicted = self._scaler.inverse_transform(y_predicted[..., :self.output_dim])
+        y_predicted = self._scaler.inverse_transform(
+            y_predicted[..., :self.output_dim])
         # 4.调用loss函数计算真值和预测值的误差
         # trafficdl/model/loss.py中定义了常见的loss函数
         # 如果模型源码用到了其中的loss，则可以直接调用，以MSE为例:

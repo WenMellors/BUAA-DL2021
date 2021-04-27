@@ -4,7 +4,7 @@ from __future__ import division
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+import torch.nn.functional as f
 from torch.nn.utils.rnn import pack_padded_sequence
 from torch.nn.utils.rnn import pad_packed_sequence
 
@@ -40,7 +40,7 @@ class Attn(nn.Module):
                 for k in range(batch_size):
                     attn_energies[k, i, j] = self.score(
                         out_state[k][i], history[k][j])
-        return F.softmax(attn_energies, dim=2)
+        return f.softmax(attn_energies, dim=2)
 
     def score(self, hidden, encoder_output):
         if self.method == 'dot':
@@ -164,7 +164,7 @@ class DeepMove(AbstractModel):
         out = self.dropout(out)
 
         y = self.fc_final(out)  # batch_size * state_len * loc_size
-        score = F.log_softmax(y, dim=2)
+        score = f.log_softmax(y, dim=2)
         # 因为是补齐了的，所以需要找到真正的 score
         for i in range(score.shape[0]):
             if i == 0:

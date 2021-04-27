@@ -10,6 +10,9 @@
   "normal_external": false,
   "input_window": 12,
   "output_window": 12,
+  "output_dim": 1,
   "add_time_in_day": false,
-  "add_day_in_week": false
+  "add_day_in_week": false,
+  "calculate_weight": false,
+  "adj_epsilon": 0.1
 }

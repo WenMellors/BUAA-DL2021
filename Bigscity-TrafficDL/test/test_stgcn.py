@@ -45,16 +45,24 @@ if __name__ == '__main__':
     import os
     os.environ["CUDA_VISIBLE_DEVICES"] = config['gpu_id']
     import torch
-    config['device'] = torch.device("cuda" if torch.cuda.is_available() and config['gpu'] else "cpu")
+    config['device'] = torch.device(
+        "cuda" if torch.cuda.is_available() and config['gpu'] else "cpu")
 
     logger = get_logger(config)
     dataset = get_dataset(config)
     train_data, valid_data, test_data = dataset.get_data()
-    print(len(train_data.dataset), train_data.dataset[0][0].shape, train_data.dataset[0][1].shape,
+    print(len(train_data.dataset),
+          train_data.dataset[0][0].shape,
+          train_data.dataset[0][1].shape,
           train_data.batch_size)
-    print(len(valid_data.dataset), valid_data.dataset[0][0].shape, valid_data.dataset[0][1].shape,
+    print(len(valid_data.dataset),
+          valid_data.dataset[0][0].shape,
+          valid_data.dataset[0][1].shape,
           valid_data.batch_size)
-    print(len(test_data.dataset), test_data.dataset[0][0].shape, test_data.dataset[0][1].shape, test_data.batch_size)
+    print(len(test_data.dataset),
+          test_data.dataset[0][0].shape,
+          test_data.dataset[0][1].shape,
+          test_data.batch_size)
 
     data_feature = dataset.get_data_feature()
     print(data_feature['adj_mx'].shape)
@@ -62,7 +70,8 @@ if __name__ == '__main__':
     model = get_model(config, data_feature)
     executor = get_executor(config, model)
     executor.train(train_data, valid_data)
-    model_cache_file = './trafficdl/cache/model_cache/' + config['model'] + '_' + config['dataset'] + '.m'
+    model_cache_file = './trafficdl/cache/model_cache/' + \
+        config['model'] + '_' + config['dataset'] + '.m'
     executor.save_model(model_cache_file)
     executor.load_model(model_cache_file)
     # 评估，评估结果将会放在 cache/evaluate_cache 下

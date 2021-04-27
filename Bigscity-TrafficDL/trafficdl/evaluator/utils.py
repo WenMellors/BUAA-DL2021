@@ -4,10 +4,9 @@ from heapq import nlargest
 
 def output(method, value, field):
     """
-    Args:
-        method: 评估方法
-        value: 对应评估方法的评估结果值
-        field: 评估的范围, 对一条轨迹或是整个模型
+    :param method: 评估方法
+    :param value: 对应评估方法的评估结果值
+    :param field: 评估的范围, 对一条轨迹或是整个模型
     """
     if method == 'ACC':
         if field == 'model':
@@ -33,9 +32,9 @@ def transfer_data(data, model, maxk):
     """
     Here we transform specific data types to standard input type
     """
-    if type(data) == str:
+    if isinstance(data, str):
         data = json.loads(data)
-    assert type(data) == dict, "待评估数据的类型/格式不合法"
+    assert isinstance(data, dict), "待评估数据的类型/格式不合法"
     if model == 'DeepMove':
         user_idx = data.keys()
         for user_id in user_idx:

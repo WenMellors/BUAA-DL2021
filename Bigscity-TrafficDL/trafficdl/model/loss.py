@@ -30,7 +30,7 @@ def masked_mae_torch(preds, labels, null_val=np.nan):
 
 
 def masked_mape_torch(preds, labels, null_val=np.nan):
-    labels[labels < 1e-4] = 0
+    labels[labels < 1e-4] = 1e-4
     if np.isnan(null_val):
         mask = ~torch.isnan(labels)
     else:
@@ -53,14 +53,14 @@ def masked_mse_torch(preds, labels, null_val=np.nan):
     mask = mask.float()
     mask /= torch.mean(mask)
     mask = torch.where(torch.isnan(mask), torch.zeros_like(mask), mask)
-    loss = torch.square(torch.sub(preds, labels))
+    loss = torch.pow(torch.sub(preds, labels), 2)
     loss = loss * mask
     loss = torch.where(torch.isnan(loss), torch.zeros_like(loss), loss)
     return torch.mean(loss)
 
 
 def masked_rmse_torch(preds, labels, null_val=np.nan):
-    labels[labels < 1e-4] = 0
+    labels[labels < 1e-4] = 1e-4
     return torch.sqrt(masked_mse_torch(preds=preds, labels=labels,
                                        null_val=null_val))
 

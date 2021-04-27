@@ -1,0 +1,765 @@
+TrafficStateFlowDataset
+TrafficStateFlowDataset
+2021-04-26 18:18:53,602 - INFO - Log directory: ./trafficdl/log
+2021-04-26 18:18:53,603 - INFO - Begin pipeline, task=traffic_state_pred, model_name=DSAN, dataset_name=bike
+1
+Loading train data from .npzs...
+train_data
+123244
+{'scaler': None, 'adj_mx': None, 'num_nodes': 0, 'feature_dim': 0, 'output_dim': 1}
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.0.0.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.0.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.0.1.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.0.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.0.2.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.0.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.0.3.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.0.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.0.4.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.0.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.1.0.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,023 - INFO - dsan.dae.convs.convs.1.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.1.1.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.1.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.1.2.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.1.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.1.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.1.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.1.4.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.1.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.2.0.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.2.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.2.1.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.2.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.2.2.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.2.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,024 - INFO - dsan.dae.convs.convs.2.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs.convs.2.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs.convs.2.4.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs.convs.2.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.0.0.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.0.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.0.1.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.0.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.0.2.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.0.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.0.3.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.0.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.0.4.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.0.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.1.0.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,025 - INFO - dsan.dae.convs_g.convs.1.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.1.1.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.1.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.1.2.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.1.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.1.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.1.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.1.4.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.1.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.2.0.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.2.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.2.1.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.2.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.2.2.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.2.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.2.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,026 - INFO - dsan.dae.convs_g.convs.2.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.convs_g.convs.2.4.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.convs_g.convs.2.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.ex_encoder.0.weight	torch.Size([256, 65])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.ex_encoder.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.ex_encoder.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.ex_encoder.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.ex_encoder_g.0.weight	torch.Size([256, 65])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.ex_encoder_g.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.ex_encoder_g.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.ex_encoder_g.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.enc_g.0.msa.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,027 - INFO - dsan.dae.enc_g.0.msa.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.0.msa.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.0.msa.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.0.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.0.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.0.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.0.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.0.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.0.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.0.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.0.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.1.msa.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.1.msa.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.1.msa.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.1.msa.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.1.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,028 - INFO - dsan.dae.enc_g.1.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.1.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.1.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.1.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.1.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.1.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.1.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.2.msa.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.2.msa.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.2.msa.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.2.msa.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.2.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.2.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.2.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.2.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.2.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,029 - INFO - dsan.dae.enc_g.2.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_g.2.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_g.2.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,030 - INFO - dsan.dae.enc_l.0.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.0.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.0.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.0.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.0.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.0.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.0.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.0.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.1.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.1.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.1.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.1.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.1.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.1.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.1.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 18:19:36,031 - INFO - dsan.dae.enc_l.1.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.1.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.2.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.2.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,032 - INFO - dsan.dae.enc_l.2.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,033 - INFO - dsan.dae.enc_l.2.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.dae.enc_l.2.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.ex_encoder.0.weight	torch.Size([256, 65])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.ex_encoder.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.ex_encoder.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.ex_encoder.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.li_conv.linear.weight	torch.Size([64, 2])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.li_conv.linear.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.li_conv.linear0.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.li_conv.linear0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.li_conv.linear1.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.li_conv.linear1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.dec_s.0.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.dec_s.0.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.dec_s.0.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,034 - INFO - dsan.sad.dec_s.0.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,035 - INFO - dsan.sad.dec_s.0.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.0.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.0.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,036 - INFO - dsan.sad.dec_s.1.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.1.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.1.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.1.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.1.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.1.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.1.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.2.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.2.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.2.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.2.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.2.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.2.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.2.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.2.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.2.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,037 - INFO - dsan.sad.dec_s.2.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_s.2.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_s.2.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_s.2.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_s.2.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_s.2.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_s.2.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_s.2.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_s.2.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_s.2.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_s.2.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_t.0.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_t.0.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_t.0.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_t.0.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,038 - INFO - dsan.sad.dec_t.0.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,039 - INFO - dsan.sad.dec_t.0.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,040 - INFO - dsan.sad.dec_t.1.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.1.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.1.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.1.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.1.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.1.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.1.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.2.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.2.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.2.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.2.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.2.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.2.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.2.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.2.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 18:19:36,041 - INFO - dsan.sad.dec_t.2.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.sad.dec_t.2.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.final_layer.weight	torch.Size([2, 64])	cuda:0	True
+2021-04-26 18:19:36,042 - INFO - dsan.final_layer.bias	torch.Size([2])	cuda:0	True
+2021-04-26 18:19:36,043 - INFO - Total parameter numbers: 1621634
+m
+2021-04-26 18:19:36,045 - INFO - Start training ...
+2021-04-26 18:19:36,045 - INFO - num_batches:1926
+2021-04-26 18:25:10,651 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 18:25:10,652 - INFO - epoch complete!
+2021-04-26 18:25:10,653 - INFO - evaluating now!
+2021-04-26 18:25:22,409 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 18:25:22,409 - INFO - Epoch [0/50] train_loss: 0.0451, val_loss: 0.0206, lr: 0.003000, 346.4s
+2021-04-26 18:25:22,456 - INFO - Saved model at 0
+2021-04-26 18:25:22,456 - INFO - Val loss decrease from inf to 0.0206, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch0.tar
+2021-04-26 18:31:07,873 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 18:31:07,874 - INFO - epoch complete!
+2021-04-26 18:31:07,874 - INFO - evaluating now!
+2021-04-26 18:31:20,691 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 18:31:20,692 - INFO - Epoch [1/50] train_loss: 0.0202, val_loss: 0.0183, lr: 0.003000, 358.2s
+2021-04-26 18:31:20,717 - INFO - Saved model at 1
+2021-04-26 18:31:20,717 - INFO - Val loss decrease from 0.0206 to 0.0183, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch1.tar
+2021-04-26 18:37:02,524 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 18:37:02,525 - INFO - epoch complete!
+2021-04-26 18:37:02,526 - INFO - evaluating now!
+2021-04-26 18:37:17,418 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 18:37:17,419 - INFO - Epoch [2/50] train_loss: 0.0206, val_loss: 0.0183, lr: 0.003000, 356.7s
+2021-04-26 18:42:52,461 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 18:42:52,462 - INFO - epoch complete!
+2021-04-26 18:42:52,463 - INFO - evaluating now!
+2021-04-26 18:43:05,649 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 18:43:05,651 - INFO - Epoch [3/50] train_loss: 0.0204, val_loss: 0.0183, lr: 0.003000, 348.2s
+2021-04-26 18:43:05,689 - INFO - Saved model at 3
+2021-04-26 18:43:05,689 - INFO - Val loss decrease from 0.0183 to 0.0183, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch3.tar
+2021-04-26 18:48:56,296 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 18:48:56,297 - INFO - epoch complete!
+2021-04-26 18:48:56,297 - INFO - evaluating now!
+2021-04-26 18:49:09,366 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 18:49:09,367 - INFO - Epoch [4/50] train_loss: 0.0205, val_loss: 0.0187, lr: 0.000300, 363.7s
+2021-04-26 18:54:57,483 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 18:54:57,484 - INFO - epoch complete!
+2021-04-26 18:54:57,484 - INFO - evaluating now!
+2021-04-26 18:55:10,565 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 18:55:10,566 - INFO - Epoch [5/50] train_loss: 0.0183, val_loss: 0.0163, lr: 0.000300, 361.2s
+2021-04-26 18:55:10,606 - INFO - Saved model at 5
+2021-04-26 18:55:10,606 - INFO - Val loss decrease from 0.0183 to 0.0163, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch5.tar
+2021-04-26 19:01:00,401 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:01:00,402 - INFO - epoch complete!
+2021-04-26 19:01:00,403 - INFO - evaluating now!
+2021-04-26 19:01:14,162 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:01:14,163 - INFO - Epoch [6/50] train_loss: 0.0177, val_loss: 0.0161, lr: 0.000300, 363.6s
+2021-04-26 19:01:14,382 - INFO - Saved model at 6
+2021-04-26 19:01:14,382 - INFO - Val loss decrease from 0.0163 to 0.0161, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch6.tar
+2021-04-26 19:06:38,459 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:06:38,460 - INFO - epoch complete!
+2021-04-26 19:06:38,460 - INFO - evaluating now!
+2021-04-26 19:06:50,822 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:06:50,823 - INFO - Epoch [7/50] train_loss: 0.0175, val_loss: 0.0162, lr: 0.000300, 336.4s
+2021-04-26 19:12:36,769 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:12:36,784 - INFO - epoch complete!
+2021-04-26 19:12:36,786 - INFO - evaluating now!
+2021-04-26 19:12:49,774 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:12:49,776 - INFO - Epoch [8/50] train_loss: 0.0173, val_loss: 0.0160, lr: 0.000300, 359.0s
+2021-04-26 19:12:49,813 - INFO - Saved model at 8
+2021-04-26 19:12:49,814 - INFO - Val loss decrease from 0.0161 to 0.0160, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch8.tar
+2021-04-26 19:18:23,280 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:18:23,281 - INFO - epoch complete!
+2021-04-26 19:18:23,281 - INFO - evaluating now!
+2021-04-26 19:18:35,978 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:18:35,979 - INFO - Epoch [9/50] train_loss: 0.0172, val_loss: 0.0156, lr: 0.000300, 346.2s
+2021-04-26 19:18:36,016 - INFO - Saved model at 9
+2021-04-26 19:18:36,016 - INFO - Val loss decrease from 0.0160 to 0.0156, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch9.tar
+2021-04-26 19:24:22,820 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:24:22,821 - INFO - epoch complete!
+2021-04-26 19:24:22,821 - INFO - evaluating now!
+2021-04-26 19:24:36,860 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:24:36,861 - INFO - Epoch [10/50] train_loss: 0.0171, val_loss: 0.0157, lr: 0.000300, 360.8s
+2021-04-26 19:30:18,994 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:30:18,995 - INFO - epoch complete!
+2021-04-26 19:30:18,995 - INFO - evaluating now!
+2021-04-26 19:30:31,800 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:30:31,800 - INFO - Epoch [11/50] train_loss: 0.0170, val_loss: 0.0158, lr: 0.000300, 354.9s
+2021-04-26 19:36:03,647 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:36:03,648 - INFO - epoch complete!
+2021-04-26 19:36:03,649 - INFO - evaluating now!
+2021-04-26 19:36:16,729 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:36:16,730 - INFO - Epoch [12/50] train_loss: 0.0169, val_loss: 0.0155, lr: 0.000300, 344.9s
+2021-04-26 19:36:16,767 - INFO - Saved model at 12
+2021-04-26 19:36:16,768 - INFO - Val loss decrease from 0.0156 to 0.0155, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch12.tar
+2021-04-26 19:41:51,307 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:41:51,308 - INFO - epoch complete!
+2021-04-26 19:41:51,309 - INFO - evaluating now!
+2021-04-26 19:42:03,816 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:42:03,817 - INFO - Epoch [13/50] train_loss: 0.0168, val_loss: 0.0154, lr: 0.000300, 347.0s
+2021-04-26 19:42:03,855 - INFO - Saved model at 13
+2021-04-26 19:42:03,855 - INFO - Val loss decrease from 0.0155 to 0.0154, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch13.tar
+2021-04-26 19:47:39,839 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:47:39,840 - INFO - epoch complete!
+2021-04-26 19:47:39,841 - INFO - evaluating now!
+2021-04-26 19:47:50,998 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:47:50,999 - INFO - Epoch [14/50] train_loss: 0.0168, val_loss: 0.0154, lr: 0.000300, 347.1s
+2021-04-26 19:53:25,891 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:53:25,891 - INFO - epoch complete!
+2021-04-26 19:53:25,892 - INFO - evaluating now!
+2021-04-26 19:53:38,827 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:53:38,828 - INFO - Epoch [15/50] train_loss: 0.0167, val_loss: 0.0152, lr: 0.000300, 347.8s
+2021-04-26 19:53:38,853 - INFO - Saved model at 15
+2021-04-26 19:53:38,853 - INFO - Val loss decrease from 0.0154 to 0.0152, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch15.tar
+2021-04-26 19:59:05,912 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 19:59:05,913 - INFO - epoch complete!
+2021-04-26 19:59:05,914 - INFO - evaluating now!
+2021-04-26 19:59:19,898 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 19:59:19,899 - INFO - Epoch [16/50] train_loss: 0.0166, val_loss: 0.0154, lr: 0.000300, 341.0s
+2021-04-26 20:04:57,941 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 20:04:57,942 - INFO - epoch complete!
+2021-04-26 20:04:57,942 - INFO - evaluating now!
+2021-04-26 20:05:11,327 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 20:05:11,329 - INFO - Epoch [17/50] train_loss: 0.0165, val_loss: 0.0153, lr: 0.000300, 351.4s
+2021-04-26 20:10:55,796 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 20:10:55,797 - INFO - epoch complete!
+2021-04-26 20:10:55,797 - INFO - evaluating now!
+2021-04-26 20:11:10,946 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 20:11:10,947 - INFO - Epoch [18/50] train_loss: 0.0164, val_loss: 0.0153, lr: 0.000300, 359.6s
+2021-04-26 20:16:53,735 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 20:16:53,736 - INFO - epoch complete!
+2021-04-26 20:16:53,736 - INFO - evaluating now!
+2021-04-26 20:17:08,095 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 20:17:08,096 - INFO - Epoch [19/50] train_loss: 0.0164, val_loss: 0.0151, lr: 0.000030, 357.1s
+2021-04-26 20:17:08,122 - INFO - Saved model at 19
+2021-04-26 20:17:08,123 - INFO - Val loss decrease from 0.0152 to 0.0151, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch19.tar
+2021-04-26 20:23:04,857 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 20:23:04,858 - INFO - epoch complete!
+2021-04-26 20:23:04,858 - INFO - evaluating now!
+2021-04-26 20:23:15,875 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 20:23:15,876 - INFO - Epoch [20/50] train_loss: 0.0162, val_loss: 0.0149, lr: 0.000030, 367.8s
+2021-04-26 20:23:15,900 - INFO - Saved model at 20
+2021-04-26 20:23:15,900 - INFO - Val loss decrease from 0.0151 to 0.0149, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch20.tar
+2021-04-26 20:29:12,159 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 20:29:12,170 - INFO - epoch complete!
+2021-04-26 20:29:12,171 - INFO - evaluating now!
+2021-04-26 20:29:27,130 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 20:29:27,131 - INFO - Epoch [21/50] train_loss: 0.0161, val_loss: 0.0149, lr: 0.000030, 371.2s
+2021-04-26 20:35:08,148 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 20:35:08,149 - INFO - epoch complete!
+2021-04-26 20:35:08,149 - INFO - evaluating now!
+2021-04-26 20:35:20,740 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 20:35:20,742 - INFO - Epoch [22/50] train_loss: 0.0161, val_loss: 0.0149, lr: 0.000030, 353.6s
+2021-04-26 20:35:20,794 - INFO - Saved model at 22
+2021-04-26 20:35:20,795 - INFO - Val loss decrease from 0.0149 to 0.0149, saving to ./trafficdl/cache/model_cache/DSAN_bike_epoch22.tar
+2021-04-26 20:40:26,597 - INFO - Summary name training loss is illegal; using training_loss instead.
+2021-04-26 20:40:26,604 - INFO - epoch complete!
+2021-04-26 20:40:26,609 - INFO - evaluating now!
+2021-04-26 20:40:38,323 - INFO - Summary name eval loss is illegal; using eval_loss instead.
+2021-04-26 20:40:38,324 - INFO - Epoch [23/50] train_loss: 0.0161, val_loss: 0.0150, lr: 0.000030, 317.5s
+TrafficStateFlowDataset
+TrafficStateFlowDataset
+2021-04-26 21:25:36,557 - INFO - Log directory: ./trafficdl/log
+2021-04-26 21:25:36,558 - INFO - Begin pipeline, task=traffic_state_pred, model_name=DSAN, dataset_name=bike
+1
+Loading train data from .npzs...
+train_data
+123244
+{'scaler': None, 'adj_mx': None, 'num_nodes': 0, 'feature_dim': 0, 'output_dim': 1}
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.0.0.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.0.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.0.1.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.0.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.0.2.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.0.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.0.3.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.0.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.0.4.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.0.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.1.0.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.1.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,214 - INFO - dsan.dae.convs.convs.1.1.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.1.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.1.2.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.1.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.1.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.1.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.1.4.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.1.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.2.0.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.2.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.2.1.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.2.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.2.2.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.2.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.2.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.2.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,215 - INFO - dsan.dae.convs.convs.2.4.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs.convs.2.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.0.0.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.0.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.0.1.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.0.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.0.2.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.0.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.0.3.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.0.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.0.4.weight	torch.Size([64, 4, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.0.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.1.0.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.1.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.1.1.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,216 - INFO - dsan.dae.convs_g.convs.1.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.1.2.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.1.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.1.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.1.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.1.4.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.1.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.2.0.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.2.0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.2.1.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.2.1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.2.2.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.2.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.2.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.2.3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.2.4.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.convs_g.convs.2.4.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,217 - INFO - dsan.dae.ex_encoder.0.weight	torch.Size([256, 65])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.ex_encoder.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.ex_encoder.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.ex_encoder.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.ex_encoder_g.0.weight	torch.Size([256, 65])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.ex_encoder_g.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.ex_encoder_g.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.ex_encoder_g.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.enc_g.0.msa.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.enc_g.0.msa.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.enc_g.0.msa.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.enc_g.0.msa.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.enc_g.0.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.enc_g.0.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.enc_g.0.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.enc_g.0.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,218 - INFO - dsan.dae.enc_g.0.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.0.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.0.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.0.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.msa.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.msa.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.msa.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.msa.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,219 - INFO - dsan.dae.enc_g.1.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.msa.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.msa.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.msa.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.msa.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_g.2.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_l.0.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_l.0.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_l.0.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_l.0.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,220 - INFO - dsan.dae.enc_l.0.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.0.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,221 - INFO - dsan.dae.enc_l.1.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,222 - INFO - dsan.dae.enc_l.1.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.1.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.1.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,223 - INFO - dsan.dae.enc_l.2.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.dae.enc_l.2.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.dae.enc_l.2.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.dae.enc_l.2.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.dae.enc_l.2.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.dae.enc_l.2.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.dae.enc_l.2.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.sad.ex_encoder.0.weight	torch.Size([256, 65])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.sad.ex_encoder.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.sad.ex_encoder.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.sad.ex_encoder.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.sad.li_conv.linear.weight	torch.Size([64, 2])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.sad.li_conv.linear.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.sad.li_conv.linear0.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.sad.li_conv.linear0.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.sad.li_conv.linear1.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,224 - INFO - dsan.sad.li_conv.linear1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,225 - INFO - dsan.sad.dec_s.0.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.0.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.0.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.0.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,226 - INFO - dsan.sad.dec_s.1.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.1.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.1.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.1.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.1.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.1.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.1.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.2.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.2.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.2.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.2.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.2.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.2.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.2.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.2.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 21:26:14,227 - INFO - dsan.sad.dec_s.2.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_s.2.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_t.0.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_t.0.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_t.0.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_t.0.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,228 - INFO - dsan.sad.dec_t.0.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.0.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.1.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,229 - INFO - dsan.sad.dec_t.1.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,230 - INFO - dsan.sad.dec_t.1.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.1.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.msa1.wx.weight	torch.Size([192, 64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.msa1.wx.bias	torch.Size([192])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.msa1.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.msa1.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.msa2.wq.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.msa2.wq.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.msa2.wkv.weight	torch.Size([128, 64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.msa2.wkv.bias	torch.Size([128])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.msa2.wo.weight	torch.Size([64, 64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.msa2.wo.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.ffn.0.weight	torch.Size([256, 64])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.ffn.0.bias	torch.Size([256])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.ffn.2.weight	torch.Size([64, 256])	cuda:0	True
+2021-04-26 21:26:14,231 - INFO - dsan.sad.dec_t.2.ffn.2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,232 - INFO - dsan.sad.dec_t.2.layernorm1.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,232 - INFO - dsan.sad.dec_t.2.layernorm1.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,232 - INFO - dsan.sad.dec_t.2.layernorm2.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,232 - INFO - dsan.sad.dec_t.2.layernorm2.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,232 - INFO - dsan.sad.dec_t.2.layernorm3.weight	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,232 - INFO - dsan.sad.dec_t.2.layernorm3.bias	torch.Size([64])	cuda:0	True
+2021-04-26 21:26:14,232 - INFO - dsan.final_layer.weight	torch.Size([2, 64])	cuda:0	True
+2021-04-26 21:26:14,232 - INFO - dsan.final_layer.bias	torch.Size([2])	cuda:0	True
+2021-04-26 21:26:14,233 - INFO - Total parameter numbers: 1621634
+lr_decay: 0
+using my_scheduler
+2021-04-26 21:26:14,234 - INFO - Start training ...
+2021-04-26 21:26:14,234 - INFO - num_batches:1926

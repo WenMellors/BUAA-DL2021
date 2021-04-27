@@ -12,9 +12,9 @@
   "train_rate": 0.6,
   "eval_rate": 0.2,
 
-  "max_epoch": 100,
+  "max_epoch": 10,
   "learner": "adam",
-  "learning_rate": 0.0001,
+  "learning_rate": 0.001,
   "lr_decay": false,
   "clip_grad_norm": false,
   "use_early_stop": false

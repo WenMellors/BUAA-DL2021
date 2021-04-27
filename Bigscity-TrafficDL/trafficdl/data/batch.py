@@ -89,7 +89,6 @@ class Batch(object):
     def to_tensor(self, device):
         """
         将数据self.data转移到device上
-
         Args:
             device(torch.device): GPU/CPU设备
         """

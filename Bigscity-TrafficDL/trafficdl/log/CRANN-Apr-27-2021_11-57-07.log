@@ -1,0 +1,401 @@
+2021-04-27 11:57:07,842 - INFO - Log directory: ./trafficdl/log
+2021-04-27 11:57:07,842 - INFO - Begin pipeline, task=traffic_state_pred, model_name=CRANN, dataset_name=M_DENSE
+2021-04-27 11:57:08,025 - INFO - Loaded file M_DENSE.geo, num_nodes=30
+2021-04-27 11:57:08,025 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_M_DENSE_12_12_0.7_0.1_none_64_False_False_True.npz
+2021-04-27 11:57:08,269 - INFO - train	x: (12248, 12, 30, 1)y: (12248, 12, 30, 1)
+2021-04-27 11:57:08,269 - INFO - eval	x: (1750, 12, 30, 1)y: (1750, 12, 30, 1)
+2021-04-27 11:57:08,269 - INFO - test	x: (3499, 12, 30, 1)y: (3499, 12, 30, 1)
+2021-04-27 11:57:08,269 - INFO - NoneScaler
+2021-04-27 11:57:13,468 - INFO - spatial_model.conv_block1.op.0.weight	torch.Size([64, 12, 3, 3])	cuda:0	True
+2021-04-27 11:57:13,469 - INFO - spatial_model.conv_block1.op.0.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,469 - INFO - spatial_model.conv_block1.op.1.weight	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,469 - INFO - spatial_model.conv_block1.op.1.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,469 - INFO - spatial_model.conv_block1.op.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 11:57:13,469 - INFO - spatial_model.conv_block1.op.3.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,469 - INFO - spatial_model.conv_block1.op.4.weight	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,469 - INFO - spatial_model.conv_block1.op.4.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,469 - INFO - spatial_model.conv_block1.op.6.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 11:57:13,469 - INFO - spatial_model.conv_block1.op.6.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,469 - INFO - spatial_model.conv_block1.op.7.weight	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.conv_block1.op.7.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.conv_block1.op.9.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.conv_block1.op.9.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.conv_block1.op.10.weight	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.conv_block1.op.10.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.conv_block1.op.12.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.conv_block1.op.12.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.conv_block1.op.13.weight	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.conv_block1.op.13.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.att1.weight	torch.Size([12, 30, 30])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.regressor.weight	torch.Size([12, 64, 3, 3])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - spatial_model.regressor.bias	torch.Size([12])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - temporal_encoder.lstm.weight_ih_l0	torch.Size([400, 1])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - temporal_encoder.lstm.weight_hh_l0	torch.Size([400, 100])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - temporal_encoder.lstm.bias_ih_l0	torch.Size([400])	cuda:0	True
+2021-04-27 11:57:13,470 - INFO - temporal_encoder.lstm.bias_hh_l0	torch.Size([400])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.weight	torch.Size([1, 100])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.fc_hidden.weight	torch.Size([100, 100])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.fc_encoder.weight	torch.Size([100, 100])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.attn_combine.weight	torch.Size([100, 200])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.attn_combine.bias	torch.Size([100])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.lstm.weight_ih_l0	torch.Size([400, 101])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.lstm.weight_hh_l0	torch.Size([400, 100])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.lstm.bias_ih_l0	torch.Size([400])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.lstm.bias_hh_l0	torch.Size([400])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.fc_prediction.weight	torch.Size([1, 100])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - temporal_decoder.fc_prediction.bias	torch.Size([1])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - model.module.weight	torch.Size([360, 504])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - model.module.bias	torch.Size([360])	cuda:0	True
+2021-04-27 11:57:13,471 - INFO - Total parameter numbers: 517553
+2021-04-27 11:57:13,472 - INFO - Start training ...
+2021-04-27 11:57:13,472 - INFO - num_batches:192
+2021-04-27 11:57:21,964 - INFO - epoch complete!
+2021-04-27 11:57:21,965 - INFO - evaluating now!
+2021-04-27 11:57:22,425 - INFO - Epoch [0/100] train_loss: 142262.1604, val_loss: 91464.3563, lr: 0.010000, 9.0s
+2021-04-27 11:57:22,454 - INFO - Saved model at 0
+2021-04-27 11:57:22,454 - INFO - Val loss decrease from inf to 91464.3563, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch0.tar
+2021-04-27 11:57:30,972 - INFO - epoch complete!
+2021-04-27 11:57:30,972 - INFO - evaluating now!
+2021-04-27 11:57:31,423 - INFO - Epoch [1/100] train_loss: 68943.8854, val_loss: 66415.9828, lr: 0.010000, 9.0s
+2021-04-27 11:57:31,450 - INFO - Saved model at 1
+2021-04-27 11:57:31,450 - INFO - Val loss decrease from 91464.3563 to 66415.9828, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch1.tar
+2021-04-27 11:57:39,902 - INFO - epoch complete!
+2021-04-27 11:57:39,903 - INFO - evaluating now!
+2021-04-27 11:57:40,344 - INFO - Epoch [2/100] train_loss: 59328.4822, val_loss: 67637.2444, lr: 0.010000, 8.9s
+2021-04-27 11:57:48,867 - INFO - epoch complete!
+2021-04-27 11:57:48,867 - INFO - evaluating now!
+2021-04-27 11:57:49,326 - INFO - Epoch [3/100] train_loss: 52760.1395, val_loss: 70407.3485, lr: 0.010000, 9.0s
+2021-04-27 11:57:57,834 - INFO - epoch complete!
+2021-04-27 11:57:57,835 - INFO - evaluating now!
+2021-04-27 11:57:58,284 - INFO - Epoch [4/100] train_loss: 48950.8998, val_loss: 59790.6850, lr: 0.010000, 9.0s
+2021-04-27 11:57:58,312 - INFO - Saved model at 4
+2021-04-27 11:57:58,313 - INFO - Val loss decrease from 66415.9828 to 59790.6850, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch4.tar
+2021-04-27 11:58:06,884 - INFO - epoch complete!
+2021-04-27 11:58:06,884 - INFO - evaluating now!
+2021-04-27 11:58:07,342 - INFO - Epoch [5/100] train_loss: 44112.9295, val_loss: 53754.4318, lr: 0.010000, 9.0s
+2021-04-27 11:58:07,380 - INFO - Saved model at 5
+2021-04-27 11:58:07,380 - INFO - Val loss decrease from 59790.6850 to 53754.4318, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch5.tar
+2021-04-27 11:58:15,888 - INFO - epoch complete!
+2021-04-27 11:58:15,888 - INFO - evaluating now!
+2021-04-27 11:58:16,344 - INFO - Epoch [6/100] train_loss: 39399.2718, val_loss: 61411.9268, lr: 0.010000, 9.0s
+2021-04-27 11:58:24,853 - INFO - epoch complete!
+2021-04-27 11:58:24,853 - INFO - evaluating now!
+2021-04-27 11:58:25,307 - INFO - Epoch [7/100] train_loss: 39261.3459, val_loss: 51920.7441, lr: 0.010000, 9.0s
+2021-04-27 11:58:25,333 - INFO - Saved model at 7
+2021-04-27 11:58:25,334 - INFO - Val loss decrease from 53754.4318 to 51920.7441, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch7.tar
+2021-04-27 11:58:33,828 - INFO - epoch complete!
+2021-04-27 11:58:33,829 - INFO - evaluating now!
+2021-04-27 11:58:34,284 - INFO - Epoch [8/100] train_loss: 36989.7546, val_loss: 63245.2150, lr: 0.010000, 9.0s
+2021-04-27 11:58:42,767 - INFO - epoch complete!
+2021-04-27 11:58:42,768 - INFO - evaluating now!
+2021-04-27 11:58:43,223 - INFO - Epoch [9/100] train_loss: 36673.3487, val_loss: 47438.1445, lr: 0.010000, 8.9s
+2021-04-27 11:58:43,251 - INFO - Saved model at 9
+2021-04-27 11:58:43,251 - INFO - Val loss decrease from 51920.7441 to 47438.1445, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch9.tar
+2021-04-27 11:58:51,786 - INFO - epoch complete!
+2021-04-27 11:58:51,786 - INFO - evaluating now!
+2021-04-27 11:58:52,239 - INFO - Epoch [10/100] train_loss: 35003.8492, val_loss: 48398.3968, lr: 0.010000, 9.0s
+2021-04-27 11:59:00,745 - INFO - epoch complete!
+2021-04-27 11:59:00,745 - INFO - evaluating now!
+2021-04-27 11:59:01,201 - INFO - Epoch [11/100] train_loss: 33783.9677, val_loss: 47442.9826, lr: 0.010000, 9.0s
+2021-04-27 11:59:09,743 - INFO - epoch complete!
+2021-04-27 11:59:09,743 - INFO - evaluating now!
+2021-04-27 11:59:10,201 - INFO - Epoch [12/100] train_loss: 32546.5918, val_loss: 46504.1660, lr: 0.010000, 9.0s
+2021-04-27 11:59:10,228 - INFO - Saved model at 12
+2021-04-27 11:59:10,228 - INFO - Val loss decrease from 47438.1445 to 46504.1660, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch12.tar
+2021-04-27 11:59:18,714 - INFO - epoch complete!
+2021-04-27 11:59:18,714 - INFO - evaluating now!
+2021-04-27 11:59:19,167 - INFO - Epoch [13/100] train_loss: 32696.3468, val_loss: 49080.3474, lr: 0.010000, 8.9s
+2021-04-27 11:59:27,675 - INFO - epoch complete!
+2021-04-27 11:59:27,676 - INFO - evaluating now!
+2021-04-27 11:59:28,123 - INFO - Epoch [14/100] train_loss: 32261.0316, val_loss: 46561.8577, lr: 0.010000, 9.0s
+2021-04-27 11:59:36,630 - INFO - epoch complete!
+2021-04-27 11:59:36,631 - INFO - evaluating now!
+2021-04-27 11:59:37,085 - INFO - Epoch [15/100] train_loss: 31144.9898, val_loss: 43361.1644, lr: 0.010000, 9.0s
+2021-04-27 11:59:37,113 - INFO - Saved model at 15
+2021-04-27 11:59:37,113 - INFO - Val loss decrease from 46504.1660 to 43361.1644, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch15.tar
+2021-04-27 11:59:45,609 - INFO - epoch complete!
+2021-04-27 11:59:45,609 - INFO - evaluating now!
+2021-04-27 11:59:46,052 - INFO - Epoch [16/100] train_loss: 30688.1034, val_loss: 43502.1617, lr: 0.010000, 8.9s
+2021-04-27 11:59:54,581 - INFO - epoch complete!
+2021-04-27 11:59:54,582 - INFO - evaluating now!
+2021-04-27 11:59:55,031 - INFO - Epoch [17/100] train_loss: 29977.6096, val_loss: 45893.8354, lr: 0.010000, 9.0s
+2021-04-27 12:00:03,540 - INFO - epoch complete!
+2021-04-27 12:00:03,541 - INFO - evaluating now!
+2021-04-27 12:00:03,997 - INFO - Epoch [18/100] train_loss: 29996.5150, val_loss: 50534.3929, lr: 0.010000, 9.0s
+2021-04-27 12:00:12,542 - INFO - epoch complete!
+2021-04-27 12:00:12,542 - INFO - evaluating now!
+2021-04-27 12:00:12,998 - INFO - Epoch [19/100] train_loss: 29390.8631, val_loss: 51195.0739, lr: 0.010000, 9.0s
+2021-04-27 12:00:21,513 - INFO - epoch complete!
+2021-04-27 12:00:21,514 - INFO - evaluating now!
+2021-04-27 12:00:21,966 - INFO - Epoch [20/100] train_loss: 30206.1042, val_loss: 43526.5938, lr: 0.010000, 9.0s
+2021-04-27 12:00:30,514 - INFO - epoch complete!
+2021-04-27 12:00:30,514 - INFO - evaluating now!
+2021-04-27 12:00:30,968 - INFO - Epoch [21/100] train_loss: 29880.2628, val_loss: 53626.7773, lr: 0.010000, 9.0s
+2021-04-27 12:00:39,479 - INFO - epoch complete!
+2021-04-27 12:00:39,479 - INFO - evaluating now!
+2021-04-27 12:00:39,922 - INFO - Epoch [22/100] train_loss: 29318.5668, val_loss: 43113.5476, lr: 0.010000, 9.0s
+2021-04-27 12:00:39,954 - INFO - Saved model at 22
+2021-04-27 12:00:39,955 - INFO - Val loss decrease from 43361.1644 to 43113.5476, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch22.tar
+2021-04-27 12:00:48,461 - INFO - epoch complete!
+2021-04-27 12:00:48,461 - INFO - evaluating now!
+2021-04-27 12:00:48,925 - INFO - Epoch [23/100] train_loss: 27845.6253, val_loss: 45552.9152, lr: 0.010000, 9.0s
+2021-04-27 12:00:57,395 - INFO - epoch complete!
+2021-04-27 12:00:57,395 - INFO - evaluating now!
+2021-04-27 12:00:57,858 - INFO - Epoch [24/100] train_loss: 28191.8225, val_loss: 44323.9316, lr: 0.010000, 8.9s
+2021-04-27 12:01:06,391 - INFO - epoch complete!
+2021-04-27 12:01:06,391 - INFO - evaluating now!
+2021-04-27 12:01:06,854 - INFO - Epoch [25/100] train_loss: 28030.7102, val_loss: 44470.4502, lr: 0.010000, 9.0s
+2021-04-27 12:01:15,387 - INFO - epoch complete!
+2021-04-27 12:01:15,388 - INFO - evaluating now!
+2021-04-27 12:01:15,836 - INFO - Epoch [26/100] train_loss: 27729.2823, val_loss: 50021.5645, lr: 0.010000, 9.0s
+2021-04-27 12:01:24,338 - INFO - epoch complete!
+2021-04-27 12:01:24,338 - INFO - evaluating now!
+2021-04-27 12:01:24,792 - INFO - Epoch [27/100] train_loss: 27519.9992, val_loss: 44440.9106, lr: 0.010000, 9.0s
+2021-04-27 12:01:33,301 - INFO - epoch complete!
+2021-04-27 12:01:33,301 - INFO - evaluating now!
+2021-04-27 12:01:33,753 - INFO - Epoch [28/100] train_loss: 26708.9427, val_loss: 50791.8531, lr: 0.010000, 9.0s
+2021-04-27 12:01:42,253 - INFO - epoch complete!
+2021-04-27 12:01:42,253 - INFO - evaluating now!
+2021-04-27 12:01:42,706 - INFO - Epoch [29/100] train_loss: 26192.5001, val_loss: 44869.0025, lr: 0.010000, 9.0s
+2021-04-27 12:01:51,251 - INFO - epoch complete!
+2021-04-27 12:01:51,251 - INFO - evaluating now!
+2021-04-27 12:01:51,708 - INFO - Epoch [30/100] train_loss: 25934.9540, val_loss: 45176.9418, lr: 0.010000, 9.0s
+2021-04-27 12:02:00,253 - INFO - epoch complete!
+2021-04-27 12:02:00,254 - INFO - evaluating now!
+2021-04-27 12:02:00,715 - INFO - Epoch [31/100] train_loss: 26852.4418, val_loss: 40569.0103, lr: 0.010000, 9.0s
+2021-04-27 12:02:00,745 - INFO - Saved model at 31
+2021-04-27 12:02:00,745 - INFO - Val loss decrease from 43113.5476 to 40569.0103, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch31.tar
+2021-04-27 12:02:09,272 - INFO - epoch complete!
+2021-04-27 12:02:09,272 - INFO - evaluating now!
+2021-04-27 12:02:09,717 - INFO - Epoch [32/100] train_loss: 25776.3731, val_loss: 42879.2024, lr: 0.010000, 9.0s
+2021-04-27 12:02:18,182 - INFO - epoch complete!
+2021-04-27 12:02:18,182 - INFO - evaluating now!
+2021-04-27 12:02:18,637 - INFO - Epoch [33/100] train_loss: 25633.8801, val_loss: 44309.6758, lr: 0.010000, 8.9s
+2021-04-27 12:02:27,147 - INFO - epoch complete!
+2021-04-27 12:02:27,148 - INFO - evaluating now!
+2021-04-27 12:02:27,599 - INFO - Epoch [34/100] train_loss: 25232.2998, val_loss: 41420.6357, lr: 0.010000, 9.0s
+2021-04-27 12:02:36,099 - INFO - epoch complete!
+2021-04-27 12:02:36,099 - INFO - evaluating now!
+2021-04-27 12:02:36,546 - INFO - Epoch [35/100] train_loss: 24860.0788, val_loss: 39955.2114, lr: 0.010000, 8.9s
+2021-04-27 12:02:36,574 - INFO - Saved model at 35
+2021-04-27 12:02:36,574 - INFO - Val loss decrease from 40569.0103 to 39955.2114, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch35.tar
+2021-04-27 12:02:45,120 - INFO - epoch complete!
+2021-04-27 12:02:45,121 - INFO - evaluating now!
+2021-04-27 12:02:45,584 - INFO - Epoch [36/100] train_loss: 25443.0216, val_loss: 51800.2626, lr: 0.010000, 9.0s
+2021-04-27 12:02:54,154 - INFO - epoch complete!
+2021-04-27 12:02:54,154 - INFO - evaluating now!
+2021-04-27 12:02:54,613 - INFO - Epoch [37/100] train_loss: 24954.1681, val_loss: 44205.1550, lr: 0.010000, 9.0s
+2021-04-27 12:03:03,191 - INFO - epoch complete!
+2021-04-27 12:03:03,191 - INFO - evaluating now!
+2021-04-27 12:03:03,666 - INFO - Epoch [38/100] train_loss: 26407.7141, val_loss: 42655.1515, lr: 0.010000, 9.1s
+2021-04-27 12:03:12,264 - INFO - epoch complete!
+2021-04-27 12:03:12,265 - INFO - evaluating now!
+2021-04-27 12:03:12,726 - INFO - Epoch [39/100] train_loss: 24298.4394, val_loss: 42076.9980, lr: 0.010000, 9.1s
+2021-04-27 12:03:21,277 - INFO - epoch complete!
+2021-04-27 12:03:21,277 - INFO - evaluating now!
+2021-04-27 12:03:21,738 - INFO - Epoch [40/100] train_loss: 24571.0474, val_loss: 40947.5189, lr: 0.010000, 9.0s
+2021-04-27 12:03:30,263 - INFO - epoch complete!
+2021-04-27 12:03:30,263 - INFO - evaluating now!
+2021-04-27 12:03:30,721 - INFO - Epoch [41/100] train_loss: 24679.0095, val_loss: 44087.6769, lr: 0.010000, 9.0s
+2021-04-27 12:03:39,257 - INFO - epoch complete!
+2021-04-27 12:03:39,257 - INFO - evaluating now!
+2021-04-27 12:03:39,707 - INFO - Epoch [42/100] train_loss: 24266.1461, val_loss: 45799.7819, lr: 0.010000, 9.0s
+2021-04-27 12:03:48,222 - INFO - epoch complete!
+2021-04-27 12:03:48,222 - INFO - evaluating now!
+2021-04-27 12:03:48,680 - INFO - Epoch [43/100] train_loss: 24214.7320, val_loss: 41453.5885, lr: 0.010000, 9.0s
+2021-04-27 12:03:57,219 - INFO - epoch complete!
+2021-04-27 12:03:57,219 - INFO - evaluating now!
+2021-04-27 12:03:57,671 - INFO - Epoch [44/100] train_loss: 23053.4737, val_loss: 41238.1673, lr: 0.010000, 9.0s
+2021-04-27 12:04:06,209 - INFO - epoch complete!
+2021-04-27 12:04:06,210 - INFO - evaluating now!
+2021-04-27 12:04:06,666 - INFO - Epoch [45/100] train_loss: 24006.7319, val_loss: 44936.5077, lr: 0.010000, 9.0s
+2021-04-27 12:04:15,183 - INFO - epoch complete!
+2021-04-27 12:04:15,184 - INFO - evaluating now!
+2021-04-27 12:04:15,643 - INFO - Epoch [46/100] train_loss: 22864.8556, val_loss: 42273.6989, lr: 0.010000, 9.0s
+2021-04-27 12:04:24,158 - INFO - epoch complete!
+2021-04-27 12:04:24,159 - INFO - evaluating now!
+2021-04-27 12:04:24,620 - INFO - Epoch [47/100] train_loss: 23132.1172, val_loss: 42551.9128, lr: 0.010000, 9.0s
+2021-04-27 12:04:33,154 - INFO - epoch complete!
+2021-04-27 12:04:33,154 - INFO - evaluating now!
+2021-04-27 12:04:33,610 - INFO - Epoch [48/100] train_loss: 23312.3557, val_loss: 42859.1702, lr: 0.010000, 9.0s
+2021-04-27 12:04:42,108 - INFO - epoch complete!
+2021-04-27 12:04:42,108 - INFO - evaluating now!
+2021-04-27 12:04:42,563 - INFO - Epoch [49/100] train_loss: 22724.4705, val_loss: 40205.3098, lr: 0.010000, 9.0s
+2021-04-27 12:04:51,082 - INFO - epoch complete!
+2021-04-27 12:04:51,083 - INFO - evaluating now!
+2021-04-27 12:04:51,529 - INFO - Epoch [50/100] train_loss: 23163.7965, val_loss: 43371.2889, lr: 0.010000, 9.0s
+2021-04-27 12:05:00,075 - INFO - epoch complete!
+2021-04-27 12:05:00,075 - INFO - evaluating now!
+2021-04-27 12:05:00,529 - INFO - Epoch [51/100] train_loss: 22634.5884, val_loss: 41997.8768, lr: 0.010000, 9.0s
+2021-04-27 12:05:09,072 - INFO - epoch complete!
+2021-04-27 12:05:09,072 - INFO - evaluating now!
+2021-04-27 12:05:09,527 - INFO - Epoch [52/100] train_loss: 22165.8774, val_loss: 45500.4558, lr: 0.010000, 9.0s
+2021-04-27 12:05:18,096 - INFO - epoch complete!
+2021-04-27 12:05:18,096 - INFO - evaluating now!
+2021-04-27 12:05:18,550 - INFO - Epoch [53/100] train_loss: 22376.4948, val_loss: 40088.3730, lr: 0.010000, 9.0s
+2021-04-27 12:05:27,078 - INFO - epoch complete!
+2021-04-27 12:05:27,078 - INFO - evaluating now!
+2021-04-27 12:05:27,546 - INFO - Epoch [54/100] train_loss: 21953.7565, val_loss: 44588.4886, lr: 0.010000, 9.0s
+2021-04-27 12:05:36,149 - INFO - epoch complete!
+2021-04-27 12:05:36,149 - INFO - evaluating now!
+2021-04-27 12:05:36,614 - INFO - Epoch [55/100] train_loss: 21780.9343, val_loss: 41271.0337, lr: 0.010000, 9.1s
+2021-04-27 12:05:45,217 - INFO - epoch complete!
+2021-04-27 12:05:45,218 - INFO - evaluating now!
+2021-04-27 12:05:45,669 - INFO - Epoch [56/100] train_loss: 22105.2901, val_loss: 41736.4264, lr: 0.010000, 9.1s
+2021-04-27 12:05:54,245 - INFO - epoch complete!
+2021-04-27 12:05:54,245 - INFO - evaluating now!
+2021-04-27 12:05:54,694 - INFO - Epoch [57/100] train_loss: 22141.6062, val_loss: 40677.6219, lr: 0.010000, 9.0s
+2021-04-27 12:06:03,279 - INFO - epoch complete!
+2021-04-27 12:06:03,279 - INFO - evaluating now!
+2021-04-27 12:06:03,741 - INFO - Epoch [58/100] train_loss: 23696.2894, val_loss: 46954.1694, lr: 0.010000, 9.0s
+2021-04-27 12:06:12,373 - INFO - epoch complete!
+2021-04-27 12:06:12,374 - INFO - evaluating now!
+2021-04-27 12:06:12,837 - INFO - Epoch [59/100] train_loss: 22635.8430, val_loss: 42301.0006, lr: 0.010000, 9.1s
+2021-04-27 12:06:21,472 - INFO - epoch complete!
+2021-04-27 12:06:21,473 - INFO - evaluating now!
+2021-04-27 12:06:21,937 - INFO - Epoch [60/100] train_loss: 21428.0191, val_loss: 39690.8253, lr: 0.010000, 9.1s
+2021-04-27 12:06:21,966 - INFO - Saved model at 60
+2021-04-27 12:06:21,966 - INFO - Val loss decrease from 39955.2114 to 39690.8253, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch60.tar
+2021-04-27 12:06:30,564 - INFO - epoch complete!
+2021-04-27 12:06:30,564 - INFO - evaluating now!
+2021-04-27 12:06:31,025 - INFO - Epoch [61/100] train_loss: 21436.3654, val_loss: 39537.8861, lr: 0.010000, 9.1s
+2021-04-27 12:06:31,054 - INFO - Saved model at 61
+2021-04-27 12:06:31,055 - INFO - Val loss decrease from 39690.8253 to 39537.8861, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch61.tar
+2021-04-27 12:06:39,691 - INFO - epoch complete!
+2021-04-27 12:06:39,691 - INFO - evaluating now!
+2021-04-27 12:06:40,151 - INFO - Epoch [62/100] train_loss: 21134.7499, val_loss: 43294.3753, lr: 0.010000, 9.1s
+2021-04-27 12:06:48,718 - INFO - epoch complete!
+2021-04-27 12:06:48,719 - INFO - evaluating now!
+2021-04-27 12:06:49,174 - INFO - Epoch [63/100] train_loss: 21601.7155, val_loss: 44622.3220, lr: 0.010000, 9.0s
+2021-04-27 12:06:57,731 - INFO - epoch complete!
+2021-04-27 12:06:57,732 - INFO - evaluating now!
+2021-04-27 12:06:58,188 - INFO - Epoch [64/100] train_loss: 21369.4601, val_loss: 40606.1492, lr: 0.010000, 9.0s
+2021-04-27 12:07:06,797 - INFO - epoch complete!
+2021-04-27 12:07:06,797 - INFO - evaluating now!
+2021-04-27 12:07:07,262 - INFO - Epoch [65/100] train_loss: 21009.4221, val_loss: 39374.5354, lr: 0.010000, 9.1s
+2021-04-27 12:07:07,294 - INFO - Saved model at 65
+2021-04-27 12:07:07,295 - INFO - Val loss decrease from 39537.8861 to 39374.5354, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch65.tar
+2021-04-27 12:07:15,849 - INFO - epoch complete!
+2021-04-27 12:07:15,849 - INFO - evaluating now!
+2021-04-27 12:07:16,309 - INFO - Epoch [66/100] train_loss: 20565.8012, val_loss: 38789.1684, lr: 0.010000, 9.0s
+2021-04-27 12:07:16,336 - INFO - Saved model at 66
+2021-04-27 12:07:16,336 - INFO - Val loss decrease from 39374.5354 to 38789.1684, saving to ./trafficdl/cache/model_cache/CRANN_M_DENSE_epoch66.tar
+2021-04-27 12:07:24,899 - INFO - epoch complete!
+2021-04-27 12:07:24,900 - INFO - evaluating now!
+2021-04-27 12:07:25,361 - INFO - Epoch [67/100] train_loss: 20747.6983, val_loss: 40044.6853, lr: 0.010000, 9.0s
+2021-04-27 12:07:33,925 - INFO - epoch complete!
+2021-04-27 12:07:33,926 - INFO - evaluating now!
+2021-04-27 12:07:34,384 - INFO - Epoch [68/100] train_loss: 20853.2080, val_loss: 42263.7093, lr: 0.010000, 9.0s
+2021-04-27 12:07:42,913 - INFO - epoch complete!
+2021-04-27 12:07:42,913 - INFO - evaluating now!
+2021-04-27 12:07:43,371 - INFO - Epoch [69/100] train_loss: 20708.2428, val_loss: 42088.2227, lr: 0.010000, 9.0s
+2021-04-27 12:07:51,943 - INFO - epoch complete!
+2021-04-27 12:07:51,943 - INFO - evaluating now!
+2021-04-27 12:07:52,392 - INFO - Epoch [70/100] train_loss: 20553.1447, val_loss: 41752.5838, lr: 0.010000, 9.0s
+2021-04-27 12:08:00,964 - INFO - epoch complete!
+2021-04-27 12:08:00,964 - INFO - evaluating now!
+2021-04-27 12:08:01,423 - INFO - Epoch [71/100] train_loss: 21210.5533, val_loss: 44747.7117, lr: 0.010000, 9.0s
+2021-04-27 12:08:10,013 - INFO - epoch complete!
+2021-04-27 12:08:10,013 - INFO - evaluating now!
+2021-04-27 12:08:10,471 - INFO - Epoch [72/100] train_loss: 20568.3761, val_loss: 44146.8855, lr: 0.010000, 9.0s
+2021-04-27 12:08:19,048 - INFO - epoch complete!
+2021-04-27 12:08:19,048 - INFO - evaluating now!
+2021-04-27 12:08:19,511 - INFO - Epoch [73/100] train_loss: 20470.5779, val_loss: 40746.1030, lr: 0.010000, 9.0s
+2021-04-27 12:08:28,098 - INFO - epoch complete!
+2021-04-27 12:08:28,099 - INFO - evaluating now!
+2021-04-27 12:08:28,562 - INFO - Epoch [74/100] train_loss: 20048.6122, val_loss: 40984.7055, lr: 0.010000, 9.1s
+2021-04-27 12:08:37,137 - INFO - epoch complete!
+2021-04-27 12:08:37,138 - INFO - evaluating now!
+2021-04-27 12:08:37,598 - INFO - Epoch [75/100] train_loss: 20333.9008, val_loss: 40295.2469, lr: 0.010000, 9.0s
+2021-04-27 12:08:46,136 - INFO - epoch complete!
+2021-04-27 12:08:46,136 - INFO - evaluating now!
+2021-04-27 12:08:46,601 - INFO - Epoch [76/100] train_loss: 20945.1503, val_loss: 44380.6703, lr: 0.010000, 9.0s
+2021-04-27 12:08:55,195 - INFO - epoch complete!
+2021-04-27 12:08:55,195 - INFO - evaluating now!
+2021-04-27 12:08:55,668 - INFO - Epoch [77/100] train_loss: 20086.8405, val_loss: 45468.2330, lr: 0.010000, 9.1s
+2021-04-27 12:09:04,254 - INFO - epoch complete!
+2021-04-27 12:09:04,255 - INFO - evaluating now!
+2021-04-27 12:09:04,711 - INFO - Epoch [78/100] train_loss: 19774.8906, val_loss: 40869.3315, lr: 0.010000, 9.0s
+2021-04-27 12:09:13,250 - INFO - epoch complete!
+2021-04-27 12:09:13,251 - INFO - evaluating now!
+2021-04-27 12:09:13,712 - INFO - Epoch [79/100] train_loss: 19927.4689, val_loss: 42387.7563, lr: 0.010000, 9.0s
+2021-04-27 12:09:22,283 - INFO - epoch complete!
+2021-04-27 12:09:22,283 - INFO - evaluating now!
+2021-04-27 12:09:22,745 - INFO - Epoch [80/100] train_loss: 21493.1444, val_loss: 42325.3309, lr: 0.010000, 9.0s
+2021-04-27 12:09:31,301 - INFO - epoch complete!
+2021-04-27 12:09:31,302 - INFO - evaluating now!
+2021-04-27 12:09:31,763 - INFO - Epoch [81/100] train_loss: 19818.7882, val_loss: 39466.2137, lr: 0.010000, 9.0s
+2021-04-27 12:09:40,313 - INFO - epoch complete!
+2021-04-27 12:09:40,314 - INFO - evaluating now!
+2021-04-27 12:09:40,771 - INFO - Epoch [82/100] train_loss: 19499.4373, val_loss: 39332.0661, lr: 0.010000, 9.0s
+2021-04-27 12:09:49,315 - INFO - epoch complete!
+2021-04-27 12:09:49,315 - INFO - evaluating now!
+2021-04-27 12:09:49,782 - INFO - Epoch [83/100] train_loss: 20027.6119, val_loss: 43616.5040, lr: 0.010000, 9.0s
+2021-04-27 12:09:58,338 - INFO - epoch complete!
+2021-04-27 12:09:58,339 - INFO - evaluating now!
+2021-04-27 12:09:58,799 - INFO - Epoch [84/100] train_loss: 19473.6160, val_loss: 44323.7577, lr: 0.010000, 9.0s
+2021-04-27 12:10:07,378 - INFO - epoch complete!
+2021-04-27 12:10:07,378 - INFO - evaluating now!
+2021-04-27 12:10:07,836 - INFO - Epoch [85/100] train_loss: 19555.6444, val_loss: 40527.8117, lr: 0.010000, 9.0s
+2021-04-27 12:10:16,371 - INFO - epoch complete!
+2021-04-27 12:10:16,371 - INFO - evaluating now!
+2021-04-27 12:10:16,831 - INFO - Epoch [86/100] train_loss: 19776.1927, val_loss: 42170.9113, lr: 0.010000, 9.0s
+2021-04-27 12:10:25,359 - INFO - epoch complete!
+2021-04-27 12:10:25,359 - INFO - evaluating now!
+2021-04-27 12:10:25,831 - INFO - Epoch [87/100] train_loss: 20165.1642, val_loss: 40963.7520, lr: 0.010000, 9.0s
+2021-04-27 12:10:34,433 - INFO - epoch complete!
+2021-04-27 12:10:34,433 - INFO - evaluating now!
+2021-04-27 12:10:34,888 - INFO - Epoch [88/100] train_loss: 18982.6489, val_loss: 38812.5967, lr: 0.010000, 9.1s
+2021-04-27 12:10:43,499 - INFO - epoch complete!
+2021-04-27 12:10:43,499 - INFO - evaluating now!
+2021-04-27 12:10:43,965 - INFO - Epoch [89/100] train_loss: 19421.0209, val_loss: 39489.3218, lr: 0.010000, 9.1s
+2021-04-27 12:10:52,553 - INFO - epoch complete!
+2021-04-27 12:10:52,554 - INFO - evaluating now!
+2021-04-27 12:10:53,017 - INFO - Epoch [90/100] train_loss: 19455.3490, val_loss: 40098.3746, lr: 0.010000, 9.1s
+2021-04-27 12:11:01,551 - INFO - epoch complete!
+2021-04-27 12:11:01,552 - INFO - evaluating now!
+2021-04-27 12:11:02,006 - INFO - Epoch [91/100] train_loss: 19001.1046, val_loss: 41961.8959, lr: 0.010000, 9.0s
+2021-04-27 12:11:10,537 - INFO - epoch complete!
+2021-04-27 12:11:10,537 - INFO - evaluating now!
+2021-04-27 12:11:10,995 - INFO - Epoch [92/100] train_loss: 19067.8441, val_loss: 42788.0078, lr: 0.010000, 9.0s
+2021-04-27 12:11:19,584 - INFO - epoch complete!
+2021-04-27 12:11:19,584 - INFO - evaluating now!
+2021-04-27 12:11:20,039 - INFO - Epoch [93/100] train_loss: 19062.4061, val_loss: 42893.7626, lr: 0.010000, 9.0s
+2021-04-27 12:11:28,579 - INFO - epoch complete!
+2021-04-27 12:11:28,579 - INFO - evaluating now!
+2021-04-27 12:11:29,039 - INFO - Epoch [94/100] train_loss: 19036.5280, val_loss: 41271.7681, lr: 0.010000, 9.0s
+2021-04-27 12:11:37,549 - INFO - epoch complete!
+2021-04-27 12:11:37,550 - INFO - evaluating now!
+2021-04-27 12:11:38,000 - INFO - Epoch [95/100] train_loss: 18538.6244, val_loss: 40881.8544, lr: 0.010000, 9.0s
+2021-04-27 12:11:46,521 - INFO - epoch complete!
+2021-04-27 12:11:46,521 - INFO - evaluating now!
+2021-04-27 12:11:46,968 - INFO - Epoch [96/100] train_loss: 18768.4084, val_loss: 40582.6567, lr: 0.010000, 9.0s
+2021-04-27 12:11:55,492 - INFO - epoch complete!
+2021-04-27 12:11:55,493 - INFO - evaluating now!
+2021-04-27 12:11:55,943 - INFO - Epoch [97/100] train_loss: 19400.4309, val_loss: 40853.2245, lr: 0.010000, 9.0s
+2021-04-27 12:12:04,513 - INFO - epoch complete!
+2021-04-27 12:12:04,513 - INFO - evaluating now!
+2021-04-27 12:12:04,961 - INFO - Epoch [98/100] train_loss: 18585.3872, val_loss: 43854.0546, lr: 0.010000, 9.0s
+2021-04-27 12:12:13,500 - INFO - epoch complete!
+2021-04-27 12:12:13,500 - INFO - evaluating now!
+2021-04-27 12:12:13,956 - INFO - Epoch [99/100] train_loss: 19028.0645, val_loss: 43225.8419, lr: 0.010000, 9.0s
+2021-04-27 12:12:13,967 - INFO - Loaded model at 66
+2021-04-27 12:12:13,967 - INFO - Saved model at ./trafficdl/cache/model_cache/CRANN_M_DENSE.m
+2021-04-27 12:12:13,993 - INFO - Start evaluating ...
+2021-04-27 12:12:15,821 - INFO - Evaluate result is {"MAE@1": 74.87438201904297, "MAPE@1": Infinity, "MSE@1": 17821.9609375, "RMSE@1": 133.49891662597656, "masked_MAE@1": 74.77457427978516, "masked_MSE@1": 17810.849609375, "masked_RMSE@1": 133.45729064941406, "masked_MAPE@1": 0.3219403922557831, "R2@1": 0.9711492365155908, "EVAR@1": 0.9714663624763489, "MAE@2": 78.8651123046875, "MAPE@2": Infinity, "MSE@2": 20405.634765625, "RMSE@2": 142.84829711914062, "masked_MAE@2": 78.69420623779297, "masked_MSE@2": 20370.25390625, "masked_RMSE@2": 142.72439575195312, "masked_MAPE@2": 0.35282477736473083, "R2@2": 0.967025528766499, "EVAR@2": 0.9673153162002563, "MAE@3": 81.74406433105469, "MAPE@3": Infinity, "MSE@3": 22798.626953125, "RMSE@3": 150.9921417236328, "masked_MAE@3": 81.57904052734375, "masked_MSE@3": 22762.63671875, "masked_RMSE@3": 150.87290954589844, "masked_MAPE@3": 0.35049405694007874, "R2@3": 0.9631974246712293, "EVAR@3": 0.9632109999656677, "MAE@4": 86.12504577636719, "MAPE@4": Infinity, "MSE@4": 24776.84765625, "RMSE@4": 157.40663146972656, "masked_MAE@4": 85.98909759521484, "masked_MSE@4": 24752.333984375, "masked_RMSE@4": 157.32875061035156, "masked_MAPE@4": 0.38129153847694397, "R2@4": 0.9599838956450581, "EVAR@4": 0.9600459933280945, "MAE@5": 88.18049621582031, "MAPE@5": Infinity, "MSE@5": 26073.021484375, "RMSE@5": 161.47142028808594, "masked_MAE@5": 88.0526351928711, "masked_MSE@5": 26056.162109375, "masked_RMSE@5": 161.41920471191406, "masked_MAPE@5": 0.3964553773403168, "R2@5": 0.9578622221713095, "EVAR@5": 0.95809006690979, "MAE@6": 89.22197723388672, "MAPE@6": Infinity, "MSE@6": 26759.642578125, "RMSE@6": 163.58375549316406, "masked_MAE@6": 89.09676361083984, "masked_MSE@6": 26743.24609375, "masked_RMSE@6": 163.53363037109375, "masked_MAPE@6": 0.40977907180786133, "R2@6": 0.9567343362475309, "EVAR@6": 0.9570972323417664, "MAE@7": 90.2457046508789, "MAPE@7": Infinity, "MSE@7": 27650.197265625, "RMSE@7": 166.28347778320312, "masked_MAE@7": 90.11341094970703, "masked_MSE@7": 27632.607421875, "masked_RMSE@7": 166.2305908203125, "masked_MAPE@7": 0.41582006216049194, "R2@7": 0.9552952824317382, "EVAR@7": 0.9556828141212463, "MAE@8": 91.31143951416016, "MAPE@8": Infinity, "MSE@8": 28577.14453125, "RMSE@8": 169.04776000976562, "masked_MAE@8": 91.1661376953125, "masked_MSE@8": 28557.66015625, "masked_RMSE@8": 168.9901123046875, "masked_MAPE@8": 0.4251430034637451, "R2@8": 0.9538120305603702, "EVAR@8": 0.9542410373687744, "MAE@9": 92.5530776977539, "MAPE@9": Infinity, "MSE@9": 29657.0859375, "RMSE@9": 172.2123260498047, "masked_MAE@9": 92.4089584350586, "masked_MSE@9": 29641.666015625, "masked_RMSE@9": 172.1675567626953, "masked_MAPE@9": 0.4396216869354248, "R2@9": 0.9521037221387102, "EVAR@9": 0.9526418447494507, "MAE@10": 93.76415252685547, "MAPE@10": Infinity, "MSE@10": 30454.92578125, "RMSE@10": 174.51339721679688, "masked_MAE@10": 93.62345123291016, "masked_MSE@10": 30443.05078125, "masked_RMSE@10": 174.4793701171875, "masked_MAPE@10": 0.44565102458000183, "R2@10": 0.9508243939973381, "EVAR@10": 0.951482355594635, "MAE@11": 94.48175811767578, "MAPE@11": Infinity, "MSE@11": 31061.365234375, "RMSE@11": 176.2423553466797, "masked_MAE@11": 94.3404541015625, "masked_MSE@11": 31051.513671875, "masked_RMSE@11": 176.2144012451172, "masked_MAPE@11": 0.44429436326026917, "R2@11": 0.9498284436441605, "EVAR@11": 0.9504424333572388, "MAE@12": 95.09935760498047, "MAPE@12": Infinity, "MSE@12": 31690.310546875, "RMSE@12": 178.01773071289062, "masked_MAE@12": 94.96192932128906, "masked_MSE@12": 31683.638671875, "masked_RMSE@12": 177.9989776611328, "masked_MAPE@12": 0.4418293833732605, "R2@12": 0.9487971083447556, "EVAR@12": 0.949436604976654}
+2021-04-27 12:12:15,829 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_27_12_12_15_CRANN_M_DENSE.json
+2021-04-27 12:12:15,839 - INFO - Evaluate result is saved at ./trafficdl/cache/evaluate_cache/2021_04_27_12_12_15_CRANN_M_DENSE.csv
+2021-04-27 12:12:15,855 - INFO - 
+          MAE  MAPE           MSE        RMSE  masked_MAE    masked_MSE  masked_RMSE  masked_MAPE        R2      EVAR
+0   74.874382   inf  17821.960938  133.498917   74.774574  17810.849609   133.457291     0.321940  0.971149  0.971466
+1   78.865112   inf  20405.634766  142.848297   78.694206  20370.253906   142.724396     0.352825  0.967026  0.967315
+2   81.744064   inf  22798.626953  150.992142   81.579041  22762.636719   150.872910     0.350494  0.963197  0.963211
+3   86.125046   inf  24776.847656  157.406631   85.989098  24752.333984   157.328751     0.381292  0.959984  0.960046
+4   88.180496   inf  26073.021484  161.471420   88.052635  26056.162109   161.419205     0.396455  0.957862  0.958090
+5   89.221977   inf  26759.642578  163.583755   89.096764  26743.246094   163.533630     0.409779  0.956734  0.957097
+6   90.245705   inf  27650.197266  166.283478   90.113411  27632.607422   166.230591     0.415820  0.955295  0.955683
+7   91.311440   inf  28577.144531  169.047760   91.166138  28557.660156   168.990112     0.425143  0.953812  0.954241
+8   92.553078   inf  29657.085938  172.212326   92.408958  29641.666016   172.167557     0.439622  0.952104  0.952642
+9   93.764153   inf  30454.925781  174.513397   93.623451  30443.050781   174.479370     0.445651  0.950824  0.951482
+10  94.481758   inf  31061.365234  176.242355   94.340454  31051.513672   176.214401     0.444294  0.949828  0.950442
+11  95.099358   inf  31690.310547  178.017731   94.961929  31683.638672   177.998978     0.441829  0.948797  0.949437

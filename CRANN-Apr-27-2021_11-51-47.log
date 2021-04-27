@@ -1,0 +1,51 @@
+2021-04-27 11:51:47,899 - INFO - Log directory: ./trafficdl/log
+2021-04-27 11:51:47,899 - INFO - Begin pipeline, task=traffic_state_pred, model_name=CRANN, dataset_name=M_DENSE
+2021-04-27 11:51:48,096 - INFO - Loaded file M_DENSE.geo, num_nodes=30
+2021-04-27 11:51:48,096 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_M_DENSE_12_12_0.7_0.1_none_64_False_False_True.npz
+2021-04-27 11:51:48,340 - INFO - train	x: (12248, 12, 30, 1)y: (12248, 12, 30, 1)
+2021-04-27 11:51:48,340 - INFO - eval	x: (1750, 12, 30, 1)y: (1750, 12, 30, 1)
+2021-04-27 11:51:48,340 - INFO - test	x: (3499, 12, 30, 1)y: (3499, 12, 30, 1)
+2021-04-27 11:51:48,340 - INFO - NoneScaler
+2021-04-27 11:51:53,765 - INFO - spatial_model.conv_block1.op.0.weight	torch.Size([64, 12, 3, 3])	cuda:0	True
+2021-04-27 11:51:53,765 - INFO - spatial_model.conv_block1.op.0.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,765 - INFO - spatial_model.conv_block1.op.1.weight	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,765 - INFO - spatial_model.conv_block1.op.1.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.3.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.3.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.4.weight	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.4.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.6.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.6.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.7.weight	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.7.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.9.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.9.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.10.weight	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.10.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.12.weight	torch.Size([64, 64, 3, 3])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.12.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.13.weight	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.conv_block1.op.13.bias	torch.Size([64])	cuda:0	True
+2021-04-27 11:51:53,766 - INFO - spatial_model.att1.weight	torch.Size([12, 30, 30])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - spatial_model.regressor.weight	torch.Size([12, 64, 3, 3])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - spatial_model.regressor.bias	torch.Size([12])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_encoder.lstm.weight_ih_l0	torch.Size([400, 1])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_encoder.lstm.weight_hh_l0	torch.Size([400, 100])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_encoder.lstm.bias_ih_l0	torch.Size([400])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_encoder.lstm.bias_hh_l0	torch.Size([400])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_decoder.weight	torch.Size([1, 100])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_decoder.fc_hidden.weight	torch.Size([100, 100])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_decoder.fc_encoder.weight	torch.Size([100, 100])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_decoder.attn_combine.weight	torch.Size([100, 200])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_decoder.attn_combine.bias	torch.Size([100])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_decoder.lstm.weight_ih_l0	torch.Size([400, 101])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_decoder.lstm.weight_hh_l0	torch.Size([400, 100])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_decoder.lstm.bias_ih_l0	torch.Size([400])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_decoder.lstm.bias_hh_l0	torch.Size([400])	cuda:0	True
+2021-04-27 11:51:53,767 - INFO - temporal_decoder.fc_prediction.weight	torch.Size([1, 100])	cuda:0	True
+2021-04-27 11:51:53,768 - INFO - temporal_decoder.fc_prediction.bias	torch.Size([1])	cuda:0	True
+2021-04-27 11:51:53,768 - INFO - model.module.weight	torch.Size([360, 564])	cuda:0	True
+2021-04-27 11:51:53,768 - INFO - model.module.bias	torch.Size([360])	cuda:0	True
+2021-04-27 11:51:53,768 - INFO - Total parameter numbers: 539153
+2021-04-27 11:51:53,768 - INFO - Start training ...
+2021-04-27 11:51:53,768 - INFO - num_batches:192

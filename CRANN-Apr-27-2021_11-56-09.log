@@ -1,0 +1,8 @@
+2021-04-27 11:56:09,255 - INFO - Log directory: ./trafficdl/log
+2021-04-27 11:56:09,255 - INFO - Begin pipeline, task=traffic_state_pred, model_name=CRANN, dataset_name=M_DENSE
+2021-04-27 11:56:09,431 - INFO - Loaded file M_DENSE.geo, num_nodes=30
+2021-04-27 11:56:09,432 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_M_DENSE_12_12_0.7_0.1_none_64_False_False_True.npz
+2021-04-27 11:56:09,675 - INFO - train	x: (12248, 12, 30, 1)y: (12248, 12, 30, 1)
+2021-04-27 11:56:09,676 - INFO - eval	x: (1750, 12, 30, 1)y: (1750, 12, 30, 1)
+2021-04-27 11:56:09,676 - INFO - test	x: (3499, 12, 30, 1)y: (3499, 12, 30, 1)
+2021-04-27 11:56:09,676 - INFO - NoneScaler

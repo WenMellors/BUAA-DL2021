@@ -1,0 +1,10 @@
+2021-04-26 20:28:04,477 - INFO - Log directory: ./trafficdl/log
+2021-04-26 20:28:04,477 - INFO - Begin pipeline, task=traffic_state_pred, model_name=STAGGCN, dataset_name=PEMS_BAY
+2021-04-26 20:28:04,864 - INFO - Loaded file PEMS_BAY.geo, num_nodes=325
+2021-04-26 20:28:04,903 - INFO - Loaded file PEMS_BAY.rel, shape=(325, 325)
+2021-04-26 20:28:04,904 - INFO - Start Calculate the weight by Gauss kernel!
+2021-04-26 20:28:05,219 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_PEMS_BAY_12_12_0.7_0.1_standard_64_False_False_True.npz
+2021-04-26 20:28:24,052 - INFO - train	x: (36465, 12, 325, 1)y: (36465, 12, 325, 1)
+2021-04-26 20:28:24,053 - INFO - eval	x: (5209, 12, 325, 1)y: (5209, 12, 325, 1)
+2021-04-26 20:28:24,053 - INFO - test	x: (10419, 12, 325, 1)y: (10419, 12, 325, 1)
+2021-04-26 20:28:29,239 - INFO - StandardScaler mean: 62.73567651594296, std: 9.438173664359947

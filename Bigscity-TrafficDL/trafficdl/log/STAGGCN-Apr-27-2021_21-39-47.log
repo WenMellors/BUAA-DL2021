@@ -1,0 +1,108 @@
+2021-04-27 21:39:47,915 - INFO - Log directory: ./trafficdl/log
+2021-04-27 21:39:47,916 - INFO - Begin pipeline, task=traffic_state_pred, model_name=STAGGCN, dataset_name=PEMS_BAY
+2021-04-27 21:39:48,188 - INFO - Loaded file PEMS_BAY.geo, num_nodes=325
+2021-04-27 21:39:48,235 - INFO - Loaded file PEMS_BAY.rel, shape=(325, 325)
+2021-04-27 21:39:48,236 - INFO - Start Calculate the weight by Gauss kernel!
+2021-04-27 21:39:48,466 - INFO - Loading ./trafficdl/cache/dataset_cache/point_based_PEMS_BAY_12_12_0.7_0.1_standard_64_False_False_True.npz
+2021-04-27 21:39:57,226 - INFO - train	x: (36465, 12, 325, 1)y: (36465, 12, 325, 1)
+2021-04-27 21:39:57,226 - INFO - eval	x: (5209, 12, 325, 1)y: (5209, 12, 325, 1)
+2021-04-27 21:39:57,226 - INFO - test	x: (10419, 12, 325, 1)y: (10419, 12, 325, 1)
+2021-04-27 21:39:59,945 - INFO - StandardScaler mean: 62.73567651594296, std: 9.438173664359947
+2021-04-27 21:40:30,587 - INFO - model.STCell.sp_source_embed	torch.Size([325, 12])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.sp_target_embed	torch.Size([12, 325])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.dtw_source_embed	torch.Size([325, 12])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.dtw_target_embed	torch.Size([12, 325])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.seq_linear.weight	torch.Size([12, 12])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.seq_linear.bias	torch.Size([12])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.self_atten.in_proj_weight	torch.Size([975, 325])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.self_atten.in_proj_bias	torch.Size([975])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.self_atten.out_proj.weight	torch.Size([325, 325])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.self_atten.out_proj.bias	torch.Size([325])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.tcn.network.0.conv1.bias	torch.Size([10])	cuda:3	True
+2021-04-27 21:40:30,587 - INFO - model.STCell.tcn.network.0.conv1.weight_g	torch.Size([10, 1, 1])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.tcn.network.0.conv1.weight_v	torch.Size([10, 1, 2])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.tcn.network.0.conv2.bias	torch.Size([10])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.tcn.network.0.conv2.weight_g	torch.Size([10, 1, 1])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.tcn.network.0.conv2.weight_v	torch.Size([10, 10, 2])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.tcn.network.0.downsample.weight	torch.Size([10, 1, 1])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.tcn.network.0.downsample.bias	torch.Size([10])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.tlinear.weight	torch.Size([32, 120])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.tlinear.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.sp_origin.weight	torch.Size([32, 12])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.sp_origin.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.sp_gconv1.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.sp_gconv1.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.sp_gconv1.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.sp_gconv1.lin_l.weight	torch.Size([96, 12])	cuda:3	True
+2021-04-27 21:40:30,588 - INFO - model.STCell.sp_gconv2.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv2.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv2.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv2.lin_l.weight	torch.Size([96, 32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv3.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv3.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv3.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv3.lin_l.weight	torch.Size([96, 32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv4.att_l	torch.Size([1, 1, 32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv4.att_r	torch.Size([1, 1, 32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv4.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_gconv4.lin_l.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_linear_1.weight	torch.Size([32, 12])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_linear_1.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_linear_2.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_linear_2.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,589 - INFO - model.STCell.sp_linear_3.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.sp_linear_3.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.sp_linear_4.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.sp_linear_4.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_origin.weight	torch.Size([32, 12])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_origin.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_gconv1.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_gconv1.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_gconv1.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_gconv1.lin_l.weight	torch.Size([96, 12])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_gconv2.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_gconv2.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_gconv2.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_gconv2.lin_l.weight	torch.Size([96, 32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_gconv3.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,590 - INFO - model.STCell.dtw_gconv3.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_gconv3.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_gconv3.lin_l.weight	torch.Size([96, 32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_gconv4.att_l	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_gconv4.att_r	torch.Size([1, 3, 32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_gconv4.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_gconv4.lin_l.weight	torch.Size([96, 32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_linear_1.weight	torch.Size([32, 12])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_linear_1.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_linear_2.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_linear_2.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_linear_3.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_linear_3.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_linear_4.weight	torch.Size([32, 32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.STCell.dtw_linear_4.bias	torch.Size([32])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.output_linear.weight	torch.Size([12, 96])	cuda:3	True
+2021-04-27 21:40:30,591 - INFO - model.output_linear.bias	torch.Size([12])	cuda:3	True
+2021-04-27 21:40:30,592 - INFO - Total parameter numbers: 473224
+2021-04-27 21:40:30,648 - INFO - Loaded model at 1475
+2021-04-27 21:40:30,650 - INFO - Start training ...
+2021-04-27 21:40:30,650 - INFO - num_batches:570
+2021-04-27 21:41:12,392 - INFO - epoch complete!
+2021-04-27 21:41:12,392 - INFO - evaluating now!
+2021-04-27 21:41:15,944 - INFO - Epoch [1475/1600] train_loss: 4.6042, val_loss: 4.7641, lr: 0.100000, 45.3s
+2021-04-27 21:41:15,960 - INFO - Saved model at 1475
+2021-04-27 21:41:15,960 - INFO - Val loss decrease from inf to 4.7641, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch1475.tar
+2021-04-27 21:41:55,307 - INFO - epoch complete!
+2021-04-27 21:41:55,308 - INFO - evaluating now!
+2021-04-27 21:41:58,844 - INFO - Epoch [1476/1600] train_loss: 4.1705, val_loss: 4.6001, lr: 0.100000, 42.9s
+2021-04-27 21:41:58,854 - INFO - Saved model at 1476
+2021-04-27 21:41:58,854 - INFO - Val loss decrease from 4.7641 to 4.6001, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch1476.tar
+2021-04-27 21:42:40,901 - INFO - epoch complete!
+2021-04-27 21:42:40,901 - INFO - evaluating now!
+2021-04-27 21:42:44,845 - INFO - Epoch [1477/1600] train_loss: 4.0261, val_loss: 4.4046, lr: 0.100000, 46.0s
+2021-04-27 21:42:44,855 - INFO - Saved model at 1477
+2021-04-27 21:42:44,855 - INFO - Val loss decrease from 4.6001 to 4.4046, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch1477.tar
+2021-04-27 21:43:26,047 - INFO - epoch complete!
+2021-04-27 21:43:26,048 - INFO - evaluating now!
+2021-04-27 21:43:29,988 - INFO - Epoch [1478/1600] train_loss: 3.8844, val_loss: 4.2507, lr: 0.100000, 45.1s
+2021-04-27 21:43:29,999 - INFO - Saved model at 1478
+2021-04-27 21:43:29,999 - INFO - Val loss decrease from 4.4046 to 4.2507, saving to ./trafficdl/cache/model_cache/STAGGCN_PEMS_BAY_epoch1478.tar

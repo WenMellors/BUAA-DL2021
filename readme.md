@@ -44,7 +44,8 @@
 命令行运行示例：
 
 ```sh
-python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky
+python run_model.py --task traffic_state_pred --model SHARE --dataset METR_LA
+
 ```
 
 这里简单介绍部分常用命令行参数：

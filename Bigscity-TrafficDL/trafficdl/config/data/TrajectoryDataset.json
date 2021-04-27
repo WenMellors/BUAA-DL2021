@@ -8,7 +8,7 @@
     "cache_dataset": true,
     "train_rate": 0.6,
     "eval_rate": 0.2,
-    "history_type": "splice",
+    "history_type": "cut_off",
     "window_type": "time_window",
     "traj_encoder": "StandardTrajectoryEncoder"
 }

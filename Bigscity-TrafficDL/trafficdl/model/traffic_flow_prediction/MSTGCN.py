@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+import torch.nn.functional as f
 import numpy as np
 from logging import getLogger
 from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
@@ -96,7 +96,7 @@ class ChebConv(nn.Module):
 
             outputs.append(output.unsqueeze(-1))
 
-        return F.relu(torch.cat(outputs, dim=-1))
+        return f.relu(torch.cat(outputs, dim=-1))
 
 
 class MSTGCNBlock(nn.Module):
@@ -125,7 +125,7 @@ class MSTGCNBlock(nn.Module):
         # residual shortcut
         x_residual = self.residual_conv(x.permute(0, 2, 1, 3))  # (b,F,N,T)
 
-        x_residual = self.ln(F.relu(x_residual + time_conv_output).permute(0, 3, 2, 1)).permute(0, 2, 3, 1)  # (b,N,F,T)
+        x_residual = self.ln(f.relu(x_residual + time_conv_output).permute(0, 3, 2, 1)).permute(0, 2, 3, 1)  # (b,N,F,T)
 
         return x_residual
 

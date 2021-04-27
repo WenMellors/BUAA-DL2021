@@ -188,6 +188,7 @@ class TrajectoryDataset(AbstractDataset):
         train_rate = self.config['train_rate']
         eval_rate = self.config['eval_rate']
         user_set = self.data['encoded_data'].keys()
+        user_number = 0
         for uid in user_set:
             encoded_trajectories = self.data['encoded_data'][uid]
             traj_len = len(encoded_trajectories)
@@ -198,6 +199,9 @@ class TrajectoryDataset(AbstractDataset):
             train_data += encoded_trajectories[:train_num]
             eval_data += encoded_trajectories[train_num:eval_num]
             test_data += encoded_trajectories[eval_num:]
+            user_number += 1
+            if user_number > 5:
+                break
         return train_data, eval_data, test_data
 
     def get_encoder(self):

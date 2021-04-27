@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+import torch.nn.functional as f
 import numpy as np
 from logging import getLogger
 from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
@@ -72,7 +72,7 @@ class SpatialAttentionLayer(nn.Module):
 
         s = torch.matmul(self.Vs, torch.sigmoid(product + self.bs))  # (N,N)(B, N, N)->(B,N,N)
 
-        s_normalized = F.softmax(s, dim=1)
+        s_normalized = f.softmax(s, dim=1)
 
         return s_normalized
 
@@ -135,7 +135,7 @@ class ChebConvWithSAt(nn.Module):
 
             outputs.append(output.unsqueeze(-1))  # (b, N, F_out, 1)
 
-        return F.relu(torch.cat(outputs, dim=-1))  # (b, N, F_out, T)
+        return f.relu(torch.cat(outputs, dim=-1))  # (b, N, F_out, T)
 
 
 class TemporalAttentionLayer(nn.Module):
@@ -168,7 +168,7 @@ class TemporalAttentionLayer(nn.Module):
 
         e = torch.matmul(self.Ve, torch.sigmoid(product + self.be))  # (B, T, T)
 
-        e_normalized = F.softmax(e, dim=1)
+        e_normalized = f.softmax(e, dim=1)
 
         return e_normalized
 
@@ -216,7 +216,7 @@ class ASTGCNBlock(nn.Module):
         x_residual = self.residual_conv(x.permute(0, 2, 1, 3))
         # (B, N, F_in, T) -> (B, F_in, N, T) 用(1,1)的卷积核去做->(B, F_out', N, T') F_out'=nb_time_filter
 
-        x_residual = self.ln(F.relu(x_residual + time_conv_output).permute(0, 3, 2, 1)).permute(0, 2, 3, 1)
+        x_residual = self.ln(f.relu(x_residual + time_conv_output).permute(0, 3, 2, 1)).permute(0, 2, 3, 1)
         # (B, F_out', N, T') -> (B, T', N, F_out') -ln -> (B, T', N, F_out') -> (B, N, F_out', T')
 
         return x_residual

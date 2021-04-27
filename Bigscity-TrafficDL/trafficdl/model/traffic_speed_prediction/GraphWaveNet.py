@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+import torch.nn.functional as f
 from logging import getLogger
 from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
 from trafficdl.model import loss
@@ -96,7 +96,7 @@ class GCN(nn.Module):
                 x1 = x2
         h = torch.cat(out, dim=1)
         h = self.mlp(h)
-        h = F.dropout(h, self.dropout, training=self.training)
+        h = f.dropout(h, self.dropout, training=self.training)
         return h
 
 
@@ -229,7 +229,7 @@ class GWNET(AbstractTrafficStateModel):
         # calculate the current adaptive adj matrix once per iteration
         new_supports = None
         if self.gcn_bool and self.addaptadj and self.supports is not None:
-            adp = F.softmax(F.relu(torch.mm(self.nodevec1, self.nodevec2)), dim=1)
+            adp = f.softmax(f.relu(torch.mm(self.nodevec1, self.nodevec2)), dim=1)
             new_supports = self.supports + [adp]
 
         # WaveNet layers
@@ -263,7 +263,7 @@ class GWNET(AbstractTrafficStateModel):
             # (batch_size, skip_channels, num_nodes, receptive_field-kernel_size+1)
             try:
                 skip = skip[:, :, :,  -s.size(3):]
-            except:
+            except Exception:
                 skip = 0
             skip = s + skip
             # (batch_size, skip_channels, num_nodes, receptive_field-kernel_size+1)
@@ -282,9 +282,9 @@ class GWNET(AbstractTrafficStateModel):
             x = x + residual[:, :, :, -x.size(3):]
             # (batch_size, residual_channels, num_nodes, receptive_field-kernel_size+1)
             x = self.bn[i](x)
-        x = F.relu(skip)
+        x = f.relu(skip)
         # (batch_size, skip_channels, num_nodes, self.output_dim)
-        x = F.relu(self.end_conv_1(x))
+        x = f.relu(self.end_conv_1(x))
         # (batch_size, end_channels, num_nodes, self.output_dim)
         x = self.end_conv_2(x)
         # (batch_size, output_window, num_nodes, self.output_dim)

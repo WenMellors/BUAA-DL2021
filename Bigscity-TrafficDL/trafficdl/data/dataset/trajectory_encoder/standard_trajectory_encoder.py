@@ -36,8 +36,8 @@ class StandardTrajectoryEncoder(AbstractTrajectoryEncoder):
         # 对于这种 history 模式没办法做到 batch
         if self.history_type == 'cut_off':
             # self.config['batch_size'] = 1
-            self.feature_name['history_loc'] = 'array of int'
-            self.feature_name['history_tim'] = 'array of int'
+            self.feature_dict['history_loc'] = 'array of int'
+            self.feature_dict['history_tim'] = 'array of int'
 
     def encode(self, uid, trajectories):
         """standard encoder use the same method as DeepMove

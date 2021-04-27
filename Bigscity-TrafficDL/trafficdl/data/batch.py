@@ -36,7 +36,7 @@ class Batch(object):
             raise KeyError('{} is not in the batch'.format(key))
 
     def __setitem__(self, key, value):
-        if key in self.data:
+        if key in self.d1ata:
             self.data[key] = value
         else:
             raise KeyError('{} is not in the batch'.format(key))
@@ -60,6 +60,7 @@ class Batch(object):
                 if self.pad_len[key] < len(item[i]):
                     # 保持 pad_len 是最大的
                     self.pad_len[key] = len(item[i])
+
 
     def padding(self):
         """

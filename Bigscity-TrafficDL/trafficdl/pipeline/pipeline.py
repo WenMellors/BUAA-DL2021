@@ -19,6 +19,7 @@ def run_model(task=None, model_name=None, dataset_name=None, config_file=None,
         other_args(dict): the rest parameter args, which will be pass to the Config
     """
     # load config
+    print(other_args)
     config = ConfigParser(task, model_name, dataset_name,
                           config_file, other_args)
     # logger

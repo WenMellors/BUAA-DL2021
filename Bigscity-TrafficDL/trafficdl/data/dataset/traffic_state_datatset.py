@@ -7,7 +7,7 @@ from logging import getLogger
 from trafficdl.data.dataset import AbstractDataset
 from trafficdl.data.utils import generate_dataloader
 from trafficdl.utils import StandardScaler, NormalScaler, NoneScaler, MinMax01Scaler, MinMax11Scaler, ensure_dir
-
+from trafficdl.lib.generate_adj import generate_graph_with_data
 
 class TrafficStateDataset(AbstractDataset):
     """
@@ -18,6 +18,8 @@ class TrafficStateDataset(AbstractDataset):
     """
 
     def __init__(self, config):
+        print('config:', end='')
+        print(config)
         self.config = config
         self.dataset = self.config.get('dataset', '')
         self.batch_size = self.config.get('batch_size', 64)
@@ -26,7 +28,9 @@ class TrafficStateDataset(AbstractDataset):
         self.pad_with_last_sample = self.config.get('pad_with_last_sample', True)
         self.train_rate = self.config.get('train_rate', 0.7)
         self.eval_rate = self.config.get('eval_rate', 0.1)
-        self.scaler_type = self.config.get('scaler', 'none')
+        #self.scaler_type = self.config.get('scaler', 'none')
+        #print(self.scaler_type)
+        self.scaler_type = "minmax01"
         self.load_external = self.config.get('load_external', False)
         self.normal_external = self.config.get('normal_external', False)
         self.add_time_in_day = self.config.get('add_time_in_day', False)
@@ -196,7 +200,8 @@ class TrafficStateDataset(AbstractDataset):
         Returns:
             np.ndarray: 数据数组
         """
-        raise NotImplementedError('Please implement the function `_load_dyna()`.')
+        # raise NotImplementedError('Please implement the function `_load_dyna()`.')
+        return _load_grid_4d(file_name)
 
     def _load_dyna_3d(self, filename):
         """
@@ -885,4 +890,9 @@ class TrafficStateDataset(AbstractDataset):
         Returns:
             dict: 包含数据集的相关特征的字典
         """
+        data_feature = {}
+        
+        data_feature['adj_mx'] = generate_graph_with_data(data, length, threshold=0.05)
+        data_feature['scaler'] = self.scaler
+        data_feature['output_dim'] = self.output_dim
         raise NotImplementedError('Please implement the function `get_data_feature()`.')

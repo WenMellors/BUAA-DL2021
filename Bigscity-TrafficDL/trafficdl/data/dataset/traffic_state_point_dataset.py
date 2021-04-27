@@ -36,7 +36,7 @@ class TrafficStatePointDataset(TrafficStateDataset):
         Returns:
             np.ndarray: 数据数组, 3d-array (len_time, num_nodes, feature_dim)
         """
-        return super()._load_dyna_3d(filename)
+        return super()._load_grid_3d(filename)
 
     def _add_external_information(self, df, ext_data=None):
         """

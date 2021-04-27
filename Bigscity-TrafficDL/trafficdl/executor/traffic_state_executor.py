@@ -114,6 +114,7 @@ class TrafficStateExecutor(AbstractExecutor):
         """
         根据全局参数`learner`选择optimizer
         """
+        print(self.model.parameters())
         if self.learner.lower() == 'adam':
             optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate,
                                          eps=self.lr_epsilon, weight_decay=self.weight_decay)

@@ -6,7 +6,7 @@ import numpy as np
 import os
 from tqdm import tqdm
 import time
-from STAN import *
+from trafficdl.model import STAN
 import random
 
 from trafficdl.executor.abstract_executor import AbstractExecutor
@@ -15,15 +15,20 @@ from trafficdl.utils import get_evaluator
 part = 100
 max_len = 100
 
-def calculate_acc(prob, label):
+
+def to_npy(x, device):
+    return x.cpu().data.numpy() if device == 'cuda' else x.cpu().detach().numpy()
+
+
+def calculate_acc(prob, label, device):
     # log_prob (N, L), label (N), batch_size [*M]
     acc_train = [0, 0, 0, 0]
     for i, k in enumerate([1, 5, 10, 20]):
         # topk_batch (N, k)
         _, topk_predict_batch = torch.topk(prob, k=k)
-        for j, topk_predict in enumerate(to_npy(topk_predict_batch)):
+        for j, topk_predict in enumerate(to_npy(topk_predict_batch, device)):
             # topk_predict (k)
-            if to_npy(label)[j] in topk_predict:
+            if to_npy(label, device)[j] in topk_predict:
                 acc_train[i] += 1
 
     return np.array(acc_train)
@@ -39,9 +44,9 @@ def sampling_prob(prob, label, num_neg):
     while len([lab for lab in label if lab in random_ig]) != 0:  # no intersection
         random_ig = random.sample(range(1, l_m+1), num_neg)
 
-    global global_seed
-    random.seed(global_seed)
-    global_seed += 1
+    # global global_seed
+    # random.seed(global_seed)
+    # global_seed += 1
 
     # place the pos labels ahead and neg samples in the end
     for k in range(num_label):
@@ -68,7 +73,7 @@ class StanTrajLocPredExecutor(AbstractExecutor):
         self.interval = 1000
         self.batch_size = 4 # N = 1
         self.learning_rate = 3e-3
-        self.num_epoch = 100
+        self.num_epoch = self.config['max_epoch']
         self.threshold = 0  # 0 if not update
 
         self.evaluator = get_evaluator(config)
@@ -79,7 +84,7 @@ class StanTrajLocPredExecutor(AbstractExecutor):
         self.evaluate_res_dir = './trafficdl/cache/evaluate_cache'
         self.loss_func = None  # TODO: 根据配置文件支持选择特定的 Loss Func 目前并未实装
 
-    def STAN_train(self, train_dataloader):
+    def train(self, train_dataloader, eval_dataloader):
         # set optimizer
         optimizer = optim.Adam(self.model.parameters(), lr=self.learning_rate, weight_decay=0)
         scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=1000, gamma=1)
@@ -125,13 +130,13 @@ class StanTrajLocPredExecutor(AbstractExecutor):
                         valid_size += person_input.shape[0]
                         # v_prob_sample, v_label_sample = sampling_prob(prob_valid, valid_label, self.num_neg)
                         # loss_valid += F.cross_entropy(v_prob_sample, v_label_sample, reduction='sum')
-                        acc_valid += calculate_acc(prob, train_label)
+                        acc_valid += calculate_acc(prob, train_label, self.device)
 
                     elif mask_len == person_traj_len[0]:  # only test
                         test_size += person_input.shape[0]
                         # v_prob_sample, v_label_sample = sampling_prob(prob_valid, valid_label, self.num_neg)
                         # loss_valid += F.cross_entropy(v_prob_sample, v_label_sample, reduction='sum')
-                        acc_test += calculate_acc(prob, train_label)
+                        acc_test += calculate_acc(prob, train_label, self.device)
 
                 bar.update(self.batch_size)
             bar.close()
@@ -149,12 +154,12 @@ class StanTrajLocPredExecutor(AbstractExecutor):
             if self.threshold < np.mean(acc_valid):
                 self.threshold = np.mean(acc_valid)
                 # save the model
-                torch.save({'state_dict': self.model.state_dict(),
-                            'records': self.records,
-                            'time': time.time() - self.start},
-                           'best_stan_win_1000_' + self.config['dataset'] + '.pth')
+                model_cache_file = \
+                    './trafficdl/cache/model_cache/{}_{}.m'.format(
+                        self.config['model'], self.config['dataset'])
+                self.save_model(model_cache_file)
 
-    def STAN_eval(self, train_dataloader):
+    def evaluate(self, test_dataloader):
         user_ids = []
         for t in range(self.num_epoch):
             # settings or validation and test
@@ -162,7 +167,7 @@ class StanTrajLocPredExecutor(AbstractExecutor):
             acc_valid, acc_test = [0, 0, 0, 0], [0, 0, 0, 0]
             cum_valid, cum_test = [0, 0, 0, 0], [0, 0, 0, 0]
 
-            for step, item in enumerate(train_dataloader):
+            for step, item in enumerate(test_dataloader):
                 # get batch data, (N, M, 3), (N, M, M, 2), (N, M, M), (N, M), (N)
                 person_input, person_m1, person_m2t, person_label, person_traj_len = item
 
@@ -188,42 +193,17 @@ class StanTrajLocPredExecutor(AbstractExecutor):
                         continue
 
                     elif mask_len == person_traj_len[0] - 1:  # only validation
-                        acc_valid = calculate_acc(prob, train_label)
-                        cum_valid += calculate_acc(prob, train_label)
+                        acc_valid = calculate_acc(prob, train_label, self.device)
+                        cum_valid += calculate_acc(prob, train_label, self.device)
 
                     elif mask_len == person_traj_len[0]:  # only test
-                        acc_test = calculate_acc(prob, train_label)
-                        cum_test += calculate_acc(prob, train_label)
+                        acc_test = calculate_acc(prob, train_label, self.device)
+                        cum_test += calculate_acc(prob, train_label, self.device)
 
                 print(step, acc_valid, acc_test)
 
                 if acc_valid.sum() == 0 and acc_test.sum() == 0:
                     user_ids.append(step)
-
-    def train(self, train_dataloader, eval_dataloader):
-        metrics = {}
-        metrics['accuracy'] = []
-        self.STAN_train(train_dataloader)
-
-    def evaluate(self, test_dataloader):
-        self.model.train(False)
-        self.evaluator.clear()
-        test_total_batch = len(test_dataloader.dataset) / \
-            test_dataloader.batch_size
-        cnt = 0
-        for batch in test_dataloader:
-            batch.to_tensor(device=self.config['device'])
-            scores = self.model.predict(batch)
-            evaluate_input = {
-                'uid': batch['uid'].tolist(),
-                'loc_true': batch['target'].tolist(),
-                'loc_pred': scores.tolist()
-            }
-            cnt += 1
-            if cnt % self.config['verbose'] == 0:
-                print('finish batch {}/{}'.format(cnt, test_total_batch))
-            self.evaluator.collect(evaluate_input)
-        self.evaluator.save_result(self.evaluate_res_dir)
 
     def _valid_epoch(self, data_loader, model, total_batch, verbose):
         model.train(False)
@@ -243,3 +223,13 @@ class StanTrajLocPredExecutor(AbstractExecutor):
             self.evaluator.collect(evaluate_input)
         avg_acc = self.evaluator.evaluate()[self.metrics]  # 随便选一个就行
         return avg_acc
+    
+    def save_model(self, cache_name):
+        torch.save({
+            'state_dict': self.model.state_dict(),
+            'records': self.records,
+            'time': time.time() - self.start
+        }, cache_name)
+    
+    def load_model(self, cache_name):
+        self.model.load_state_dict(torch.load(cache_name))

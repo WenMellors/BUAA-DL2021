@@ -229,7 +229,7 @@ class StanTrajectoryDataset(AbstractDataset):
 
     def get_data(self):
         # train, eval, test
-        return self.data_loader, null, null
+        return self.data_loader, None, None
 
     def get_data_feature(self):
         return self.data_feature
@@ -244,4 +244,5 @@ if __name__ == '__main__':
     }
     dataset = StanTrajectoryDataset(config=config)
     print('SUCCESS!')
+    # pdb.set_trace()
     pass

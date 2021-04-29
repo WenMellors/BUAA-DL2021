@@ -4,14 +4,10 @@ from torch import nn
 from torch.nn import functional as F
 
 seed = 0
-global_seed = 0
+# global_seed = 0
 hours = 24*7
 torch.manual_seed(seed)
 device = 'cuda'
-
-
-def to_npy(x):
-    return x.cpu().data.numpy() if device == 'cuda' else x.detach().numpy()
 
 
 class Attn(nn.Module):
@@ -113,10 +109,8 @@ class Embed(nn.Module):
 class MultiEmbed(nn.Module):
     def __init__(self, ex, emb_size, embed_layers):
         super(MultiEmbed, self).__init__()
-        self.emb_t, self.emb_l,
-        self.emb_u, self.emb_su,
-        self.emb_sl, self.emb_tu,
-        self.emb_tl = embed_layers
+        self.emb_t, self.emb_l, self.emb_u, self.emb_su, \
+            self.emb_sl, self.emb_tu, self.emb_tl = embed_layers
         self.su, self.sl, self.tu, self.tl = ex
         self.emb_size = emb_size
 
@@ -167,8 +161,6 @@ class STAN(AbstractModel):
         # keys of data_feature
         # {'loc_size', 'tim_size', 'uid_size', \
         # 'loc_pad', 'tim_pad', 'poi_profile', 'distance_upper'}
-        import pdb
-        pdb.set_trace()
 
         t_dim = data_feature['tim_size']
         l_dim = data_feature['loc_size']
@@ -178,9 +170,6 @@ class STAN(AbstractModel):
 
         # TODOO: use config file for embed_dim
         embed_dim = 50
-
-        import pdb
-        pdb.set_trace()
 
         emb_t = nn.Embedding(t_dim, embed_dim, padding_idx=0)
         emb_l = nn.Embedding(l_dim, embed_dim, padding_idx=0)
@@ -218,8 +207,8 @@ class STAN(AbstractModel):
             score (pytorch.tensor): 对应张量 shape 应为 batch_size *
                 loc_size。这里返回的是模型对于输入当前轨迹的下一跳位置的预测值。
         """
-        import pdb
-        pdb.set_trace()
+        # import pdb
+        # pdb.set_trace()
         raise NotImplementedError
 
     def calculate_loss(self, batch):

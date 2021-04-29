@@ -229,7 +229,7 @@ class StanTrajectoryDataset(AbstractDataset):
 
     def get_data(self):
         # train, eval, test
-        return self.data_loader, None, None
+        return self.data_loader, self.data_loader, self.data_loader
 
     def get_data_feature(self):
         return self.data_feature

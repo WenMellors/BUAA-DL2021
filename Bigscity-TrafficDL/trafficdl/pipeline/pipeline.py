@@ -36,8 +36,8 @@ def run_model(task=None, model_name=None, dataset_name=None, config_file=None,
     model = get_model(config, data_feature)
     executor = get_executor(config, model)
     # 训练
-    train = False
     if train or not os.path.exists(model_cache_file):
+
         executor.train(train_data, valid_data)
         save_model = True
         if save_model:

@@ -20,6 +20,30 @@ class TrajLocPredEvaluator(AbstractEvaluator):
             'rank': 0.0,
             'dcg': 0.0
         }
+        self.intermediate_result5 = {
+            'total': 0,
+            'hit': 0,
+            'rank': 0.0,
+            'dcg': 0.0
+        }
+        self.intermediate_result10 = {
+            'total': 0,
+            'hit': 0,
+            'rank': 0.0,
+            'dcg': 0.0
+        }
+        self.intermediate_result100 = {
+            'total': 0,
+            'hit': 0,
+            'rank': 0.0,
+            'dcg': 0.0
+        }
+        self.intermediate_result1000 = {
+            'total': 0,
+            'hit': 0,
+            'rank': 0.0,
+            'dcg': 0.0
+        }
         self._check_config()
 
     def _check_config(self):
@@ -48,33 +72,97 @@ class TrajLocPredEvaluator(AbstractEvaluator):
         self.intermediate_result['rank'] += rank
         self.intermediate_result['dcg'] += dcg
 
+        hit, rank, dcg = top_k(batch['loc_pred'], batch['loc_true'], 5)
+        total = len(batch['loc_true'])
+        self.intermediate_result5['total'] += total
+        self.intermediate_result5['hit'] += hit
+        self.intermediate_result5['rank'] += rank
+        self.intermediate_result5['dcg'] += dcg
+
+        hit, rank, dcg = top_k(batch['loc_pred'], batch['loc_true'], 10)
+        total = len(batch['loc_true'])
+        self.intermediate_result10['total'] += total
+        self.intermediate_result10['hit'] += hit
+        self.intermediate_result10['rank'] += rank
+        self.intermediate_result10['dcg'] += dcg
+
+        hit, rank, dcg = top_k(batch['loc_pred'], batch['loc_true'], 100)
+        total = len(batch['loc_true'])
+        self.intermediate_result100['total'] += total
+        self.intermediate_result100['hit'] += hit
+        self.intermediate_result100['rank'] += rank
+        self.intermediate_result100['dcg'] += dcg
+
+        hit, rank, dcg = top_k(batch['loc_pred'], batch['loc_true'], 1000)
+        total = len(batch['loc_true'])
+        self.intermediate_result1000['total'] += total
+        self.intermediate_result1000['hit'] += hit
+        self.intermediate_result1000['rank'] += rank
+        self.intermediate_result1000['dcg'] += dcg
+
     def evaluate(self):
         precision_key = 'Precision@{}'.format(self.topk)
+        precision_key5 = 'Precision@{}'.format(5)
+        precision_key10 = 'Precision@{}'.format(10)
+        precision_key100 = 'Precision@{}'.format(100)
+        precision_key1000 = 'Precision@{}'.format(1000)
         precision = self.intermediate_result['hit'] / (
             self.intermediate_result['total'] * self.topk)
+        precision5 = self.intermediate_result5['hit'] / (
+                self.intermediate_result5['total'] * 5)
+        precision10 = self.intermediate_result10['hit'] / (
+                self.intermediate_result10['total'] * 10)
+        precision100 = self.intermediate_result100['hit'] / (
+                self.intermediate_result100['total'] * 100)
+        precision1000 = self.intermediate_result1000['hit'] / (
+                self.intermediate_result1000['total'] * 1000)
         if 'Precision' in self.metrics:
             self.result[precision_key] = precision
+            self.result[precision_key5] = precision5
+            self.result[precision_key10] = precision10
+            self.result[precision_key100] = precision100
+            self.result[precision_key1000] = precision1000
         # recall is used to valid in the trainning, so must exit
         recall_key = 'Recall@{}'.format(self.topk)
+        recall_key5 = 'Recall@{}'.format(5)
+        recall_key10 = 'Recall@{}'.format(10)
+        recall_key100 = 'Recall@{}'.format(100)
+        recall_key1000 = 'Recall@{}'.format(1000)
         recall = self.intermediate_result['hit'] \
             / self.intermediate_result['total']
+        recall5 = self.intermediate_result5['hit'] \
+                 / self.intermediate_result5['total']
+        recall10 = self.intermediate_result10['hit'] \
+                  / self.intermediate_result10['total']
+        recall100 = self.intermediate_result100['hit'] \
+                  / self.intermediate_result100['total']
+        recall1000 = self.intermediate_result1000['hit'] \
+                  / self.intermediate_result1000['total']
         self.result[recall_key] = recall
-        if 'F1' in self.metrics:
-            f1_key = 'F1@{}'.format(self.topk)
-            self.result[f1_key] = (2 * precision * recall) / (precision +
-                                                              recall)
-        if 'MRR' in self.metrics:
-            mrr_key = 'MRR@{}'.format(self.topk)
-            self.result[mrr_key] = self.intermediate_result['rank'] \
-                / self.intermediate_result['total']
-        if 'MAP' in self.metrics:
-            map_key = 'MAP@{}'.format(self.topk)
-            self.result[map_key] = self.intermediate_result['rank'] \
-                / self.intermediate_result['total']
-        if 'NDCG' in self.metrics:
-            ndcg_key = 'NDCG@{}'.format(self.topk)
-            self.result[ndcg_key] = self.intermediate_result['dcg'] \
-                / self.intermediate_result['total']
+        self.result[recall_key5] = recall5
+        self.result[recall_key10] = recall10
+        self.result[recall_key100] = recall100
+        self.result[recall_key1000] = recall1000
+
+        # if 'F1' in self.metrics:
+        f1_key = 'F1@{}'.format(self.topk)
+        self.result[f1_key] = (2 * precision * recall) / (precision +
+                                                          recall)
+        # if 'MRR' in self.metrics:
+        mrr_key = 'MRR@{}'.format(self.topk)
+        self.result[mrr_key] = self.intermediate_result['rank'] \
+            / self.intermediate_result['total']
+
+        # if 'MAP' in self.metrics:
+        map_key = 'MAP@{}'.format(self.topk)
+        self.result[map_key] = self.intermediate_result['rank'] \
+            / self.intermediate_result['total']
+
+        # if 'NDCG' in self.metrics:
+        ndcg_key = 'NDCG@{}'.format(self.topk)
+        self.result[ndcg_key] = self.intermediate_result['dcg'] \
+            / self.intermediate_result['total']
+
         return self.result
 
     def save_result(self, save_path, filename=None):

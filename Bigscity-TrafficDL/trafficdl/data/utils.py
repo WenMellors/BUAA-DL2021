@@ -49,7 +49,6 @@ def generate_dataloader(train_data, eval_data, test_data, feature_name,
             eval_dataloader: Dataloader composed of Batch (class) \n
             test_dataloader: Dataloader composed of Batch (class)
     """
-    print(train_data[0])
     if pad_with_last_sample:
         num_padding = (batch_size - (len(train_data) %
                                      batch_size)) % batch_size

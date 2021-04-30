@@ -86,7 +86,7 @@ class STRNN(AbstractModel):
         return torch.log(1 + torch.exp(torch.neg(output))).sum()
 
     def forward(self, td_upper, td_lower, ld_upper, ld_lower, loc, hx):  # 前向传播
-        loc_len = min(len(loc), len(td_upper), len(ld_upper))
+        loc_len = len(loc)
         Ttd = [((self.weight_th_upper * td_upper[i] + self.weight_th_lower * td_lower[i])
                 / (td_upper[i] + td_lower[i])) for i in range(loc_len)]
         Sld = [((self.weight_sh_upper * ld_upper[i] + self.weight_sh_lower * ld_lower[i])
@@ -101,8 +101,6 @@ class STRNN(AbstractModel):
 
     def run(self, user, td, ld, loc):
         seqlen = len(loc)
-        # neg_loc = Variable(torch.FloatTensor(1).uniform_(0, len(poi2pos)-1).long()).type(ltype)
-        # (neg_lati, neg_longi) = poi2pos.get(neg_loc.data.cpu().numpy()[0])
         rnn_output = self.h0
         for idx in range(seqlen - 1):
             td_upper = Variable(torch.from_numpy(np.asarray((up_time - td[idx]).cpu()))).type(ftype)
@@ -111,7 +109,7 @@ class STRNN(AbstractModel):
             ld_lower = Variable(torch.from_numpy(np.asarray((ld[idx] - lw_dist).cpu()))).type(ftype)
             location = Variable(torch.from_numpy(np.asarray(loc[idx].cpu()))).type(ltype)
             rnn_output = self.forward(td_upper, td_lower, ld_upper, ld_lower, location,
-                                     rnn_output)  # , neg_lati, neg_longi, neg_loc, step)
+                                     rnn_output)
         td_upper = Variable(torch.from_numpy(np.asarray((up_time - td[-1]).cpu()))).type(ftype)
         td_lower = Variable(torch.from_numpy(np.asarray((td[-1] - lw_time).cpu()))).type(ftype)
         ld_upper = Variable(torch.from_numpy(np.asarray((up_dist - ld[-1]).cpu()))).type(ftype)

@@ -1,5 +1,5 @@
 import os
-import numpy as np
+
 from trafficdl.data.dataset.trajectory_encoder.abstract_trajectory_encoder import AbstractTrajectoryEncoder
 from trafficdl.utils import parse_time, cal_basetime, cal_timeoff
 
@@ -21,7 +21,7 @@ class StandardTrajectoryEncoder(AbstractTrajectoryEncoder):
         self.history_type = self.config['history_type']
         self.feature_dict = {'history_loc': 'int', 'history_tim': 'int',
                              'current_loc': 'int', 'current_tim': 'int',
-                             'target': 'int', 'target_tim': 'int', 'uid': 'int', 'current_dis': 'float'
+                             'target': 'int', 'target_tim': 'int', 'uid': 'int'
                              }
         self.feature_max_len = {
             'history_loc': self.config['history_len'],
@@ -38,20 +38,6 @@ class StandardTrajectoryEncoder(AbstractTrajectoryEncoder):
             # self.config['batch_size'] = 1
             self.feature_name['history_loc'] = 'array of int'
             self.feature_name['history_tim'] = 'array of int'
-
-        self.geo_coord = {}
-        f_geo = open(
-            "../../../../raw_data/foursquare_tky/foursquare_tky.geo")
-        lines = f_geo.readlines()
-
-        for i, line in enumerate(lines):
-            if i == 0:
-                continue
-            tokens = line.strip().replace("\"", "").replace("[", "").replace("]", "").split(',')
-
-            loc_id, loc_longi, loc_lati = int(tokens[0]), eval(tokens[2]), eval(tokens[3])
-            self.geo_coord[loc_id] = [loc_lati, loc_longi]
-        f_geo.close()
 
     def encode(self, uid, trajectories):
         """standard encoder use the same method as DeepMove
@@ -76,9 +62,6 @@ class StandardTrajectoryEncoder(AbstractTrajectoryEncoder):
         for index, traj in enumerate(trajectories):
             current_loc = []
             current_tim = []
-            current_longi = []
-            current_lati = []
-            current_points = []
             start_time = parse_time(traj[0][1], traj[0][2])
             # 以当天凌晨的时间作为计算 time_off 的基准
             base_time = cal_basetime(start_time, True)
@@ -88,10 +71,7 @@ class StandardTrajectoryEncoder(AbstractTrajectoryEncoder):
                 if loc not in self.location2id:
                     self.location2id[loc] = self.loc_id
                     self.loc_id += 1
-                current_points.append(loc)
                 current_loc.append(self.location2id[loc])
-                current_lati.append(self.geo_coord[loc][0])
-                current_longi.append(self.geo_coord[loc][1])
                 time_code = int(cal_timeoff(now_time, base_time))
                 if time_code > self.tim_max:
                     self.tim_max = time_code
@@ -111,11 +91,6 @@ class StandardTrajectoryEncoder(AbstractTrajectoryEncoder):
             target_tim = current_tim[-1]
             current_loc = current_loc[:-1]
             current_tim = current_tim[:-1]
-            lati = self.geo_coord[self.location2id[current_points[-1]]][0]
-            lati = np.array([lati for i in range(len(current_loc))])
-            longi = self.geo_coord[self.location2id[current_points[-1]]][1]
-            longi = np.array([longi for i in range(len(current_loc))])
-            current_dis = euclidean_dist(lati - current_lati[:-1], longi - current_longi[:-1])
             trace.append(history_loc)
             trace.append(history_tim)
             trace.append(current_loc)
@@ -123,7 +98,6 @@ class StandardTrajectoryEncoder(AbstractTrajectoryEncoder):
             trace.append(target)
             trace.append(target_tim)
             trace.append(uid)
-            trace.append(current_dis)
             encoded_trajectories.append(trace)
             if self.history_type == 'splice':
                 history_loc += current_loc
@@ -136,7 +110,6 @@ class StandardTrajectoryEncoder(AbstractTrajectoryEncoder):
     def gen_data_feature(self):
         loc_pad = self.loc_id
         tim_pad = self.tim_max + 1
-        dis_pad = 0
         if self.history_type == 'cut_off':
             self.pad_item = {
                 'current_loc': loc_pad,
@@ -148,18 +121,12 @@ class StandardTrajectoryEncoder(AbstractTrajectoryEncoder):
                 'current_loc': loc_pad,
                 'history_loc': loc_pad,
                 'current_tim': tim_pad,
-                'history_tim': tim_pad,
-                'current_dis': dis_pad
+                'history_tim': tim_pad
             }
         self.data_feature = {
             'loc_size': self.loc_id + 1,
             'tim_size': self.tim_max + 2,
             'uid_size': self.uid,
             'loc_pad': loc_pad,
-            'tim_pad': tim_pad,
-            'dis_pad': dis_pad
+            'tim_pad': tim_pad
         }
-
-
-def euclidean_dist(x, y):
-    return np.sqrt(np.power(x, 2) + np.power(y, 2)).tolist()

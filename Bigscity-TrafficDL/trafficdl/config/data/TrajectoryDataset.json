@@ -1,9 +1,9 @@
 {
     "min_session_len": 30,
     "min_sessions": 2,
-    "window_size": 360,
+    "window_size": 72,
     "history_len": 50,
-    "batch_size": 10,
+    "batch_size": 5,
     "num_workers": 0,
     "cache_dataset": true,
     "train_rate": 0.6,

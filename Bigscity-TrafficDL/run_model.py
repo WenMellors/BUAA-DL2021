@@ -26,7 +26,7 @@ if __name__ == '__main__':
     parser.add_argument('--task', type=str,
                         default='traj_loc_pred', help='the name of task')
     parser.add_argument('--model', type=str,
-                        default='DeepMove', help='the name of model')
+                        default='STRNN', help='the name of model')
     parser.add_argument('--dataset', type=str,
                         default='foursquare_tky', help='the name of dataset')
     parser.add_argument('--config_file', type=str,

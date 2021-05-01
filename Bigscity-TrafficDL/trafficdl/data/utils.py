@@ -11,7 +11,7 @@ def get_dataset(config):
     """
     according the config['dataset_class'] to create the dataset
 
-    Args:
+    Args:conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cpuonly -c pytorch
         config(ConfigParser): config
 
     Returns:

@@ -1,3 +1,4 @@
+from trafficdl.model.traffic_demand_prediction import DMVST
 from trafficdl.model.trajectory_loc_prediction import DeepMove, RNN, FPMC, \
     LSTPM, STRNN, TemplateTLP, SERM
 from trafficdl.model.traffic_speed_prediction import DCRNN, STGCN, GWNET, \
@@ -20,5 +21,6 @@ __all__ = [
     "LSTPM",
     "STRNN",
     "TemplateTLP",
-    "SERM"
+    "SERM",
+    "DMVST"
 ]

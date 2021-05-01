@@ -79,7 +79,7 @@ def explained_variance_score_torch(preds, labels):
 
 def masked_rmse_np(preds, labels, null_val=np.nan):
     return np.sqrt(masked_mse_np(preds=preds, labels=labels,
-                   null_val=null_val))
+                                 null_val=null_val))
 
 
 def masked_mse_np(preds, labels, null_val=np.nan):
@@ -122,6 +122,21 @@ def masked_mape_np(preds, labels, null_val=np.nan):
         return np.mean(mape)
 
 
+def masked_maspe_torch(preds, labels, null_val=np.nan):
+    labels[labels < 1e-4] = 0
+    if np.isnan(null_val):
+        mask = ~torch.isnan(labels)
+    else:
+        mask = labels.ne(null_val)
+    mask = mask.float()
+    mask /= torch.mean(mask)
+    mask = torch.where(torch.isnan(mask), torch.zeros_like(mask), mask)
+    loss = torch.square(torch.abs((preds - labels) / labels))
+    loss = loss * mask
+    loss = torch.where(torch.isnan(loss), torch.zeros_like(loss), loss)
+    return torch.mean(loss)
+
+
 def r2_score_np(preds, labels):
     preds = preds.flatten()
     labels = labels.flatten()
@@ -132,3 +147,4 @@ def explained_variance_score_np(preds, labels):
     preds = preds.flatten()
     labels = labels.flatten()
     return explained_variance_score(labels, preds)
+

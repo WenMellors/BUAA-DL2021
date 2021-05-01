@@ -1,9 +1,58 @@
 from logging import getLogger
 import torch
-
-from trafficdl.data.dataset import TrafficStateGridDataset
+import torch.nn as nn
 from trafficdl.model import loss
 from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+
+batch_size = 64
+mean_label = 0.0
+label_max = 0
+label_min = 0
+seq_len = 8
+hidden_dim = 512
+threshold = 10.0
+eps = 1e-5
+loss_lambda = 10.0
+feature_len = 0
+local_image_size = 9
+cnn_hidden_dim_first = 32
+fc_oup_dim = 64
+lstm_oup_dim = 512
+len_valid_id = 0
+gama = 10
+width = 12
+length = 16
+padding_size = local_image_size // 2
+number = 0
+
+
+class SpatialViewConv(nn.Module):
+    def __init__(self, inp_channel, oup_channel, kernel_size, stride=1, padding=1):
+        super(SpatialViewConv, self).__init__()
+        self.inp_channel = inp_channel
+        self.oup_channel = oup_channel
+        self.kernel_size = kernel_size
+        self.stride = stride
+        self.padding = padding
+        self.conv = nn.Conv2d(in_channels=inp_channel, out_channels=oup_channel, kernel_size=kernel_size, stride=stride,
+                              padding=padding)
+        self.batch = nn.BatchNorm2d(oup_channel)
+        self.relu = nn.ReLU()
+
+    def forward(self, inp):
+        return self.relu(self.batch(self.conv(inp)))
+
+
+class TemporalView(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.lstm = nn.LSTM(fc_oup_dim, lstm_oup_dim)
+        self.fc = nn.Linear(in_features=lstm_oup_dim,
+                            out_features=2)
+
+    def forward(self, inp):
+        lstm_res, (h, c) = self.lstm(inp)
+        return self.fc(h[0])
 
 
 class DMVST(AbstractTrafficStateModel):
@@ -32,12 +81,32 @@ class DMVST(AbstractTrafficStateModel):
         # 5.初始化输入输出时间步的长度（非必须）
         self.input_window = config.get('input_window', 1)
         self.output_window = config.get('output_window', 1)
-        # 6.从config中取用到的其他参数，主要是用于构造模型结构的参数（必须）
-        # 这些涉及到模型结构的参数应该放在trafficdl/config/model/model_name.json中（必须）
-        # 例如: self.blocks = config['blocks']
-        # ...
-        # 7.构造深度模型的层次结构（必须）
-        # 例如: 使用简单RNN: self.rnn = nn.GRU(input_size, hidden_size, num_layers)
+
+        # 对input进行padding来是SpatialView的Local CNN
+        self.padding = nn.ZeroPad2d((padding_size, padding_size, padding_size, padding_size))
+
+        # 三层Local CNN
+        self.local_conv1 = SpatialViewConv(inp_channel=2, oup_channel=cnn_hidden_dim_first, kernel_size=3, stride=1,
+                                           padding=1)
+        self.local_conv2 = SpatialViewConv(inp_channel=cnn_hidden_dim_first, oup_channel=cnn_hidden_dim_first,
+                                           kernel_size=3, stride=1, padding=1)
+        self.local_conv3 = SpatialViewConv(inp_channel=cnn_hidden_dim_first, oup_channel=cnn_hidden_dim_first,
+                                           kernel_size=3, stride=1, padding=1)
+
+        # 全连接降维
+        self.fc1 = nn.Linear(in_features=cnn_hidden_dim_first * local_image_size * local_image_size,
+                             out_features=fc_oup_dim)
+
+        # TemporalView
+        self.temporalLayers = [[TemporalView() for i in range(width)] for j in range(length)]
+
+    def spatial_forward(self, grid_batch):
+        # input 9 * 9
+        x1 = self.local_conv1(grid_batch)
+        x2 = self.local_conv2(x1)
+        x3 = self.local_conv3(x2)
+        x4 = self.fc1(torch.flatten(x3, start_dim=1))
+        return x4
 
     def forward(self, batch):
         """
@@ -45,6 +114,34 @@ class DMVST(AbstractTrafficStateModel):
         :param batch: 输入数据，类字典，可以按字典的方法取数据
         :return:
         """
+        # 记录batch number
+        global number
+
+        # input转换为卷积运算的格式 (sample, leq, w, h, channel) -> (sample * leq, channel, w, h)
+        x = batch['X'].transpose(2, 4)
+        shape0 = x.shape[0]
+        shape2 = x.shape[2]
+        shape3 = x.shape[3]
+        shape4 = x.shape[4]
+        x = x.reshape((shape0 * seq_len, shape2, shape3, shape4))
+
+        # 对输入进行0填充
+        x_padding = self.padding(x)
+
+        # 构造输出
+        oup = torch.zeros(batch['y'].shape)
+
+        # 对每个grid进行预测
+        for i in range(padding_size, width - padding_size):
+            for j in range(padding_size, length - padding_size):
+                spatial_res = self.spatial_forward(
+                    x_padding[:, :, i - padding_size:i + padding_size + 1, j - padding_size: j + padding_size + 1])
+                seq_res = spatial_res.reshape((seq_len, spatial_res.shape[0] // seq_len, spatial_res.shape[1]))
+                temporal_res = self.temporalLayers[i - padding_size][j - padding_size](seq_res)
+                oup[:, :, i, j, :] = temporal_res.reshape(shape0, 1, 2)
+        number += 1
+        self._logger.warning("batch-{:d}".format(number))
+        # self._scaler.inverse_transform
         # 1.取数据，假设字典中有4类数据，X,y,X_ext,y_ext
         # 当然一般只需要取输入数据，例如X,X_ext，因为这个函数是用来计算输出的
         # 模型输入的数据的特征维度应该等于self.feature_dim
@@ -57,6 +154,7 @@ class DMVST(AbstractTrafficStateModel):
         # 例如: outputs = self.model(x)
         # 3.返回输出结果
         # 例如: return outputs
+        return oup
 
     def calculate_loss(self, batch):
         """
@@ -74,7 +172,7 @@ class DMVST(AbstractTrafficStateModel):
         # 4.调用loss函数计算真值和预测值的误差
         # trafficdl/model/loss.py中定义了常见的loss函数
         # 如果模型源码用到了其中的loss，则可以直接调用，以MSE为例:
-        res = loss.masked_mse_torch(y_predicted, y_true)
+        res = loss.masked_mape_torch(y_predicted, y_true)
         # 如果模型源码所用的loss函数在loss.py中没有，则需要自己实现loss函数
         # ...（自定义loss函数）
         # 5.返回loss的结果

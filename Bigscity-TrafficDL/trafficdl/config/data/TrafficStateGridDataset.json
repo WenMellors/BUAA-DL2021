@@ -8,8 +8,8 @@
   "scaler": "none",
   "load_external": false,
   "normal_external": false,
-  "input_window": 12,
-  "output_window": 12,
+  "input_window": 8,
+  "output_window": 1,
   "add_time_in_day": false,
   "add_day_in_week": false,
   "use_row_column": true

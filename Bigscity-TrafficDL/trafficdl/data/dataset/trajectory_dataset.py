@@ -84,7 +84,7 @@ class TrajectoryDataset(AbstractDataset):
         # load data according to config
         traj = pd.read_csv(os.path.join(
             self.data_path, '{}.dyna'.format(self.config['dataset'])))
-        
+
         # import pdb
         # pdb.set_trace()
 

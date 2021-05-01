@@ -1,12 +1,9 @@
-import json
 import torch
 import torch.optim as optim
 import torch.nn.functional as F
 import numpy as np
-import os
 from tqdm import tqdm
 import time
-from trafficdl.model import STAN
 import random
 
 from trafficdl.executor.abstract_executor import AbstractExecutor
@@ -71,7 +68,7 @@ class StanTrajLocPredExecutor(AbstractExecutor):
         self.start_epoch = 1
         self.num_neg = 10
         self.interval = 1000
-        self.batch_size = 4 # N = 1
+        self.batch_size = 4  # N = 1
         self.learning_rate = 3e-3
         self.num_epoch = self.config['max_epoch']
         self.threshold = 0  # 0 if not update
@@ -163,7 +160,6 @@ class StanTrajLocPredExecutor(AbstractExecutor):
         user_ids = []
         for t in range(self.num_epoch):
             # settings or validation and test
-            valid_size, test_size = 0, 0
             acc_valid, acc_test = [0, 0, 0, 0], [0, 0, 0, 0]
             cum_valid, cum_test = [0, 0, 0, 0], [0, 0, 0, 0]
 
@@ -223,13 +219,13 @@ class StanTrajLocPredExecutor(AbstractExecutor):
             self.evaluator.collect(evaluate_input)
         avg_acc = self.evaluator.evaluate()[self.metrics]  # 随便选一个就行
         return avg_acc
-    
+
     def save_model(self, cache_name):
         torch.save({
             'state_dict': self.model.state_dict(),
             'records': self.records,
             'time': time.time() - self.start
         }, cache_name)
-    
+
     def load_model(self, cache_name):
         self.model.load_state_dict(torch.load(cache_name))

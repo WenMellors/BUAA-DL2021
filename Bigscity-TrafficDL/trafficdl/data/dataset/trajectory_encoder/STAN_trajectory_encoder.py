@@ -4,10 +4,7 @@ from trafficdl.data.dataset.trajectory_encoder.abstract_trajectory_encoder impor
 from trafficdl.utils import parse_time, cal_basetime, cal_timeoff
 
 import numpy as np
-import torch
 from math import radians, cos, sin, asin, sqrt
-import joblib
-from torch.nn.utils.rnn import pad_sequence
 
 max_len = 100  # max traj len; i.e., M
 parameter_list = ['dataset', 'min_session_len', 'min_sessions', 'traj_encoder', 'window_type',

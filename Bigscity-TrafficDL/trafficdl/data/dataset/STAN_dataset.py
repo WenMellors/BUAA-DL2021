@@ -1,14 +1,9 @@
 import os
 import json
 import pandas as pd
-import math
-import importlib
-import json
 from datetime import datetime
 
 from trafficdl.data.dataset import AbstractDataset
-from trafficdl.utils import parse_time, cal_basetime, cal_timeoff
-from trafficdl.data.utils import generate_dataloader
 import numpy as np
 import torch
 from math import radians, cos, sin, asin, sqrt
@@ -25,15 +20,17 @@ hours = 24*7
 def strlist2list(strlist: str):
     return json.loads(strlist)
 
+
 def convert_geo(geo: pd.DataFrame):
     def convert_line(line: np.ndarray):
-        _id = line[0] + 1  
+        _id = line[0] + 1
         _x, _y = strlist2list(line[1])
         return float(_id), float(_x), float(_y)
     print('>>> Converting geo...')
     newgeo = [convert_line(line) for line in tqdm(geo.values)]
     newgeo_np = np.array(newgeo)
     return newgeo_np
+
 
 def convert_traj(traj: pd.DataFrame):
     def convert_line(line: np.ndarray):
@@ -47,6 +44,7 @@ def convert_traj(traj: pd.DataFrame):
     newtraj = [convert_line(line) for line in tqdm(traj.values)]
     newtraj_np = np.array(newtraj)
     return newtraj_np
+
 
 class LocalDataset(data.Dataset):
     def __init__(self, traj, m1, v, label, length, device):
@@ -127,16 +125,16 @@ class StanTrajectoryDataset(AbstractDataset):
         self.device = config['device']
         self.cache_file_folder = './trafficdl/cache/dataset_cache/'
         self.data_path = './raw_data/{}/'.format(self.config['dataset'])
-        self.batch_size = 4 # N = 1
+        self.batch_size = 4  # N = 1
 
         # define cache data filename
         cache_file = os.path.join(self.cache_file_folder, self.config['dataset'] + '_data.pkl')
         self.file_data = self._prepare_data(cache_file)
-        
+
         # tensor(NUM, M, 3), np(NUM, M, M, 2), np(L, L), np(NUM, M, M), tensor(NUM, M), np(NUM)
         [trajs, mat1, mat2s, mat2t, labels, lens, u_max, l_max] = self.file_data
         mat1, mat2s, mat2t, lens = torch.FloatTensor(mat1), torch.FloatTensor(mat2s).to(self.device), \
-                                torch.FloatTensor(mat2t), torch.LongTensor(lens)
+                                   torch.FloatTensor(mat2t), torch.LongTensor(lens)
 
         # the run speed is very flow due to the use of location matrix (also huge memory cost)
         # please use a partition of the data (recommended)
@@ -144,32 +142,32 @@ class StanTrajectoryDataset(AbstractDataset):
         trajs, mat1, mat2t, labels, lens = \
             trajs[:part], mat1[:part], mat2t[:part], labels[:part], lens[:part]
         ex = mat1[:, :, :, 0].max(), mat1[:, :, :, 0].min(), mat1[:, :, :, 1].max(), mat1[:, :, :, 1].min()
-        self.data_feature = {'tim_size':hours + 1,
-                             'loc_size':l_max + 1,
-                             'uid_size':u_max + 1,
+        self.data_feature = {'tim_size': hours + 1,
+                             'loc_size': l_max + 1,
+                             'uid_size': u_max + 1,
                              'ex': ex,
-                             'mat2s':mat2s}
+                             'mat2s': mat2s}
 
         self.dataset = LocalDataset(trajs, mat1, mat2t, labels-1, lens, self.device)
         self.data_loader = data.DataLoader(dataset=self.dataset, batch_size=self.batch_size, shuffle=False)
 
     def _prepare_data(self, cache_file: str):
         if not os.path.exists(cache_file):
-        # if True:
+            # if True:
             _geo = pd.read_csv(os.path.join(self.data_path, '{}.geo'.format(self.config['dataset'])))
             poi = convert_geo(_geo[['geo_id', 'coordinates']])
             _traj = pd.read_csv(os.path.join(self.data_path, '{}.dyna'.format(self.config['dataset'])))
             traj = convert_traj(_traj[['entity_id', 'location', 'time']])
             print('>>> Building cache from scratch in _process_traj...')
             self._process_traj(cache_file, traj, poi, self.config['max_len'])
-        
+
         assert os.path.exists(cache_file), "Error in data caching system!"
         with open(cache_file, 'rb') as cache_fp:
             print('>>> Loading cached data file...')
             ret = joblib.load(cache_fp)
         print('>>> File data prepared.')
         return ret
-    
+
     def _process_traj(self, data_pkl: str, data: np.ndarray, poi: np.ndarray, max_len: int):  # start from 1
         # data (?, [u, l, t]), poi (L, [l, lat, lon])
         # data = np.load('./data/' + dname + '.npy')
@@ -239,8 +237,8 @@ if __name__ == '__main__':
     import sys
     config = {
         'dataset': sys.argv[1],
-         'device': 'cuda',
-         'max_len': 100,
+        'device': 'cuda',
+        'max_len': 100,
     }
     dataset = StanTrajectoryDataset(config=config)
     print('SUCCESS!')

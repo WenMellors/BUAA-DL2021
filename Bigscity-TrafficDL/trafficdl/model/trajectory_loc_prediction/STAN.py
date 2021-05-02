@@ -1,3 +1,7 @@
+# Authors
+# 18231070 何泽欣
+# 18376247 开聚实
+
 from trafficdl.model.abstract_model import AbstractModel
 import torch
 from torch import nn
